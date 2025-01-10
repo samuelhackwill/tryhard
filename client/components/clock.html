@@ -1,0 +1,25 @@
+<template name="clock">
+  <div class="flex items-center justify-center h-fit p-6 pb-4">
+    <div
+      class="relative w-16 h-16 rounded-full border-4 border-black overflow-hidden dynamic-trail"
+      id="clock-face"
+    >
+      <div
+        id="needle"
+        class="absolute w-1 h-8 bg-black top-0 left-1/2 transform -translate-x-1/2 origin-bottom"
+      ></div>
+    </div>
+  </div>
+</template>
+
+<template name="miniclock">
+  <div class="flex items-center justify-center h-fit p-1 miniclock transition-opacity">
+    <div
+      class="relative w-6 h-6 rounded-full border-2 border-black overflow-hidden dynamic-trail miniclock-faces"
+    >
+      <div
+        class="absolute w-1 h-3 bg-black top-0 left-1/2 transform -translate-x-1/2 origin-bottom miniclock-needles"
+      ></div>
+    </div>
+  </div>
+</template>

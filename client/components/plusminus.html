@@ -1,0 +1,9 @@
+<template name="plusminus">
+    <div class="absolute bottom-20 left-10 flex gap-1" id="plusminus">
+        <input style="border:1px solid black;" class="w-36 m-1 font-mono text-right rounded text-3xl" type="number" step=1 min=0 value=0 />
+        <div class="flex flex-col gap-1 text-1xl">
+            <button class="bg-blue-600 hover:bg-red-700 text-white w-16 h-10 rounded flex-grow" id="plusminus-plus" onclick="document.querySelector('#plusminus input').stepUp()">+</button>
+            <button class="bg-blue-600 hover:bg-red-700 text-white w-16 h-10 rounded flex-grow" id="plusminus-minus" onclick="document.querySelector('#plusminus input').stepDown()">-</button>
+        </div>
+    </div>
+</template>

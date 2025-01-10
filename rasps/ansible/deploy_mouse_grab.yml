@@ -1,0 +1,23 @@
+---
+- name: Deploy mouse-grabr script on /Desktop
+  hosts: thRasps
+  user: sam
+  gather_facts: no
+
+  tasks:
+    - name: Ping all devices
+      ping:
+      register: ping_result
+
+    - name: Check ping status
+      debug:
+        msg: 'Host {{ inventory_hostname }} is reachable'
+      when: ping_result.ping is defined
+
+    - name: Copy mouse-grabr.py script to Desktop
+      ansible.builtin.copy:
+        src: /Users/samuel/htdocs/tryhard/tryhard/rasps/mouse-grabr.py
+        dest: /home/sam/Desktop/mouse-grabr.py
+        owner: sam
+        mode: '0755'
+      when: ping_result.ping is defined

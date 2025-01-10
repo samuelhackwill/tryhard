@@ -1,0 +1,119 @@
+<template name="show">
+  <div class="backgroundContainer flex w-full h-full absolute top-0 left-0">
+    {{>background}}
+    <!-- {{>folderVestiaire}} {{>folderAdmin}} {{>folderTrees x=1000 y=100}} {{>plusminus}} {{#if isItActe2s1}}  -->
+    <!-- {{/if}} -->
+    {{>feed}}
+    {{>btnDashboard}}
+  </div>
+
+  <div class="milieuContainer">
+    <div id="pointersContainer" class="transition-opacity {{ arePointersHidden }}">
+      {{#each allPointers getAdmin=false}}
+      <div
+        class="pointer w-6 h-6 transition-opacity"
+        style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px;"
+        pointer-id="{{ this.id }}"
+        id="pointer{{ this.id }}"
+      >
+        <svg
+          version="1.1"
+          id="pointerSvg"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="8 4.3 13 20"
+          enable-background="new 0 0 28 28"
+          xml:space="preserve"
+        >
+          <polygon
+            class="transition-all duration-[10s]"
+            fill="{{ this.outlineColor }}"
+            points="8.2,20.9 8.2,4.9 19.8,16.5 13,16.5 12.6,16.6 "
+          />
+          <polygon
+            class="transition-all duration-[10s]"
+            fill="{{ this.outlineColor }}"
+            points="17.3,21.6 13.7,23.1 9,12 12.7,10.5 "
+          />
+          <rect
+            class="transition-all duration-[10s]"
+            fill="{{ this.bgColor }}"
+            x="12.5"
+            y="13.6"
+            transform="matrix(0.9221 -0.3871 0.3871 0.9221 -5.7605 6.5909)"
+            width="2"
+            height="8"
+          />
+          <polygon
+            class="transition-all duration-[10s]"
+            fill="{{ this.bgColor }}"
+            points="9.2,7.3 9.2,18.5 12.2,15.6 12.6,15.5 17.4,15.5 "
+          />
+        </svg>
+
+        <!-- {{#if hasNick}} -->
+
+        <span
+          class="ml-4 p-1 bg-black text-white rounded-lg absolute w-max transition-opacity text-xl {{
+            areNamesHidden
+          }}"
+        >
+          <!-- {{ this.nick }} -->
+          {{ this.id }}
+        </span>
+
+        <span
+          class="ml-6 -mt-9 b text-white rounded-lg absolute w-max transition-opacity text-xl {{
+            areClocksHidden
+          }}"
+        >
+          <!-- {{ this.nick }} -->
+          {{ > miniclock }}
+        </span>
+
+        <!-- {{/if}} -->
+
+        <!-- {{#if tree}}
+        <span class="tree" style="position: absolute; left: -25px; top: -50px; font-size: 250%">{{tree}}</span>
+        {{/if}}
+        <span class="accessory" style="position: absolute; left: 4px; top: 4px; font-size: 250%">{{accessory}}</span>
+      </div>
+      {{/each}} {{#each allPlantedTrees }}
+      <div class="pointer-events-none" style="position: absolute; left: {{coords.x}}px; top: {{coords.y}}px;">
+        <span class="tree" style="position: absolute; left: -25px; top: -50px; font-size: 250%">{{tree}}</span> -->
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <!-- below is only for admin pointer! -->
+  <div class="foregroundContainer">
+    <!-- here i'm rendering the windowAdmin with current show state because the admin window needs the context of his parent! hhu -->
+    <!-- {{#each showState}}
+    {{>windowAdmin currentState=showState}}
+    {{/each}} -->
+    {{#each allPointers
+    getAdmin=true}}
+    <div
+      class="bg-cursor bg-contain pointer w-[30px] h-[50px] bg-no-repeat"
+      style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px; opacity:{{
+        this.opacity
+      }}"
+      pointer-id="{{ this.id }}"
+      id="pointer{{ this.id }}"
+    >
+      <span class="pl-8">{{ this.id }}</span>
+      <!-- {{#if tree}}
+      <span class="tree" style="position: absolute; left: -25px; top: -50px; font-size: 250%">{{
+        tree
+      }}</span>
+      {{/if}}
+      <span class="accessory" style="position: absolute; left: 10px; top: 10px; font-size: 250%">{{
+        this.accessory
+      }}</span> -->
+    </div>
+    {{/each}}
+  </div>
+</template>

@@ -1,0 +1,37 @@
+<template name="pupitre">
+  <div>
+    <div class="m-6">
+      <h1 class="italic">Pupitre {{ selectedHeader }}</h1>
+    </div>
+
+    <div class="ml-4">
+      <div class="grid grid-cols-5 gap-4 p-4 h-5/6 absolute">
+        <div class="overflow-y-scroll">
+          {{#each getHeaders}}
+          <div>
+            <span class="select-none cursor-pointer underline hover:text-blue-600 header">
+              {{ this }}
+            </span>
+          </div>
+          {{/each}}
+        </div>
+        <div class="col-span-3 overflow-y-scroll" id="textLinesColumn">
+          {{#each getContent}}
+          <div class="mb-2">
+            <a
+              class="focus:bg-blue-50 cursor-pointer select-none hover:text-blue-600 line {{
+                styleActions
+              }}"
+              tabindex="0"
+            >
+              {{ this.value }}
+            </a>
+          </div>
+          {{/each}}
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</template>

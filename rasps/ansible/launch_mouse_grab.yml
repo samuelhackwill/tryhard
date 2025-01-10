@@ -1,0 +1,24 @@
+---
+- name: launch mouse-grabr script in SIMULATION MODE
+  hosts: thRasps
+  user: sam
+  gather_facts: no
+  tasks:
+    - name: Ping all devices
+      ping:
+      register: ping_result
+      failed_when: ping_result is undefined # Mark unresponsive hosts as failed
+
+    - name: Launch mouse-grabr.py using python3
+      ansible.builtin.shell: |
+        nohup python3 /home/sam/Desktop/mouse-grabr.py simulate > /tmp/mouse-grabr.log 2>&1 &
+      args:
+        executable: /bin/bash
+      when: ping_result is not failed
+
+    - name: Verify mouse-grabr process is running
+      shell: |
+        pgrep -fa "python3 /home/sam/Desktop/mouse-grabr.py simulate" | grep -v "pgrep"
+      register: process_status
+      changed_when: false
+      failed_when: process_status.stdout == ""

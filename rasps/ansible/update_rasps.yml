@@ -1,0 +1,40 @@
+---
+- name: Ping, update, and prepare hosts for mouse-grabr
+  hosts: thRasps
+  user: sam
+  gather_facts: no
+  vars:
+    ansible_become_password: { { secrets.raspRootPwd } }
+  tasks:
+    - name: Ping all devices and mark responsive hosts
+      ping:
+      register: ping_result
+      failed_when: ping_result is undefined # Mark unresponsive hosts as failed
+
+    - name: Update apt package lists
+      ansible.builtin.apt:
+        update_cache: yes
+      when: ping_result is not failed
+      become: yes
+
+    - name: Install python3-websockets and evdev
+      ansible.builtin.apt:
+        name:
+          - python3-websockets
+          - python3-evdev
+        state: present
+      when: ping_result is not failed
+      become: yes
+
+    - name: Verify dependencies
+      ansible.builtin.shell: |
+        python3 -c "
+        import asyncio, random, websockets, socket, json, sys
+        print('All dependencies are installed and importable.')
+        "
+      register: dependency_check
+      failed_when: dependency_check.rc != 0
+
+    - name: Debug dependency check
+      ansible.builtin.debug:
+        var: dependency_check.stdout

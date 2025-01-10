@@ -1,0 +1,64 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+  .folder[hovered] {
+    outline: 1px solid indigo;
+  }
+
+  button[hovered] {
+    outline: 2px solid white;
+    background-color: #2563eb;
+  }
+
+  button.clicked {
+    background-color: #16a34a !important;
+  }
+
+  button[hovered] {
+    outline: 2px solid white;
+    background-color: darkblue;
+  }
+
+  button.clicked {
+    background-color: black !important;
+  }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* for the clock */
+.dynamic-trail {
+  background: conic-gradient(
+    red 0deg,
+    red var(--trail-angle, 0deg),
+    white var(--trail-angle, 0deg),
+    white 360deg
+  );
+}
+
+/* Pulsating animation */
+@keyframes pulse {
+  0%,
+  100% {
+    background-color: red;
+    /* transform-origin: center;
+    transform: scale(1) translate(-50%, -50%); */
+  }
+  50% {
+    background-color: rgb(59 130 246);
+    /* transform-origin: center;
+    transform: scale(1.1) translate(-50%, -50%); */
+  }
+}
+
+/* Faster pulsating animation */
+.pulse-fast {
+  transition: none !important;
+  animation: pulse 1s infinite steps(1);
+}

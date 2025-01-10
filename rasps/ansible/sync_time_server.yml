@@ -1,0 +1,56 @@
+---
+# ça a l'air d'être daubé tout ça
+- name: Configure Chrony with Apple Europe time server
+  hosts: thRasps
+  user: sam # Replace with your actual user
+  gather_facts: no
+  vars:
+    ansible_become_password: { { secrets.raspRootPwd } }
+
+  tasks:
+    - name: Ping all devices to ensure they are online
+      ansible.builtin.ping:
+      register: ping_result
+
+    - name: Fail if host is unreachable
+      ansible.builtin.fail:
+        msg: "Host {{ inventory_hostname }} is unreachable."
+      when: ping_result.ping is not defined
+
+    - name: Ensure Chrony is installed
+      ansible.builtin.package:
+        name: chrony
+        state: present
+      become: yes
+
+    - name: Configure Chrony to use time.euro.apple.com as the first line
+      ansible.builtin.blockinfile:
+        path: /etc/chrony/chrony.conf
+        block: |
+          server time.euro.apple.com
+        insertbefore: BOF
+      become: yes
+
+    - name: Restart Chrony service to apply changes
+      ansible.builtin.service:
+        name: chronyd
+        state: restarted
+        enabled: yes
+      become: yes
+
+    - name: Verify Chrony is synchronized with the time server
+      command: chronyc tracking
+      register: chrony_tracking_output
+      become: true
+
+    - name: Check if time server is correct
+      ansible.builtin.debug:
+        msg: >
+          {{ inventory_hostname }}: Chrony is synchronized with
+          {{ chrony_tracking_output.stdout | regex_search('time server (\\S+)', '\\1') }}.
+      failed_when: not (chrony_tracking_output.stdout is search('time.euro.apple.com'))
+      become: yes
+
+    - name: Print synchronization status
+      debug:
+        msg: "{{ chrony_tracking_output.stdout }}"
