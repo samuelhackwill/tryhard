@@ -11,8 +11,10 @@
     <div id="pointersContainer" class="transition-opacity {{ arePointersHidden }}">
       {{#each allPointers getAdmin=false}}
       <div
-        class="pointer w-6 h-6 transition-opacity"
-        style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px;"
+        class="pointer transition-opacity"
+        style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px; height:{{
+          pointerHeight
+        }}rem; width:{{ pointerWidth }}rem;"
         pointer-id="{{ this.id }}"
         id="pointer_{{ this.id }}"
       >
@@ -26,6 +28,7 @@
           viewBox="8 4.3 13 20"
           enable-background="new 0 0 28 28"
           xml:space="preserve"
+          style="width: 100%; height: 100%"
         >
           <polygon
             class="transition-all duration-[10s]"

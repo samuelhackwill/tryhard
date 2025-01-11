@@ -48,7 +48,8 @@ const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f', '#9b59b6', '#1abc9c'
 Template.show.onCreated(function () {
   this.feedToggle = new ReactiveVar(true)
   this.bgColor = new ReactiveVar('#1C1917')
-
+  this.pointerWidth = new ReactiveVar(1.5)
+  this.pointerHeight = new ReactiveVar(2.3)
   this.scoreSprintEntreePublic = new ReactiveDict()
   this.scoreSprint1p = new ReactiveDict()
   this.scoreSprint2p = new ReactiveDict()
@@ -58,7 +59,7 @@ Template.show.onCreated(function () {
   this.plantedTrees = new ReactiveDict()
   this.pointers = new ReactiveDict()
 
-  this.windowBoundaries = { x: 0, y: 0, width: window.innerWidth, height: window.innerHeight - 60 }
+  this.windowBoundaries = { x: 0, y: 0, width: window.innerWidth, height: window.innerHeight }
 
   // fuuuuu
   // ux state for windows
@@ -70,10 +71,10 @@ Template.show.onCreated(function () {
   instance = this
 
   //Start the stepper at a fixed framerate (60fps)
-  this.stepInterval = Meteor.setInterval(
-    stepper.bind(this, [checkHover, checkBufferedClick]), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
-    (1 / 60.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
-  )
+  // this.stepInterval = Meteor.setInterval(
+  //   stepper.bind(this, [checkHover, checkBufferedClick]), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
+  //   (1 / 60.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
+  // )
 
   streamer.on('tickUpdate', handleTickUpdate)
 
@@ -216,7 +217,6 @@ function handleTickUpdate(message) {
   message.forEach((element, i) => {
     let pointer = instance.pointers.get(element.client)
     if (pointer == undefined) {
-      console.log('welcome, ', element.client)
       pointer = createPointer(element.client)
       pointer.coords.y = i * 15
       //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
@@ -228,8 +228,52 @@ function handleTickUpdate(message) {
     if (!pointer.locked) {
       //Move messages are relative (e.g. 1px right, 2px down)
       //Apply that change to the coords
-      pointer.coords.x += element.x
-      pointer.coords.y += element.y
+      switch (
+        isInWindowBoundaries(
+          'x',
+          pointer.coords.x,
+          element.x,
+          convertRemToPixels(instance.pointerWidth.get()),
+        )
+      ) {
+        case 'x-in-bounds':
+          pointer.coords.x += element.x
+          break
+        case 'overflow-right':
+          pointer.coords.x =
+            instance.windowBoundaries.width - convertRemToPixels(instance.pointerWidth.get())
+          break
+        case 'overflow-left':
+          pointer.coords.x = 0
+          break
+
+        default:
+          break
+      }
+
+      switch (
+        isInWindowBoundaries(
+          'y',
+          pointer.coords.y,
+          element.y,
+          convertRemToPixels(instance.pointerHeight.get()),
+        )
+      ) {
+        case 'y-in-bounds':
+          pointer.coords.y += element.y
+          break
+        case 'overflow-bottom':
+          pointer.coords.y =
+            instance.windowBoundaries.height - convertRemToPixels(instance.pointerHeight.get())
+          break
+        case 'overflow-top':
+          pointer.coords.y = 0
+          break
+
+        default:
+          break
+      }
+
       //Save the pointer
       instance.pointers.set(pointer.id, pointer)
     }
@@ -243,6 +287,12 @@ function handleTickUpdate(message) {
 }
 
 Template.show.helpers({
+  pointerWidth() {
+    return instance.pointerWidth.get()
+  },
+  pointerHeight() {
+    return instance.pointerHeight.get()
+  },
   hasNick() {
     if (this.nick) {
       return true
@@ -834,4 +884,40 @@ function moveButton(targetId) {
 
   // Schedule the next frame
   requestAnimationFrame(() => moveButton(targetId))
+}
+
+isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
+  // can return : x-in-bounds / overflow-left / overflow-right / y-in-bounds / overflow-bottom / overflow-top
+  console.log(axis, coords, acceleration, elemSize)
+  if (axis == 'x') {
+    if (coords + acceleration + elemSize > instance.windowBoundaries.width) {
+      return 'overflow-right'
+    }
+    if (coords + acceleration < 0) {
+      return 'overflow-left'
+    }
+    if (
+      coords + acceleration + elemSize < instance.windowBoundaries.width &&
+      coords + acceleration > 0
+    ) {
+      return 'x-in-bounds'
+    }
+  } else {
+    if (coords + acceleration + elemSize > instance.windowBoundaries.height) {
+      return 'overflow-bottom'
+    }
+    if (coords + acceleration < 0) {
+      return 'overflow-top'
+    }
+    if (
+      coords + acceleration + elemSize < instance.windowBoundaries.height &&
+      coords + acceleration > 0
+    ) {
+      return 'y-in-bounds'
+    }
+  }
+}
+
+function convertRemToPixels(rem) {
+  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
 }
