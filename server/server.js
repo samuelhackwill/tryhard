@@ -1,3 +1,4 @@
+import { cleanData } from 'jquery'
 import { streamer } from '../both/streamer.js'
 
 // Import the WebSocket library
@@ -138,15 +139,11 @@ wss.on('close', () => {
 })
 
 setInterval(() => {
-  // meteor code here.
-  // we're not going to send data to html clients, rather, we're going to emit DDP events ou quelque chose comme ça
-  streamer.emit('pointerMessage', { message: 'prout' })
+  const cleanData = mergeQueue(queue)
 
-  htmlClients.forEach((client) => {
-    if (client.readyState === WebSocket.OPEN) {
-      cleanData = mergeQueue(queue)
-      // console.log(cleanData)
-      client.send(JSON.stringify(cleanData)) // Send mouse event data to HTML clients
-    }
-  })
-}, 1000 / 60)
+  if (cleanData.length > 0) {
+    JSON.stringify(cleanData)
+    // console.log('got data ', cleanData)
+    streamer.emit('tickUpdate', cleanData)
+  }
+}, 1000 / 64)

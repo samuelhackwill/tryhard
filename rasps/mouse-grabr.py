@@ -19,13 +19,13 @@ async def simulate_mouse_events(queue):
     async def generate_events(device_name):
         direction = 1  # 1 for right, -1 for left
         distance = 0  # Tracks the current distance moved in the current direction
-        max_distance = 3000  # Maximum distance to move in one direction
+        max_distance = 1500  # Maximum distance to move in one direction
 
         while True:
             await asyncio.sleep(1 / 60)  # 60 Hz
 
             # Move by 10 pixels per frame in the current direction
-            x_movement = direction * 10
+            x_movement = direction * 5
             distance += abs(x_movement)
 
             # Reverse direction if the max distance is reached

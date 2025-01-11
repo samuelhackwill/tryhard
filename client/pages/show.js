@@ -75,8 +75,7 @@ Template.show.onCreated(function () {
     (1 / 60.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
   )
 
-  //Listen to logger events (one message whenever a pointer moves or clicks)
-  streamer.on('pointerMessage', handlePointerMessage)
+  streamer.on('tickUpdate', handleTickUpdate)
 
   //Listen to admin calls to action (like displaying score ou quoi)
   streamer.on('pupitreAction', handlePupitreAction)
@@ -212,33 +211,35 @@ function handlePupitreAction(message) {
   }
 }
 
-function handlePointerMessage(message) {
-  console.log('debug ', message)
-  let pointer = instance.pointers.get(message.loggerId)
-
-  //We don't know this pointer yet.
-  //Welcome!
-  if (pointer == undefined) {
-    pointer = createPointer(message.loggerId)
-    //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
-    if (pointer.id != 'samuel') {
-      // resetRoutine(pointer)
+function handleTickUpdate(message) {
+  // console.log('debug ', message)
+  message.forEach((element, i) => {
+    let pointer = instance.pointers.get(element.client)
+    if (pointer == undefined) {
+      console.log('welcome, ', element.client)
+      pointer = createPointer(element.client)
+      pointer.coords.y = i * 15
+      //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
+      if (pointer.id != 'samuel') {
+        // resetRoutine(pointer)
+      }
+      players.push(pointer)
     }
-    players.push(pointer)
-  }
+    if (!pointer.locked) {
+      //Move messages are relative (e.g. 1px right, 2px down)
+      //Apply that change to the coords
+      pointer.coords.x += element.x
+      pointer.coords.y += element.y
+      //Save the pointer
+      instance.pointers.set(pointer.id, pointer)
+    }
 
-  if (message.type == 'move' && !pointer.locked) {
-    //Move messages are relative (e.g. 1px right, 2px down)
-    //Apply that change to the coords
-    pointer.coords.x += message.coords.x
-    pointer.coords.y += message.coords.y
-    //Save the pointer
-    instance.pointers.set(pointer.id, pointer)
-  } else if (message.type == 'mousedown') {
-    simulateMouseDown(pointer)
-  } else if (message.type == 'mouseup') {
-    simulateMouseUp(pointer)
-  }
+    // click events
+    // } else if (message.type == 'mousedown') {
+    //   simulateMouseDown(pointer)
+    // } else if (message.type == 'mouseup') {
+    //   simulateMouseUp(pointer)
+  })
 }
 
 Template.show.helpers({
