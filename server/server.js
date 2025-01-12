@@ -39,7 +39,14 @@ mergeQueue = function (objectsArray) {
     // ont été effectués à l'intérieur de 16.6ms, on veut pas que l'un soit ignoré, on veut que le client les joue tous deux.
     // bon c'est sans doute un gros edge case des familles, mais en même temps on sait qu'un clic peut être pressé et released à l'intérieur de 16ms, easily.
     if (obj.code?.length > 0) {
-      merged[client].buttonEvents.push({ code: obj.code[0], value: obj.value })
+      // console.log(obj.code)
+      let _code
+      if (obj.code?.length > 2) {
+        // console.log('not left button')
+        // alors ça c'est parce que pour une raison ou une autre, quand on fait un clic gauche obj.code contient deux strings ["BUTTON_LEFT", "BUTTON"], alors que sur les autres types de clics (middle, right), il contient juste un string et pas un array. OK
+        _code = obj.code
+      }
+      merged[client].buttonEvents.push({ code: _code || obj.code[0], value: obj.value })
     }
   })
 
