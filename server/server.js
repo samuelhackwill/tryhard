@@ -19,22 +19,21 @@ addToQueue = function (data) {
 }
 
 mergeQueue = function (objectsArray) {
-  if (objectsArray.length > 0) {
-    console.log(objectsArray)
-  }
-
+  // if (objectsArray.length > 0) {
+  //   console.log(objectsArray)
+  // }
   const merged = {}
 
-  objectsArray.forEach((obj) => {
+  objectsArray.forEach((obj, i) => {
     const client = obj.client
-    const timestamp = obj.timestamp_rasp
     if (!merged[client]) {
-      merged[client] = { client: client, x: 0, y: 0, timestamp_rasp: timestamp }
+      merged[client] = { client: client, x: 0, y: 0 }
     }
     merged[client].x += obj.x || 0
     merged[client].y += obj.y || 0
-    merged[client].timestamp_rasp = timestamp
   })
+
+  // console.log(merged)
   queue = []
 
   return Object.values(merged)
