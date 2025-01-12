@@ -204,6 +204,7 @@ function handleTickUpdate(message) {
     if (pointer == undefined) {
       pointer = createPointer(element.client)
       pointer.coords.y = i * 15
+      pointer.coords.x = i * 2
       //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
       if (pointer.id != 'samuel') {
         // resetRoutine(pointer)
@@ -276,6 +277,12 @@ function handleTickUpdate(message) {
 }
 
 Template.show.helpers({
+  isCursor() {
+    console.log(this)
+  },
+  isHand() {
+    console.log(this)
+  },
   pointerWidth() {
     return instance.pointerWidth.get()
   },
@@ -621,19 +628,20 @@ function getElementsUnder(pointer) {
 function checkHover(pointer) {
   let prevHoveredElement = document.getElementById(pointer.hoveredElement)
   let currentHoveredElements = getElementsUnder(pointer)
+
   if (currentHoveredElements.length == 0) return
 
   let currentHoveredElement = currentHoveredElements[0]
 
-  if (pointer.id == currentHoveredElement.id) {
-    // alors les amis ce qui est marrant avec le checkHover, c'est que *parfois* les coordonnées sont SUR le pointeur simulé (et parfois non), ce qui fait que checkHover pense qu'on est en train de se hover soi-même, et donc c'est ça qui fait glitcher le fait que parfois on était sur un bouton et le bouton s'en foutait. Parce qu'en fait on hover toujours plein d'éléments en même temps, et ça va devenir plus compliqué si on fait un jeu où les gens peuvent se cliquer les uns sur les autres aaaa
-
-    // console.log("debug : i'm currently hovering myself, looking deeper in the currentHoveredElements")
-
-    currentHoveredElement = currentHoveredElements[1]
+  // alors les amis ce qui est marrant avec le checkHover, c'est que *parfois* les coordonnées sont SUR le pointeur simulé (et parfois non), ce qui fait que checkHover pense qu'on est en train de se hover soi-même, et donc c'est ça qui fait glitcher le fait que parfois on était sur un bouton et le bouton s'en foutait. Parce qu'en fait on hover toujours plein d'éléments en même temps, et ça va devenir plus compliqué si on fait un jeu où les gens peuvent se cliquer les uns sur les autres aaaa
+  // après le problème c'est qu'il y a peut-être un autre gars dessous. en effet c'est ça mon problème.
+  // je dois demander à diane pour cette histoire d'intersection.
+  while (currentHoveredElement.id.startsWith('th') == true) {
+    // donc en gros tant que c'est un pointeur, y compris le tien, qu'il y a dessous de tes coordonées, vire le pointeur et va voir ce qu'il y a dessous.
+    currentHoveredElements.shift()
+    currentHoveredElement = currentHoveredElements[0]
+    // console.log(currentHoveredElements[0])
   }
-
-  // console.log('debug ', prevHoveredElement?.id || 'prout', currentHoveredElement?.id || 'prout')
 
   //"We were hovering something, now we're hovering something else"
   if (prevHoveredElement != currentHoveredElement) {

@@ -172,19 +172,24 @@ addButton = function (id, value) {
 addCentralButton = function (which) {
   switch (which) {
     case 'bonjour':
-      const bonjour = document.createElement('button')
+      for (let v = 1; v < 10; v++) {
+        for (let x = 1; x < 10; x++) {
+          const bonjour = document.createElement('button')
 
-      // Set the button's attributes and classes
-      bonjour.className =
-        'bg-blue-500 h-fit w-fit absolute left-[50%] top-[50%] -translate-y-[50%] -translate-x-[50%] text-white py-4 px-6 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-4xl'
-      bonjour.id = 'bonjourSamuel'
+          // Set the button's attributes and classes
+          bonjour.className =
+            'bg-blue-500 absolute h-8 w-fit m-1 text-white px-2 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-sm'
+          bonjour.id = 'bonjourSamuel' + x + v
+          bonjour.style.left = x * 90 + 'px'
+          bonjour.style.top = v * 60 + 'px'
+          // Set the button's inner text
+          bonjour.textContent = 'Bonjour'
 
-      // Set the button's inner text
-      bonjour.textContent = 'Bonjour'
-
-      // Append the button to the desired parent element
-      // For example, appending it to the body or a specific container
-      document.getElementsByClassName('backgroundContainer')[0].appendChild(bonjour)
+          // Append the button to the desired parent element
+          // For example, appending it to the body or a specific container
+          document.getElementsByClassName('backgroundContainer')[0].appendChild(bonjour)
+        }
+      }
 
       break
 
