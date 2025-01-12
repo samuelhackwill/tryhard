@@ -34,17 +34,6 @@ let pointers = []
 let bots = []
 let players = []
 
-// THIS IS FOR THE DVD animation stuff
-// Initialize position, velocity, and screen bounds
-let x = Math.random() * window.innerWidth
-let y = Math.random() * window.innerHeight
-let vx = 2 + Math.random() * 3 // Velocity in x direction
-let vy = 2 + Math.random() * 3 // Velocity in y direction
-let dvdPhase2 = false
-
-// Available colors for collision
-const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f', '#9b59b6', '#1abc9c']
-
 Template.show.onCreated(function () {
   this.feedToggle = new ReactiveVar(true)
   this.bgColor = new ReactiveVar('#1C1917')
@@ -191,11 +180,7 @@ function handlePupitreAction(message) {
     //   break
 
     case 'savemeDvd':
-      dvdMove('saveme')
-      break
-
-    case 'dvdPhase2':
-      dvdPhase2 = true
+      document.getElementById('saveme').classList.add('saveme-animated')
       break
 
     case 'showClocks':
@@ -808,83 +793,6 @@ export const die = function (element) {
 //       break
 //   }
 // }
-function dvdMove(targetId) {
-  const button = document.getElementById(targetId)
-
-  // Calculate the initial position before switching to absolute
-  const rect = button.getBoundingClientRect()
-  const initialX = rect.left
-  const initialY = rect.top
-
-  // Switch to absolute positioning and set the initial position
-  button.style.position = 'absolute'
-  button.style.left = `${initialX}px`
-  button.style.top = `${initialY}px`
-  button.style.margin = 0 // Remove any margin to avoid positioning issues
-
-  // Start the animation
-  requestAnimationFrame(() => moveButton(targetId))
-}
-
-function changeColor(targetId) {
-  const button = document.getElementById(targetId)
-  const randomColor = colors[Math.floor(Math.random() * colors.length)]
-  button.style.backgroundColor = randomColor
-}
-
-function moveButton(targetId) {
-  const button = document.getElementById(targetId)
-
-  // Parse the current position of the button
-  let x = parseFloat(button.style.left) || 0
-  let y = parseFloat(button.style.top) || 0
-
-  // Update position
-  x += vx
-  y += vy
-
-  // Check for collisions with screen edges and add randomness
-  if (x < 0 || x + button.offsetWidth > window.innerWidth) {
-    // Reverse X velocity and add randomness to the angle
-    vx *= -1
-    vx += (Math.random() - 0.5) * 100 // Random adjustment between -1 and 1
-    vy += (Math.random() - 0.5) * 10 // Random Y adjustment for variability
-
-    // Clamp position to avoid overflow
-    if (x < 0) x = 0
-    if (x + button.offsetWidth > window.innerWidth) x = window.innerWidth - button.offsetWidth
-
-    if (dvdPhase2) changeColor(targetId) // Change color
-  }
-
-  if (y < 0 || y + button.offsetHeight > window.innerHeight) {
-    // Reverse Y velocity and add randomness to the angle
-    vy *= -1
-    vx += (Math.random() - 0.5) * 100 // Random X adjustment for variability
-    vy += (Math.random() - 0.5) * 10 // Random adjustment between -1 and 1
-
-    // Clamp position to avoid overflow
-    if (y < 0) y = 0
-    if (y + button.offsetHeight > window.innerHeight) y = window.innerHeight - button.offsetHeight
-
-    if (dvdPhase2) changeColor(targetId) // Change color
-  }
-
-  // Normalize speed to prevent it from becoming too fast
-  const speedLimit = 5
-  const speed = Math.sqrt(vx * vx + vy * vy)
-  if (speed > speedLimit) {
-    vx = (vx / speed) * speedLimit
-    vy = (vy / speed) * speedLimit
-  }
-
-  // Apply new position
-  button.style.left = `${x}px`
-  button.style.top = `${y}px`
-
-  // Schedule the next frame
-  requestAnimationFrame(() => moveButton(targetId))
-}
 
 isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
   // can return : x-in-bounds / overflow-left / overflow-right / y-in-bounds / overflow-bottom / overflow-top

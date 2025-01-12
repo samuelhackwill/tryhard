@@ -1,0 +1,99 @@
+/* https://dev.to/leapcell/get-screen-size-in-pure-css-3kna */
+/* https://www.javiermorales.dev/blog/dvd */
+
+@property --w_raw {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 100vw;
+}
+
+@property --h_raw {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 100vh;
+}
+
+:root {
+  --container-w: tan(atan2(var(--w_raw), 1px));
+  --container-h: tan(atan2(var(--h_raw), 1px));
+  --logo-w: 240;
+  --logo-h: 80;
+  --speed: 180; /* pixels per second */
+
+  --duration-x: calc((var(--container-w) - var(--logo-w)) / var(--speed) * 1s);
+  --duration-y: calc((var(--container-h) - var(--logo-h)) / var(--speed) * 1s);
+}
+
+#saveme {
+  width: calc(var(--logo-w) * 1px);
+  height: calc(var(--logo-h) * 1px);
+}
+
+.saveme-animated {
+  background-color: hsl(calc(360 / 25 * (var(--color-y) * 5 + var(--color-x))) 100% 50%) !important;
+
+  animation: x var(--duration-x) linear infinite alternate,
+    y var(--duration-y) linear infinite alternate,
+    colorX calc(var(--duration-x) * 5) step-start infinite,
+    colorY calc(var(--duration-y) * 5) step-start infinite;
+}
+
+@keyframes x {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - calc(var(--logo-w) * 1px));
+  }
+}
+
+@keyframes y {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100% - calc(var(--logo-h) * 1px));
+  }
+}
+
+@keyframes colorX {
+  from {
+    --color--x: 0;
+  }
+  20% {
+    --color-x: 2;
+  }
+  40% {
+    --color-x: 4;
+  }
+  60% {
+    --color-x: 1;
+  }
+  80% {
+    --color-x: 3;
+  }
+  to {
+    --color-x: 0;
+  }
+}
+
+@keyframes colorY {
+  from {
+    --color-y: 0;
+  }
+  20% {
+    --color-y: 2;
+  }
+  40% {
+    --color-y: 4;
+  }
+  60% {
+    --color-y: 1;
+  }
+  80% {
+    --color-y: 3;
+  }
+  to {
+    --color-y: 0;
+  }
+}

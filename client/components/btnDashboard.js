@@ -193,7 +193,7 @@ addCentralButton = function (which) {
 
       // Set the button's attributes and classes
       saveme.className =
-        'bg-blue-500 h-fit w-fit absolute left-[50%] top-[50%] -translate-y-[50%] -translate-x-[50%] text-white font-bold py-4 px-6 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-4xl'
+        'bg-blue-500 absolute text-black py-4 px-6 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-4xl'
       saveme.id = 'saveme'
 
       // Set the button's inner text
