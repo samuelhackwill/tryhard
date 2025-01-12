@@ -278,10 +278,11 @@ function handleTickUpdate(message) {
 
 Template.show.helpers({
   isCursor() {
-    console.log(this)
+    console.log(this.hoveredElementType)
+    return this.hoveredElementType != 'BUTTON' && this.hoveredElementType != 'svg'
   },
   isHand() {
-    console.log(this)
+    return this.hoveredElementType == 'BUTTON' || this.hoveredElementType == 'svg'
   },
   pointerWidth() {
     return instance.pointerWidth.get()
@@ -653,7 +654,9 @@ function checkHover(pointer) {
     }
     //Update the pointer state
     pointer.hoveredElement = currentHoveredElement ? currentHoveredElement.id : null
+    pointer.hoveredElementType = currentHoveredElement.nodeName || undefined
     instance.pointers.set(pointer.id, pointer)
+
     //Update the hover counter of the new element (if there's one)
     if (currentHoveredElement) {
       addToDataAttribute(currentHoveredElement, 'hovered', 1)
