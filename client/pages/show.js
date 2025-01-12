@@ -259,15 +259,19 @@ function handleTickUpdate(message) {
           break
       }
 
+      // check clicks
+      if (element.buttonEvents.length > 0) {
+        for (let x = 0; x < element.buttonEvents.length; x++) {
+          simulateMouseEvent(element.buttonEvents[x].code, element.buttonEvents[x].value, pointer)
+        }
+      }
+
       //Save the pointer
       instance.pointers.set(pointer.id, pointer)
-    }
 
-    // click events
-    // } else if (message.type == 'mousedown') {
-    //   simulateMouseDown(pointer)
-    // } else if (message.type == 'mouseup') {
-    //   simulateMouseUp(pointer)
+      // check hover
+      checkHover(pointer)
+    }
   })
 }
 
@@ -562,11 +566,22 @@ Template.show.events({
   // },
 })
 
+simulateMouseEvent = function (button, status, pointer) {
+  if (button == 'BTN_LEFT' && status == 'pressed') {
+    simulateMouseDown(pointer)
+  }
+  if (button == 'BTN_LEFT' && status == 'released') {
+    simulateMouseUp(pointer)
+  }
+}
+
 simulateMouseUp = function (pointer) {
   const elements = getElementsUnder(pointer)
   if (elements.length == 0) return
-  $(element).trigger('mouseup', { pointer: pointer })
 
+  for (element of elements) {
+    $(element).trigger('mouseup', { pointer: pointer })
+  }
   elements.forEach((e) => e.classList.remove('clicked'))
 }
 
@@ -606,11 +621,19 @@ function getElementsUnder(pointer) {
 function checkHover(pointer) {
   let prevHoveredElement = document.getElementById(pointer.hoveredElement)
   let currentHoveredElements = getElementsUnder(pointer)
-
   if (currentHoveredElements.length == 0) return
+
   let currentHoveredElement = currentHoveredElements[0]
 
-  // console.log(" debug", prevHoveredElement, currentHoveredElement)
+  if (pointer.id == currentHoveredElement.id) {
+    // alors les amis ce qui est marrant avec le checkHover, c'est que *parfois* les coordonnées sont SUR le pointeur simulé (et parfois non), ce qui fait que checkHover pense qu'on est en train de se hover soi-même, et donc c'est ça qui fait glitcher le fait que parfois on était sur un bouton et le bouton s'en foutait. Parce qu'en fait on hover toujours plein d'éléments en même temps, et ça va devenir plus compliqué si on fait un jeu où les gens peuvent se cliquer les uns sur les autres aaaa
+
+    // console.log("debug : i'm currently hovering myself, looking deeper in the currentHoveredElements")
+
+    currentHoveredElement = currentHoveredElements[1]
+  }
+
+  // console.log('debug ', prevHoveredElement?.id || 'prout', currentHoveredElement?.id || 'prout')
 
   //"We were hovering something, now we're hovering something else"
   if (prevHoveredElement != currentHoveredElement) {
@@ -796,7 +819,7 @@ export const die = function (element) {
 
 isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
   // can return : x-in-bounds / overflow-left / overflow-right / y-in-bounds / overflow-bottom / overflow-top
-  console.log(axis, coords, acceleration, elemSize)
+  // console.log(axis, coords, acceleration, elemSize)
   if (axis == 'x') {
     if (coords + acceleration + elemSize > instance.windowBoundaries.width) {
       return 'overflow-right'
