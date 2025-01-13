@@ -34,6 +34,8 @@ let pointers = []
 let bots = []
 let players = []
 
+let global_z_index = 1
+
 Template.show.onCreated(function () {
   this.feedToggle = new ReactiveVar(true)
   this.bgColor = new ReactiveVar('#1C1917')
@@ -269,6 +271,12 @@ function handleTickUpdate(message) {
 
       //Save the pointer
       instance.pointers.set(pointer.id, pointer)
+
+      //quand on bouge un pointeur, ça en fait automatiquement le pointeur le plus élevé et le plus au-dessus.
+      global_z_index = global_z_index + 1
+      if (document.getElementById(pointer.id)) {
+        document.getElementById(pointer.id).style.zIndex = global_z_index
+      }
 
       // check hover
       checkHover(pointer)
