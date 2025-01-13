@@ -594,7 +594,7 @@ simulateMouseEvent = function (button, status, pointer) {
 simulateMouseUp = function (pointer) {
   const elements = getElementsUnder(pointer)
   const domPointer = document.getElementById(pointer.id)
-  domPointer.classList.remove('translate-y-1')
+  domPointer.classList.remove('translate-y-[4%]')
 
   if (elements.length == 0) return
 
@@ -607,7 +607,7 @@ simulateMouseUp = function (pointer) {
 simulateMouseDown = function (pointer) {
   const elements = getElementsUnder(pointer)
   const domPointer = document.getElementById(pointer.id)
-  domPointer.classList.add('translate-y-1')
+  domPointer.classList.add('translate-y-[4%]')
 
   if (elements.length == 0) return
   for (element of elements) {
