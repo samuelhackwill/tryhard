@@ -278,7 +278,7 @@ function handleTickUpdate(message) {
 
 Template.show.helpers({
   isCursor() {
-    console.log(this.hoveredElementType)
+    // console.log(this.hoveredElementType)
     return this.hoveredElementType != 'BUTTON' && this.hoveredElementType != 'svg'
   },
   isHand() {
@@ -585,6 +585,9 @@ simulateMouseEvent = function (button, status, pointer) {
 
 simulateMouseUp = function (pointer) {
   const elements = getElementsUnder(pointer)
+  const domPointer = document.getElementById(pointer.id)
+  domPointer.classList.remove('translate-y-1')
+
   if (elements.length == 0) return
 
   for (element of elements) {
@@ -595,6 +598,9 @@ simulateMouseUp = function (pointer) {
 
 simulateMouseDown = function (pointer) {
   const elements = getElementsUnder(pointer)
+  const domPointer = document.getElementById(pointer.id)
+  domPointer.classList.add('translate-y-1')
+
   if (elements.length == 0) return
   for (element of elements) {
     // we need to restrict clicks on privileged buttons, like the admin buttons
