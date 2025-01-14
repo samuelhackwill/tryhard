@@ -285,13 +285,32 @@ function handleTickUpdate(message) {
 }
 
 Template.show.helpers({
-  isCursor() {
-    // console.log(this.hoveredElementType)
-    return this.hoveredElementType != 'BUTTON' && this.hoveredElementType != 'svg'
+  pointerType(value) {
+    let targetClass = null
+    console.log(value)
+    switch (value) {
+      case 'isPointingHand':
+        targetClass = 'button'
+        break
+      case 'isOpenHand':
+        targetClass = 'pointer'
+        break
+      default:
+        console.log("fuck you man i'm a cursor")
+        return
+        // targetClass = "button"
+        break
+    }
+    console.log(this)
+    return this.hoveredElement.classList.contains(targetClass)
   },
-  isHand() {
-    return this.hoveredElementType == 'BUTTON' || this.hoveredElementType == 'svg'
-  },
+  // isCursor() {
+  //   // console.log(this.hoveredElementType)
+  //   return this.hoveredElementType != 'BUTTON'
+  // },
+  // isPointingHand() {
+  //   return this.hoveredElementType == 'BUTTON'
+  // },
   pointerWidth() {
     return instance.pointerWidth.get()
   },
@@ -648,12 +667,14 @@ function checkHover(pointer) {
 
   let currentHoveredElement = currentHoveredElements[0]
 
-  // alors les amis ce qui est marrant avec le checkHover, c'est que *parfois* les coordonnées sont SUR le pointeur simulé (et parfois non), ce qui fait que checkHover pense qu'on est en train de se hover soi-même, et donc c'est ça qui fait glitcher le fait que parfois on était sur un bouton et le bouton s'en foutait. Parce qu'en fait on hover toujours plein d'éléments en même temps, et ça va devenir plus compliqué si on fait un jeu où les gens peuvent se cliquer les uns sur les autres aaaa
-  // après le problème c'est qu'il y a peut-être un autre gars dessous. en effet c'est ça mon problème.
-  // je dois demander à diane pour cette histoire d'intersection.
+  // alors les amis ce qui est marrant avec le checkHover, c'est que *parfois* les coordonnées sont SUR le pointeur simulé (et parfois non), ce qui fait que checkHover pense qu'on est en train de se hover soi-même, et donc c'est ça qui fait glitcher le fait que parfois on était sur un bouton et le bouton s'en foutait. Parce qu'en fait on hover toujours plein d'éléments en même temps.
   while (currentHoveredElement.id.startsWith('th') == true) {
     // donc en gros tant que c'est un pointeur, y compris le tien, qu'il y a dessous de tes coordonées, vire le pointeur et va voir ce qu'il y a dessous.
-    currentHoveredElements.shift()
+    ignoredElem = currentHoveredElements.shift()
+    if (ignoredElem.id != pointer.id) {
+      // ok et en fait si c'est pas ton propre pointeur que tu survolais, hé bé c'est que c'est une autre personne (cqfd) et donc ben c'est que tu peux *cliquer sur cette personne*
+      console.log('hovered this guy :', ignoredElem, ' and ignored him.')
+    }
     currentHoveredElement = currentHoveredElements[0]
     // console.log(currentHoveredElements[0])
   }
@@ -668,7 +689,6 @@ function checkHover(pointer) {
     }
     //Update the pointer state
     pointer.hoveredElement = currentHoveredElement ? currentHoveredElement.id : null
-    pointer.hoveredElementType = currentHoveredElement.nodeName || undefined
     instance.pointers.set(pointer.id, pointer)
 
     //Update the hover counter of the new element (if there's one)

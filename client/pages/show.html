@@ -11,14 +11,14 @@
     <div id="pointersContainer" class="transition-opacity {{ arePointersHidden }}">
       {{#each allPointers getAdmin=false}}
       <div
-        class="pointer transition-opacity"
+        class="pointer transition-opacity bg-red-400"
         style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px; height:{{
           pointerHeight
         }}rem; width:{{ pointerWidth }}rem;"
         pointer-id="{{ this.id }}"
         id="{{ this.id }}"
       >
-        {{#if isCursor}}
+        {{#if pointerType "isCursor"}}
         <svg
           version="1.1"
           id="pointerSvg"
@@ -58,7 +58,7 @@
         </svg>
         {{/if}}
 
-        {{#if isHand}}
+        {{#if pointerType "isPointingHand"}}
         <svg
           version="1.1"
           id="pointerSvg"
@@ -118,8 +118,12 @@
             <line class="st2" x1="12.7" y1="15.8" x2="12.7" y2="19.2" />
           </g>
         </svg>
-
         {{/if}}
+
+        {{#if pointerType "isOpenHand"}}
+        <span> prout</span>
+        {{/if}}
+
         <!-- {{#if hasNick}} -->
 
         <span
