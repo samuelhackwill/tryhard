@@ -286,31 +286,26 @@ function handleTickUpdate(message) {
 
 Template.show.helpers({
   pointerType(value) {
-    let targetClass = null
-    console.log(value)
     switch (value) {
       case 'isPointingHand':
-        targetClass = 'button'
+        return this.hoveredElementId.startsWith('button') == true
         break
       case 'isOpenHand':
-        targetClass = 'pointer'
+        return this.hoveredElementId.startsWith('th') == true
+        break
+      case 'isCursor':
+        if (
+          this.hoveredElementId.startsWith('th') != true &&
+          this.hoveredElementId.startsWith('button') != true
+        ) {
+          return true
+        }
         break
       default:
-        console.log("fuck you man i'm a cursor")
-        return
-        // targetClass = "button"
+        return false
         break
     }
-    console.log(this)
-    return this.hoveredElement.classList.contains(targetClass)
   },
-  // isCursor() {
-  //   // console.log(this.hoveredElementType)
-  //   return this.hoveredElementType != 'BUTTON'
-  // },
-  // isPointingHand() {
-  //   return this.hoveredElementType == 'BUTTON'
-  // },
   pointerWidth() {
     return instance.pointerWidth.get()
   },
@@ -660,7 +655,7 @@ function getElementsUnder(pointer) {
 }
 
 function checkHover(pointer) {
-  let prevHoveredElement = document.getElementById(pointer.hoveredElement)
+  let prevHoveredElement = document.getElementById(pointer.hoveredElementId)
   let currentHoveredElements = getElementsUnder(pointer)
 
   if (currentHoveredElements.length == 0) return
@@ -688,7 +683,8 @@ function checkHover(pointer) {
       $(prevHoveredElement).trigger('mouseleave', { pointer: pointer })
     }
     //Update the pointer state
-    pointer.hoveredElement = currentHoveredElement ? currentHoveredElement.id : null
+    pointer.hoveredElementId = currentHoveredElement ? currentHoveredElement.id : null
+    // pointer.hoveredElementClassList = currentHoveredElement.classList
     instance.pointers.set(pointer.id, pointer)
 
     //Update the hover counter of the new element (if there's one)

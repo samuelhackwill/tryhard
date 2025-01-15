@@ -177,10 +177,9 @@ addCentralButton = function (which) {
           const bonjour = document.createElement('button')
 
           // Set the button's attributes and classes
-          // button classname is super important because it's what the checkHover function is looking for to animate both the button (on hover effects) and the pointer (change it to a pointing hand).
           bonjour.className =
-            'button bg-blue-500 absolute h-8 w-fit m-1 text-white px-2 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-sm'
-          bonjour.id = 'bonjourSamuel' + x + v
+            'bg-blue-500 absolute h-8 w-fit m-1 text-white px-2 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-sm'
+          bonjour.id = 'button-bonjourSamuel' + x + v
           bonjour.style.left = x * 90 + 'px'
           bonjour.style.top = v * 60 + 'px'
           // Set the button's inner text
@@ -199,8 +198,8 @@ addCentralButton = function (which) {
 
       // Set the button's attributes and classes
       saveme.className =
-        'button bg-blue-500 absolute text-black py-4 px-6 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-4xl'
-      saveme.id = 'saveme'
+        'bg-blue-500 absolute text-black py-4 px-6 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-4xl'
+      saveme.id = 'button-saveme'
 
       // Set the button's inner text
       saveme.textContent = 'sauvegarder'
