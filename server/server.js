@@ -70,7 +70,12 @@ wss.on('connection', (ws, req) => {
     // console.log(message)
     try {
       const data = JSON.parse(message)
-      addToQueue(data)
+      // console.log(data)
+      if (data.event_type == 'device_update') {
+        streamer.emit('device_update', data)
+      } else {
+        addToQueue(data)
+      }
     } catch (error) {
       console.error('Error processing Raspberry Pi data:', error)
     }

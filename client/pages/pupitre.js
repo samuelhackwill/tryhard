@@ -15,6 +15,8 @@ Template.pupitre.onCreated(function () {
       this.headers.set(res.map((item) => item.header))
     }
   })
+
+  streamer.on('device_update', deviceUpdate)
 })
 
 Template.pupitre.events({
@@ -112,4 +114,8 @@ const sendLine = function (string) {
 
 const sendAction = function (string) {
   streamer.emit('pupitreAction', { type: 'action', content: string })
+}
+
+function deviceUpdate(message) {
+  console.log(message)
 }
