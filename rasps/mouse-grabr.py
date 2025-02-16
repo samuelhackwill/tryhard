@@ -106,57 +106,60 @@ async def send_to_websocket(queue, server_uri):
             print(f"Unexpected error: {e}")
             await asyncio.sleep(5)
 
-
 async def read_mouse_events(device_path, motion_aggregator):
-    """Read mouse events from a specific device."""
-    device = InputDevice(device_path)
-    unique_id = f"{raspName}_{device.name}"
-    print(f"Listening on device: {device.name} ({device.path})")
-    
-    if unique_id not in motion_aggregator:
-        motion_aggregator[unique_id] = {"x": 0, "y": 0}
-    
-    async for event in device.async_read_loop():
-        if event.type == ecodes.EV_REL:
-            if event.code == ecodes.REL_X:
-                motion_aggregator[unique_id]['x'] += event.value
-            elif event.code == ecodes.REL_Y:
-                motion_aggregator[unique_id]['y'] += event.value
-        elif event.type == ecodes.EV_KEY:  # Button press or release
-            await motion_aggregator['queue'].put({
-                "rasp": raspName,
-                "client": unique_id,
-                "event_type": "button",
-                "code": ecodes.BTN[event.code],
-                "value": "pressed" if event.value == 1 else "released",
-                "timestamp_rasp": int(round(time.time() * 1000))
-            })
-        elif event.type == ecodes.EV_REL and event.code in (ecodes.REL_WHEEL, ecodes.REL_HWHEEL):
-            direction = "up" if event.value > 0 else "down"
-            if event.code == ecodes.REL_HWHEEL:
-                direction = "right" if event.value > 0 else "left"
-            await motion_aggregator['queue'].put({
-                "rasp": raspName,
-                "client": unique_id,
-                "event_type": "wheel",
-                "code": ecodes.REL[event.code],
-                "value": direction,
-                "timestamp_rasp": int(round(time.time() * 1000))
-            })
+    """Read mouse events from a specific device and handle disconnections."""
+    try:
+        device = InputDevice(device_path)
+        unique_id = f"{raspName}_{device.name}"
+        print(f"Listening on device: {device.name} ({device.path})")
+
+        if unique_id not in motion_aggregator:
+            motion_aggregator[unique_id] = {"x": 0, "y": 0}
+
+        async for event in device.async_read_loop():
+            if event.type == ecodes.EV_REL:
+                if event.code == ecodes.REL_X:
+                    motion_aggregator[unique_id]['x'] += event.value
+                elif event.code == ecodes.REL_Y:
+                    motion_aggregator[unique_id]['y'] += event.value
+            elif event.type == ecodes.EV_KEY:
+                await motion_aggregator['queue'].put({
+                    "rasp": raspName,
+                    "client": unique_id,
+                    "event_type": "button",
+                    "code": ecodes.BTN.get(event.code, "unknown"),
+                    "value": "pressed" if event.value == 1 else "released",
+                    "timestamp_rasp": int(round(time.time() * 1000))
+                })
+            elif event.type == ecodes.EV_REL and event.code in (ecodes.REL_WHEEL, ecodes.REL_HWHEEL):
+                direction = "up" if event.value > 0 else "down"
+                if event.code == ecodes.REL_HWHEEL:
+                    direction = "right" if event.value > 0 else "left"
+                await motion_aggregator['queue'].put({
+                    "rasp": raspName,
+                    "client": unique_id,
+                    "event_type": "wheel",
+                    "code": ecodes.REL.get(event.code, "unknown"),
+                    "value": direction,
+                    "timestamp_rasp": int(round(time.time() * 1000))
+                })
+
+    except OSError:
+        print(f"Device {device_path} disconnected.")
+    except Exception as e:
+        print(f"Error reading device {device_path}: {e}")
 
 async def monitor_mice(queue):
-    """Monitor all connected mice under /dev/input/by-id."""
-    mice_tasks = []
+    """Continuously monitor connected mice and support hot-plugging."""
+    known_devices = set()
     motion_aggregator = {"queue": queue}
-    for device_path in glob.glob(f"{DEVICES_PATH}/*-event-mouse"):
-        mice_tasks.append(asyncio.create_task(read_mouse_events(device_path, motion_aggregator)))
-    print(f"Monitoring {len(mice_tasks)} mice...")
-    
+    mice_tasks = {}
+
     async def flush_motion():
         """Send aggregated motion events at a fixed rate."""
         while True:
             await asyncio.sleep(1 / 60)  # 60 Hz
-            for unique_id, motion in motion_aggregator.items():
+            for unique_id, motion in list(motion_aggregator.items()):
                 if unique_id == "queue":  # Skip the queue key
                     continue
                 if motion['x'] != 0 or motion['y'] != 0:
@@ -171,12 +174,39 @@ async def monitor_mice(queue):
                     motion['x'] = 0
                     motion['y'] = 0
 
-    mice_tasks.append(asyncio.create_task(flush_motion()))
-    await asyncio.gather(*mice_tasks)
+    asyncio.create_task(flush_motion())
 
+    while True:
+        # Get current list of mice
+        current_devices = set(glob.glob(f"{DEVICES_PATH}/*-event-mouse"))
+
+        # Find new devices
+        for device_path in current_devices - known_devices:
+            print(f"New device detected: {device_path}")
+            motion_aggregator[device_path] = {"x": 0, "y": 0}
+            task = asyncio.create_task(read_mouse_events(device_path, motion_aggregator))
+            mice_tasks[device_path] = task
+
+        # Find removed devices
+        for device_path in known_devices - current_devices:
+            print(f"Device removed: {device_path}")
+            if device_path in mice_tasks:
+                mice_tasks[device_path].cancel()  # Stop the task
+                del mice_tasks[device_path]  # Remove from task list
+                del motion_aggregator[device_path]  # Remove tracking data
+
+        known_devices = current_devices  # Update the tracked devices
+        await queue.put({
+            "rasp": raspName,
+            "event_type": "device_update",
+            "connected_mice": sorted(list(known_devices)),  # Sorted for consistency
+            })
+
+        await asyncio.sleep(10)  # Scan for changes every 2 seconds
 
 async def main():
     queue = asyncio.Queue()
+    # attention : ça peut merder si le serveur était connecté au SSID tryhard en wifi avant de switcher en RJ45. probablement un bail de cache dns ou quoi. Dans ce cas mettre l'ip plutôt que le domaine
     server_uri = "ws://samm.local:8080"
 
     if len(sys.argv) > 1 and sys.argv[1] == "simulate":
