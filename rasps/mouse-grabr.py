@@ -11,6 +11,17 @@ import time
 DEVICES_PATH = "/dev/input/by-id"
 raspName = socket.gethostname()
 
+def brand_priority(device_name):
+    """Assign a priority value to brands for sorting."""
+    if "lenovo" in device_name.lower():
+        return 1 # lenovo should be first
+    elif "dell" in device_name.lower():
+        return 2 # dell should be second
+    elif "hp" in device_name.lower():
+        return 4  # HP should be last
+    else:
+        return 3  # Other brands go between Dell and HP
+
 async def simulate_mouse_events(queue):
     """Simulate mouse events from four virtual devices."""
     simulated_devices = [f"simulatedMouse-{i}" for i in range(1, 5)]
@@ -196,10 +207,13 @@ async def monitor_mice(queue):
                 del motion_aggregator[device_path]  # Remove tracking data
 
         known_devices = current_devices  # Update the tracked devices
+
+        sorted_devices = sorted(known_devices, key=brand_priority)
+
         await queue.put({
             "rasp": raspName,
             "event_type": "device_update",
-            "connected_mice": sorted(list(known_devices)),  # Sorted for consistency
+            "connected_mice": sorted_devices,  # Sorted for consistency
             })
 
         await asyncio.sleep(10)  # Scan for changes every 2 seconds

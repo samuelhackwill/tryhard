@@ -6,6 +6,7 @@ Template.pupitre.onCreated(function () {
   this.text = new ReactiveVar('')
   this.headers = new ReactiveVar([])
   this.selectedHeader = new ReactiveVar('')
+  this.connectedDevices = new ReactiveVar()
 
   Meteor.call('returnText', (err, res) => {
     if (err) {
@@ -16,7 +17,71 @@ Template.pupitre.onCreated(function () {
     }
   })
 
-  streamer.on('device_update', deviceUpdate)
+  Meteor.setInterval(() => {
+    Meteor.call('getConnectedDevices', (err, res) => {
+      if (err) {
+        alert(err)
+      } else {
+        console.log(res)
+        this.connectedDevices.set(res)
+      }
+    })
+  }, 10000)
+})
+
+Template.pupitre.helpers({
+  // getPointer() {
+  //   console.log(this)
+  // },
+  getConnectedDevices() {
+    return Template.instance().connectedDevices.get()
+  },
+  getMice() {
+    console.log(this)
+    cleanMice = []
+    // le serveur nous envoie des noms de souris longs comme le bras parce qu'ils incluent le chemin input/dev etc etc donc on cleane en claquant une grosse regex, et si on a pas de match on garde tout le nom quand même histoire de pas oublier des souris parce qu'on les connaissait pas.
+    const regex = /(.+)(hp|lenovo|dell|logitech)(.+)/i
+
+    for (x = 0; x < this.mice.length; x++) {
+      longName = this.mice[x]
+      shortname = longName.replace(regex, '$2')
+      cleanMice.push(shortname)
+    }
+
+    return cleanMice
+  },
+  styleActions() {
+    if (this.type != 'text') {
+      return 'text-red-500 focus:bg-red-500 focus:text-black'
+    } else {
+      return
+    }
+  },
+
+  selectedHeader() {
+    if (Template.instance().selectedHeader.get()) {
+      return '§ ' + Template.instance().selectedHeader.get()
+    } else {
+      return
+    }
+  },
+
+  getHeaders() {
+    return Template.instance().headers.get()
+  },
+
+  getContent() {
+    select = Template.instance().selectedHeader.get()
+    data = Template.instance().text.get()
+
+    if (select) {
+      const values = data.find((item) => item.header === select)?.content || []
+
+      return values
+    } else {
+      return ''
+    }
+  },
 })
 
 Template.pupitre.events({
@@ -70,52 +135,10 @@ Template.pupitre.events({
   },
 })
 
-Template.pupitre.helpers({
-  // getPointer() {
-  //   console.log(this)
-  // },
-  styleActions() {
-    if (this.type != 'text') {
-      return 'text-red-500 focus:bg-red-500 focus:text-black'
-    } else {
-      return
-    }
-  },
-
-  selectedHeader() {
-    if (Template.instance().selectedHeader.get()) {
-      return '§ ' + Template.instance().selectedHeader.get()
-    } else {
-      return
-    }
-  },
-
-  getHeaders() {
-    return Template.instance().headers.get()
-  },
-
-  getContent() {
-    select = Template.instance().selectedHeader.get()
-    data = Template.instance().text.get()
-
-    if (select) {
-      const values = data.find((item) => item.header === select)?.content || []
-
-      return values
-    } else {
-      return ''
-    }
-  },
-})
-
 const sendLine = function (string) {
   streamer.emit('pupitreMessage', { type: 'newLine', content: string })
 }
 
 const sendAction = function (string) {
   streamer.emit('pupitreAction', { type: 'action', content: string })
-}
-
-function deviceUpdate(message) {
-  console.log(message)
 }

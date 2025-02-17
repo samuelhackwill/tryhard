@@ -1,5 +1,7 @@
 import { streamer } from '../both/streamer.js'
 
+export const connectedRasps = []
+
 // Import the WebSocket library
 const WebSocket = require('ws')
 
@@ -72,7 +74,7 @@ wss.on('connection', (ws, req) => {
       const data = JSON.parse(message)
       // console.log(data)
       if (data.event_type == 'device_update') {
-        streamer.emit('device_update', data)
+        updateDevices(data)
       } else {
         addToQueue(data)
       }
@@ -122,3 +124,17 @@ setInterval(() => {
     streamer.emit('tickUpdate', cleanData)
   }
 }, 1000 / 64)
+
+function updateDevices(data) {
+  // check if we're already tracking that rasp
+  tracked_rasp = connectedRasps.find(({ name }) => name === data.rasp)
+  if (tracked_rasp) {
+    if (tracked_rasp.mice.length == data.connected_mice.length) {
+      return
+    } else {
+      tracked_rasp.mice = data.connected_mice
+    }
+  } else {
+    connectedRasps.push({ name: data.rasp, mice: data.connected_mice })
+  }
+}
