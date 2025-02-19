@@ -38,7 +38,7 @@ let global_z_index = 1
 
 Template.show.onCreated(function () {
   this.feedToggle = new ReactiveVar(true)
-  this.bgColor = new ReactiveVar('#1C1917')
+  this.bgColor = new ReactiveVar('grey')
   this.pointerWidth = new ReactiveVar(1.5)
   this.pointerHeight = new ReactiveVar(2.3)
   this.scoreSprintEntreePublic = new ReactiveDict()
@@ -72,6 +72,9 @@ Template.show.onCreated(function () {
   //Listen to admin calls to action (like displaying score ou quoi)
   streamer.on('pupitreAction', handlePupitreAction)
 
+  //Listen to mouse disable/enable on
+  streamer.on('toggleMouse', toggleMouse)
+
   // //Create 96 bots
   // this.bots = [] //Keep the array of bots on hand, it's easier than filtering this.pointers every time
   // for (let i = 0; i < 96; i++) {
@@ -88,7 +91,7 @@ Template.show.onCreated(function () {
 })
 Template.show.onDestroyed(function () {
   //Stop the stepper
-  clearInterval(this.stepInterval)
+  // clearInterval(this.stepInterval)
   //Stop listening to logger events
   streamer.removeAllListeners('pointerMessage')
   pointers = []
@@ -204,6 +207,14 @@ function handleTickUpdate(message) {
   message.forEach((element, i) => {
     let pointer = instance.pointers.get(element.client)
     if (pointer == undefined) {
+      // OK donc là il faut aussi vérifier si cette souris n'a pas été désactivée (c'est à dire que le siège devant la souris est innocupé)
+      // lol d'ailleurs ça va être un délire pendant l'entrée public de regarder qui prend quelle souris. y'a des cowboys qui vont sans doute prendre la souris que j'ai pas prévu pour leur siège.
+
+      // donc on appelle le serveur pour savoir si la souris est cancel et pi cé tou
+      const canceled = isMouseDisabled(element)
+
+      console.log('checking if ', element, ' is canceled', canceled)
+
       pointer = createPointer(element.client)
       pointer.coords.y = i * 15
       pointer.coords.x = i * 2
@@ -273,10 +284,10 @@ function handleTickUpdate(message) {
       instance.pointers.set(pointer.id, pointer)
 
       //quand on bouge un pointeur, ça en fait automatiquement le pointeur le plus élevé et le plus au-dessus.
-      global_z_index = global_z_index + 1
-      if (document.getElementById(pointer.id)) {
-        document.getElementById(pointer.id).style.zIndex = global_z_index
-      }
+      // global_z_index = global_z_index + 1
+      // if (document.getElementById(pointer.id)) {
+      //   document.getElementById(pointer.id).style.zIndex = global_z_index
+      // }
 
       // check hover
       checkHover(pointer)
@@ -668,7 +679,7 @@ function checkHover(pointer) {
     ignoredElem = currentHoveredElements.shift()
     if (ignoredElem.id != pointer.id) {
       // ok et en fait si c'est pas ton propre pointeur que tu survolais, hé bé c'est que c'est une autre personne (cqfd) et donc ben c'est que tu peux *cliquer sur cette personne*
-      console.log('hovered this guy :', ignoredElem, ' and ignored him.')
+      // console.log('hovered this guy :', ignoredElem, ' and ignored him.')
     }
     currentHoveredElement = currentHoveredElements[0]
     // console.log(currentHoveredElements[0])
@@ -892,4 +903,38 @@ isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
 
 function convertRemToPixels(rem) {
   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+}
+
+getMouseBrand = function (id) {
+  const regex = /(.+)(hp|lenovo|dell|logitech)(.+)/i
+  return id.replace(regex, '$2')
+}
+
+getRasp = function (id) {
+  const regex = /(th\d{0,})(.+)/i
+  return id.replace(regex, '$1')
+}
+
+disableMouse = function (mouse) {
+  instance.disabledMice.get().push(mouse.rasp + '_' + mouse.brand)
+  console.log(disabledMice.get())
+}
+
+enableMouse = function (mouse) {
+  disabledMice = instance.disabledMice
+    .get()
+    .filter((item) => item !== mouse.rasp + '_' + mouse.brand)
+  console.log('disables mice :', disabledMice.get())
+}
+
+isMouseDisabled = function (mouse) {
+  // ok so we're using a DIFFERENT NAMING CONVENTION on pupitre and on show. unfortunately. which comes down to how mouse_grab identifies the mice, sometimes using the device.name, sometimes using the device.path. guess i'll have to learn python some day
+  // in show, the naming convention looks like this : th6_pixart_dell_etc ...
+  // in pupitre, the naming convention looks like this : th6_Dell
+  // this should be adressed but it's a lot of work unfortunately
+  console.log(getMouseBrand(mouse.client))
+  const brand = getMouseBrand(mouse.client)
+  const rasp = getRasp(mouse.client)
+  // console.log('is my mouse disabled? ', disabledMice.includes(rasp + '_' + brand))
+  return instance.disabledMice.get().includes(rasp + '_' + brand)
 }

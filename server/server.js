@@ -1,4 +1,5 @@
 import { streamer } from '../both/streamer.js'
+import { disabledMice } from '../both/disabledMice.js'
 
 export const connectedRasps = []
 
@@ -10,6 +11,10 @@ const wss = new WebSocket.Server({ port: 8080 })
 const PING_INTERVAL = 5000
 
 queue = []
+
+Meteor.publish('disabledMice', function () {
+  return disabledMice.find({})
+})
 
 console.log(
   'Hi! this is Samuel from Tryhard. Just so that you know, the WebSocket server for the raspberrys is running on ws://<this machine>:8080. Please tell the mouse-grabr.py to talk to that adress. see ya',
@@ -126,6 +131,7 @@ setInterval(() => {
 }, 1000 / 64)
 
 function updateDevices(data) {
+  console.log(data)
   // check if we're already tracking that rasp
   tracked_rasp = connectedRasps.find(({ name }) => name === data.rasp)
   if (tracked_rasp) {
@@ -138,3 +144,33 @@ function updateDevices(data) {
     connectedRasps.push({ name: data.rasp, mice: data.connected_mice })
   }
 }
+
+Meteor.methods({
+  async returnText() {
+    text = parseMarkdown(Assets.absoluteFilePath('text.md'))
+    return text
+  },
+  async getConnectedDevices() {
+    return connectedRasps
+  },
+  toggleMouse(data) {
+    console.log(data)
+    if (data.on == false) {
+      disabledMice.insert({
+        rasp: data.rasp,
+        brand: data.brand,
+      })
+    } else {
+      disabledMice.remove({
+        rasp: data.rasp,
+        brand: data.brand,
+      })
+    }
+    console.log(disabledMice.find({}).fetch())
+  },
+
+  enableAllMice() {
+    console.log('remove everything in this filthy db')
+    disabledMice.remove({})
+  },
+})

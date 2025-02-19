@@ -2,7 +2,13 @@ import './pupitre.html'
 
 import { streamer } from '../../both/streamer.js'
 
+import { disabledMice } from '../../both/disabledMice.js'
+
 Template.pupitre.onCreated(function () {
+  this.autorun(() => {
+    this.subscribe('disabledMice')
+  })
+
   this.text = new ReactiveVar('')
   this.headers = new ReactiveVar([])
   this.selectedHeader = new ReactiveVar('')
@@ -22,32 +28,31 @@ Template.pupitre.onCreated(function () {
       if (err) {
         alert(err)
       } else {
-        console.log(res)
         this.connectedDevices.set(res)
       }
     })
-  }, 10000)
+  }, 2000)
 })
 
 Template.pupitre.helpers({
-  // getPointer() {
-  //   console.log(this)
-  // },
+  isChecked(_rasp) {
+    // console.log(disabledMice.find({ rasp: _rasp, brand: String(this) }).fetch().length == 0)
+    if (disabledMice.find({ rasp: _rasp, brand: String(this) }).fetch().length == 0) {
+      return 'checked'
+    }
+    return 'unchecked'
+  },
   getConnectedDevices() {
-    return Template.instance().connectedDevices.get()
+    return Template.instance().connectedDevices.get()?.sort()
   },
   getMice() {
-    console.log(this)
-    cleanMice = []
     // le serveur nous envoie des noms de souris longs comme le bras parce qu'ils incluent le chemin input/dev etc etc donc on cleane en claquant une grosse regex, et si on a pas de match on garde tout le nom quand même histoire de pas oublier des souris parce qu'on les connaissait pas.
+    cleanMice = []
     const regex = /(.+)(hp|lenovo|dell|logitech)(.+)/i
 
     for (x = 0; x < this.mice.length; x++) {
-      longName = this.mice[x]
-      shortname = longName.replace(regex, '$2')
-      cleanMice.push(shortname)
+      cleanMice.push(getMouseBrand(this.mice[x]))
     }
-
     return cleanMice
   },
   styleActions() {
@@ -85,6 +90,26 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
+  'click .mouseToggle'(e, t) {
+    // quand un siege reste vide, on veut pouvoir désactiver la souris pour qu'elle ne soit jamais prise en compte pendant le spectacle.
+    let _on = false
+
+    if (e.target.checked) {
+      console.log('activate mouse :', e.target.dataset.rasp + '_' + e.target.dataset.brand)
+      // ça, ça veut dire qu'il faut lever l'interdiction de créer un pointeur en cas de mouvement de souris.
+      _on = true
+    } else {
+      console.log('deactivate mouse :', e.target.dataset.rasp + '_' + e.target.dataset.brand)
+      // HUM! ça, ça veut dire deux choses:
+      // si il y a des mouvements parasite (dossier qui bouge ou quoi), ça ne doit pas faire apparaître de souris désactivée.
+      // si il y a déjà un pointeur parce que y'a eu des mouvements parasites pendant l'entrée public, il faut le détruire.
+    }
+    Meteor.call('toggleMouse', {
+      on: _on,
+      rasp: e.target.dataset.rasp,
+      brand: e.target.dataset.brand,
+    })
+  },
   'click .header'() {
     Template.instance().selectedHeader.set(String(this))
     // the timeout is to make sure blaze has rendered, lulz.
