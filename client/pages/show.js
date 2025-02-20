@@ -68,10 +68,10 @@ Template.show.onCreated(function () {
   instance = this
 
   //Start the stepper at a fixed framerate (60fps)
-  // this.stepInterval = Meteor.setInterval(
-  //   stepper.bind(this, [checkHover, checkBufferedClick]), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
-  //   (1 / 60.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
-  // )
+  this.stepInterval = Meteor.setInterval(
+    stepper.bind(this), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
+    (1 / 60.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
+  )
 
   streamer.on('tickUpdate', handleTickUpdate)
 
@@ -105,6 +105,13 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message, args) {
   switch (message.content) {
+    case 'unchoosePlayer':
+      Object.values(instance.pointers.all()).forEach((obj) => {
+        _pointer = instance.pointers.get(obj.id)
+        _pointer.chosen = undefined
+        instance.pointers.set(obj.id, _pointer)
+      })
+      break
     case 'choosePlayer':
       Object.values(instance.pointers.all()).forEach((obj) => {
         let transformedId = getRasp(obj.id) + '_' + getMouseBrand(obj.id)
@@ -309,7 +316,11 @@ function handleTickUpdate(message) {
 
 Template.show.helpers({
   isChosen() {
-    return this?.chosen
+    if (this.chosen == undefined) {
+      return true
+    } else {
+      return this.chosen
+    }
   },
   pointerType(value) {
     switch (value) {

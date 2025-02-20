@@ -1,22 +1,6 @@
 import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math-helpers.js'
 
-//Send pointers to the edge of a rectangular area
-export const sendToSides = function (pointers, area) {
-  //Move the bots to random position on either side of the screen
-  pointers = pointers.map((p) => {
-    //Half of them will go left, half will go right
-    if (Math.random() > 0.5) {
-      p.coords.x = randomBetween(0, 200) //up to 200px from the edge
-    } else {
-      p.coords.x = randomBetween(area.width - 200, area.width)
-    }
-    p.coords.y = Math.round(Math.random() * area.height)
-
-    //Store these coords as "home coordinates", so we can easily go back to them later
-    p.homeCoords = { ...p.coords }
-    return p
-  })
-}
+export const moveInFrontOfCaptcha = function (pointer, captchaCoords, captchaHeight) {}
 
 //A proof of concept "choreography" to test the bot AI logic
 export const circleRoutine = function (pointer, numberOfPointers, indexOfPointer, radius) {
@@ -61,6 +45,24 @@ export const circleRoutine = function (pointer, numberOfPointers, indexOfPointer
 
   //Wait forever
   pointer.events.push({ type: 'wait' })
+}
+
+//Send pointers to the edge of a rectangular area
+export const sendToSides = function (pointers, area) {
+  //Move the bots to random position on either side of the screen
+  pointers = pointers.map((p) => {
+    //Half of them will go left, half will go right
+    if (Math.random() > 0.5) {
+      p.coords.x = randomBetween(0, 200) //up to 200px from the edge
+    } else {
+      p.coords.x = randomBetween(area.width - 200, area.width)
+    }
+    p.coords.y = Math.round(Math.random() * area.height)
+
+    //Store these coords as "home coordinates", so we can easily go back to them later
+    p.homeCoords = { ...p.coords }
+    return p
+  })
 }
 
 export const squareRoutine = function (pointer) {

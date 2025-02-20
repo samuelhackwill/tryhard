@@ -11,12 +11,10 @@
     <div id="pointersContainer" class="transition-opacity {{ arePointersHidden }}">
       {{#each allPointers getAdmin=false}}
       <div
-        class="pointer transition-opacity bg-red-400"
+        class="pointer transition-opacity"
         style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px; height:{{
           pointerHeight
-        }}rem; width:{{
-          pointerWidth
-        }}rem; {{#if chosen}}background-color:blue!important;{{else}}opacity:0.2;{{/if}}"
+        }}rem; width:{{ pointerWidth }}rem; {{#if isChosen}}opacity:1;{{else}}opacity:0.1;{{/if}}"
         pointer-id="{{ this.id }}"
         id="{{ this.id }}"
       >

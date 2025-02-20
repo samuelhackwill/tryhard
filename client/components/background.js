@@ -30,7 +30,7 @@ Template.background.helpers({
 })
 
 const handlePupitreAction = function (message) {
-  console.log(message)
+  // console.log(message)
   switch (message.content) {
     case 'bgToblue':
       instance.bgColor.set('blue')
