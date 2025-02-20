@@ -1,5 +1,5 @@
 ---
-- name: Shutdown responsive hosts
+- name: Reboot responsive hosts
   hosts: thRasps
   user: sam
   gather_facts: no
@@ -20,8 +20,8 @@
     #   ansible.builtin.debug:
     #     var: ping_result
 
-    - name: Shutdown responsive hosts
-      ansible.builtin.shell: shutdown -h +1 "Shutting down in 1 minute..."
+    - name: Reboot responsive hosts
+      ansible.builtin.shell: reboot
       when: ping_result is succeeded
       become: yes
       become_user: root
