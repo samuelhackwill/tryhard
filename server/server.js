@@ -71,19 +71,22 @@ wss.on('connection', (ws, req) => {
     try {
       const data = JSON.parse(message)
       // console.log(data)
+      if (data.rasp) {
+        ws.raspName = data.rasp
+      }
       if (data.event_type == 'device_update') {
-        console.log('a rasp just told the server how many mice it has.')
+        console.log(`${ws.raspName} just told the server how many mice it has.`)
         updateDevices(data)
         return
       }
-      if (data.event_type == 'disconnect') {
-        console.log(`rasp ${data.rasp} just disconnected. Removing connectedRasps array.`)
-        const index = connectedRasps.findIndex((obj) => obj.name === data.rasp)
-        if (index !== -1) {
-          connectedRasps.splice(index, 1)
-        }
-        return
-      }
+      // if (data.event_type == 'disconnect') {
+      //   console.log(`rasp ${data.rasp} just disconnected. Removing connectedRasps array.`)
+      //   const index = connectedRasps.findIndex((obj) => obj.name === data.rasp)
+      //   if (index !== -1) {
+      //     connectedRasps.splice(index, 1)
+      //   }
+      //   return
+      // }
       addToQueue(data)
     } catch (error) {
       console.error('Error processing Raspberry Pi data:', error)
@@ -91,13 +94,17 @@ wss.on('connection', (ws, req) => {
   })
 
   // Handle disconnection from the Raspberry Pi (if it closes)
-  // ws.on('close', (e) => {
-  //   console.log('Raspberry Pi disconnected')
-  // })
+  ws.on('close', () => {
+    console.log(`${ws.raspName} disconnected`)
+    const index = connectedRasps.findIndex((obj) => obj.name === ws.raspName)
+    if (index !== -1) {
+      connectedRasps.splice(index, 1)
+    }
+  })
 
   // Respond to pong messages from the client
   ws.on('pong', () => {
-    console.log('Received pong from client')
+    console.log(`Received pong from ${ws.raspName}`)
     ws.isAlive = true
   })
 })
@@ -105,15 +112,19 @@ wss.on('connection', (ws, req) => {
 // Periodically send pings and check for unresponsive clients
 const interval = setInterval(() => {
   wss.clients.forEach((ws) => {
-    console.log(ws.isAlive)
+    // console.log(ws.isAlive)
     if (!ws.isAlive) {
-      console.log('Client is unresponsive. Terminating connection.')
+      console.log(`${ws.raspName} is unresponsive. Terminating connection.`)
+      const index = connectedRasps.findIndex((obj) => obj.name === ws.raspName)
+      if (index !== -1) {
+        connectedRasps.splice(index, 1)
+      }
       return ws.terminate()
     }
 
     ws.isAlive = false // Mark the client as unresponsive
     ws.ping() // Send a ping
-    console.log('Ping sent to client')
+    console.log(`Ping sent to ${ws.raspName}`)
   })
 }, PING_INTERVAL)
 
