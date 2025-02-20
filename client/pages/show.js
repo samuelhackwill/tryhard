@@ -29,6 +29,8 @@ import '../components/main.js'
 import './show.html'
 import { animateMiniClocks } from '../components/clock.js'
 
+import { disabledMice } from '../../both/disabledMice.js'
+
 let eventQueue = []
 let pointers = []
 let bots = []
@@ -37,6 +39,10 @@ let players = []
 let global_z_index = 1
 
 Template.show.onCreated(function () {
+  this.autorun(() => {
+    this.subscribe('disabledMice')
+  })
+
   this.feedToggle = new ReactiveVar(true)
   this.bgColor = new ReactiveVar('grey')
   this.pointerWidth = new ReactiveVar(1.5)
@@ -209,8 +215,9 @@ function handleTickUpdate(message) {
 
       // donc on appelle le serveur pour savoir si la souris est cancel et pi cé tou
       const canceled = isMouseDisabled(element)
-
-      console.log('checking if ', element, ' is canceled', canceled)
+      if (canceled) {
+        return
+      }
 
       pointer = createPointer(element.client)
       pointer.coords.y = i * 15
@@ -929,9 +936,15 @@ isMouseDisabled = function (mouse) {
   // in show, the naming convention looks like this : th6_pixart_dell_etc ...
   // in pupitre, the naming convention looks like this : th6_Dell
   // this should be adressed but it's a lot of work unfortunately
-  console.log(getMouseBrand(mouse.client))
-  const brand = getMouseBrand(mouse.client)
-  const rasp = getRasp(mouse.client)
-  // console.log('is my mouse disabled? ', disabledMice.includes(rasp + '_' + brand))
-  return instance.disabledMice.get().includes(rasp + '_' + brand)
+  const _brand = getMouseBrand(mouse.client)
+  const _rasp = getRasp(mouse.client)
+
+  if (disabledMice.find({ rasp: _rasp, brand: _brand }).fetch().length > 0) {
+    console.log(
+      `une souris de marque ${_brand} vient de bouger à ${_rasp}. Cette place a été définie comme vide, la souris sera donc ignorée.`,
+    )
+    return true
+  } else {
+    return false
+  }
 }
