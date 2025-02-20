@@ -12,6 +12,16 @@
     background-color: #2563eb;
   }
 
+  #pasUnRobot:has(input[type='checkbox'][hovered]) {
+    border: 2px solid #22c55e;
+    border-radius: 0.6rem;
+  }
+  /* 
+  #pasUnRobot[hovered] {
+    border: 2px solid #22c55e;
+    border-radius: 0.6rem;
+  } */
+
   button.clicked {
     background-color: #16a34a !important;
   }

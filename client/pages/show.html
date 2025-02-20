@@ -14,7 +14,9 @@
         class="pointer transition-opacity"
         style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px; height:{{
           pointerHeight
-        }}rem; width:{{ pointerWidth }}rem; {{#if isChosen}}opacity:1;{{else}}opacity:0.1;{{/if}}"
+        }}rem; width:{{
+          pointerWidth
+        }}rem; {{#if isChosen}}opacity:1; z-index:10;{{else}}opacity:0.1;z-index:-10{{/if}}"
         pointer-id="{{ this.id }}"
         id="{{ this.id }}"
       >

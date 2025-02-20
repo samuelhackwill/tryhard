@@ -109,6 +109,12 @@ function handlePupitreAction(message, args) {
 
         instance.pointers.set(obj.id, _pointer)
       })
+      Blaze.renderWithData(
+        Template.pasUnRobot,
+        'Je ne suis pas un robot',
+        document.getElementsByClassName('milieuContainer')[0],
+      )
+
       break
     case 'showNicks':
       instance.areNamesHidden.set(false)
@@ -315,7 +321,12 @@ Template.show.helpers({
   pointerType(value) {
     switch (value) {
       case 'isPointingHand':
-        return this.hoveredElementId.startsWith('button') == true
+        if (
+          this.hoveredElementId.startsWith('checkbox') == true ||
+          this.hoveredElementId.startsWith('button') == true
+        ) {
+          return true
+        }
         break
       case 'isOpenHand':
         return this.hoveredElementId.startsWith('th') == true
@@ -323,7 +334,8 @@ Template.show.helpers({
       case 'isCursor':
         if (
           this.hoveredElementId.startsWith('th') != true &&
-          this.hoveredElementId.startsWith('button') != true
+          this.hoveredElementId.startsWith('button') != true &&
+          this.hoveredElementId.startsWith('checkbox') != true
         ) {
           return true
         }
