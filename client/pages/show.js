@@ -5,22 +5,7 @@ import { stepper } from '../stepper.js'
 import { playAudio } from '../audioAssets/audio.js'
 // import { getRandomBossAccessory, getRandomAccessory } from '../dressup.js'
 // import { getRandomTree } from '../trees.js'
-import {
-  sendToSides,
-  circleRoutine,
-  dressupAnimation,
-  killAnimation,
-  treePickUpAnimation,
-} from '../bots.js'
-import {
-  resetRoutine,
-  welcomeRoutine,
-  regroupRoutine,
-  squareRoutine,
-  playgroundRoutine,
-  axisRoutine,
-  graphRoutine,
-} from '../bots.js'
+import { moveInFrontOfCaptcha, circleRoutine, killAnimation } from '../bots.js'
 import { randomBetween } from '../../both/math-helpers.js'
 
 import { handlePupitreMessage } from '../components/feed.js'
@@ -117,6 +102,11 @@ function handlePupitreAction(message, args) {
         let transformedId = getRasp(obj.id) + '_' + getMouseBrand(obj.id)
         _pointer = instance.pointers.get(obj.id)
         _pointer.chosen = transformedId === message.args
+
+        if (transformedId === message.args) {
+          moveInFrontOfCaptcha(_pointer)
+        }
+
         instance.pointers.set(obj.id, _pointer)
       })
       break

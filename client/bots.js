@@ -1,6 +1,17 @@
 import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math-helpers.js'
 
-export const moveInFrontOfCaptcha = function (pointer, captchaCoords, captchaHeight) {}
+export const moveInFrontOfCaptcha = function (pointer) {
+  // get captcha position in the screen
+  // get catpcha height
+  // position yourself at x pixels below dat captcha
+
+  pointer.events.push({
+    type: 'move',
+    duration: 1000,
+    from: null,
+    to: { x: window.innerWidth / 2, y: (window.innerHeight / 4) * 3 },
+  })
+}
 
 //A proof of concept "choreography" to test the bot AI logic
 export const circleRoutine = function (pointer, numberOfPointers, indexOfPointer, radius) {
