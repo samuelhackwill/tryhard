@@ -1,8 +1,6 @@
 import { streamer } from '../both/streamer.js'
 import { disabledMice } from '../both/disabledMice.js'
 
-export const connectedRasps = []
-
 // Import the WebSocket library
 const WebSocket = require('ws')
 
@@ -10,6 +8,7 @@ const WebSocket = require('ws')
 const wss = new WebSocket.Server({ port: 8080 })
 const PING_INTERVAL = 5000
 
+let connectedRasps = []
 queue = []
 
 Meteor.publish('disabledMice', function () {
@@ -65,33 +64,36 @@ mergeQueue = function (objectsArray) {
 
 // Event: Connection established
 wss.on('connection', (ws, req) => {
-  console.log('New client connected')
-
   // Track if the client is alive
   ws.isAlive = true
 
-  // If it's a Raspberry Pi or another sending device, listen for data but do not add to htmlClients
-  console.log('Raspberry Pi connected. Waiting for mouse event data...')
-
   ws.on('message', (message) => {
-    // console.log(message)
     try {
       const data = JSON.parse(message)
       // console.log(data)
       if (data.event_type == 'device_update') {
+        console.log('a rasp just told the server how many mice it has.')
         updateDevices(data)
-      } else {
-        addToQueue(data)
+        return
       }
+      if (data.event_type == 'disconnect') {
+        console.log(`rasp ${data.rasp} just disconnected. Removing connectedRasps array.`)
+        const index = connectedRasps.findIndex((obj) => obj.name === data.rasp)
+        if (index !== -1) {
+          connectedRasps.splice(index, 1)
+        }
+        return
+      }
+      addToQueue(data)
     } catch (error) {
       console.error('Error processing Raspberry Pi data:', error)
     }
   })
 
   // Handle disconnection from the Raspberry Pi (if it closes)
-  ws.on('close', () => {
-    console.log('Raspberry Pi disconnected')
-  })
+  // ws.on('close', (e) => {
+  //   console.log('Raspberry Pi disconnected')
+  // })
 
   // Respond to pong messages from the client
   ws.on('pong', () => {
@@ -131,8 +133,8 @@ setInterval(() => {
 }, 1000 / 64)
 
 function updateDevices(data) {
-  console.log(data)
   // check if we're already tracking that rasp
+  // console.log(data)
   tracked_rasp = connectedRasps.find(({ name }) => name === data.rasp)
   if (tracked_rasp) {
     if (tracked_rasp.mice.length == data.connected_mice.length) {
@@ -152,6 +154,9 @@ Meteor.methods({
   },
   async getConnectedDevices() {
     return connectedRasps
+  },
+  resetConnectedDevices() {
+    connectedRasps = []
   },
   toggleMouse(data) {
     console.log(data)

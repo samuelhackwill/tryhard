@@ -72,9 +72,6 @@ Template.show.onCreated(function () {
   //Listen to admin calls to action (like displaying score ou quoi)
   streamer.on('pupitreAction', handlePupitreAction)
 
-  //Listen to mouse disable/enable on
-  streamer.on('toggleMouse', toggleMouse)
-
   // //Create 96 bots
   // this.bots = [] //Keep the array of bots on hand, it's easier than filtering this.pointers every time
   // for (let i = 0; i < 96; i++) {

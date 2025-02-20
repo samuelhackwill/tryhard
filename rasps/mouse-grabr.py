@@ -8,6 +8,8 @@ import json
 import sys
 import time
 import os
+import signal
+
 
 
 DEVICES_PATH = "/dev/input/by-id"
@@ -153,12 +155,10 @@ async def monitor_mice(queue):
         for device_path in known_devices - current_devices:
             print(f"Device removed: {device_path}")
             normalized_name = normalize_device_name(os.path.basename(device_path))
-            if normalized_name in mice_tasks:
-                mice_tasks[normalized_name].cancel()
-                del mice_tasks[normalized_name]
-                del motion_aggregator[normalized_name]
+
 
         known_devices = current_devices
+        next_poll_delay = 10
 
         sorted_devices = sorted([normalize_device_name(os.path.basename(d)) for d in known_devices], key=brand_priority)
 
@@ -166,9 +166,26 @@ async def monitor_mice(queue):
             "rasp": raspName,
             "event_type": "device_update",
             "connected_mice": sorted_devices,
+            "next_poll_delay":next_poll_delay,
         })
 
-        await asyncio.sleep(10)
+        await asyncio.sleep(next_poll_delay)
+
+async def send_disconnect_message(server_uri):
+    """Send a disconnect message to the server before shutting down."""
+    try:
+        async with websockets.connect(server_uri) as websocket:
+            disconnect_msg = json.dumps({"rasp": raspName, "event_type": "disconnect"})
+            await websocket.send(disconnect_msg)
+            print("Sent disconnect message before shutdown")
+            # this is not clean but what else is clean in this pasta code
+            sys.exit(0)
+
+    except Exception as e:
+        print(f"Failed to send disconnect message: {e}")
+        # this is not clean but what else is clean in this pasta code
+        sys.exit(0)
+
 
 async def main():
     queue = asyncio.Queue()
@@ -182,7 +199,37 @@ async def main():
         mice_task = asyncio.create_task(monitor_mice(queue))
 
     websocket_task = asyncio.create_task(send_to_websocket(queue, server_uri))
-    await asyncio.gather(mice_task, websocket_task)
+
+    stop_event = asyncio.Event()
+
+    def handle_exit(signame):
+        """Catch termination signals and trigger cleanup."""
+        print(f"Received signal {signame}, shutting down gracefully...")
+        stop_event.set()
+        asyncio.create_task(send_disconnect_message(server_uri))
+
+    loop = asyncio.get_event_loop()
+    for signame in ('SIGINT', 'SIGTERM'):
+        loop.add_signal_handler(getattr(signal, signame), lambda: handle_exit(signame))
+
+    try:
+        # Run both tasks concurrently and wait for them
+        await asyncio.gather(mice_task, websocket_task)
+    except asyncio.CancelledError:
+        print("Tasks were cancelled, shutting down...")
+
+    print("Cleaning up...")
+    await send_disconnect_message(server_uri)
+    print("Shutdown complete.")
+
+
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        loop.run_until_complete(main())
+    except KeyboardInterrupt:
+        print("Client stopped manually.")
+    finally:
+        loop.close()
