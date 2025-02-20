@@ -14,7 +14,9 @@
         class="pointer transition-opacity bg-red-400"
         style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px; height:{{
           pointerHeight
-        }}rem; width:{{ pointerWidth }}rem;"
+        }}rem; width:{{
+          pointerWidth
+        }}rem; {{#if chosen}}background-color:blue!important;{{else}}opacity:0.2;{{/if}}"
         pointer-id="{{ this.id }}"
         id="{{ this.id }}"
       >
@@ -132,7 +134,7 @@
           }}"
         >
           <!-- {{ this.nick }} -->
-          {{ this.id }}
+          {{ this.rasp }}_{{ this.mouseBrand }}
         </span>
 
         <span

@@ -4,6 +4,8 @@ import { streamer } from '../../both/streamer.js'
 
 import { disabledMice } from '../../both/disabledMice.js'
 
+import { getRasp, getMouseBrand } from './show.js'
+
 Template.pupitre.onCreated(function () {
   Meteor.call('resetConnectedDevices')
 
@@ -15,6 +17,7 @@ Template.pupitre.onCreated(function () {
   this.headers = new ReactiveVar([])
   this.selectedHeader = new ReactiveVar('')
   this.connectedDevices = new ReactiveVar('')
+  this.selectedPlayer = new ReactiveVar('ffa')
 
   Meteor.call('returnText', (err, res) => {
     if (err) {
@@ -48,6 +51,20 @@ Template.pupitre.onCreated(function () {
 })
 
 Template.pupitre.helpers({
+  isSelectedPlayer(e) {
+    // console.log(e, String(this))
+    //id : radio-chosen-th6_hp
+    if (e == undefined && Template.instance().selectedPlayer.get() == 'ffa') {
+      return 'checked'
+    } else {
+      const client = e + '_' + String(this)
+      if (client == Template.instance().selectedPlayer.get()) {
+        return 'checked'
+      } else {
+        return 'unchecked'
+      }
+    }
+  },
   isChecked(_rasp) {
     // console.log(disabledMice.find({ rasp: _rasp, brand: String(this) }).fetch().length == 0)
     if (disabledMice.find({ rasp: _rasp, brand: String(this) }).fetch().length == 0) {
@@ -104,6 +121,17 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
+  'click .playerToggle'(e) {
+    if (e.target.id == 'radio-ffa') {
+      Template.instance().selectedPlayer.set('ffa')
+      sendAction('unchoosePlayer')
+    } else {
+      const who = getRasp(e.target.id) + '_' + getMouseBrand(e.target.id, 0)
+      Template.instance().selectedPlayer.set(who)
+      sendAction('choosePlayer', who)
+    }
+    // console.log(Template.instance().selectedPlayer.get())
+  },
   'click .mouseToggle'(e, t) {
     // quand un siege reste vide, on veut pouvoir désactiver la souris pour qu'elle ne soit jamais prise en compte pendant le spectacle.
     let _on = false
@@ -178,6 +206,7 @@ const sendLine = function (string) {
   streamer.emit('pupitreMessage', { type: 'newLine', content: string })
 }
 
-const sendAction = function (string) {
-  streamer.emit('pupitreAction', { type: 'action', content: string })
+const sendAction = function (string, instructions) {
+  _args = instructions || 0
+  streamer.emit('pupitreAction', { type: 'action', content: string, args: _args })
 }

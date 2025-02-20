@@ -103,8 +103,16 @@ Template.show.onRendered(function () {
   streamer.emit('showInit', { width: window.innerWidth, height: window.innerHeight })
 })
 
-function handlePupitreAction(message) {
+function handlePupitreAction(message, args) {
   switch (message.content) {
+    case 'choosePlayer':
+      Object.values(instance.pointers.all()).forEach((obj) => {
+        let transformedId = getRasp(obj.id) + '_' + getMouseBrand(obj.id)
+        _pointer = instance.pointers.get(obj.id)
+        _pointer.chosen = transformedId === message.args
+        instance.pointers.set(obj.id, _pointer)
+      })
+      break
     case 'showNicks':
       instance.areNamesHidden.set(false)
       break
@@ -300,6 +308,9 @@ function handleTickUpdate(message) {
 }
 
 Template.show.helpers({
+  isChosen() {
+    return this?.chosen
+  },
   pointerType(value) {
     switch (value) {
       case 'isPointingHand':
@@ -737,6 +748,8 @@ export const addToDataAttribute = function (element, attr, amount) {
 export const createPointer = function (id, bot = false) {
   return {
     id: id,
+    rasp: getRasp(id),
+    mouseBrand: getMouseBrand(id),
     bgColor: '#000000',
     outlineColor: '#FFFFFF',
     coords: { x: 0, y: 0 },
@@ -909,14 +922,16 @@ function convertRemToPixels(rem) {
   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
 }
 
-getMouseBrand = function (id) {
+export const getMouseBrand = function (id, regexGroupOveride) {
+  regexGroup = regexGroupOveride || 2
   const regex = /(.+)(hp|lenovo|dell|logitech)(.+)/i
-  return id.replace(regex, '$2')
+  return id.replace(regex, `$${regexGroup}`)
 }
 
-getRasp = function (id) {
+export const getRasp = function (id, regexGroupOveride) {
+  regexGroup = regexGroupOveride || 1
   const regex = /(th\d{0,})(.+)/i
-  return id.replace(regex, '$1')
+  return id.replace(regex, `$${regexGroup}`)
 }
 
 disableMouse = function (mouse) {

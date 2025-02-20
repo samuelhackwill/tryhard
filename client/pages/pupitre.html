@@ -36,11 +36,11 @@
           <div>
             <span class="mr-1">ffa ♪┏(・o・)┛♪</span>
             <input
-              id="radio-unchoose"
+              id="radio-ffa"
               type="radio"
-              checked
+              {{isSelectedPlayer}}
               name="list-chosen"
-              class="w-4 h-4 bg-gray-100 border-gray-300"
+              class="playerToggle w-4 h-4 bg-gray-100 border-gray-300"
             />
           </div>
 
@@ -52,20 +52,24 @@
               <label
                 for="default-checkbox"
                 class="ms-2 -ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
-                >{{ ../name }}{{ this }}</label
+                >{{ ../name }}_{{ this }}</label
               >
               <input data-rasp="{{../name}}" data-brand="{{ this }}" id="default-checkbox-{{../name
+
+
+
+
               }}{{ this }}"
               {{isChecked ../name}}
               type="checkbox" value="" class="mouseToggle ml-1 w-4 h-4 text-blue-600 bg-gray-100
-              border-gray-300 rounded-sm focus:ring-blue-500 " />
-              <input
-                id="radio-chosen-{{../name}}{{ this }}"
-                type="radio"
-                value=""
-                name="list-chosen"
-                class="w-4 h-4 bg-gray-100 border-gray-300"
-              />
+              border-gray-300 rounded-sm focus:ring-blue-500 " /> <input id="{{../name
+
+
+
+              }}_{{ this }}-chosen"
+              {{isSelectedPlayer ../name this}}
+              type="radio" value="" name="list-chosen" class="playerToggle w-4 h-4 bg-gray-100
+              border-gray-300" />
             </div>
             {{/each}}
           </div>
