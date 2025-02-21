@@ -91,8 +91,19 @@ clic clic clic clic clic clic clic clic clic! -->
 
 `killCaptchas`
 je ne suis pas un robot
-je ne suis pas une tondeuse
+je ne suis pas un robot
+je ne suis pas un robot
+je ne suis pas un robot
+je ne suis pas un robot
+je ne suis pas un robot
+je ne suis pas un robot tondeuse
+je ne suis pas un aspirateur automatique
 je ne suis pas une brosse à dents électrique
+je ne suis pas une caméra de surveillance
+je ne suis pas une voiture électrique
+je ne suis pas une porte de garage
+je ne suis pas une serrure intelligente
+je ne suis pas un frigo connecté
 je ne suis pas une imprimante wifi
 je ne suis pas une imprimante wifi, du genre de celles qui commandent toute seules leurs cartouches de toner sur internet quand il n'y a plus d'encre
 je ne suis pas l'imprimante wifi du théâtre qui après avoir imprimé votre billet se serait dit en substance "tiens ça a l'air divertissant je vais y aller moi aussi"
