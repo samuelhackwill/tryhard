@@ -20,8 +20,7 @@ Template.pasUnRobot.helpers({
 })
 
 Template.pasUnRobot.events({
-  'click input#pasUnRobot'() {
-    addToFeed()
+  'mouseup #checkbox-pasUnRobot'() {
     Template.instance().hasInteracted.set(true)
   },
 })

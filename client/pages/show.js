@@ -694,6 +694,11 @@ function getElementsUnder(pointer) {
 }
 
 function checkHover(pointer) {
+  if (pointer.chosen == false) {
+    // if pointer is deactivated, we don't want to trigger hover events when it's under a clickable element
+    return
+  }
+
   let prevHoveredElement = document.getElementById(pointer.hoveredElementId)
   let currentHoveredElements = getElementsUnder(pointer)
 
