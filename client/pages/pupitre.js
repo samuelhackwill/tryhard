@@ -125,6 +125,9 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
+  'click #override-timeout'() {
+    sendAction('cancelCaptchaTimeouts')
+  },
   'click .playerToggle'(e) {
     if (e.target.id == 'radio-ffa') {
       Template.instance().selectedPlayer.set('ffa')
@@ -194,7 +197,13 @@ Template.pupitre.events({
     if (String(this.type) == 'text') {
       switch (Template.instance().state.get()) {
         case 'captchas-single-player':
-          sendAction('newCaptcha-1j', String(this.value))
+          _hesitationAmount = document.getElementById('hesitation-slider').value
+          _readingSpeed = document.getElementById('reading-speed-slider').value
+          sendAction('newCaptcha-1j', {
+            text: String(this.value),
+            hesitationAmount: Number(_hesitationAmount),
+            readingSpeed: Number(_readingSpeed),
+          })
           break
 
         default:
