@@ -83,7 +83,37 @@ clic clic clic clic clic clic clic clic clic! -->
 
 - toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer.
 
-- "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote.
+- "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote, un peu bourré.
+
+## captchas-single-player
+
+<!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
+
+`killCaptchas`
+je ne suis pas un robot
+je ne suis pas une tondeuse
+je ne suis pas une brosse à dents électrique
+je ne suis pas une imprimante wifi
+je ne suis pas une imprimante wifi, du genre de celles qui commandent toute seules leurs cartouches de toner sur internet quand il n'y a plus d'encre
+je ne suis pas l'imprimante wifi du théâtre qui après avoir imprimé votre billet se serait dit en substance "tiens ça a l'air divertissant je vais y aller moi aussi"
+je ne suis pas un objet qui, n'obéissant qu'aux lois de la gravité, aurait involontairement et avec effroi exercé une pression sur le bouton de la souris en chutant dessus
+je ne suis pas un rat, qui après un million d'années d'évolution aurait développé un bras et un pouce opposable et aurait cliqué sur le bouton de la souris
+je ne suis pas la volonté de dieu qui est intervenue pour cliquer sur le bouton de souris
+je ne suis pas la petite case à cocher, qui, indépendamment de toute action de l'imprimante wifi, de la gravité, du rat, de dieu, se serait quand même retrouvée cochée mystérieusement.
+je ne suis pas la petite case à cocher qui en aurait eu marre d'attendre et se serait auto-cochée pour tromper l'ennui.
+je ne suis pas la petite case à cocher, qui, parce qu'elle avait honte que personne ne l'avait jamais cochée, aurait fait semblant qu'en fait, on lui avait déjà cliqué dessus, et même plein de fois.
+je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en criant : "Dieu est mort!"
+je ne suis pas une personne travaillant dans une ferme à clics aux philippines et payée 1 euro de l'heure pour sous-traiter le cochage industriel de petites cases à cocher pour le compte de personnes ne voulant en aucun cas cocher la moindre petite case parce que pourquoi cocher la petite case eux-mêmes alors qu'ils pourraient consacrer leur temps à des activités plus productives et laisser d'autres humains moins bien nés qu'eux s'en charger.
+je déclare que je coche la petite case sans aucune contrainte.
+ce sont bien les signaux électriques de mon cerveau qui ont commandé à mon doigt d'enfoncer le bouton de la souris,
+ce ne sont pas les signaux électriques d'une autre personne qui ont commandé à mon doigt d'enfoncer le bouton de la souris,
+c'est mon cerveau, c'est mon doigt,
+ce sont mes signaux électriques
+je suis qui je suis
+je pense ce que je pense
+mes pensées sont nées dans mon cerveau et pas ailleurs
+je ne fais pas semblant d'avoir des pensées,
+je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau.
 
 ## secret course
 
@@ -287,12 +317,7 @@ C'est alors (pause) qu'une personne dans le groupe (pause) qui s'était d'ailleu
 
 n'ayant pas peur de se désintégrer dans l'immensité du néant, pour qui les milliard d'années de vide; c'est à dire, la quantité infinie de vide avant nous et la quantité infinie de vide après nous n'inspirait aucun vertige, que ce soit par manque de lucidité d'ailleurs, ou pour des raisons métaphysiques, peu importe, elle a pas peur de la mort on vous dit. Cette personne, rare, décida de toucher sa souris d'ordinateur et de cliquer sur le bouton droit de la souris.
 
-## even older stuff
-
-pendant l'entrée public, c'est le mode bac à sable. Tous les curseurs sont présents dans le coin droit de l'écran, à la même position. dès qu'une personne bouge sa souris ça fait spawner un nouveau curseur, qui est actif et peut appuyer sur le bouton "bonjour". Le bouton "bonjour" produit un son qui dit bonjour.
-
-pis c'est pas clair comment mais ça recommence et cette fois y'a un soleil qui tourne et y'a deux boutons "bonjour" et "bonsoir". lol
-il y a aussi une petite maison
+## bonjoursGPT
 
 <!-- rien à l'écran. -->
 
@@ -584,6 +609,7 @@ Méléagre est celui qui donne le coup de grâce au sanglier.
 `showBtnMMO`
 `showBtnSanglier`
 
+<!--
 ## pointer-2p-salue-la-foule
 
 ¥, Boudeur, fait une petite danse.
@@ -615,7 +641,7 @@ Méléagre est celui qui donne le coup de grâce au sanglier.
 ¥, crie : "j'ai été appelée"
 ¥, crie : "pour cliquer en votre nom"
 ¥, crie : "il y a un autre bouton sur l'écran mais je vais pas cliquer dessus tout de suite!"
-¥, crie : "je fais ce que je veux c'est moi qui ait la souris!"
+¥, crie : "je fais ce que je veux c'est moi qui ait la souris!" -->
 
 <!-- ok donc ce qui va se passer ensuite c'est que y'a le bouton "faire apparaître tout le monde" et le bouton "faire apparaître le sanglier de machin". et ensuite mini-jeu où il faut tuer le sanglier. -->
 <!--

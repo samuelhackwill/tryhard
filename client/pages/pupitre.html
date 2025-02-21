@@ -1,7 +1,7 @@
 <template name="pupitre">
   <div>
     <div class="m-6">
-      <h1 class="italic">Pupitre {{ selectedHeader }}</h1>
+      <h1 class="italic">state : {{ getState }} {{ selectedHeader }}</h1>
     </div>
 
     <div class="ml-4">
@@ -59,10 +59,16 @@
 
 
 
+
+
+
               }}{{ this }}"
               {{isChecked ../name}}
               type="checkbox" value="" class="mouseToggle ml-1 w-4 h-4 text-blue-600 bg-gray-100
               border-gray-300 rounded-sm focus:ring-blue-500 " /> <input id="{{../name
+
+
+
 
 
 

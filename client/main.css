@@ -12,15 +12,15 @@
     background-color: #2563eb;
   }
 
-  #pasUnRobot:has(input[type='checkbox'][hovered]) {
-    border: 2px solid #22c55e;
+  #pasUnRobot {
+    border: none;
     border-radius: 0.6rem;
   }
-  /* 
-  #pasUnRobot[hovered] {
-    border: 2px solid #22c55e;
-    border-radius: 0.6rem;
-  } */
+
+  #pasUnRobot:has(input[type='checkbox'][hovered]) {
+    box-shadow: 0 0 10pt 5pt cornflowerblue;
+    transition: 0.5s;
+  }
 
   button.clicked {
     background-color: #16a34a !important;

@@ -18,6 +18,7 @@ Template.pupitre.onCreated(function () {
   this.selectedHeader = new ReactiveVar('')
   this.connectedDevices = new ReactiveVar('')
   this.selectedPlayer = new ReactiveVar('ffa')
+  this.state = new ReactiveVar('initial')
 
   Meteor.call('returnText', (err, res) => {
     if (err) {
@@ -51,6 +52,9 @@ Template.pupitre.onCreated(function () {
 })
 
 Template.pupitre.helpers({
+  getState() {
+    return Template.instance().state.get()
+  },
   isSelectedPlayer(e) {
     // console.log(e, String(this))
     //id : radio-chosen-th6_hp
@@ -172,6 +176,15 @@ Template.pupitre.events({
         chil.classList.remove('line-through')
       }
     }
+
+    switch (String(this)) {
+      case 'captchas-single-player':
+        Template.instance().state.set('captchas-single-player')
+        break
+      default:
+        Template.instance().state.set('initial')
+        break
+    }
   },
 
   'click .line'(e) {
@@ -179,7 +192,15 @@ Template.pupitre.events({
     e.target.classList.add('line-through')
 
     if (String(this.type) == 'text') {
-      sendLine(String(this.value))
+      switch (Template.instance().state.get()) {
+        case 'captchas-single-player':
+          sendAction('newCaptcha-1j', String(this.value))
+          break
+
+        default:
+          sendLine(String(this.value))
+          break
+      }
     } else {
       action = String(this.value)
       sendAction(action)

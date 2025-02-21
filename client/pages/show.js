@@ -20,6 +20,7 @@ let eventQueue = []
 let pointers = []
 let bots = []
 let players = []
+let catpchaTemplateContainer = []
 
 let global_z_index = 1
 
@@ -90,6 +91,16 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message, args) {
   switch (message.content) {
+    case 'killCaptchas':
+      const element = document.getElementById('pasUnRobot')
+      element.style.opacity = 0
+
+      Meteor.setTimeout(function () {
+        catpchaTemplateContainer.forEach((captcha) => {
+          Blaze.remove(captcha)
+        })
+      }, parseFloat(getComputedStyle(element).transitionDuration) * 1000)
+      break
     case 'unchoosePlayer':
       Object.values(instance.pointers.all()).forEach((obj) => {
         _pointer = instance.pointers.get(obj.id)
@@ -109,12 +120,15 @@ function handlePupitreAction(message, args) {
 
         instance.pointers.set(obj.id, _pointer)
       })
-      Blaze.renderWithData(
-        Template.pasUnRobot,
-        'Je ne suis pas un robot',
-        document.getElementsByClassName('milieuContainer')[0],
+      break
+    case 'newCaptcha-1j':
+      catpchaTemplateContainer.push(
+        Blaze.renderWithData(
+          Template.pasUnRobot,
+          message.args,
+          document.getElementsByClassName('milieuContainer')[0],
+        ),
       )
-
       break
     case 'showNicks':
       instance.areNamesHidden.set(false)
