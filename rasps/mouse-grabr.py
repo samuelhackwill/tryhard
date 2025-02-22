@@ -29,10 +29,20 @@ def brand_priority(device_name):
     else:
         return 3  # Other brands in between
     
-async def simulate_mouse_events(queue):
+async def simulate_mouse_events(queue, num_devices):
     """Simulate mouse events from four virtual devices."""
-    simulated_devices = [f"simulatedMouse-{i}" for i in range(1, 5)]
+    simulated_devices = [f"bot-{i}" for i in range(1, num_devices)]
     print(f"Simulating {len(simulated_devices)} devices...")
+
+    async def send_device_update():
+        """Periodically send device update messages with the list of simulated devices."""
+        while True:
+            await asyncio.sleep(10)  # Send update every 10 seconds
+            await queue.put({
+                "rasp": raspName,
+                "event_type": "device_update",
+                "connected_mice": simulated_devices,
+            })
 
     async def generate_events(device_name):
         direction = 1  # 1 for right, -1 for left
@@ -61,11 +71,9 @@ async def simulate_mouse_events(queue):
             })
 
     tasks = [asyncio.create_task(generate_events(device)) for device in simulated_devices]
-    await asyncio.gather(*tasks)
+    device_update_task = asyncio.create_task(send_device_update())
+    await asyncio.gather(*tasks, device_update_task)
 
-    """Simulate mouse events from four virtual devices."""
-    simulated_devices = [f"simulatedMouse-{i}" for i in range(1, 5)]
-    print(f"Simulating {len(simulated_devices)} devices...")
 
 async def send_to_websocket(queue, server_uri):
     """Connect to the WebSocket server and send messages."""
@@ -209,8 +217,9 @@ async def main():
     server_uri = "ws://samm.local:8080"
 
     if len(sys.argv) > 1 and sys.argv[1] == "simulate":
-        print("Running in simulation mode.")
-        mice_task = asyncio.create_task(simulate_mouse_events(queue))
+        num_devices = int(sys.argv[2]) if len(sys.argv) > 2 else 4  # Default to 4 if not provided
+        print(f"Running in simulation mode with {num_devices} devices.")
+        mice_task = asyncio.create_task(simulate_mouse_events(queue, num_devices))
     else:
         print("Running in real device mode.")
         mice_task = asyncio.create_task(monitor_mice(queue))
