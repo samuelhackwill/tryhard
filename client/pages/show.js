@@ -963,7 +963,8 @@ function convertRemToPixels(rem) {
 
 export const getMouseBrand = function (id, regexGroupOveride) {
   regexGroup = regexGroupOveride || 2
-  const regex = /(.+)(hp|lenovo|dell|logitech)(.+)/i
+  const regex = /(.+)(hp|lenovo|dell|logitech|cherry|pixart|bot-\d*)(.+)/i
+  // "pixart" are KENSINGTON mice. It's the name of the taiwanese company making the mouse's chip, it's all over! But only KENSINGTON are unnamed so yeah. Simulated mouse are called "bot".
   return id.replace(regex, `$${regexGroup}`)
 }
 

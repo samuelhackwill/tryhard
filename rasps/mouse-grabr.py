@@ -31,7 +31,7 @@ def brand_priority(device_name):
     
 async def simulate_mouse_events(queue, num_devices):
     """Simulate mouse events from four virtual devices."""
-    simulated_devices = [f"bot-{i}" for i in range(1, num_devices)]
+    simulated_devices = [f"bot-{i}_" for i in range(1, num_devices)]
     print(f"Simulating {len(simulated_devices)} devices...")
 
     async def send_device_update():
