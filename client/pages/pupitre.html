@@ -38,6 +38,19 @@
               le public!</span
             > -->
             <div>
+              <span>surprise</span>
+            </div>
+            <div class="relative mb-8 text-gray-500">
+              <input
+                id="surprise-slider"
+                type="range"
+                value="3"
+                min="0"
+                max="3"
+                class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-slate-300"
+              />
+            </div>
+            <div>
               <span>hesitation</span>
               <button
                 class="bg-slate-200 hover:bg-red-300 text-xs px-2 py-1 rounded"
@@ -50,9 +63,9 @@
               <input
                 id="hesitation-slider"
                 type="range"
-                value="8000"
+                value="0"
                 min="0"
-                max="10000"
+                max="10"
                 class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-slate-300"
               />
               <span class="text-sm absolute start-0 -bottom-6">0</span>
@@ -72,14 +85,14 @@
                 <input
                   id="reading-speed-slider"
                   type="range"
-                  value="0"
-                  min="1"
-                  max="8"
+                  value="4"
+                  min="0"
+                  max="6"
                   class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-slate-300"
                 />
-                <span class="text-sm absolute start-0 -bottom-6">slowest</span>
+                <span class="text-sm absolute start-0 -bottom-6">fastest</span>
 
-                <span class="text-sm absolute end-0 -bottom-6">fastest</span>
+                <span class="text-sm absolute end-0 -bottom-6">slowest</span>
               </div>
             </div>
           </div>
@@ -152,10 +165,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               }}{{ this }}"
               {{isChecked ../name}}
               type="checkbox" value="" class="mouseToggle ml-1 w-4 h-4 text-blue-600 bg-gray-100
               border-gray-300 rounded-sm focus:ring-blue-500 " /> <input id="{{../name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

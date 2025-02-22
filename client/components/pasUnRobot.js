@@ -6,27 +6,20 @@ Template.pasUnRobot.onCreated(function () {
   this.waiting = new ReactiveVar(false)
   this.timestamp = new Date()
 
-  // lecture lente : 10 caractères par seconde.
-  // donc 0.01 caractère/miliseconde
-
-  // n(position du slider)	Valeur calculée
-  // 1	                     3
-  // 2	                     4
-  // 3	                     7
-  // 4	                     10
-  // 5	                     15
-  // 6	                     22
-  // 7	                     30
-  charsReadPerSecond = Math.round(3 * Math.pow(1.4678, this.data.readingSpeed - 1))
-
-  this.minReadingTime = (this.data.text.length / charsReadPerSecond) * 1000
-  // this reading time est en millisecondes.
+  const speedRatio = 0.9 - -this.data.readingSpeed * 0.05
+  this.minReadingTime = estimateReadingTime(this.data.text) * speedRatio
 })
 
 Template.pasUnRobot.onRendered(function () {
+  const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
+
   console.log(
-    'debug : TIME TO COMPLETE CAPTCHA = reading time ',
-    this.minReadingTime + ' + hesitation time ',
+    'debug : TIME TO COMPLETE CAPTCHA =',
+    'surprise time :',
+    this.data.surpriseAmount,
+    '+ reading time :',
+    this.minReadingTime,
+    ' + hesitation time : ',
     this.data.hesitationAmount,
   )
   const handle = Template.instance().view
@@ -45,7 +38,7 @@ Template.pasUnRobot.onRendered(function () {
           Blaze.remove(handle)
         }, 300),
       )
-    }, this.minReadingTime + this.data.hesitationAmount),
+    }, timeToComplete),
   )
 })
 
@@ -60,7 +53,6 @@ Template.pasUnRobot.helpers({
 
 Template.pasUnRobot.events({
   'mousedown #checkbox-pasUnRobot'() {
-    const handle = Template.instance().view
     const t = Template.instance()
 
     clickTimestamp = new Date()
@@ -73,11 +65,16 @@ Template.pasUnRobot.events({
     //   Template.instance().minReadingTime + this.hesitationAmount,
     // )
 
+    // console.log(
+    //   clickTimestamp.getTime() - t.timestamp.getTime(),
+    //   t.minReadingTime + t.data.surpriseAmount,
+    // )
+
     if (
-      clickTimestamp.getTime() - Template.instance().timestamp.getTime() >
-      Template.instance().minReadingTime
+      clickTimestamp.getTime() - t.timestamp.getTime() >
+      t.minReadingTime + t.data.surpriseAmount
     ) {
-      checkAndDie(t, handle)
+      checkAndDie(t, t.view)
     } else {
       // console.log(
       //   'attend encore ',
@@ -86,10 +83,11 @@ Template.pasUnRobot.events({
       //   'ms.',
       // )
       const wait =
-        Template.instance().minReadingTime -
+        Template.instance().minReadingTime +
+        t.data.surpriseAmount -
         (clickTimestamp.getTime() - Template.instance().timestamp.getTime())
       setTimeout(() => {
-        checkAndDie(t, handle)
+        checkAndDie(t, t.view)
       }, wait)
       Template.instance().waiting.set(true)
     }
@@ -112,10 +110,23 @@ checkAndDie = function (t, handle) {
     setTimeout(() => {
       Blaze.remove(handle)
     }, 300)
-  }, 1500)
+  }, 1000)
 }
 
 export const removeTimeouts = function () {
   pasUnRobotTimeouts.forEach(clearTimeout)
   pasUnRobotTimeouts = []
+}
+
+estimateReadingTime = function (text) {
+  const L = text.length
+  // alors ce que j'ai fait c'est que j'ai fourni des data points à notre ami (je me suis enregistré en train de faire défiler les captchas à un rythme qui me semblait acceptable) et il a écrit les maths pour fit the curve. C'est fou.
+
+  // Updated quadratic model parameters (fitted to extended data)
+  const a = 2381
+  const b = 33.42
+  const c = 0.0405
+
+  // Compute estimated time in milliseconds
+  return a + b * L + c * L ** 2
 }

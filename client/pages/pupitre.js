@@ -191,19 +191,21 @@ Template.pupitre.events({
   },
 
   'click .line'(e) {
-    // we need to send the text when it's text, but when it's an action then it'll be something else RIGHT
     e.target.classList.add('line-through')
 
     if (String(this.type) == 'text') {
       switch (Template.instance().state.get()) {
         case 'captchas-single-player':
-          _hesitationAmount = document.getElementById('hesitation-slider').value
-          _readingSpeed = document.getElementById('reading-speed-slider').value
+          _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
+          _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
+          _surpriseAmount = document.getElementById('surprise-slider').value
           sendAction('newCaptcha-1j', {
             text: String(this.value),
-            hesitationAmount: Number(_hesitationAmount),
-            readingSpeed: Number(_readingSpeed),
+            hesitationAmount: _hesitationAmount,
+            readingSpeed: _readingSpeed,
+            surpriseAmount: Number(_surpriseAmount) * 1000,
           })
+          document.getElementById('surprise-slider').value = _surpriseAmount - 1
           break
 
         default:
