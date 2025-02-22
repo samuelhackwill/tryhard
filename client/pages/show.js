@@ -108,7 +108,7 @@ function handlePupitreAction(message, args) {
         })
       }, parseFloat(getComputedStyle(element).transitionDuration) * 1000)
       break
-    case 'unchoosePlayer':
+    case 'unchoosePlayers':
       Object.values(instance.pointers.all()).forEach((obj) => {
         _pointer = instance.pointers.get(obj.id)
         _pointer.chosen = undefined

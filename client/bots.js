@@ -1,5 +1,18 @@
 import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math-helpers.js'
 
+export const moveOffOfCaptcha = function (pointer) {
+  console.log(pointer)
+  pointer.events.push({
+    type: 'move',
+    duration: 1000,
+    from: null,
+    to: {
+      x: randomBetween(50, window.innerWidth - 50),
+      y: randomBetween((window.innerHeight / 4) * 3 - 100, (window.innerHeight / 4) * 3 + 100),
+    },
+  })
+}
+
 export const moveInFrontOfCaptcha = function (pointer) {
   // get captcha position in the screen
   // get catpcha height

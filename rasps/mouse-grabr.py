@@ -31,7 +31,7 @@ def brand_priority(device_name):
     
 async def simulate_mouse_events(queue, num_devices):
     """Simulate mouse events from four virtual devices."""
-    simulated_devices = [f"bot-{i}_" for i in range(1, num_devices)]
+    simulated_devices = [f"bot-{i}_" for i in range(1, num_devices+1)]
     print(f"Simulating {len(simulated_devices)} devices...")
 
     async def send_device_update():
@@ -49,26 +49,37 @@ async def simulate_mouse_events(queue, num_devices):
         distance = 0  # Tracks the current distance moved in the current direction
         max_distance = 1500  # Maximum distance to move in one direction
 
-        while True:
-            await asyncio.sleep(1 / 60)  # 60 Hz
+        # while True:
+        #     await asyncio.sleep(1 / 60)  # 60 Hz
 
-            # Move by 10 pixels per frame in the current direction
-            x_movement = direction * 5
-            distance += abs(x_movement)
+        #     # Move by 10 pixels per frame in the current direction
+        #     x_movement = direction * 5
+        #     distance += abs(x_movement)
 
-            # Reverse direction if the max distance is reached
-            if distance >= max_distance:
-                direction *= -1
-                distance = 0
+        #     # Reverse direction if the max distance is reached
+        #     if distance >= max_distance:
+        #         direction *= -1
+        #         distance = 0
 
-            await queue.put({
-                "rasp": raspName,
-                "client": f"{raspName}_{device_name}",
-                "event_type": "motion",
-                "x": x_movement,
-                "y": 0,  # No vertical movement
-                "timestamp_rasp": int(round(time.time() * 1000))
-            })
+        #     await queue.put({
+        #         "rasp": raspName,
+        #         "client": f"{raspName}_{device_name}",
+        #         "event_type": "motion",
+        #         "x": x_movement,
+        #         "y": 0,  # No vertical movement
+        #         "timestamp_rasp": int(round(time.time() * 1000))
+        #     })
+
+        x_movement = 5
+
+        await queue.put({
+            "rasp": raspName,
+            "client": f"{raspName}_{device_name}",
+            "event_type": "motion",
+            "x": x_movement,
+            "y": 0,
+        })
+
 
     tasks = [asyncio.create_task(generate_events(device)) for device in simulated_devices]
     device_update_task = asyncio.create_task(send_device_update())

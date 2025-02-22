@@ -1,5 +1,7 @@
 import './pasUnRobot.html'
 
+import { moveOffOfCaptcha } from '../bots.js'
+
 pasUnRobotTimeouts = []
 
 Template.pasUnRobot.onCreated(function () {
@@ -36,6 +38,8 @@ Template.pasUnRobot.onRendered(function () {
       pasUnRobotTimeouts.push(
         setTimeout(() => {
           Blaze.remove(handle)
+
+          unchoosePlayer()
         }, 300),
       )
     }, timeToComplete),
@@ -52,9 +56,7 @@ Template.pasUnRobot.helpers({
 })
 
 Template.pasUnRobot.events({
-  'mousedown #checkbox-pasUnRobot'() {
-    const t = Template.instance()
-
+  'mousedown #checkbox-pasUnRobot'(event, t, obj) {
     clickTimestamp = new Date()
     // console.log(
     //   'user completed captcha in :',
@@ -74,7 +76,7 @@ Template.pasUnRobot.events({
       clickTimestamp.getTime() - t.timestamp.getTime() >
       t.minReadingTime + t.data.surpriseAmount
     ) {
-      checkAndDie(t, t.view)
+      checkAndDie(t, t.view, obj.pointer)
     } else {
       // console.log(
       //   'attend encore ',
@@ -87,14 +89,14 @@ Template.pasUnRobot.events({
         t.data.surpriseAmount -
         (clickTimestamp.getTime() - Template.instance().timestamp.getTime())
       setTimeout(() => {
-        checkAndDie(t, t.view)
+        checkAndDie(t, t.view, obj.pointer)
       }, wait)
       Template.instance().waiting.set(true)
     }
   },
 })
 
-checkAndDie = function (t, handle) {
+checkAndDie = function (t, handle, pointer) {
   removeTimeouts()
 
   t.waiting.set(false)
@@ -108,6 +110,7 @@ checkAndDie = function (t, handle) {
     element.style.opacity = 0
 
     setTimeout(() => {
+      unchoosePlayer()
       Blaze.remove(handle)
     }, 300)
   }, 1000)
@@ -129,4 +132,19 @@ estimateReadingTime = function (text) {
 
   // Compute estimated time in milliseconds
   return a + b * L + c * L ** 2
+}
+
+unchoosePlayer = function (player) {
+  let _player = player || null
+
+  if (_player == null) {
+    let chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
+    chosenItem.chosen = false
+    moveOffOfCaptcha(chosenItem)
+    instance.pointers.set(chosenItem.id, chosenItem)
+  } else {
+    _player.chosen = false
+    moveOffOfCaptcha(chosenItem)
+    instance.pointers.set(chosenItem.id, chosenItem)
+  }
 }

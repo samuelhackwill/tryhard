@@ -138,7 +138,7 @@ Template.pupitre.events({
   'click .playerToggle'(e) {
     if (e.target.id == 'radio-ffa') {
       Template.instance().selectedPlayer.set('ffa')
-      sendAction('unchoosePlayer')
+      sendAction('unchoosePlayers')
     } else {
       const who = getRasp(e.target.id) + '_' + getMouseBrand(e.target.id, 0)
       Template.instance().selectedPlayer.set(who)

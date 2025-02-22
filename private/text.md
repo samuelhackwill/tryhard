@@ -125,6 +125,32 @@ je pense ce que je pense
 mes pensées sont nées dans mon cerveau et pas ailleurs
 je ne fais pas semblant d'avoir des pensées,
 je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau.
+je transporte 80 milliards de neurones dans mon cerveau, qui... font leurs trucs de neurones
+je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue
+j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, dans mon colon
+je ne suis pas une bactérie anaérobie
+je ne suis pas un virus
+un robot, je ne suis pas
+pas un robot je ne suis
+un robot, moi? non non
+c'est quoi un robot je sais même pas ce que c'est moi
+je saigne (dans le sens, pas actuellement mais dans l'hypothèse où l'étanchéité de mes veines ne serait plus assurée, par exemple à cause d'une coupure ou d'un coup violent)
+je pue (pas forcément en ce moment non plus)
+je souffre (idem)
+je respire en ce moment même
+je suis en train de mourir en ce moment même
+je n'ai que toute ma vie devant moi en ce moment même et pour toujours
+je n'aurai jamais plus que seulement ma courte vie de microbe en ce moment même et pour toujours
+je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur sera bientôt effacé entièrement, et ma mémoire vive sera bientôt hors-service absolument
+je suis fier de ne pas être un robot
+je suis déçu de ne pas être un robot?
+je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot?
+tout d'un coup on fait un peu moins le malin de ne pas être un robot?
+
+<!-- je ne suis pas un nématode, c'est à dire un très petit ver de terre
+car j'ai bien plus de 300 neurones (contrairement aux nématodes)
+j'ai bien plus de 200 millions de neurones (contrairement au rat)
+j'ai bien plus de 2 milliards de neurones (contrairement au chien) -->
 
 ## secret course
 
