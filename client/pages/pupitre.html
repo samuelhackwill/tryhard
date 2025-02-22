@@ -4,9 +4,9 @@
       <h1 class="italic">state : {{ getState }} {{ selectedHeader }}</h1>
     </div>
 
-    <div class="ml-4">
-      <div class="grid grid-cols-8 gap-4 p-4 h-5/6 absolute">
-        <div class="overflow-y-scroll">
+    <div>
+      <div class="grid grid-cols-10 gap-4 p-4 h-5/6 w-full absolute">
+        <div class="col-span-2 overflow-y-auto pr-4">
           {{#each getHeaders}}
           <div>
             <span class="select-none cursor-pointer underline hover:text-blue-600 header">
@@ -15,9 +15,10 @@
           </div>
           {{/each}}
         </div>
-        <div class="col-span-4 overflow-y-scroll" id="textLinesColumn">
+        <div class="col-span-6 pr-4 overflow-y-auto" id="textLinesColumn">
           {{#each getContent}}
           <div class="mb-2">
+            <span class="text-xs text-slate-300">{{@index}}</span>
             <a
               class="focus:bg-blue-50 cursor-pointer select-none hover:text-blue-600 line {{
                 styleActions
@@ -29,7 +30,7 @@
           </div>
           {{/each}}
         </div>
-        <div class="col-span-2 overflow-y-scroll" id="textLinesColumn">
+        <div class="col-span-2 pr-4 overflow-y-auto" id="textLinesColumn">
           <div>
             <!-- <span class="text-xs"
               >La barre d'hésitation sert à ajouter du temps au joueur pour compléter le captcha. On
@@ -180,10 +181,46 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               }}{{ this }}"
               {{isChecked ../name}}
               type="checkbox" value="" class="mouseToggle ml-1 w-4 h-4 text-blue-600 bg-gray-100
               border-gray-300 rounded-sm focus:ring-blue-500 " /> <input id="{{../name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

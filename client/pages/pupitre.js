@@ -15,7 +15,7 @@ Template.pupitre.onCreated(function () {
 
   this.text = new ReactiveVar('')
   this.headers = new ReactiveVar([])
-  this.selectedHeader = new ReactiveVar('')
+  this.selectedHeader = new ReactiveVar('mise')
   this.connectedDevices = new ReactiveVar('')
   this.selectedPlayer = new ReactiveVar('ffa')
   this.state = new ReactiveVar('initial')
@@ -56,13 +56,21 @@ Template.pupitre.helpers({
     return Template.instance().state.get()
   },
   isSelectedPlayer(e) {
-    // console.log(e, String(this))
-    //id : radio-chosen-th6_hp
+    // console.log(e + '_' + String(this), Template.instance().selectedPlayer.get())
+
+    // ok, so i'm ashamed, ok? due to a very inconsistent naming between pupitre, show, mouse-grabr, etc, we have cases where the proper id of the mouse is the group 1 of the regex, sometimes the group 2 etc. And the problem here is that bots were named like this :
+    // th6_bot-1_
+    // with the stupid trailing underscore just to make the regex work with them (yey)
+    // but the problem is that it doesn't play nice with getBrand(). anyway. Maybe one day solve this technical debt thanks guess i'll never go to the recurse center bisous
+
     if (e == undefined && Template.instance().selectedPlayer.get() == 'ffa') {
       return 'checked'
     } else {
       const client = e + '_' + String(this)
-      if (client == Template.instance().selectedPlayer.get()) {
+      if (
+        client == Template.instance().selectedPlayer.get() ||
+        client == Template.instance().selectedPlayer.get() + '_'
+      ) {
         return 'checked'
       } else {
         return 'unchecked'
@@ -83,7 +91,6 @@ Template.pupitre.helpers({
   getMice() {
     // le serveur nous envoie des noms de souris longs comme le bras parce qu'ils incluent le chemin input/dev etc etc donc on cleane en claquant une grosse regex, et si on a pas de match on garde tout le nom quand même histoire de pas oublier des souris parce qu'on les connaissait pas.
     cleanMice = []
-    const regex = /(.+)(hp|lenovo|dell|logitech)(.+)/i
 
     for (x = 0; x < this.mice.length; x++) {
       cleanMice.push(getMouseBrand(this.mice[x]))
@@ -114,7 +121,7 @@ Template.pupitre.helpers({
     select = Template.instance().selectedHeader.get()
     data = Template.instance().text.get()
 
-    if (select) {
+    if (select && data) {
       const values = data.find((item) => item.header === select)?.content || []
 
       return values
@@ -192,42 +199,13 @@ Template.pupitre.events({
 
   'click .line'(e) {
     e.target.classList.add('line-through')
-
-    if (String(this.type) == 'text') {
-      switch (Template.instance().state.get()) {
-        case 'captchas-single-player':
-          _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
-          _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
-          _surpriseAmount = document.getElementById('surprise-slider').value
-          sendAction('newCaptcha-1j', {
-            text: String(this.value),
-            hesitationAmount: _hesitationAmount,
-            readingSpeed: _readingSpeed,
-            surpriseAmount: Number(_surpriseAmount) * 1000,
-          })
-          document.getElementById('surprise-slider').value = _surpriseAmount - 1
-          break
-
-        default:
-          sendLine(String(this.value))
-          break
-      }
-    } else {
-      action = String(this.value)
-      sendAction(action)
-    }
+    checkBeforeEmit(this)
   },
 
   'keyup .line'(e) {
     if (e.key == 'Enter') {
       e.target.classList.add('line-through')
-
-      if (String(this.type) == 'text') {
-        sendLine(String(this.value))
-      } else {
-        action = String(this.value)
-        sendAction(action)
-      }
+      checkBeforeEmit(this)
     } else {
       return
     }
@@ -241,4 +219,30 @@ const sendLine = function (string) {
 const sendAction = function (string, instructions) {
   _args = instructions || 0
   streamer.emit('pupitreAction', { type: 'action', content: string, args: _args })
+}
+
+const checkBeforeEmit = function (context) {
+  if (String(context.type) == 'text') {
+    switch (Template.instance().state.get()) {
+      case 'captchas-single-player':
+        _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
+        _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
+        _surpriseAmount = document.getElementById('surprise-slider').value
+        sendAction('newCaptcha-1j', {
+          text: String(context.value),
+          hesitationAmount: _hesitationAmount,
+          readingSpeed: _readingSpeed,
+          surpriseAmount: Number(_surpriseAmount) * 1000,
+        })
+        document.getElementById('surprise-slider').value = _surpriseAmount - 1
+        break
+
+      default:
+        sendLine(String(context.value))
+        break
+    }
+  } else {
+    action = String(context.value)
+    sendAction(action)
+  }
 }
