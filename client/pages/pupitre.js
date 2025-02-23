@@ -18,7 +18,8 @@ Template.pupitre.onCreated(function () {
   this.selectedHeader = new ReactiveVar('mise')
   this.connectedDevices = new ReactiveVar('')
   this.selectedPlayer = new ReactiveVar('ffa')
-  this.state = new ReactiveVar('initial')
+  this.Captcha1jIndex = new ReactiveVar(0)
+  this.Captcha1jPlayersCount = new ReactiveVar(0)
 
   Meteor.call('returnText', (err, res) => {
     if (err) {
@@ -52,8 +53,18 @@ Template.pupitre.onCreated(function () {
 })
 
 Template.pupitre.helpers({
-  getState() {
-    return Template.instance().state.get()
+  getSomeIndex() {
+    switch (Template.instance().selectedHeader.get()) {
+      case 'captchas-single-player':
+        const index = Template.instance().Captcha1jIndex?.get()
+        const maxIndex = Template.instance().Captcha1jPlayersCount?.get()
+        return index + '/' + maxIndex
+        break
+
+      default:
+        return ''
+        break
+    }
   },
   isSelectedPlayer(e) {
     // console.log(e + '_' + String(this), Template.instance().selectedPlayer.get())
@@ -189,10 +200,11 @@ Template.pupitre.events({
 
     switch (String(this)) {
       case 'captchas-single-player':
-        Template.instance().state.set('captchas-single-player')
+        numberOfPlayers = Array.from(document.querySelectorAll('.mouseToggle:checked')).length
+        Template.instance().Captcha1jPlayersCount.set(numberOfPlayers)
         break
+
       default:
-        Template.instance().state.set('initial')
         break
     }
   },
@@ -223,7 +235,7 @@ const sendAction = function (string, instructions) {
 
 const checkBeforeEmit = function (context) {
   if (String(context.type) == 'text') {
-    switch (Template.instance().state.get()) {
+    switch (Template.instance().selectedHeader.get()) {
       case 'captchas-single-player':
         _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
         _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
@@ -235,6 +247,22 @@ const checkBeforeEmit = function (context) {
           surpriseAmount: Number(_surpriseAmount) * 1000,
         })
         document.getElementById('surprise-slider').value = _surpriseAmount - 1
+
+        _index = Template.instance().Captcha1jIndex.get()
+
+        activePlayer = Array.from(document.querySelectorAll('.mouseToggle:checked'))[_index]
+        brand = activePlayer.getAttribute('data-brand')
+        rasp = activePlayer.getAttribute('data-rasp')
+
+        document.getElementById(rasp + '_' + brand + '-chosen').click()
+
+        if (_index == Template.instance().Captcha1jPlayersCount.get() - 1) {
+          alert('cool, everybody has completed a captcha! nice!')
+          _index = -1
+        }
+        _index++
+        Template.instance().Captcha1jIndex.set(_index)
+
         break
 
       default:

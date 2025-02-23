@@ -1,14 +1,24 @@
 import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math-helpers.js'
 
 export const moveOffOfCaptcha = function (pointer) {
-  console.log(pointer)
+  // Randomly decide if we pick from the 1st or 4th quarter
+  const inFirstQuarter = Math.random() < 0.5
+
+  // Generate X coordinate within 5%-25% OR 75%-95% of width
+  const x = inFirstQuarter
+    ? Math.random() * (window.innerWidth * 0.2) + window.innerWidth * 0.05 // Between 5% - 25%
+    : Math.random() * (window.innerWidth * 0.2) + window.innerWidth * 0.75 // Between 75% - 95%
+
+  // Generate Y coordinate between 5% - 95% of height
+  const y = Math.random() * (window.innerHeight * 0.9) + window.innerHeight * 0.05
+
   pointer.events.push({
     type: 'move',
     duration: 1000,
     from: null,
     to: {
-      x: randomBetween(50, window.innerWidth - 50),
-      y: randomBetween((window.innerHeight / 4) * 3 - 100, (window.innerHeight / 4) * 3 + 100),
+      x: Math.floor(x),
+      y: Math.floor(y),
     },
   })
 }
