@@ -85,6 +85,46 @@ clic clic clic clic clic clic clic clic clic! -->
 
 - "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote, un peu bourré.
 
+## le-succes
+
+`bgTogrey`
+`textToBlack`
+`showNicks`
+une souris s'est déplacée.
+une souris a cessé de se déplacer.
+une deuxième souris s'est déplacée!
+une souris a cliqué.
+une seconde souris a cliqué.
+une souris a cliqué dix fois!
+une souris s'est heurté aux bords de l'écran.
+une souris a double-cliqué!
+une souris est passée par dessus une autre souris.
+une souris a cliqué sur une autre souris.
+50% des souris se sont déplacé.
+presque toutes les souris de la salle se sont déplacé!
+50% des souris ont cliqué.
+presque toutes les souris de la salle ont cliqué!
+absolument chaque souris de la salle a cliqué au moins une fois.
+collectivement, les souris de la salle ont produit un total de 100 clics.
+une souris exploratrice a fait le tour du monde (en x secondes)
+une souris ne s'est jamais arrêté de bouger pendant une minute entière.
+une souris a fait rouler sa roulette
+une souris a fait roulerroulerouler sa roulette
+une souris a vraiment fait un très long rouliroula avec sa roulette
+une souris a cliqué avec sa roulette
+une souris n'a rien fait du tout pendent deux minutes entières.
+collectivement, les souris de la salle ont produit un total de 500 clics.
+collectivement, les souris de la salle ont produit un total de 1000 clics.
+l'intégralité du monde a été exploré par les souris.
+un petit point sur l'inégalité de richesse entre les souris : la souris la plus pauvre n'a produit qu'un seul clic, alors que la souris la plus riche a produit 423 clics.
+la médiane des revenus (en clics) est estimée à 43 clics. (c'est à dire que 50% des souris gagnent moins que 43 clics, tandis que 50% des souris gagnent d'avantage de clics.)
+(en rouge) a partir de maintenant, les souris peuvent investir leurs clics pour embaucher des souris qui vont cliquer à leur place, à des fins d'optimisation de la production de clics. (un clic droit permet de fabriquer une nouvelle souris automatique)
+(en rouge) a partir de maintenant, les souris peuvent investir leurs clics en bourse (roulette vers l'avant pour acheter des actions, roulette vers l'arrière pour vendre des actions).
+en raison de la production d'un trop grand nombre de clics, les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique.
+Le monde va malheureusement exploser et tout le monde va mourir.
+Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
+`startFadingToOrange`
+
 ## captchas-single-player
 
 <!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
@@ -100,9 +140,9 @@ je ne suis pas un robot tondeuse
 je ne suis pas un aspirateur automatique
 je ne suis pas une brosse à dents électrique
 je ne suis pas une caméra de surveillance
-je ne suis pas une voiture électrique
-je ne suis pas une porte de garage
-je ne suis pas une serrure intelligente
+je ne suis pas une voiture électrique volée
+je ne suis pas une porte de garage hackée
+je ne suis pas une serrure intelligente infectée
 je ne suis pas un frigo connecté
 je ne suis pas une imprimante wifi
 je ne suis pas une imprimante wifi, du genre de celles qui commandent toute seules leurs cartouches de toner sur internet quand il n'y a plus d'encre
@@ -147,18 +187,14 @@ je suis déçu de ne pas être un robot?
 je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot?
 tout d'un coup on fait un peu moins le malin de ne pas être un robot?
 
-<!-- je ne suis pas un nématode, c'est à dire un très petit ver de terre
-car j'ai bien plus de 300 neurones (contrairement aux nématodes)
-j'ai bien plus de 200 millions de neurones (contrairement au rat)
-j'ai bien plus de 2 milliards de neurones (contrairement au chien) -->
-
+<!--
 ## secret course
 
 `hideFeed`
-`bgToblue`
+`bgTogrey`
 `initPointers`
 `togglePointers`
-`startCountingPlayers`
+`startCountingPlayers` -->
 
 ## il etait une fois
 
@@ -166,8 +202,6 @@ j'ai bien plus de 2 milliards de neurones (contrairement au chien) -->
 `togglePointers`
 `clearFeed`
 `showFeed`
-
-<!-- la première course : tout le monde concourt, on regarde le premier clic et le nombre de coureurs. le top départ c'est l'entrée public, et l'arrivée c'est quand j'arrive au texte des résultats. on ne révèle l'identité du gagnant que beaucoup plus trad dans le show. -->
 
 il était une fois
 des personnes
@@ -202,8 +236,6 @@ comme celles qu'il y a dans la salle
 suspendues au dossier du siège devant elles.
 par moi
 pour nous.
-
-<!-- sinon ce que j'entrevois c'est que le thème de la pièce c'est participer ou ne pas participer et en fait on rejoue ça plein de fois (le clic invisible, bonjour, etc). -->
 
 pour que nous puissions jouer.
 `stopCountingPlayers`

@@ -29,8 +29,7 @@
         </div>
 
         <div class="col-span-2 pr-4 overflow-y-auto" id="textLinesColumn">
-          <div>
-
+          <div class="mb-8">
             <!-- la barre de surprise, qui diminue automatiquement dans le temps, sert à ralentir l'action quand on découvre une nouvelle interface comme par exemple les captchas. -->
 
             <div>
@@ -77,7 +76,7 @@
 
             <div>
               <span>reading speed</span>
-              <div class="relative mb-16 text-gray-500">
+              <div class="relative mb-8 text-gray-500">
                 <input
                   id="reading-speed-slider"
                   type="range"
@@ -90,6 +89,23 @@
                 <span class="text-sm absolute end-0 -bottom-6">slowest</span>
               </div>
             </div>
+
+            <span> mini-bosses : </span>
+            <button
+            class="bg-slate-200 hover:bg-slate-400 text-xs px-2 py-1 rounded"
+            id="captcha-spin"
+            >spin</button>
+
+            <button
+            class="bg-slate-200 hover:bg-slate-400 text-xs px-2 py-1 rounded"
+            id="captcha-whirl"
+            >whirl</button>
+
+            <button
+            class="bg-slate-200 hover:bg-slate-400 text-xs px-2 py-1 rounded"
+            id="captcha-flee"
+            >flee</button>
+
           </div>
 
           <div id="rasp_update_status" class="text-violet-600 italic">listening for rasps...</div>

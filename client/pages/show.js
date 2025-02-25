@@ -5,7 +5,13 @@ import { stepper } from '../stepper.js'
 import { playAudio } from '../audioAssets/audio.js'
 // import { getRandomBossAccessory, getRandomAccessory } from '../dressup.js'
 // import { getRandomTree } from '../trees.js'
-import { moveInFrontOfCaptcha, circleRoutine, killAnimation } from '../bots.js'
+import {
+  moveInFrontOfCaptcha,
+  circleRoutine,
+  killAnimation,
+  sendToSides,
+  resetRoutine,
+} from '../bots.js'
 import { randomBetween } from '../../both/math-helpers.js'
 
 import { handlePupitreMessage } from '../components/feed.js'
@@ -31,8 +37,10 @@ Template.show.onCreated(function () {
     this.subscribe('disabledMice')
   })
 
+  this.bgColor = new ReactiveVar('#1C1917')
   this.feedToggle = new ReactiveVar(true)
-  this.bgColor = new ReactiveVar('grey')
+  this.textColor = new ReactiveVar('white')
+
   this.pointerWidth = new ReactiveVar(1.5)
   this.pointerHeight = new ReactiveVar(2.3)
   this.scoreSprintEntreePublic = new ReactiveDict()
@@ -67,7 +75,7 @@ Template.show.onCreated(function () {
   streamer.on('pupitreAction', handlePupitreAction)
 
   // //Create 96 bots
-  // this.bots = [] //Keep the array of bots on hand, it's easier than filtering this.pointers every time
+  this.bots = [] //Keep the array of bots on hand, it's easier than filtering this.pointers every time
   // for (let i = 0; i < 96; i++) {
   //   let bot = createBot('bot' + i)
   //   //QUICKFIX: set a default state (hidden, not dead, etc). Probably should be done elsewhere
@@ -93,6 +101,17 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message, args) {
   switch (message.content) {
+    case 'captcha-flee':
+      makeCaptchaFlee()
+      break
+    case 'captcha-spin':
+      console.log(message.args)
+      if (message.args) {
+        document.getElementById('pasUnRobot').classList.add('rotate-loop-fast')
+      } else {
+        document.getElementById('pasUnRobot').classList.add('rotate-loop')
+      }
+      break
     case 'cancelCaptchaTimeouts':
       removeTimeouts()
       break
@@ -340,6 +359,12 @@ Template.show.helpers({
     }
   },
   pointerType(value) {
+    // console.log(this)
+    if (this.hoveredElementId == undefined) {
+      console.log('there might be a problem with the pointerType helper mate!')
+      return
+    }
+
     switch (value) {
       case 'isPointingHand':
         if (
@@ -663,6 +688,26 @@ simulateMouseEvent = function (button, status, pointer) {
   if (button == 'BTN_LEFT' && status == 'released') {
     simulateMouseUp(pointer)
   }
+  if (button == 'BTN_RIGHT' && status == 'released') {
+    simulateRightMouseUp(pointer)
+  }
+}
+
+simulateRightMouseUp = function (pointer) {
+  const hasPaymentSucceeded = pay(pointer, 10)
+  if (hasPaymentSucceeded) {
+    let bot = createBot(pointer.rasp + '_autoclicker')
+
+    // this here is to correct a bug where the helper needs to know what's being hovered in order to decide
+    // what type of pointer should be displayed. a defaut de mieux je le hardcode voila voila
+    bot.hoveredElementId = 'feed'
+
+    resetRoutine(bot)
+    console.log(bot)
+    instance.pointers.set(bot.id, bot)
+    bots.push(bot)
+    moveInFrontOfCaptcha(instance.pointers.get(bot.id))
+  }
 }
 
 simulateMouseUp = function (pointer) {
@@ -676,6 +721,8 @@ simulateMouseUp = function (pointer) {
     $(element).trigger('mouseup', { pointer: pointer })
   }
   elements.forEach((e) => e.classList.remove('clicked'))
+
+  pointer.money = pointer.money + 1
 }
 
 simulateMouseDown = function (pointer) {
@@ -800,6 +847,8 @@ export const createPointer = function (id, bot = false) {
     opacity: 1,
     tree: null,
     killable: false,
+    money: 0,
+    stock: { nwtech: 0, oilgs: 0, svrdbt: 0, realst: 0 },
   }
 }
 function createBot(id) {
@@ -1002,4 +1051,18 @@ isMouseDisabled = function (mouse) {
   } else {
     return false
   }
+}
+
+pay = function (author, amount) {
+  if (author.money < amount) {
+    console.log('insufficient funds mate')
+    return false
+  } else {
+    author.money = author.money - amount
+    return true
+  }
+}
+
+spawnAutoClicker = function (author) {
+  console.log(author)
 }

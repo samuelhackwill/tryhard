@@ -9,10 +9,9 @@
 
   <div class="milieuContainer">
     <div id="pointersContainer" class="transition-opacity {{ arePointersHidden }}">
+      <!-- <span>debug : </span> -->
       {{#each allPointers getAdmin=false}}
-      <pre id="debug"><div>
-        {{this.id}} <span class="text-green-400">{{ this.chosen }} </span>
-      </div></pre>
+        <!-- {{this.id}} <span class="text-green-400">{{ this.chosen }} </span> -->
       <div
         class="pointer transition-opacity"
         style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px; height:{{
@@ -142,7 +141,9 @@
           }}"
         >
           <!-- {{ this.nick }} -->
-          {{ this.rasp }}_{{ this.mouseBrand }}
+            {{hud}}
+            {{this.money}}
+          <!-- {{ this.rasp }}_{{ this.mouseBrand }} -->
         </span>
 
         <span

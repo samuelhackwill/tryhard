@@ -97,3 +97,22 @@
     --color-y: 0;
   }
 }
+
+@keyframes endless-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.rotate-loop {
+  transform-origin: center;
+  animation: endless-rotate 2s linear infinite;
+}
+
+.rotate-loop-fast {
+  transform-origin: center;
+  animation: endless-rotate 0.2s linear infinite;
+}

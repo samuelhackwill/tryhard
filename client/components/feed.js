@@ -10,6 +10,9 @@ Template.feed.onCreated(function () {
 
 export const handlePupitreAction = function (message) {
   switch (message.content) {
+    case 'textToBlack':
+      instance.textColor.set('black')
+      break
     case 'hideFeed':
       instance.feedToggle.set(false)
       break
@@ -94,6 +97,9 @@ export const handlePupitreMessage = function (message) {
 }
 
 Template.feed.helpers({
+  getTextColor() {
+    instance.textColor.get()
+  },
   feedHider() {
     if (instance.feedToggle.get() === true) {
       return 'opacity : 1;'

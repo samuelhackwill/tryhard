@@ -49,7 +49,7 @@ Template.pupitre.onCreated(function () {
         }
       }
     })
-  }, 10000)
+  }, 1000)
 })
 
 Template.pupitre.helpers({
@@ -209,6 +209,18 @@ Template.pupitre.events({
     }
   },
 
+  'click #captcha-spin'() {
+    sendAction('captcha-spin')
+  },
+
+  'click #captcha-whirl'() {
+    sendAction('captcha-spin', 'fast')
+  },
+
+  'click #captcha-flee'() {
+    sendAction('captcha-flee')
+  },
+
   'click .line'(e) {
     e.target.classList.add('line-through')
     checkBeforeEmit(this)
@@ -242,6 +254,7 @@ const checkBeforeEmit = function (context) {
         _surpriseAmount = document.getElementById('surprise-slider').value
         sendAction('newCaptcha-1j', {
           text: String(context.value),
+          coords: { x: 0, y: 0 },
           hesitationAmount: _hesitationAmount,
           readingSpeed: _readingSpeed,
           surpriseAmount: Number(_surpriseAmount) * 1000,

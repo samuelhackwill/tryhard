@@ -38,5 +38,8 @@ const handlePupitreAction = function (message) {
     case 'bgToblack':
       instance.bgColor.set('#1C1917')
       break
+    case 'bgTogrey':
+      instance.bgColor.set('oklch(0.869 0.022 252.894)')
+      break
   }
 }
