@@ -66,6 +66,7 @@ Template.show.onCreated(function () {
   instance = this
 
   //Start the stepper at a fixed framerate (60fps)
+  // SCARY : this is launched ONCE PER POINTER?? why
   this.stepInterval = Meteor.setInterval(
     stepper.bind(this, [checkHover, checkBufferedClick]), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
     (1 / 60.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
@@ -90,6 +91,9 @@ Template.show.onCreated(function () {
   //   sendToSides(bots, this.windowBoundaries)
 
   //   bots.forEach((b) => this.pointers.set(b.id, b))
+  Tracker.autorun(() => {
+    console.log(instance.pointers.all())
+  })
 })
 
 Template.show.onDestroyed(function () {
@@ -270,7 +274,6 @@ function handlePupitreAction(message, args) {
 }
 
 function handleTickUpdate(message) {
-  // console.log('debug ', message)
   message.forEach((element, i) => {
     let pointer = instance.pointers.get(element.client)
     if (pointer == undefined) {

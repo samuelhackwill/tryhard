@@ -1,6 +1,9 @@
 import { lerp, peakAtHalf, clampPointToArea } from '../both/math-helpers.js'
 import { ValueNoise } from 'value-noise-js'
 import { autoClickerMine } from './bots.js'
+
+export const clientEventQueue = []
+
 const noise = new ValueNoise()
 
 export const stepper = function (pointerCallbacks = []) {
@@ -8,7 +11,7 @@ export const stepper = function (pointerCallbacks = []) {
     let pointer = this.pointers.get(id)
     stepEventQueue(pointer)
     applyGravity(pointer)
-    // pointer.coords = clampPointToArea(pointer.coords, this.windowBoundaries);
+    pointer.coords = clampPointToArea(pointer.coords, this.windowBoundaries)
     this.pointers.set(id, pointer)
     pointerCallbacks.forEach((c) => c(pointer))
   }
@@ -83,7 +86,6 @@ function stepEventQueue(pointer) {
       pointer.opacity = lerp(event.from, event.to, t)
       break
     case 'move':
-      console.log('move!!')
       //Use the current coordinates for `from` and `to` if they have not been specified
       if (event.from == null) event.from = event.from = { ...pointer.coords }
       if (event.to == null) event.to = event.to = { ...pointer.coords }
