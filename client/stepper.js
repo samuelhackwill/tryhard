@@ -1,6 +1,6 @@
 import { lerp, peakAtHalf, clampPointToArea } from '../both/math-helpers.js'
 import { ValueNoise } from 'value-noise-js'
-import { getRandomIdleRoutine } from './bots.js'
+import { autoClickerMine } from './bots.js'
 const noise = new ValueNoise()
 
 export const stepper = function (pointerCallbacks = []) {
@@ -24,8 +24,9 @@ function stepEventQueue(pointer) {
 
   if (pointer.events.length == 0) {
     if (pointer.bot && !pointer.locked) {
-      //Bots get random commands
-      getRandomIdleRoutine(pointer)
+      //Bots NEED TO MINE!
+      autoClickerMine(pointer)
+      // getRandomIdleRoutine(pointer)
       // console.log('empty queue')
       return
     } else {

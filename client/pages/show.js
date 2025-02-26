@@ -12,6 +12,7 @@ import {
   sendToSides,
   resetRoutine,
   graphRoutine,
+  autoclickerSpawn,
 } from '../bots.js'
 import { randomBetween } from '../../both/math-helpers.js'
 
@@ -66,7 +67,7 @@ Template.show.onCreated(function () {
 
   //Start the stepper at a fixed framerate (60fps)
   this.stepInterval = Meteor.setInterval(
-    stepper.bind(this), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
+    stepper.bind(this, [checkHover, checkBufferedClick]), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
     (1 / 60.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
   )
 
@@ -410,7 +411,7 @@ Template.show.helpers({
     return instance.pointerHeight.get()
   },
   hasNick() {
-    if (this.nick) {
+    if (this.bot == false) {
       return true
     } else {
       return false
@@ -708,18 +709,22 @@ simulateMouseEvent = function (button, status, pointer) {
 simulateRightMouseUp = function (pointer) {
   const hasPaymentSucceeded = pay(pointer, 10)
   if (hasPaymentSucceeded) {
-    let bot = createPointer(pointer.id + '_autoclicker_' + Date.now())
+    let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
 
     bot.hoveredElementId = 'feed'
-
-    resetRoutine(bot)
-    console.log(bot)
     bot.coords.y = pointer.coords.y + 10
     bot.coords.x = pointer.coords.x + 10
 
     bots.push(bot)
 
     instance.pointers.set(bot.id, bot)
+    ;[...bots].forEach((p) => {
+      if ((p.id = bot.id)) {
+        pointer = instance.pointers.get(p.id)
+        autoclickerSpawn(pointer)
+        instance.pointers.set(p.id, pointer)
+      }
+    })
   }
 }
 
@@ -735,7 +740,14 @@ simulateMouseUp = function (pointer) {
   }
   elements.forEach((e) => e.classList.remove('clicked'))
 
-  pointer.money = pointer.money + 1
+  // bonjour il faudrait un switch qui vérifie dans quel moment du spectacle on est, sinon on va faire gagner de l'argent aux gens quand ils cliquent sur les captchaaaasss on verra plus tard fuck go fuck
+  if (pointer.bot) {
+    ownerPointer = instance.pointers.get(pointer.owner)
+    ownerPointer.money = ownerPointer.money + 1
+    instance.pointers.set(pointer.owner, ownerPointer)
+  } else {
+    pointer.money = pointer.money + 1
+  }
 }
 
 simulateMouseDown = function (pointer) {
@@ -825,7 +837,9 @@ function checkBufferedClick(pointer) {
   //If there's a buffered click: do it now
   if (pointer.bufferedClick) {
     simulateMouseDown(pointer)
-    simulateMouseUp(pointer)
+    setTimeout(function () {
+      simulateMouseUp(pointer)
+    }, 150)
   }
   //Reset the flag
   pointer = instance.pointers.get(pointer.id, pointer)
@@ -844,7 +858,7 @@ export const addToDataAttribute = function (element, attr, amount) {
   }
 }
 
-const createPointer = function (id, bot = false) {
+const createPointer = function (id, bot = false, _owner) {
   return {
     id: id,
     rasp: getRasp(id),
@@ -854,6 +868,7 @@ const createPointer = function (id, bot = false) {
     coords: { x: 0, y: 0 },
     events: [],
     bot: bot,
+    owner: _owner || null,
     seed: Math.random() * 1000000,
     gravity: 0, //in pixels per second
     locked: false,
@@ -864,8 +879,8 @@ const createPointer = function (id, bot = false) {
     stock: { nwtec: 0, oilgs: 0, svdbt: 0, rlest: 0 },
   }
 }
-function createBot(id) {
-  return createPointer(id, true)
+function createBot(id, isBot, owner) {
+  return createPointer(id, isBot, owner)
 }
 
 export const die = function (element) {

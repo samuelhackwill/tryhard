@@ -133,29 +133,28 @@
         <div class="bg-green-500">prout</div>
         {{/if}}
 
-        <!-- {{#if hasNick}} -->
+        {{#if hasNick}}
+          <span
+            class="ml-4 p-1 bg-black text-white rounded-lg absolute w-max transition-opacity text-xl {{
+              areNamesHidden
+            }}"
+          >
+            <!-- {{ this.nick }} -->
+              {{hud}}
+              {{this.money}}
+            <!-- {{ this.rasp }}_{{ this.mouseBrand }} -->
+          </span>
 
-        <span
-          class="ml-4 p-1 bg-black text-white rounded-lg absolute w-max transition-opacity text-xl {{
-            areNamesHidden
-          }}"
-        >
-          <!-- {{ this.nick }} -->
-            {{hud}}
-            {{this.money}}
-          <!-- {{ this.rasp }}_{{ this.mouseBrand }} -->
-        </span>
+          <span
+            class="ml-6 -mt-9 b text-white rounded-lg absolute w-max transition-opacity text-xl {{
+              areClocksHidden
+            }}"
+          >
+            <!-- {{ this.nick }} -->
+            {{ > miniclock }}
+          </span>
 
-        <span
-          class="ml-6 -mt-9 b text-white rounded-lg absolute w-max transition-opacity text-xl {{
-            areClocksHidden
-          }}"
-        >
-          <!-- {{ this.nick }} -->
-          {{ > miniclock }}
-        </span>
-
-        <!-- {{/if}} -->
+        {{/if}}
 
         <!-- {{#if tree}}
         <span class="tree" style="position: absolute; left: -25px; top: -50px; font-size: 250%">{{tree}}</span>

@@ -1,5 +1,7 @@
 import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math-helpers.js'
 
+autoclickerIntervals = {}
+
 export const moveOffOfCaptcha = function (pointer) {
   // Randomly decide if we pick from the 1st or 4th quarter
   const inFirstQuarter = Math.random() < 0.5
@@ -376,6 +378,32 @@ export const axisRoutine = function (pointer, axisData) {
 
   //Wait forever
   pointer.events.push({ type: 'wait' })
+}
+
+export const autoClickerMine = function (pointer) {
+  pointer.events.push({
+    type: 'bufferClick',
+  })
+  pointer.events.push({
+    type: 'wait',
+    duration: 500,
+  })
+}
+
+export const autoclickerSpawn = function (pointer) {
+  pointer.events = []
+  parentCoords = pointer.coords
+  newCoords = {
+    x: parentCoords.x + randomBetween(-50, 50),
+    y: parentCoords.y + randomBetween(-50, 50),
+  }
+  pointer.events.push({
+    // first move not far from the pointer.
+    type: 'move',
+    from: null,
+    to: { x: newCoords.x, y: newCoords.y },
+    duration: 200,
+  })
 }
 
 export const graphRoutine = function (pointer, graphData) {
