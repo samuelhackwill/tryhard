@@ -1,29 +1,51 @@
 import { lerp, peakAtHalf, clampPointToArea } from '../both/math-helpers.js'
 import { ValueNoise } from 'value-noise-js'
 import { autoClickerMine } from './bots.js'
+import { streamer } from '../both/streamer.js'
 
-export const clientEventQueue = []
+export let clientEventQueue = []
 
 const noise = new ValueNoise()
 
+streamer.on('tickUpdate', function (message) {
+  clientEventQueue.push({ origin: 'serverTick', payload: message })
+})
+streamer.on('pupitreAction', function (message) {
+  clientEventQueue.push({ origin: 'pupitre', payload: message })
+})
+
 export const stepper = function (pointerCallbacks = []) {
-  for (let id of Object.keys(this.pointers.keys)) {
-    let pointer = this.pointers.get(id)
-    stepEventQueue(pointer)
-    applyGravity(pointer)
-    pointer.coords = clampPointToArea(pointer.coords, this.windowBoundaries)
-    this.pointers.set(id, pointer)
-    pointerCallbacks.forEach((c) => c(pointer))
-  }
+  stepEventQueue(clientEventQueue)
+  clientEventQueue = [] // Clear queue after processing
+
+  // for (let id of Object.keys(this.pointers.keys)) {
+  //   let pointer = this.pointers.get(id)
+  //   stepEventQueue(pointer)
+  //   applyGravity(pointer)
+  //   pointer.coords = clampPointToArea(pointer.coords, this.windowBoundaries)
+  //   this.pointers.set(id, pointer)
+  //   pointerCallbacks.forEach((c) => c(pointer))
+  // }
 }
 
-function applyGravity(p) {
-  //Assume p.gravity is in pixels per seconds; compensate for framerate
-  p.coords.y += p.gravity / 60
-}
+// function applyGravity(p) {
+//   //Assume p.gravity is in pixels per seconds; compensate for framerate
+//   p.coords.y += p.gravity / 60
+// }
 
-function stepEventQueue(pointer) {
+function stepEventQueue(queue) {
   //Whent the event queue is empty,
+  if (queue.length == 0) {
+    return
+  }
+  console.log('queue read :')
+  for (let i = queue.length - 1; i >= 0; i--) {
+    console.log(queue[i])
+    if (queue[i].origin == 'pupitre') {
+      handlePupitreAction(queue[i].payload)
+    }
+  }
+  return
 
   if (pointer.events.length == 0) {
     if (pointer.bot && !pointer.locked) {
@@ -136,4 +158,28 @@ function stepEventQueue(pointer) {
   if (event.elapsed < event.duration ?? 0) {
     pointer.events.unshift(event)
   }
+}
+
+function handlePupitreAction(message) {
+  switch (message.content) {
+    case 'bgToblue':
+      instance.bgColor.set('blue')
+      break
+    case 'bgToblack':
+      instance.bgColor.set('#1C1917')
+      break
+    case 'bgTogrey':
+      instance.bgColor.set('oklch(0.869 0.022 252.894)')
+      break
+  }
+  return
+}
+
+function handleTickUpdate(message) {
+  clientEventQueue.push({ origin: 'serverTick', payload: message })
+  return
+}
+
+function handleAutoAction(message) {
+  return
 }

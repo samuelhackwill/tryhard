@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating'
 import { ReactiveDict } from 'meteor/reactive-dict'
-import { streamer } from '../../both/streamer.js'
-import { stepper } from '../stepper.js'
+import { stepper, clientEventQueue } from '../stepper.js'
 import { playAudio } from '../audioAssets/audio.js'
+import { streamer } from '../../both/streamer.js'
 // import { getRandomBossAccessory, getRandomAccessory } from '../dressup.js'
 // import { getRandomTree } from '../trees.js'
 import {
@@ -67,15 +67,14 @@ Template.show.onCreated(function () {
 
   //Start the stepper at a fixed framerate (60fps)
   // SCARY : this is launched ONCE PER POINTER?? why
-  this.stepInterval = Meteor.setInterval(
-    stepper.bind(this, [checkHover, checkBufferedClick]), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
-    (1 / 60.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
-  )
+  // this.stepInterval = Meteor.setInterval(
+  //   stepper.bind(this, [checkHover, checkBufferedClick]), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
+  //   (1 / 64.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
+  // )
 
-  streamer.on('tickUpdate', handleTickUpdate)
-
-  //Listen to admin calls to action (like displaying score ou quoi)
-  streamer.on('pupitreAction', handlePupitreAction)
+  setInterval(() => {
+    stepper()
+  }, (1 / 64.0) * 1000)
 
   //   // //Create 96 bots
   //   this.bots = [] //Keep the array of bots on hand, it's easier than filtering this.pointers every time
@@ -91,9 +90,6 @@ Template.show.onCreated(function () {
   //   sendToSides(bots, this.windowBoundaries)
 
   //   bots.forEach((b) => this.pointers.set(b.id, b))
-  Tracker.autorun(() => {
-    console.log(instance.pointers.all())
-  })
 })
 
 Template.show.onDestroyed(function () {
@@ -107,7 +103,10 @@ Template.show.onRendered(function () {
   streamer.emit('showInit', { width: window.innerWidth, height: window.innerHeight })
 })
 
-function handlePupitreAction(message, args) {
+function handlePupitreAction(message) {
+  clientEventQueue.push({ origin: 'pupitre', payload: message })
+  return
+
   switch (message.content) {
     case 'debug-bot-pointers':
       ;[...bots].forEach((p) => {

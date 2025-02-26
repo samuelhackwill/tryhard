@@ -1,12 +1,5 @@
 import './background.html'
 
-import { streamer } from '../../both/streamer.js'
-
-Template.background.onCreated(function () {
-  //Listen to admin calls to action (like displaying score ou quoi)
-  streamer.on('pupitreAction', handlePupitreAction)
-})
-
 Template.background.helpers({
   getBg() {
     // return 'bg-[blue]'
@@ -28,18 +21,3 @@ Template.background.helpers({
     // }
   },
 })
-
-const handlePupitreAction = function (message) {
-  // console.log(message)
-  switch (message.content) {
-    case 'bgToblue':
-      instance.bgColor.set('blue')
-      break
-    case 'bgToblack':
-      instance.bgColor.set('#1C1917')
-      break
-    case 'bgTogrey':
-      instance.bgColor.set('oklch(0.869 0.022 252.894)')
-      break
-  }
-}
