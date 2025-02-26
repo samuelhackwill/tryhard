@@ -90,6 +90,7 @@ clic clic clic clic clic clic clic clic clic! -->
 `bgTogrey`
 `textToBlack`
 `showNicks`
+`debug-bot-pointers`
 une souris s'est déplacée.
 une souris a cessé de se déplacer.
 une deuxième souris s'est déplacée!

@@ -11,6 +11,7 @@ import {
   killAnimation,
   sendToSides,
   resetRoutine,
+  graphRoutine,
 } from '../bots.js'
 import { randomBetween } from '../../both/math-helpers.js'
 
@@ -74,23 +75,25 @@ Template.show.onCreated(function () {
   //Listen to admin calls to action (like displaying score ou quoi)
   streamer.on('pupitreAction', handlePupitreAction)
 
-  // //Create 96 bots
-  this.bots = [] //Keep the array of bots on hand, it's easier than filtering this.pointers every time
-  // for (let i = 0; i < 96; i++) {
-  //   let bot = createBot('bot' + i)
-  //   //QUICKFIX: set a default state (hidden, not dead, etc). Probably should be done elsewhere
-  //   resetRoutine(bot)
-  //   this.pointers.set(bot.id, bot)
-  //   bots.push(bot)
-  // }
-  // //Keep this around: it gives bots a home position
-  // sendToSides(bots, this.windowBoundaries)
+  //   // //Create 96 bots
+  //   this.bots = [] //Keep the array of bots on hand, it's easier than filtering this.pointers every time
+  //   for (let i = 0; i < 96; i++) {
+  //     let bot = createBot('bot' + i)
+  //     bot.hoveredElementId = 'feed'
+  //     //QUICKFIX: set a default state (hidden, not dead, etc). Probably should be done elsewhere
+  //     resetRoutine(bot)
+  //     this.pointers.set(bot.id, bot)
+  //     bots.push(bot)
+  //   }
+  //   //Keep this around: it gives bots a home position
+  //   sendToSides(bots, this.windowBoundaries)
 
-  // bots.forEach((b) => this.pointers.set(b.id, b))
+  //   bots.forEach((b) => this.pointers.set(b.id, b))
 })
+
 Template.show.onDestroyed(function () {
   //Stop the stepper
-  // clearInterval(this.stepInterval)
+  clearInterval(this.stepInterval)
   //Stop listening to logger events
   streamer.removeAllListeners('pointerMessage')
   pointers = []
@@ -101,11 +104,20 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message, args) {
   switch (message.content) {
-    case 'captcha-flee':
-      makeCaptchaFlee()
+    case 'debug-bot-pointers':
+      ;[...bots].forEach((p) => {
+        pointer = instance.pointers.get(p.id)
+        graphRoutine(pointer, {
+          xMin: instance.windowBoundaries.width * 0.25,
+          xMax: instance.windowBoundaries.width * 0.75,
+          yMin: instance.windowBoundaries.height * 0.12,
+          yMax: instance.windowBoundaries.height * 0.77,
+        })
+        instance.pointers.set(p.id, pointer)
+      })
+
       break
     case 'captcha-spin':
-      console.log(message.args)
       if (message.args) {
         document.getElementById('pasUnRobot').classList.add('rotate-loop-fast')
       } else {
@@ -277,7 +289,7 @@ function handleTickUpdate(message) {
       if (pointer.id != 'samuel') {
         // resetRoutine(pointer)
       }
-      players.push(pointer)
+      // players.push(pointer)
     }
     if (!pointer.locked) {
       //Move messages are relative (e.g. 1px right, 2px down)
@@ -696,17 +708,18 @@ simulateMouseEvent = function (button, status, pointer) {
 simulateRightMouseUp = function (pointer) {
   const hasPaymentSucceeded = pay(pointer, 10)
   if (hasPaymentSucceeded) {
-    let bot = createBot(pointer.rasp + '_autoclicker')
+    let bot = createPointer(pointer.id + '_autoclicker_' + Date.now())
 
-    // this here is to correct a bug where the helper needs to know what's being hovered in order to decide
-    // what type of pointer should be displayed. a defaut de mieux je le hardcode voila voila
     bot.hoveredElementId = 'feed'
 
     resetRoutine(bot)
     console.log(bot)
-    instance.pointers.set(bot.id, bot)
+    bot.coords.y = pointer.coords.y + 10
+    bot.coords.x = pointer.coords.x + 10
+
     bots.push(bot)
-    moveInFrontOfCaptcha(instance.pointers.get(bot.id))
+
+    instance.pointers.set(bot.id, bot)
   }
 }
 
@@ -831,7 +844,7 @@ export const addToDataAttribute = function (element, attr, amount) {
   }
 }
 
-export const createPointer = function (id, bot = false) {
+const createPointer = function (id, bot = false) {
   return {
     id: id,
     rasp: getRasp(id),
@@ -848,7 +861,7 @@ export const createPointer = function (id, bot = false) {
     tree: null,
     killable: false,
     money: 0,
-    stock: { nwtech: 0, oilgs: 0, svrdbt: 0, realst: 0 },
+    stock: { nwtec: 0, oilgs: 0, svdbt: 0, rlest: 0 },
   }
 }
 function createBot(id) {

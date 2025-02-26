@@ -9,17 +9,17 @@ newY = 1
 Template.pasUnRobot.onCreated(function () {
   // refactor : this.state would be better, to avoid multi-state-bordels
   this.waiting = new ReactiveVar(false)
-  this.fleeing = new ReactiveVar(false)
+  // this.fleeing = new ReactiveVar(false)
   this.timestamp = new Date()
 
-  this.autorun(() => {
-    // Get the chosen item reactively
-    const chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
+  // this.autorun(() => {
+  //   // Get the chosen item reactively
+  //   const chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
 
-    if (chosenItem && this.fleeing.get()) {
-      updateCaptchaPosition(this)
-    }
-  })
+  //   if (chosenItem && this.fleeing.get()) {
+  //     updateCaptchaPosition(this)
+  //   }
+  // })
 
   const speedRatio = 0.9 - -this.data.readingSpeed * 0.05
   this.minReadingTime = estimateReadingTime(this.data.text) * speedRatio
@@ -60,10 +60,10 @@ Template.pasUnRobot.onRendered(function () {
 })
 
 Template.pasUnRobot.helpers({
-  isFleeing() {
-    console.log('fleeing changed!', Template.instance().fleeing.get())
-    return Template.instance().fleeing.get()
-  },
+  // isFleeing() {
+  //   console.log('fleeing changed!', Template.instance().fleeing.get())
+  //   return Template.instance().fleeing.get()
+  // },
   hasInteracted() {
     return Template.instance().waiting.get()
   },
@@ -166,46 +166,6 @@ unchoosePlayer = function (player) {
   }
 }
 
-makeCaptchaFlee = function () {
-  Blaze.getView(document.getElementById('pasUnRobot')).templateInstance().fleeing.set(true)
-}
-
-updateCaptchaPosition = function (t) {
-  const chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
-  const mouseCoords = chosenItem.coords
-  const captcha = document.getElementById('pasUnRobot')
-
-  const screenWidth = window.innerWidth
-  const screenHeight = window.innerHeight
-  const threshold = 50 // Distance at which the captcha starts moving away
-  const step = 5 // Pixels the captcha moves per frame
-
-  const rect = captcha.getBoundingClientRect()
-  const captchaX = rect.left + rect.width / 2
-  const captchaY = rect.top + rect.height / 2
-
-  const deltaX = captchaX - mouseCoords.x
-  const deltaY = captchaY - mouseCoords.y
-
-  const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2)
-  // console.log('delta', deltaX, deltaY)
-  // console.log('distance', distance)
-
-  if (distance < threshold) {
-    // Normalize movement direction
-    const moveX = (deltaX / distance) * step
-    const moveY = (deltaY / distance) * step
-
-    let newX = rect.left + moveX
-    let newY = rect.top + moveY
-
-    // Keep inside screen bounds
-    newX = Math.max(0, Math.min(screenWidth - rect.width, newX))
-    newY = Math.max(0, Math.min(screenHeight - rect.height, newY))
-
-    console.log(newX, newY)
-
-    document.getElementById('pasUnRobot').style.left = newX + 'px'
-    document.getElementById('pasUnRobot').style.top = newY + 'px'
-  }
-}
+// makeCaptchaFlee = function () {
+//   Blaze.getView(document.getElementById('pasUnRobot')).templateInstance().fleeing.set(true)
+// }

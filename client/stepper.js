@@ -21,10 +21,12 @@ function applyGravity(p) {
 
 function stepEventQueue(pointer) {
   //Whent the event queue is empty,
+
   if (pointer.events.length == 0) {
     if (pointer.bot && !pointer.locked) {
       //Bots get random commands
       getRandomIdleRoutine(pointer)
+      // console.log('empty queue')
       return
     } else {
       //Non-bots do nothing
@@ -80,6 +82,7 @@ function stepEventQueue(pointer) {
       pointer.opacity = lerp(event.from, event.to, t)
       break
     case 'move':
+      console.log('move!!')
       //Use the current coordinates for `from` and `to` if they have not been specified
       if (event.from == null) event.from = event.from = { ...pointer.coords }
       if (event.to == null) event.to = event.to = { ...pointer.coords }
