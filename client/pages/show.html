@@ -134,16 +134,15 @@
         {{/if}}
 
         {{#if hasNick}}
-          <span
-            class="ml-4 p-1 bg-black text-white rounded-lg absolute w-max transition-opacity text-xl {{
+          <div
+            class="ml-4 p-1 bg-black text-white rounded-lg absolute w-max transition-opacity text-xl hud {{
               areNamesHidden
             }}"
           >
+          <span id="money"> 0 </span>
             <!-- {{ this.nick }} -->
-              {{hud}}
-              {{this.money}}
             <!-- {{ this.rasp }}_{{ this.mouseBrand }} -->
-          </span>
+          </div>
 
           <span
             class="ml-6 -mt-9 b text-white rounded-lg absolute w-max transition-opacity text-xl {{

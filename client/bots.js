@@ -2,8 +2,6 @@ import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math
 
 import { pushToClientEventQueue } from '../client/stepper.js'
 
-import { streamer } from '../both/streamer.js'
-
 autoclickerIntervals = {}
 
 export const moveOffOfCaptcha = function (pointer) {

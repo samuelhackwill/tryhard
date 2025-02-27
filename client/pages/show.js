@@ -688,13 +688,9 @@ export const simulateMouseUp = function (pointer) {
   elements.forEach((e) => e.classList.remove('clicked'))
 
   // bonjour il faudrait un switch qui vérifie dans quel moment du spectacle on est, sinon on va faire gagner de l'argent aux gens quand ils cliquent sur les captchaaaasss on verra plus tard fuck go fuck
-  if (pointer.bot) {
-    // ownerPointer = instance.pointers.get(pointer.owner)
-    // ownerPointer.money = ownerPointer.money + 1
-    // instance.pointers.set(pointer.owner, ownerPointer)
-  } else {
-    pointer.money = pointer.money + 1
-  }
+  const DOMcounter = document.getElementById(pointer.id).querySelector('#money')
+  const DOMcounterValue = Number(DOMcounter.innerHTML) + 1
+  DOMcounter.innerHTML = DOMcounterValue
 }
 
 export const simulateMouseDown = function (pointer) {
@@ -1025,11 +1021,13 @@ isMouseDisabled = function (mouse) {
 }
 
 pay = function (author, amount) {
-  if (author.money < amount) {
+  money = Number(document.getElementById(author.id).querySelector('#money').innerHTML)
+  if (money < amount) {
     console.log('insufficient funds mate')
     return false
   } else {
-    author.money = author.money - amount
+    money = money - amount
+    document.getElementById(author.id).querySelector('#money').innerHTML = money
     return true
   }
 }
