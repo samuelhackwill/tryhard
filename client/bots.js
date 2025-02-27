@@ -467,6 +467,15 @@ export const playgroundRoutine = function (pointer) {
 export const arrangeInCircle = function (pointer) {}
 
 addFakePointer = function (bot) {
+  const _bot = bot
+  setInterval(() => {
+    DOMpointer = document.getElementById(_bot.owner)
+    cleanValue = DOMpointer.querySelector('#money').innerHTML.replace(/\s/g, '')
+    money = Number(cleanValue)
+
+    money = money + 1
+    DOMpointer.querySelector('#money').innerHTML = money.toLocaleString('fr-FR')
+  }, 400)
   const targetDiv = document.getElementById('pointersContainer')
 
   const svgHTML = `

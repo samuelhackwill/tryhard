@@ -53,7 +53,6 @@ function stepEventQueue(queue) {
   autoPlayCollector = []
   for (let i = queue.length - 1; i >= 0; i--) {
     // ok so maybe here we first get all clicker click farm events and merge them, or add them to a different queue, which is then iterated through to update all the pointers in batch
-
     if (queue[i].origin == 'autoplay') {
       handleAutoPlay(queue[i].payload)
     }

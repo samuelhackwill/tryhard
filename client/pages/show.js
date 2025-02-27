@@ -689,7 +689,8 @@ export const simulateMouseUp = function (pointer) {
 
   // bonjour il faudrait un switch qui vérifie dans quel moment du spectacle on est, sinon on va faire gagner de l'argent aux gens quand ils cliquent sur les captchaaaasss on verra plus tard fuck go fuck
   const DOMcounter = document.getElementById(pointer.id).querySelector('#money')
-  const DOMcounterValue = Number(DOMcounter.innerHTML) + 1
+  const cleanValue = DOMcounter.innerHTML.replace(/\s/g, '')
+  const DOMcounterValue = Number(cleanValue) + 1
   DOMcounter.innerHTML = DOMcounterValue
 }
 
@@ -1021,17 +1022,19 @@ isMouseDisabled = function (mouse) {
 }
 
 pay = function (author, amount) {
-  money = Number(document.getElementById(author.id).querySelector('#money').innerHTML)
+  cleanValue = document
+    .getElementById(author.id)
+    .querySelector('#money')
+    .innerHTML.replace(/\s/g, '')
+  money = Number(cleanValue)
+
   if (money < amount) {
     console.log('insufficient funds mate')
     return false
   } else {
     money = money - amount
-    document.getElementById(author.id).querySelector('#money').innerHTML = money
+    document.getElementById(author.id).querySelector('#money').innerHTML =
+      money.toLocaleString('fr-FR')
     return true
   }
-}
-
-spawnAutoClicker = function (author) {
-  console.log(author)
 }
