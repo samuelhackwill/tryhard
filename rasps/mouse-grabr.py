@@ -70,15 +70,16 @@ async def simulate_mouse_events(queue, num_devices):
                 "timestamp_rasp": int(round(time.time() * 1000))
             })
 
-        x_movement = 5
+    # init but don't move
+        # x_movement = 5
 
-        await queue.put({
-            "rasp": raspName,
-            "client": f"{raspName}_{device_name}",
-            "event_type": "motion",
-            "x": x_movement,
-            "y": 0,
-        })
+        # await queue.put({
+        #     "rasp": raspName,
+        #     "client": f"{raspName}_{device_name}",
+        #     "event_type": "motion",
+        #     "x": x_movement,
+        #     "y": 0,
+        # })
 
 
     tasks = [asyncio.create_task(generate_events(device)) for device in simulated_devices]

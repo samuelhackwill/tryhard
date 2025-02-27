@@ -1,5 +1,9 @@
 import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math-helpers.js'
 
+import { pushToClientEventQueue } from '../client/stepper.js'
+
+import { streamer } from '../both/streamer.js'
+
 autoclickerIntervals = {}
 
 export const moveOffOfCaptcha = function (pointer) {
@@ -380,29 +384,37 @@ export const axisRoutine = function (pointer, axisData) {
   pointer.events.push({ type: 'wait' })
 }
 
-export const autoClickerMine = function (pointer) {
-  pointer.events.push({
-    type: 'bufferClick',
-  })
-  pointer.events.push({
-    type: 'wait',
-    duration: 500,
-  })
+export const autoClickerMine = function (father, bot) {
+  const _father = father
+  const _bot = bot
+  setInterval(() => {
+    pushToClientEventQueue({
+      origin: 'autoplay',
+      payload: {
+        type: 'bufferClick',
+        owner: _father,
+        pointer: _bot,
+      },
+    })
+  }, 1000)
 }
 
-export const autoclickerSpawn = function (pointer) {
-  pointer.events = []
-  parentCoords = pointer.coords
+export const autoclickerSpawn = function (father, bot) {
+  parentCoords = father.coords
   newCoords = {
     x: parentCoords.x + randomBetween(-50, 50),
     y: parentCoords.y + randomBetween(-50, 50),
   }
-  pointer.events.push({
-    // first move not far from the pointer.
-    type: 'move',
-    from: null,
-    to: { x: newCoords.x, y: newCoords.y },
-    duration: 200,
+
+  pushToClientEventQueue({
+    origin: 'autoplay',
+    payload: {
+      type: 'move',
+      from: null,
+      to: { x: newCoords.x, y: newCoords.y },
+      duration: 200,
+      pointer: bot,
+    },
   })
 }
 

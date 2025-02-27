@@ -13,6 +13,7 @@ import {
   resetRoutine,
   graphRoutine,
   autoclickerSpawn,
+  autoClickerMine,
 } from '../bots.js'
 import { randomBetween } from '../../both/math-helpers.js'
 
@@ -709,7 +710,7 @@ simulateMouseEvent = function (button, status, pointer) {
 }
 
 simulateRightMouseUp = function (pointer) {
-  const hasPaymentSucceeded = pay(pointer, 10)
+  const hasPaymentSucceeded = pay(pointer, 1)
   if (hasPaymentSucceeded) {
     let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
 
@@ -717,20 +718,15 @@ simulateRightMouseUp = function (pointer) {
     bot.coords.y = pointer.coords.y + 10
     bot.coords.x = pointer.coords.x + 10
 
-    bots.push(bot)
-
+    // this is to create the pointer
     instance.pointers.set(bot.id, bot)
-    ;[...bots].forEach((p) => {
-      if ((p.id = bot.id)) {
-        pointer = instance.pointers.get(p.id)
-        autoclickerSpawn(pointer)
-        instance.pointers.set(p.id, pointer)
-      }
-    })
+    // this is to animate the pointer
+    autoclickerSpawn(pointer, bot)
+    autoClickerMine(pointer, bot)
   }
 }
 
-simulateMouseUp = function (pointer) {
+export const simulateMouseUp = function (pointer) {
   const elements = getElementsUnder(pointer)
   const domPointer = document.getElementById(pointer.id)
   domPointer.classList.remove('translate-y-[4%]')
@@ -744,15 +740,15 @@ simulateMouseUp = function (pointer) {
 
   // bonjour il faudrait un switch qui vérifie dans quel moment du spectacle on est, sinon on va faire gagner de l'argent aux gens quand ils cliquent sur les captchaaaasss on verra plus tard fuck go fuck
   if (pointer.bot) {
-    ownerPointer = instance.pointers.get(pointer.owner)
-    ownerPointer.money = ownerPointer.money + 1
-    instance.pointers.set(pointer.owner, ownerPointer)
+    // ownerPointer = instance.pointers.get(pointer.owner)
+    // ownerPointer.money = ownerPointer.money + 1
+    // instance.pointers.set(pointer.owner, ownerPointer)
   } else {
     pointer.money = pointer.money + 1
   }
 }
 
-simulateMouseDown = function (pointer) {
+export const simulateMouseDown = function (pointer) {
   const elements = getElementsUnder(pointer)
   const domPointer = document.getElementById(pointer.id)
   domPointer.classList.add('translate-y-[4%]')
@@ -788,7 +784,7 @@ function getElementsUnder(pointer) {
   return elements
 }
 
-function checkHover(pointer) {
+export const checkHover = function (pointer) {
   if (pointer.chosen == false) {
     // if pointer is deactivated, we don't want to trigger hover events when it's under a clickable element
     return
@@ -860,7 +856,7 @@ export const addToDataAttribute = function (element, attr, amount) {
   }
 }
 
-const createPointer = function (id, bot = false, _owner) {
+export const createPointer = function (id, bot = false, _owner) {
   return {
     id: id,
     rasp: getRasp(id),
@@ -1034,10 +1030,6 @@ isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
       return 'y-in-bounds'
     }
   }
-}
-
-function convertRemToPixels(rem) {
-  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
 }
 
 export const getMouseBrand = function (id, regexGroupOveride) {
