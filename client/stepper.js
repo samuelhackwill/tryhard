@@ -260,6 +260,7 @@ function handlePupitreAction(message) {
 function handleTickUpdate(message) {
   message.forEach((element, i) => {
     let pointer = instance.pointers.get(element.client)
+
     if (pointer == undefined) {
       // OK donc là il faut aussi vérifier si cette souris n'a pas été désactivée (c'est à dire que le siège devant la souris est innocupé)
       // lol d'ailleurs ça va être un délire pendant l'entrée public de regarder qui prend quelle souris. y'a des cowboys qui vont sans doute prendre la souris que j'ai pas prévu pour leur siège.
@@ -284,11 +285,11 @@ function handleTickUpdate(message) {
       instance.pointers.set(pointer.id, pointer)
     }
 
-    let DOMpointer = document.getElementById(pointer.id)
+    const DOMpointer = document.getElementById(pointer.id) || null
 
     const coords = {
-      x: Number(DOMpointer.getAttribute('data-x')),
-      y: Number(DOMpointer.getAttribute('data-y')),
+      x: Number(DOMpointer?.getAttribute('data-x')),
+      y: Number(DOMpointer?.getAttribute('data-y')),
     }
 
     if (!pointer.locked) {
@@ -346,7 +347,7 @@ function handleTickUpdate(message) {
 
       // here we need to update the DOM en fonction du dataset
 
-      let transform = DOMpointer.style.transform || ''
+      let transform = DOMpointer?.style.transform || ''
 
       // Remove any existing translate (optional if you want to overwrite it every time)
       transform = transform.replace(/translate\([^)]+\)/, '')
@@ -355,11 +356,13 @@ function handleTickUpdate(message) {
       transform = `${transform} translate(${coords.x}px, ${coords.y}px)`.trim()
 
       // Apply the updated transform
-      DOMpointer.style.transform = transform
+      if (DOMpointer) {
+        DOMpointer.style.transform = transform
 
-      // Also apply the updated data
-      DOMpointer.setAttribute('data-x', coords.x)
-      DOMpointer.setAttribute('data-y', coords.y)
+        // Also apply the updated data
+        DOMpointer.setAttribute('data-x', coords.x)
+        DOMpointer.setAttribute('data-y', coords.y)
+      }
 
       // check clicks
       if (element.buttonEvents.length > 0) {
@@ -386,7 +389,7 @@ function handleAutoPlay(message) {
   //Keep track of the elapsed time during this event (set it to 0 to start)
   if (!_message.elapsed) _message.elapsed = 0
   //Step it by a frame each frame (assuming constant 60fps)
-  _message.elapsed += 1000 / 60.0
+  _message.elapsed += 1000 / 64.0
 
   //Use t as a shorthand for the relative time elapsed in this event
   //t=0 at the start of the animation,
@@ -417,14 +420,40 @@ function handleAutoPlay(message) {
     //   break
 
     case 'move':
+      const DOMpointer = document.getElementById(pointer.id)
+      const coords = {
+        x: Number(DOMpointer.getAttribute('data-x')),
+        y: Number(DOMpointer.getAttribute('data-y')),
+      }
+      // console.log("message from ", _message.from, "message to ",  _message.to)
       //Use the current coordinates for `from` and `to` if they have not been specified
-      if (_message.from == null) _message.from = _message.from = { ...pointer.coords }
-      if (_message.to == null) _message.to = _message.to = { ...pointer.coords }
+      if (_message.from == null) _message.from = { ...coords }
+      if (_message.to == null) _message.to = { ...coords }
       //The position of the cursor at `t` is a linear interpolation between `from` and `to`
-      pointer.coords.x = lerp(_message.from.x, _message.to.x, t)
-      pointer.coords.y = lerp(_message.from.y, _message.to.y, t)
+      coords.x = lerp(_message.from.x, _message.to.x, t)
+      coords.y = lerp(_message.from.y, _message.to.y, t)
 
-      instance.pointers.set(pointer.id, pointer)
+      // update data and transform
+
+      // here we need to update the DOM en fonction du dataset
+
+      let transform = DOMpointer?.style.transform || ''
+
+      // Remove any existing translate (optional if you want to overwrite it every time)
+      transform = transform.replace(/translate\([^)]+\)/, '')
+
+      // Add the new translate
+      transform = `${transform} translate(${coords.x}px, ${coords.y}px)`.trim()
+
+      // Apply the updated transform
+      if (DOMpointer) {
+        DOMpointer.style.transform = transform
+
+        // Also apply the updated data
+        DOMpointer.setAttribute('data-x', coords.x)
+        DOMpointer.setAttribute('data-y', coords.y)
+      }
+
       break
 
     default:

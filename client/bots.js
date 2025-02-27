@@ -393,28 +393,120 @@ export const axisRoutine = function (pointer, axisData) {
 export const autoClickerMine = function (father, bot) {
   // okay let's go, destroy pointer and add html svg with animation
   // this is superb performance-wise
-  console.log(bot.id)
+  const _bot = bot
+  const botDOMpointer = document.getElementById(_bot.id)
+  const coords = {
+    x: Number(botDOMpointer.getAttribute('data-x')),
+    y: Number(botDOMpointer.getAttribute('data-y')),
+  }
+
+  setInterval(() => {
+    const DOMpointer = document.getElementById(_bot.owner)
+    const cleanValue = DOMpointer.querySelector('#money').innerHTML.replace(/\s/g, '')
+    let money = Number(cleanValue)
+
+    money = money + 1
+    DOMpointer.querySelector('#money').innerHTML = money.toLocaleString('fr-FR')
+  }, 400)
+
+  const targetDiv = document.getElementById('pointersContainer')
+
+  const svgHTML = `
+    <div 
+      style='position:absolute;
+      left:${coords.x}px;
+      top:${coords.y}px;
+      height:${instance.pointerHeight.get()}rem;
+      width:${instance.pointerWidth.get()}rem'
+      class="clic-animation autoclicker"
+    >
+      <svg
+        version="1.1"
+        id="pointerSvg"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="8 4.3 13 20"
+        enable-background="new 0 0 28 28"
+        xml:space="preserve"
+        style="width: 100%; height: 100%; filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.4))"
+      >
+        <polygon
+          class="transition-all duration-[10s]"
+          fill="white"
+          points="8.2,20.9 8.2,4.9 19.8,16.5 13,16.5 12.6,16.6 "
+        />
+        <polygon
+          class="transition-all duration-[10s]"
+          fill="white"
+          points="17.3,21.6 13.7,23.1 9,12 12.7,10.5 "
+        />
+        <rect
+          class="transition-all duration-[10s]"
+          fill="black"
+          x="12.5"
+          y="13.6"
+          transform="matrix(0.9221 -0.3871 0.3871 0.9221 -5.7605 6.5909)"
+          width="2"
+          height="8"
+        />
+        <polygon
+          class="transition-all duration-[10s]"
+          fill="black"
+          points="9.2,7.3 9.2,18.5 12.2,15.6 12.6,15.5 17.4,15.5 "
+        />
+      </svg>
+    </div>
+  `
+
+  targetDiv.insertAdjacentHTML('beforeend', svgHTML)
   instance.pointers.delete(bot.id)
-  addFakePointer(bot)
 }
 
 export const autoclickerSpawn = function (father, bot) {
-  parentCoords = father.coords
-  newCoords = {
-    x: parentCoords.x + randomBetween(-50, 50),
-    y: parentCoords.y + randomBetween(-50, 50),
+  // console.log(father)
+  const DOMpointer = document.getElementById(father.id)
+  parentCoords = {
+    x: Number(DOMpointer.getAttribute('data-x')),
+    y: Number(DOMpointer.getAttribute('data-y')),
   }
 
-  pushToClientEventQueue({
-    origin: 'autoplay',
-    payload: {
-      type: 'move',
-      from: null,
-      to: { x: newCoords.x, y: newCoords.y },
-      duration: 200,
-      pointer: bot,
-    },
-  })
+  // here we need to update the DOM en fonction du dataset
+  setTimeout(() => {
+    let botDOMpointer = document.getElementById(bot.id)
+    // console.log(botDOMpointer)
+    let transform = botDOMpointer.style.transform || ''
+
+    // Remove any existing translate (optional if you want to overwrite it every time)
+    transform = transform.replace(/translate\([^)]+\)/, '')
+
+    // Add the new translate
+    transform = `${transform} translate(${parentCoords.x}px, ${parentCoords.y}px)`.trim()
+
+    // Apply the updated transform
+    botDOMpointer.style.transform = transform
+
+    // Also apply the updated data
+    botDOMpointer.setAttribute('data-x', parentCoords.x)
+    botDOMpointer.setAttribute('data-y', parentCoords.y)
+
+    newCoords = {
+      x: parentCoords.x + randomBetween(-50, 50),
+      y: parentCoords.y + randomBetween(-50, 50),
+    }
+
+    pushToClientEventQueue({
+      origin: 'autoplay',
+      payload: {
+        type: 'move',
+        from: null,
+        to: { x: newCoords.x, y: newCoords.y },
+        duration: 200,
+        pointer: bot,
+      },
+    })
+  }, 16)
 }
 
 export const graphRoutine = function (pointer, graphData) {
@@ -465,67 +557,3 @@ export const playgroundRoutine = function (pointer) {
 }
 
 export const arrangeInCircle = function (pointer) {}
-
-addFakePointer = function (bot) {
-  const _bot = bot
-  setInterval(() => {
-    DOMpointer = document.getElementById(_bot.owner)
-    cleanValue = DOMpointer.querySelector('#money').innerHTML.replace(/\s/g, '')
-    money = Number(cleanValue)
-
-    money = money + 1
-    DOMpointer.querySelector('#money').innerHTML = money.toLocaleString('fr-FR')
-  }, 400)
-  const targetDiv = document.getElementById('pointersContainer')
-
-  const svgHTML = `
-    <div 
-      style='position:absolute;
-      left:${bot.coords.x}px;
-      top:${bot.coords.y}px;
-      height:${instance.pointerHeight.get()}rem;
-      width:${instance.pointerWidth.get()}rem'
-      class="clic-animation autoclicker"
-    >
-      <svg
-        version="1.1"
-        id="pointerSvg"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        x="0px"
-        y="0px"
-        viewBox="8 4.3 13 20"
-        enable-background="new 0 0 28 28"
-        xml:space="preserve"
-        style="width: 100%; height: 100%; filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.4))"
-      >
-        <polygon
-          class="transition-all duration-[10s]"
-          fill="white"
-          points="8.2,20.9 8.2,4.9 19.8,16.5 13,16.5 12.6,16.6 "
-        />
-        <polygon
-          class="transition-all duration-[10s]"
-          fill="white"
-          points="17.3,21.6 13.7,23.1 9,12 12.7,10.5 "
-        />
-        <rect
-          class="transition-all duration-[10s]"
-          fill="black"
-          x="12.5"
-          y="13.6"
-          transform="matrix(0.9221 -0.3871 0.3871 0.9221 -5.7605 6.5909)"
-          width="2"
-          height="8"
-        />
-        <polygon
-          class="transition-all duration-[10s]"
-          fill="black"
-          points="9.2,7.3 9.2,18.5 12.2,15.6 12.6,15.5 17.4,15.5 "
-        />
-      </svg>
-    </div>
-  `
-
-  targetDiv.insertAdjacentHTML('beforeend', svgHTML)
-}

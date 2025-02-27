@@ -217,98 +217,98 @@ function handlePupitreAction(message) {
   }
 }
 
-function handleTickUpdate(message) {
-  message.forEach((element, i) => {
-    let pointer = instance.pointers.get(element.client)
-    if (pointer == undefined) {
-      // OK donc là il faut aussi vérifier si cette souris n'a pas été désactivée (c'est à dire que le siège devant la souris est innocupé)
-      // lol d'ailleurs ça va être un délire pendant l'entrée public de regarder qui prend quelle souris. y'a des cowboys qui vont sans doute prendre la souris que j'ai pas prévu pour leur siège.
+// function handleTickUpdate(message) {
+//   message.forEach((element, i) => {
+//     let pointer = instance.pointers.get(element.client)
+//     if (pointer == undefined) {
+//       // OK donc là il faut aussi vérifier si cette souris n'a pas été désactivée (c'est à dire que le siège devant la souris est innocupé)
+//       // lol d'ailleurs ça va être un délire pendant l'entrée public de regarder qui prend quelle souris. y'a des cowboys qui vont sans doute prendre la souris que j'ai pas prévu pour leur siège.
 
-      // donc on appelle le serveur pour savoir si la souris est cancel et pi cé tou
-      const canceled = isMouseDisabled(element)
-      if (canceled) {
-        return
-      }
+//       // donc on appelle le serveur pour savoir si la souris est cancel et pi cé tou
+//       const canceled = isMouseDisabled(element)
+//       if (canceled) {
+//         return
+//       }
 
-      pointer = createPointer(element.client)
-      pointer.coords.y = i * 15
-      pointer.coords.x = i * 2
-      //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
-      if (pointer.id != 'samuel') {
-        // resetRoutine(pointer)
-      }
-      // players.push(pointer)
-    }
-    if (!pointer.locked) {
-      //Move messages are relative (e.g. 1px right, 2px down)
-      //Apply that change to the coords
-      switch (
-        isInWindowBoundaries(
-          'x',
-          pointer.coords.x,
-          element.x,
-          convertRemToPixels(instance.pointerWidth.get()),
-        )
-      ) {
-        case 'x-in-bounds':
-          pointer.coords.x += element.x
-          break
-        case 'overflow-right':
-          pointer.coords.x =
-            instance.windowBoundaries.width - convertRemToPixels(instance.pointerWidth.get())
-          break
-        case 'overflow-left':
-          pointer.coords.x = 0
-          break
+//       pointer = createPointer(element.client)
+//       pointer.coords.y = i * 15
+//       pointer.coords.x = i * 2
+//       //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
+//       if (pointer.id != 'samuel') {
+//         // resetRoutine(pointer)
+//       }
+//       // players.push(pointer)
+//     }
+//     if (!pointer.locked) {
+//       //Move messages are relative (e.g. 1px right, 2px down)
+//       //Apply that change to the coords
+//       switch (
+//         isInWindowBoundaries(
+//           'x',
+//           pointer.coords.x,
+//           element.x,
+//           convertRemToPixels(instance.pointerWidth.get()),
+//         )
+//       ) {
+//         case 'x-in-bounds':
+//           pointer.coords.x += element.x
+//           break
+//         case 'overflow-right':
+//           pointer.coords.x =
+//             instance.windowBoundaries.width - convertRemToPixels(instance.pointerWidth.get())
+//           break
+//         case 'overflow-left':
+//           pointer.coords.x = 0
+//           break
 
-        default:
-          break
-      }
+//         default:
+//           break
+//       }
 
-      switch (
-        isInWindowBoundaries(
-          'y',
-          pointer.coords.y,
-          element.y,
-          convertRemToPixels(instance.pointerHeight.get()),
-        )
-      ) {
-        case 'y-in-bounds':
-          pointer.coords.y += element.y
-          break
-        case 'overflow-bottom':
-          pointer.coords.y =
-            instance.windowBoundaries.height - convertRemToPixels(instance.pointerHeight.get())
-          break
-        case 'overflow-top':
-          pointer.coords.y = 0
-          break
+//       switch (
+//         isInWindowBoundaries(
+//           'y',
+//           pointer.coords.y,
+//           element.y,
+//           convertRemToPixels(instance.pointerHeight.get()),
+//         )
+//       ) {
+//         case 'y-in-bounds':
+//           pointer.coords.y += element.y
+//           break
+//         case 'overflow-bottom':
+//           pointer.coords.y =
+//             instance.windowBoundaries.height - convertRemToPixels(instance.pointerHeight.get())
+//           break
+//         case 'overflow-top':
+//           pointer.coords.y = 0
+//           break
 
-        default:
-          break
-      }
+//         default:
+//           break
+//       }
 
-      // check clicks
-      if (element.buttonEvents.length > 0) {
-        for (let x = 0; x < element.buttonEvents.length; x++) {
-          simulateMouseEvent(element.buttonEvents[x].code, element.buttonEvents[x].value, pointer)
-        }
-      }
+//       // check clicks
+//       if (element.buttonEvents.length > 0) {
+//         for (let x = 0; x < element.buttonEvents.length; x++) {
+//           simulateMouseEvent(element.buttonEvents[x].code, element.buttonEvents[x].value, pointer)
+//         }
+//       }
 
-      //Save the pointer
-      instance.pointers.set(pointer.id, pointer)
+//       //Save the pointer
+//       instance.pointers.set(pointer.id, pointer)
 
-      //quand on bouge un pointeur, ça en fait automatiquement le pointeur le plus élevé et le plus au-dessus.
-      // global_z_index = global_z_index + 1
-      // if (document.getElementById(pointer.id)) {
-      //   document.getElementById(pointer.id).style.zIndex = global_z_index
-      // }
+//       //quand on bouge un pointeur, ça en fait automatiquement le pointeur le plus élevé et le plus au-dessus.
+//       // global_z_index = global_z_index + 1
+//       // if (document.getElementById(pointer.id)) {
+//       //   document.getElementById(pointer.id).style.zIndex = global_z_index
+//       // }
 
-      // check hover
-      checkHover(pointer)
-    }
-  })
-}
+//       // check hover
+//       checkHover(pointer)
+//     }
+//   })
+// }
 
 Template.show.helpers({
   isChosen() {
@@ -657,12 +657,9 @@ simulateRightMouseUp = function (pointer) {
   const hasPaymentSucceeded = pay(pointer, 1)
   if (hasPaymentSucceeded) {
     let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
-
     bot.hoveredElementId = 'feed'
-    bot.coords.y = pointer.coords.y + 10
-    bot.coords.x = pointer.coords.x + 10
-
     const _pointer = pointer
+    const _bot = bot
 
     // this is to create the pointer
     instance.pointers.set(bot.id, bot)
@@ -670,16 +667,40 @@ simulateRightMouseUp = function (pointer) {
     autoclickerSpawn(pointer, bot)
 
     setTimeout(() => {
-      autoClickerMine(_pointer, bot)
-    }, 200)
+      autoClickerMine(_pointer, _bot)
+    }, 250)
   }
 }
 
 export const simulateMouseUp = function (pointer) {
-  const elements = getElementsUnder(pointer)
   const domPointer = document.getElementById(pointer.id)
-  domPointer.classList.remove('translate-y-[4%]')
 
+  const transform = window.getComputedStyle(domPointer).transform
+
+  let translateX = 0,
+    translateY = 0
+
+  if (transform && transform !== 'none') {
+    const matrixValues = transform.match(/matrix\(([^)]+)\)/)
+
+    if (matrixValues) {
+      const values = matrixValues[1].split(',').map(parseFloat)
+
+      if (values.length === 6) {
+        // 2D matrix case: matrix(a, b, c, d, tx, ty)
+        translateX = values[4]
+        translateY = values[5]
+      }
+    }
+  }
+
+  // Add 4 pixels to the Y translation
+  translateY -= 2
+
+  // Apply the new transform
+  domPointer.style.transform = `translate(${translateX}px, ${translateY}px)`
+
+  const elements = getElementsUnder(pointer)
   if (elements.length == 0) return
 
   for (element of elements) {
@@ -688,7 +709,7 @@ export const simulateMouseUp = function (pointer) {
   elements.forEach((e) => e.classList.remove('clicked'))
 
   // bonjour il faudrait un switch qui vérifie dans quel moment du spectacle on est, sinon on va faire gagner de l'argent aux gens quand ils cliquent sur les captchaaaasss on verra plus tard fuck go fuck
-  const DOMcounter = document.getElementById(pointer.id).querySelector('#money')
+  const DOMcounter = domPointer.querySelector('#money')
   const cleanValue = DOMcounter.innerHTML.replace(/\s/g, '')
   const DOMcounterValue = Number(cleanValue) + 1
   DOMcounter.innerHTML = DOMcounterValue
@@ -697,7 +718,31 @@ export const simulateMouseUp = function (pointer) {
 export const simulateMouseDown = function (pointer) {
   const elements = getElementsUnder(pointer)
   const domPointer = document.getElementById(pointer.id)
-  domPointer.classList.add('translate-y-[4%]')
+
+  const transform = window.getComputedStyle(domPointer).transform
+
+  let translateX = 0,
+    translateY = 0
+
+  if (transform && transform !== 'none') {
+    const matrixValues = transform.match(/matrix\(([^)]+)\)/)
+
+    if (matrixValues) {
+      const values = matrixValues[1].split(',').map(parseFloat)
+
+      if (values.length === 6) {
+        // 2D matrix case: matrix(a, b, c, d, tx, ty)
+        translateX = values[4]
+        translateY = values[5]
+      }
+    }
+  }
+
+  // Add 4 pixels to the Y translation
+  translateY += 2
+
+  // Apply the new transform
+  domPointer.style.transform = `translate(${translateX}px, ${translateY}px)`
 
   if (elements.length == 0) return
   for (element of elements) {
@@ -719,15 +764,23 @@ export const simulateMouseDown = function (pointer) {
 }
 
 function getElementsUnder(pointer) {
-  let elements = document.elementsFromPoint(pointer.coords.x, pointer.coords.y)
+  const DOMpointer = document.getElementById(pointer.id)
+  if (!DOMpointer == null || !DOMpointer == undefined) {
+    const coords = {
+      x: Number(DOMpointer.getAttribute('data-x')),
+      y: Number(DOMpointer.getAttribute('data-y')),
+    }
+    let elements = document.elementsFromPoint(coords.x, coords.y)
 
-  //Ignore elements without an id
-  elements = elements.filter((e) => e.id != '')
-  //Ignore the pointer itself
-  elements = elements.filter((e) => e.id != 'pointer' + pointer.id)
-  elements = elements.filter((e) => e.id != 'pointerSvg')
-
-  return elements
+    //Ignore elements without an id
+    elements = elements.filter((e) => e.id != '')
+    //Ignore the pointer itself
+    elements = elements.filter((e) => e.id != 'pointer' + pointer.id)
+    elements = elements.filter((e) => e.id != 'pointerSvg')
+    return elements
+  } else {
+    return [document.getElementById('feed')]
+  }
 }
 
 export const checkHover = function (pointer) {
@@ -809,7 +862,7 @@ export const createPointer = function (id, bot = false, _owner) {
     mouseBrand: getMouseBrand(id),
     bgColor: '#000000',
     outlineColor: '#FFFFFF',
-    coords: { x: 0, y: 0 },
+    coords: { x: -20, y: -20 },
     events: [],
     bot: bot,
     owner: _owner || null,
@@ -821,6 +874,7 @@ export const createPointer = function (id, bot = false, _owner) {
     killable: false,
     money: 0,
     stock: { nwtec: 0, oilgs: 0, svdbt: 0, rlest: 0 },
+    hoveredElementId: 'feed',
   }
 }
 function createBot(id, isBot, owner) {
