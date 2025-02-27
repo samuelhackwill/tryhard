@@ -11,20 +11,24 @@ export const moveOffOfCaptcha = function (pointer) {
   const inFirstQuarter = Math.random() < 0.5
 
   // Generate X coordinate within 5%-25% OR 75%-95% of width
-  const x = inFirstQuarter
+  const _x = inFirstQuarter
     ? Math.random() * (window.innerWidth * 0.2) + window.innerWidth * 0.05 // Between 5% - 25%
     : Math.random() * (window.innerWidth * 0.2) + window.innerWidth * 0.75 // Between 75% - 95%
 
   // Generate Y coordinate between 5% - 95% of height
-  const y = Math.random() * (window.innerHeight * 0.9) + window.innerHeight * 0.05
+  const _y = Math.random() * (window.innerHeight * 0.9) + window.innerHeight * 0.05
 
-  pointer.events.push({
-    type: 'move',
-    duration: 1000,
-    from: null,
-    to: {
-      x: Math.floor(x),
-      y: Math.floor(y),
+  pushToClientEventQueue({
+    origin: 'autoplay',
+    payload: {
+      type: 'move',
+      from: null,
+      to: {
+        x: Math.floor(_x),
+        y: Math.floor(_y),
+      },
+      duration: 1000,
+      pointer: pointer,
     },
   })
 }
@@ -34,11 +38,15 @@ export const moveInFrontOfCaptcha = function (pointer) {
   // get catpcha height
   // position yourself at x pixels below dat captcha
 
-  pointer.events.push({
-    type: 'move',
-    duration: 1000,
-    from: null,
-    to: { x: window.innerWidth / 2, y: (window.innerHeight / 4) * 3 },
+  pushToClientEventQueue({
+    origin: 'autoplay',
+    payload: {
+      type: 'move',
+      from: null,
+      to: { x: window.innerWidth / 2, y: (window.innerHeight / 4) * 3 },
+      duration: 1000,
+      pointer: pointer,
+    },
   })
 }
 
@@ -386,6 +394,7 @@ export const axisRoutine = function (pointer, axisData) {
 
 export const autoClickerMine = function (father, bot) {
   // okay let's go, destroy pointer and add html svg with animation
+  // this is superb performance-wise
   console.log(bot.id)
   instance.pointers.delete(bot.id)
   addFakePointer(bot)
@@ -460,7 +469,6 @@ export const playgroundRoutine = function (pointer) {
 export const arrangeInCircle = function (pointer) {}
 
 addFakePointer = function (bot) {
-  console.log(bot)
   const targetDiv = document.getElementById('pointersContainer')
 
   const svgHTML = `

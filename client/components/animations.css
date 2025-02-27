@@ -118,17 +118,15 @@
 }
 
 @keyframes clicStep {
-  0% {
-    transform: translateY(0);
-  }
-  75% {
+  0%,
+  50% {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(4px);
+    transform: translateY(5px);
   }
 }
 
 .clic-animation {
-  animation: clicStep 1s steps(2, end) infinite alternate;
+  animation: clicStep 0.2s steps(2, end) infinite alternate;
 }

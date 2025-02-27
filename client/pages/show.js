@@ -25,13 +25,10 @@ import { animateMiniClocks } from '../components/clock.js'
 
 import { disabledMice } from '../../both/disabledMice.js'
 
-import { removeTimeouts } from '../components/pasUnRobot.js'
-
 let eventQueue = []
 let pointers = []
 let bots = []
 let players = []
-let catpchaTemplateContainer = []
 
 let global_z_index = 1
 
@@ -122,60 +119,7 @@ function handlePupitreAction(message) {
       })
 
       break
-    case 'captcha-spin':
-      if (message.args) {
-        document.getElementById('pasUnRobot').classList.add('rotate-loop-fast')
-      } else {
-        document.getElementById('pasUnRobot').classList.add('rotate-loop')
-      }
-      break
-    case 'cancelCaptchaTimeouts':
-      removeTimeouts()
-      break
-    case 'killCaptchas':
-      // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
-      removeTimeouts()
-      const element = document.getElementById('pasUnRobot')
-      element.style.opacity = 0
 
-      Meteor.setTimeout(function () {
-        catpchaTemplateContainer.forEach((captcha) => {
-          Blaze.remove(captcha)
-        })
-      }, parseFloat(getComputedStyle(element).transitionDuration) * 1000)
-      break
-    case 'unchoosePlayers':
-      Object.values(instance.pointers.all()).forEach((obj) => {
-        _pointer = instance.pointers.get(obj.id)
-        _pointer.chosen = undefined
-        instance.pointers.set(obj.id, _pointer)
-      })
-      break
-    case 'choosePlayer':
-      Object.values(instance.pointers.all()).forEach((obj) => {
-        let transformedId = getRasp(obj.id) + '_' + getMouseBrand(obj.id)
-        _pointer = instance.pointers.get(obj.id)
-        _pointer.chosen = transformedId === message.args
-
-        if (transformedId === message.args) {
-          moveInFrontOfCaptcha(_pointer)
-        }
-
-        instance.pointers.set(obj.id, _pointer)
-      })
-      break
-    case 'newCaptcha-1j':
-      catpchaTemplateContainer.push(
-        Blaze.renderWithData(
-          Template.pasUnRobot,
-          message.args,
-          document.getElementsByClassName('milieuContainer')[0],
-        ),
-      )
-      break
-    case 'showNicks':
-      instance.areNamesHidden.set(false)
-      break
     case 'togglePointers':
       _trueOrFalse = instance.arePointersHidden.get()
       _hidden = !_trueOrFalse

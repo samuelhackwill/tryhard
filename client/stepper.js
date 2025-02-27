@@ -1,16 +1,20 @@
 import { lerp, peakAtHalf, clampPointToArea, convertRemToPixels } from '../both/math-helpers.js'
 import { ValueNoise } from 'value-noise-js'
-import { autoClickerMine } from './bots.js'
+import { autoClickerMine, moveInFrontOfCaptcha, moveOffOfCaptcha } from './bots.js'
 import { streamer } from '../both/streamer.js'
+import { removeTimeouts } from './components/pasUnRobot.js'
 
 import {
   createPointer,
   checkHover,
   simulateMouseDown,
   simulateMouseUp,
+  getRasp,
+  getMouseBrand,
 } from '../client/pages/show.js'
 
 let clientEventQueue = []
+let catpchaTemplateContainer = []
 
 const noise = new ValueNoise()
 
@@ -46,7 +50,10 @@ function stepEventQueue(queue) {
     return
   }
   timestampStart = Date.now()
+  autoPlayCollector = []
   for (let i = queue.length - 1; i >= 0; i--) {
+    // ok so maybe here we first get all clicker click farm events and merge them, or add them to a different queue, which is then iterated through to update all the pointers in batch
+
     if (queue[i].origin == 'autoplay') {
       handleAutoPlay(queue[i].payload)
     }
@@ -196,6 +203,57 @@ function handlePupitreAction(message) {
     case 'showNicks':
       instance.areNamesHidden.set(false)
       break
+    case 'captcha-spin':
+      if (message.args) {
+        document.getElementById('pasUnRobot').classList.add('rotate-loop-fast')
+      } else {
+        document.getElementById('pasUnRobot').classList.add('rotate-loop')
+      }
+      break
+    case 'cancelCaptchaTimeouts':
+      removeTimeouts()
+      break
+    case 'killCaptchas':
+      // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
+      removeTimeouts()
+      const element = document.getElementById('pasUnRobot')
+      element.style.opacity = 0
+
+      Meteor.setTimeout(function () {
+        catpchaTemplateContainer.forEach((captcha) => {
+          Blaze.remove(captcha)
+        })
+      }, parseFloat(getComputedStyle(element).transitionDuration) * 1000)
+      break
+    case 'unchoosePlayers':
+      Object.values(instance.pointers.all()).forEach((obj) => {
+        _pointer = instance.pointers.get(obj.id)
+        _pointer.chosen = undefined
+        instance.pointers.set(obj.id, _pointer)
+      })
+      break
+    case 'choosePlayer':
+      Object.values(instance.pointers.all()).forEach((obj) => {
+        let transformedId = getRasp(obj.id) + '_' + getMouseBrand(obj.id)
+        _pointer = instance.pointers.get(obj.id)
+        _pointer.chosen = transformedId === message.args
+
+        if (transformedId === message.args) {
+          moveInFrontOfCaptcha(_pointer)
+        }
+
+        instance.pointers.set(obj.id, _pointer)
+      })
+      break
+    case 'newCaptcha-1j':
+      catpchaTemplateContainer.push(
+        Blaze.renderWithData(
+          Template.pasUnRobot,
+          message.args,
+          document.getElementsByClassName('milieuContainer')[0],
+        ),
+      )
+      break
   }
   return
 }
@@ -322,12 +380,12 @@ function handleAutoPlay(message) {
       //console.log("waiting " + ((event.elapsed/event.duration) * 100) + "%")
       break
 
-    case 'bufferClick':
-      simulateMouseDown(pointer)
-      setTimeout(() => {
-        simulateMouseUp(pointer)
-      }, 150)
-      break
+    // case 'bufferClick':
+    //   simulateMouseDown(pointer)
+    //   setTimeout(() => {
+    //     simulateMouseUp(pointer)
+    //   }, 150)
+    //   break
 
     case 'move':
       //Use the current coordinates for `from` and `to` if they have not been specified
