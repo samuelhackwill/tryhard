@@ -765,7 +765,8 @@ export const simulateMouseDown = function (pointer) {
 
 function getElementsUnder(pointer) {
   const DOMpointer = document.getElementById(pointer.id)
-  if (!DOMpointer == null || !DOMpointer == undefined) {
+  console.log(DOMpointer)
+  if (DOMpointer != null) {
     const coords = {
       x: Number(DOMpointer.getAttribute('data-x')),
       y: Number(DOMpointer.getAttribute('data-y')),
@@ -779,6 +780,10 @@ function getElementsUnder(pointer) {
     elements = elements.filter((e) => e.id != 'pointerSvg')
     return elements
   } else {
+    // ok so this is hacky. when we're initializing the pointer,
+    // it's probably not possible to access the DOM. so we're just
+    // telling checkHover that the pointer is hovering the feed.
+    // see you later unintended consequences
     return [document.getElementById('feed')]
   }
 }
