@@ -862,7 +862,7 @@ export const createPointer = function (id, bot = false, _owner) {
     mouseBrand: getMouseBrand(id),
     bgColor: '#000000',
     outlineColor: '#FFFFFF',
-    coords: { x: -20, y: -20 },
+    initializationCoords: { x: -50, y: -50 },
     events: [],
     bot: bot,
     owner: _owner || null,
