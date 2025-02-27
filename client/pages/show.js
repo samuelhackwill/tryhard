@@ -718,11 +718,16 @@ simulateRightMouseUp = function (pointer) {
     bot.coords.y = pointer.coords.y + 10
     bot.coords.x = pointer.coords.x + 10
 
+    const _pointer = pointer
+
     // this is to create the pointer
     instance.pointers.set(bot.id, bot)
     // this is to animate the pointer
     autoclickerSpawn(pointer, bot)
-    autoClickerMine(pointer, bot)
+
+    setTimeout(() => {
+      autoClickerMine(_pointer, bot)
+    }, 200)
   }
 }
 

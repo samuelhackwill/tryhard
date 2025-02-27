@@ -385,18 +385,10 @@ export const axisRoutine = function (pointer, axisData) {
 }
 
 export const autoClickerMine = function (father, bot) {
-  const _father = father
-  const _bot = bot
-  setInterval(() => {
-    pushToClientEventQueue({
-      origin: 'autoplay',
-      payload: {
-        type: 'bufferClick',
-        owner: _father,
-        pointer: _bot,
-      },
-    })
-  }, 1000)
+  // okay let's go, destroy pointer and add html svg with animation
+  console.log(bot.id)
+  instance.pointers.delete(bot.id)
+  addFakePointer(bot)
 }
 
 export const autoclickerSpawn = function (father, bot) {
@@ -466,3 +458,59 @@ export const playgroundRoutine = function (pointer) {
 }
 
 export const arrangeInCircle = function (pointer) {}
+
+addFakePointer = function (bot) {
+  console.log(bot)
+  const targetDiv = document.getElementById('pointersContainer')
+
+  const svgHTML = `
+    <div 
+      style='position:absolute;
+      left:${bot.coords.x}px;
+      top:${bot.coords.y}px;
+      height:${instance.pointerHeight.get()}rem;
+      width:${instance.pointerWidth.get()}rem'
+      class="clic-animation autoclicker"
+    >
+      <svg
+        version="1.1"
+        id="pointerSvg"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="8 4.3 13 20"
+        enable-background="new 0 0 28 28"
+        xml:space="preserve"
+        style="width: 100%; height: 100%; filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.4))"
+      >
+        <polygon
+          class="transition-all duration-[10s]"
+          fill="white"
+          points="8.2,20.9 8.2,4.9 19.8,16.5 13,16.5 12.6,16.6 "
+        />
+        <polygon
+          class="transition-all duration-[10s]"
+          fill="white"
+          points="17.3,21.6 13.7,23.1 9,12 12.7,10.5 "
+        />
+        <rect
+          class="transition-all duration-[10s]"
+          fill="black"
+          x="12.5"
+          y="13.6"
+          transform="matrix(0.9221 -0.3871 0.3871 0.9221 -5.7605 6.5909)"
+          width="2"
+          height="8"
+        />
+        <polygon
+          class="transition-all duration-[10s]"
+          fill="black"
+          points="9.2,7.3 9.2,18.5 12.2,15.6 12.6,15.5 17.4,15.5 "
+        />
+      </svg>
+    </div>
+  `
+
+  targetDiv.insertAdjacentHTML('beforeend', svgHTML)
+}
