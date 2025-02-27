@@ -1,7 +1,6 @@
 import asyncio
 from evdev import InputDevice, ecodes
 import glob
-import random
 import websockets
 import socket
 import json
@@ -30,33 +29,56 @@ def brand_priority(device_name):
         return 3  # Other brands in between
     
 async def simulate_mouse_events(queue, num_devices):
-    """Simulate mouse events from four virtual devices."""
-    simulated_devices = [f"bot-{i}_" for i in range(1, num_devices+1)]
+    """Simulate mouse events from virtual devices with structured Y then X movement."""
+    simulated_devices = [f"bot-{i}_" for i in range(1, num_devices + 1)]
     print(f"Simulating {len(simulated_devices)} devices...")
 
-    async def send_device_update():
-        """Periodically send device update messages with the list of simulated devices."""
-        while True:
-            await asyncio.sleep(10)  # Send update every 10 seconds
-            await queue.put({
-                "rasp": raspName,
-                "event_type": "device_update",
-                "connected_mice": simulated_devices,
-            })
+    # Send initial device update
+    await queue.put({
+        "rasp": raspName,
+        "event_type": "device_update",
+        "connected_mice": simulated_devices,
+    })
 
+    # Initialize positions
+    target_positions = {device: (index + 1) * 3 for index, device in enumerate(simulated_devices)}
+    current_positions = {device: 0 for device in simulated_devices}  
+
+    # Move each device until it reaches its Y target
+    movement_complete = {device: False for device in simulated_devices}
+
+    while not all(movement_complete.values()):
+        for device in simulated_devices:
+            if not movement_complete[device]:
+                step_size = (simulated_devices.index(device) + 1)  # 1px for first, 2px for second, etc.
+                current_positions[device] += step_size
+                
+                if current_positions[device] >= target_positions[device]:
+                    current_positions[device] = target_positions[device]
+                    movement_complete[device] = True  # Stop moving this device in Y
+
+                await queue.put({
+                    "rasp": raspName,
+                    "client": f"{raspName}_{device}",
+                    "event_type": "motion",
+                    "x": 0,
+                    "y": current_positions[device],
+                    "timestamp_rasp": int(round(time.time() * 1000))
+                })
+
+        await asyncio.sleep(1 / 60)  # 60 FPS
+
+    # After reaching the Y target, start X movement
     async def generate_events(device_name):
         direction = 1  # 1 for right, -1 for left
-        distance = 0  # Tracks the current distance moved in the current direction
-        max_distance = 1500  # Maximum distance to move in one direction
+        distance = 0  
+        max_distance = 1500  
 
         while True:
             await asyncio.sleep(1 / 60)  # 60 Hz
-
-            # Move by 10 pixels per frame in the current direction
             x_movement = direction * 5
             distance += abs(x_movement)
 
-            # Reverse direction if the max distance is reached
             if distance >= max_distance:
                 direction *= -1
                 distance = 0
@@ -66,25 +88,13 @@ async def simulate_mouse_events(queue, num_devices):
                 "client": f"{raspName}_{device_name}",
                 "event_type": "motion",
                 "x": x_movement,
-                "y": 0,  # No vertical movement
+                "y": 0,  
                 "timestamp_rasp": int(round(time.time() * 1000))
             })
 
-    # init but don't move
-        # x_movement = 5
-
-        # await queue.put({
-        #     "rasp": raspName,
-        #     "client": f"{raspName}_{device_name}",
-        #     "event_type": "motion",
-        #     "x": x_movement,
-        #     "y": 0,
-        # })
-
-
+    # Start X movement for all devices
     tasks = [asyncio.create_task(generate_events(device)) for device in simulated_devices]
-    device_update_task = asyncio.create_task(send_device_update())
-    await asyncio.gather(*tasks, device_update_task)
+    await asyncio.gather(*tasks)
 
 
 async def send_to_websocket(queue, server_uri):

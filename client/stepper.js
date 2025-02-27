@@ -50,7 +50,6 @@ function stepEventQueue(queue) {
     return
   }
   timestampStart = Date.now()
-  autoPlayCollector = []
   for (let i = queue.length - 1; i >= 0; i--) {
     // ok so maybe here we first get all clicker click farm events and merge them, or add them to a different queue, which is then iterated through to update all the pointers in batch
     if (queue[i].origin == 'autoplay') {
@@ -65,7 +64,8 @@ function stepEventQueue(queue) {
 
     // remove event from queue
     queue.splice(i, 1)
-
+    // console.log('remove ', removed)
+    console.log(queue)
     if (i == 0) {
       let timestampEnd = Date.now()
       if (timestampEnd - timestampStart > 16) {
@@ -74,19 +74,6 @@ function stepEventQueue(queue) {
     }
   }
   return
-
-  if (pointer.events.length == 0) {
-    if (pointer.bot && !pointer.locked) {
-      //Bots NEED TO MINE!
-      autoClickerMine(pointer)
-      // getRandomIdleRoutine(pointer)
-      // console.log('empty queue')
-      return
-    } else {
-      //Non-bots do nothing
-      return
-    }
-  }
 
   //Get the first event in the queue
   let event = pointer.events.shift()
@@ -99,7 +86,7 @@ function stepEventQueue(queue) {
   //Use t as a shorthand for the relative time elapsed in this event
   //t=0 at the start of the animation,
   //t=1 at the end of the animation
-  let t
+  // let t
   if (event.duration) {
     t = event.elapsed / event.duration
   } else if (event.type == 'wait') {
@@ -273,8 +260,6 @@ function handleTickUpdate(message) {
 
       pointer = createPointer(element.client)
 
-      // pointer.initialisationCoords = { y: i * 15, x: i * 2 }
-
       //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
       if (pointer.id != 'samuel') {
         // resetRoutine(pointer)
@@ -307,12 +292,10 @@ function handleTickUpdate(message) {
           coords.x += element.x
           break
         case 'overflow-right':
-          console.log('overflow right')
           coords.x =
             instance.windowBoundaries.width - convertRemToPixels(instance.pointerWidth.get())
           break
         case 'overflow-left':
-          console.log('overflow left')
           coords.x = 0
           break
 
@@ -332,12 +315,10 @@ function handleTickUpdate(message) {
           coords.y += element.y
           break
         case 'overflow-bottom':
-          console.log('overflow bottom')
           coords.y =
             instance.windowBoundaries.height - convertRemToPixels(instance.pointerHeight.get())
           break
         case 'overflow-top':
-          console.log('overflow top')
           coords.y = 0
           break
 
@@ -358,6 +339,8 @@ function handleTickUpdate(message) {
       // Apply the updated transform
       if (DOMpointer) {
         DOMpointer.style.transform = transform
+
+        // console.log("hey! i'm tickupdate and i'm moving ", pointer.id, 'to ', coords.x, coords.y)
 
         // Also apply the updated data
         DOMpointer.setAttribute('data-x', coords.x)
@@ -384,7 +367,7 @@ function handleTickUpdate(message) {
 }
 
 function handleAutoPlay(message) {
-  _message = message
+  const _message = message
   const pointer = _message.pointer
   //Keep track of the elapsed time during this event (set it to 0 to start)
   if (!_message.elapsed) _message.elapsed = 0
@@ -448,6 +431,8 @@ function handleAutoPlay(message) {
       // Apply the updated transform
       if (DOMpointer) {
         DOMpointer.style.transform = transform
+
+        console.log("heyy! i'm autoplay and i'm moving ", pointer.id, ' to ', coords.x, coords.y)
 
         // Also apply the updated data
         DOMpointer.setAttribute('data-x', coords.x)
