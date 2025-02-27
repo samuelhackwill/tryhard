@@ -271,34 +271,48 @@ function handleTickUpdate(message) {
       }
 
       pointer = createPointer(element.client)
-      pointer.coords.y = i * 15
-      pointer.coords.x = i * 2
+
+      // pointer.initialisationCoords = { y: i * 15, x: i * 2 }
+
       //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
       if (pointer.id != 'samuel') {
         // resetRoutine(pointer)
       }
       // players.push(pointer)
+
+      //we're only using meteor reactivity to CREATE the pointers in the DOM. that's it
+      instance.pointers.set(pointer.id, pointer)
     }
+
+    let DOMpointer = document.getElementById(pointer.id)
+
+    const coords = {
+      x: Number(DOMpointer.getAttribute('data-x')),
+      y: Number(DOMpointer.getAttribute('data-y')),
+    }
+
     if (!pointer.locked) {
       //Move messages are relative (e.g. 1px right, 2px down)
       //Apply that change to the coords
       switch (
         isInWindowBoundaries(
           'x',
-          pointer.coords.x,
+          coords.x,
           element.x,
           convertRemToPixels(instance.pointerWidth.get()),
         )
       ) {
         case 'x-in-bounds':
-          pointer.coords.x += element.x
+          coords.x += element.x
           break
         case 'overflow-right':
-          pointer.coords.x =
+          console.log('overflow right')
+          coords.x =
             instance.windowBoundaries.width - convertRemToPixels(instance.pointerWidth.get())
           break
         case 'overflow-left':
-          pointer.coords.x = 0
+          console.log('overflow left')
+          coords.x = 0
           break
 
         default:
@@ -308,25 +322,44 @@ function handleTickUpdate(message) {
       switch (
         isInWindowBoundaries(
           'y',
-          pointer.coords.y,
+          coords.y,
           element.y,
           convertRemToPixels(instance.pointerHeight.get()),
         )
       ) {
         case 'y-in-bounds':
-          pointer.coords.y += element.y
+          coords.y += element.y
           break
         case 'overflow-bottom':
-          pointer.coords.y =
+          console.log('overflow bottom')
+          coords.y =
             instance.windowBoundaries.height - convertRemToPixels(instance.pointerHeight.get())
           break
         case 'overflow-top':
-          pointer.coords.y = 0
+          console.log('overflow top')
+          coords.y = 0
           break
 
         default:
           break
       }
+
+      // here we need to update the DOM en fonction du dataset
+
+      let transform = DOMpointer.style.transform || ''
+
+      // Remove any existing translate (optional if you want to overwrite it every time)
+      transform = transform.replace(/translate\([^)]+\)/, '')
+
+      // Add the new translate
+      transform = `${transform} translate(${coords.x}px, ${coords.y}px)`.trim()
+
+      // Apply the updated transform
+      DOMpointer.style.transform = transform
+
+      // Also apply the updated data
+      DOMpointer.setAttribute('data-x', coords.x)
+      DOMpointer.setAttribute('data-y', coords.y)
 
       // check clicks
       if (element.buttonEvents.length > 0) {
@@ -334,9 +367,6 @@ function handleTickUpdate(message) {
           simulateMouseEvent(element.buttonEvents[x].code, element.buttonEvents[x].value, pointer)
         }
       }
-
-      //Save the pointer
-      instance.pointers.set(pointer.id, pointer)
 
       //quand on bouge un pointeur, ça en fait automatiquement le pointeur le plus élevé et le plus au-dessus.
       // global_z_index = global_z_index + 1

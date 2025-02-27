@@ -14,13 +14,15 @@
         <!-- {{this.id}} <span class="text-green-400">{{ this.chosen }} </span> -->
       <div
         class="pointer transition-opacity"
-        style="position:absolute; left:{{ this.coords.x }}px; top:{{ this.coords.y }}px; height:{{
+        style="position:absolute; height:{{
           pointerHeight
         }}rem; width:{{
           pointerWidth
         }}rem; {{#if isChosen}}opacity:1; z-index:10;{{else}}opacity:0.1;z-index:-10{{/if}}"
         pointer-id="{{ this.id }}"
         id="{{ this.id }}"
+        data-x="0"
+        data-y="0"
       >
         {{#if pointerType "isCursor"}}
         <svg
