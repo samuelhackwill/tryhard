@@ -656,22 +656,19 @@ simulateMouseEvent = function (button, status, pointer) {
 simulateRightMouseUp = function (pointer) {
   const hasPaymentSucceeded = pay(pointer, 1)
   if (hasPaymentSucceeded) {
-    const bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
+    let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
     bot.hoveredElementId = 'feed'
+    const _pointer = pointer
+    const _bot = bot
+
     // this is to create the pointer
     instance.pointers.set(bot.id, bot)
     // this is to animate the pointer
     autoclickerSpawn(pointer, bot)
 
-    setTimeout(
-      (function (_pointer, _bot) {
-        return function () {
-          console.log(_pointer, _bot)
-          autoClickerMine(_pointer, _bot)
-        }
-      })(pointer, bot),
-      2000,
-    )
+    setTimeout(() => {
+      autoClickerMine(_pointer, _bot)
+    }, 250)
   }
 }
 
@@ -768,6 +765,7 @@ export const simulateMouseDown = function (pointer) {
 
 function getElementsUnder(pointer) {
   const DOMpointer = document.getElementById(pointer.id)
+  console.log(DOMpointer)
   if (DOMpointer != null) {
     const coords = {
       x: Number(DOMpointer.getAttribute('data-x')),

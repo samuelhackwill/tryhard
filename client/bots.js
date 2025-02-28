@@ -393,22 +393,23 @@ export const axisRoutine = function (pointer, axisData) {
 export const autoClickerMine = function (father, bot) {
   // okay let's go, destroy pointer and add html svg with animation
   // this is superb performance-wise
-  const botDOMpointer = document.getElementById(bot.id)
+  const _bot = bot
+  const botDOMpointer = document.getElementById(_bot.id)
   const coords = {
     x: Number(botDOMpointer.getAttribute('data-x')),
     y: Number(botDOMpointer.getAttribute('data-y')),
   }
 
-  const targetDiv = document.getElementById('pointersContainer')
+  setInterval(() => {
+    const DOMpointer = document.getElementById(_bot.owner)
+    const cleanValue = DOMpointer.querySelector('#money').innerHTML.replace(/\s/g, '')
+    let money = Number(cleanValue)
 
-  console.log(
-    'Hi. My father is ',
-    father.id,
-    "and i'm ",
-    bot.id,
-    ". i'm creating a new SVG at coords ",
-    coords,
-  )
+    money = money + 1
+    DOMpointer.querySelector('#money').innerHTML = money.toLocaleString('fr-FR')
+  }, 400)
+
+  const targetDiv = document.getElementById('pointersContainer')
 
   const svgHTML = `
     <div 
@@ -461,36 +462,20 @@ export const autoClickerMine = function (father, bot) {
 
   targetDiv.insertAdjacentHTML('beforeend', svgHTML)
   instance.pointers.delete(bot.id)
-
-  setInterval(
-    (function (bot) {
-      return function () {
-        const DOMpointer = document.getElementById(bot.owner)
-        if (!DOMpointer) return // Prevent errors if the element is removed
-
-        const cleanValue = DOMpointer.querySelector('#money').innerHTML.replace(/\s/g, '')
-        let money = Number(cleanValue)
-
-        money = money + 1
-        DOMpointer.querySelector('#money').innerHTML = money.toLocaleString('fr-FR')
-      }
-    })(bot),
-    400,
-  )
 }
 
 export const autoclickerSpawn = function (father, bot) {
   // console.log(father)
   const DOMpointer = document.getElementById(father.id)
-  const parentCoords = {
+  parentCoords = {
     x: Number(DOMpointer.getAttribute('data-x')),
     y: Number(DOMpointer.getAttribute('data-y')),
   }
 
+  // here we need to update the DOM en fonction du dataset
   setTimeout(() => {
-    const botDOMpointer = document.getElementById(bot.id)
-    if (!botDOMpointer) return // Prevent errors if the element is removed
-
+    let botDOMpointer = document.getElementById(bot.id)
+    // console.log(botDOMpointer)
     let transform = botDOMpointer.style.transform || ''
 
     // Remove any existing translate (optional if you want to overwrite it every time)
@@ -502,19 +487,11 @@ export const autoclickerSpawn = function (father, bot) {
     // Apply the updated transform
     botDOMpointer.style.transform = transform
 
-    // console.log(
-    //   "hey! i'm autoclickerSpawn and i'm moving ",
-    //   bot.id,
-    //   'to ',
-    //   parentCoords.x,
-    //   parentCoords.y,
-    // )
     // Also apply the updated data
     botDOMpointer.setAttribute('data-x', parentCoords.x)
     botDOMpointer.setAttribute('data-y', parentCoords.y)
 
-    // Generate new movement coordinates
-    const newCoords = {
+    newCoords = {
       x: parentCoords.x + randomBetween(-50, 50),
       y: parentCoords.y + randomBetween(-50, 50),
     }
@@ -525,7 +502,7 @@ export const autoclickerSpawn = function (father, bot) {
         type: 'move',
         from: null,
         to: { x: newCoords.x, y: newCoords.y },
-        duration: 1500,
+        duration: 200,
         pointer: bot,
       },
     })
