@@ -3,19 +3,13 @@ import { ReactiveDict } from 'meteor/reactive-dict'
 import { stepper, clientEventQueue } from '../stepper.js'
 import { playAudio } from '../audioAssets/audio.js'
 import { streamer } from '../../both/streamer.js'
-// import { getRandomBossAccessory, getRandomAccessory } from '../dressup.js'
-// import { getRandomTree } from '../trees.js'
 import {
-  moveInFrontOfCaptcha,
   circleRoutine,
   killAnimation,
-  sendToSides,
-  resetRoutine,
   graphRoutine,
   autoclickerSpawn,
   autoClickerMine,
 } from '../bots.js'
-import { randomBetween } from '../../both/math-helpers.js'
 
 import { handlePupitreMessage } from '../components/feed.js'
 
@@ -25,12 +19,7 @@ import { animateMiniClocks } from '../components/clock.js'
 
 import { disabledMice } from '../../both/disabledMice.js'
 
-let eventQueue = []
-let pointers = []
-let bots = []
-let players = []
-
-let global_z_index = 1
+// let bots = []
 
 Template.show.onCreated(function () {
   this.autorun(() => {
@@ -63,13 +52,6 @@ Template.show.onCreated(function () {
   // make instance callable from everywhere
   instance = this
 
-  //Start the stepper at a fixed framerate (60fps)
-  // SCARY : this is launched ONCE PER POINTER?? why
-  // this.stepInterval = Meteor.setInterval(
-  //   stepper.bind(this, [checkHover, checkBufferedClick]), //Call stepper, passing `this` as the context, and an array of callbacks to call on each pointer every frame
-  //   (1 / 64.0) * 1000, //60 frames per second <=> (1000/60)ms per frame
-  // )
-
   setInterval(() => {
     stepper()
   }, (1 / 64.0) * 1000)
@@ -90,224 +72,120 @@ Template.show.onCreated(function () {
   //   bots.forEach((b) => this.pointers.set(b.id, b))
 })
 
-Template.show.onDestroyed(function () {
-  //Stop the stepper
-  clearInterval(this.stepInterval)
-  //Stop listening to logger events
-  streamer.removeAllListeners('pointerMessage')
-  pointers = []
-})
 Template.show.onRendered(function () {
   streamer.emit('showInit', { width: window.innerWidth, height: window.innerHeight })
 })
 
-function handlePupitreAction(message) {
-  clientEventQueue.push({ origin: 'pupitre', payload: message })
-  return
+// switch (message.content) {
+//   case 'debug-bot-pointers':
+//     ;[...bots].forEach((p) => {
+//       pointer = instance.pointers.get(p.id)
+//       graphRoutine(pointer, {
+//         xMin: instance.windowBoundaries.width * 0.25,
+//         xMax: instance.windowBoundaries.width * 0.75,
+//         yMin: instance.windowBoundaries.height * 0.12,
+//         yMax: instance.windowBoundaries.height * 0.77,
+//       })
+//       instance.pointers.set(p.id, pointer)
+//     })
 
-  switch (message.content) {
-    case 'debug-bot-pointers':
-      ;[...bots].forEach((p) => {
-        pointer = instance.pointers.get(p.id)
-        graphRoutine(pointer, {
-          xMin: instance.windowBoundaries.width * 0.25,
-          xMax: instance.windowBoundaries.width * 0.75,
-          yMin: instance.windowBoundaries.height * 0.12,
-          yMax: instance.windowBoundaries.height * 0.77,
-        })
-        instance.pointers.set(p.id, pointer)
-      })
+//   break
 
-      break
+// case 'togglePointers':
+//   _trueOrFalse = instance.arePointersHidden.get()
+//   _hidden = !_trueOrFalse
 
-    case 'togglePointers':
-      _trueOrFalse = instance.arePointersHidden.get()
-      _hidden = !_trueOrFalse
+//   const button = document.getElementById('bonjourSamuel') || false
 
-      const button = document.getElementById('bonjourSamuel') || false
+//   if (_hidden) {
+//     if (button) button.classList.add('pointer-events-none')
+//   } else {
+//     if (button) button.classList.remove('pointer-events-none')
+//   }
+//   instance.arePointersHidden.set(_hidden)
 
-      if (_hidden) {
-        if (button) button.classList.add('pointer-events-none')
-      } else {
-        if (button) button.classList.remove('pointer-events-none')
-      }
-      instance.arePointersHidden.set(_hidden)
+//   break
 
-      break
+// case 'initPointers':
+//   console.log('init pointers')
+//   let index = 1
 
-    case 'initPointers':
-      console.log('init pointers')
-      let index = 1
+//   const len = Object.keys(instance.pointers.all()).length
 
-      const len = Object.keys(instance.pointers.all()).length
-
-      Object.entries(instance.pointers.all()).forEach(([key, value]) => {
-        circleRoutine(value, len, index)
-        instance.pointers.set(key, value)
-        index++
-      })
-      break
-
-    case 'startCountingPlayers':
-      instance.scoreSprintEntreePublic.set('startTime', new Date())
-      break
-    case 'stopCountingPlayers':
-      instance.scoreSprintEntreePublic.set('endTime', new Date())
-      break
-    case 'displayPlayerCount':
-      // we need to substract 2 because 2 of the objects of scroSprintEntreePublic are startTime and endTime
-      let plural = { s: '', ont: 'a' }
-      let text = ''
-      let count = Object.keys(instance.scoreSprintEntreePublic.all()).length - 2
-
-      if (count > 1 || count == 0) {
-        plural.s = 's'
-        plural.ont = 'ont'
-      }
-
-      text = `${count} personne${plural.s} ${plural.ont} déjà commencé à jouer.`
-      console.log(text)
-
-      if (count < 0)
-        text =
-          "oups Samuel a oublié de lancer le programme pour regarder qui était en train de faire des trucs avec sa souris! _again!_ Ou alors il y a un bug peut-être, auquel cas pardon Samuel d'avoir été passif-agressif. Enfin ceci dit si y'a un bug c'est aussi de ma faute donc bon"
-
-      handlePupitreMessage({ type: 'newLine', content: text })
-
-      break
-
-    // case 'startRace':
-    //   instance.scoreSprint1p.set('startTime', new Date())
-    //   break
-
-    // case 'showNick':
-    //   // get ID of that pointer, associate it with a new nick and show the nick div.
-    //   data = instance.scoreSprint1p.all()
-    //   // get everything and then get the smallest score
-    //   const smallestTime = Object.entries(data).reduce(
-    //     (min, [key, value]) => {
-    //       return value.time < min.value.time ? { key, value } : min
-    //     },
-    //     { key: null, value: { time: Infinity } },
-    //   )
-
-    //   _pointer = instance.pointers.get(smallestTime.key)
-    //   console.log(_pointer)
-    //   _pointer.nick = 'Atalante-du-7e-Arrdt'
-    //   instance.pointers.set(smallestTime.key, _pointer)
-
-    //   instance.areNamesHidden.set(false)
-    //   break
-
-    case 'savemeDvd':
-      document.getElementById('saveme').classList.add('saveme-animated')
-      break
-
-    case 'showClocks':
-      instance.areClocksHidden.set(false)
-      break
-
-    case 'startTimers':
-      requestAnimationFrame(animateMiniClocks)
-
-      break
-
-    default:
-      break
-  }
-}
-
-// function handleTickUpdate(message) {
-//   message.forEach((element, i) => {
-//     let pointer = instance.pointers.get(element.client)
-//     if (pointer == undefined) {
-//       // OK donc là il faut aussi vérifier si cette souris n'a pas été désactivée (c'est à dire que le siège devant la souris est innocupé)
-//       // lol d'ailleurs ça va être un délire pendant l'entrée public de regarder qui prend quelle souris. y'a des cowboys qui vont sans doute prendre la souris que j'ai pas prévu pour leur siège.
-
-//       // donc on appelle le serveur pour savoir si la souris est cancel et pi cé tou
-//       const canceled = isMouseDisabled(element)
-//       if (canceled) {
-//         return
-//       }
-
-//       pointer = createPointer(element.client)
-//       pointer.coords.y = i * 15
-//       pointer.coords.x = i * 2
-//       //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
-//       if (pointer.id != 'samuel') {
-//         // resetRoutine(pointer)
-//       }
-//       // players.push(pointer)
-//     }
-//     if (!pointer.locked) {
-//       //Move messages are relative (e.g. 1px right, 2px down)
-//       //Apply that change to the coords
-//       switch (
-//         isInWindowBoundaries(
-//           'x',
-//           pointer.coords.x,
-//           element.x,
-//           convertRemToPixels(instance.pointerWidth.get()),
-//         )
-//       ) {
-//         case 'x-in-bounds':
-//           pointer.coords.x += element.x
-//           break
-//         case 'overflow-right':
-//           pointer.coords.x =
-//             instance.windowBoundaries.width - convertRemToPixels(instance.pointerWidth.get())
-//           break
-//         case 'overflow-left':
-//           pointer.coords.x = 0
-//           break
-
-//         default:
-//           break
-//       }
-
-//       switch (
-//         isInWindowBoundaries(
-//           'y',
-//           pointer.coords.y,
-//           element.y,
-//           convertRemToPixels(instance.pointerHeight.get()),
-//         )
-//       ) {
-//         case 'y-in-bounds':
-//           pointer.coords.y += element.y
-//           break
-//         case 'overflow-bottom':
-//           pointer.coords.y =
-//             instance.windowBoundaries.height - convertRemToPixels(instance.pointerHeight.get())
-//           break
-//         case 'overflow-top':
-//           pointer.coords.y = 0
-//           break
-
-//         default:
-//           break
-//       }
-
-//       // check clicks
-//       if (element.buttonEvents.length > 0) {
-//         for (let x = 0; x < element.buttonEvents.length; x++) {
-//           simulateMouseEvent(element.buttonEvents[x].code, element.buttonEvents[x].value, pointer)
-//         }
-//       }
-
-//       //Save the pointer
-//       instance.pointers.set(pointer.id, pointer)
-
-//       //quand on bouge un pointeur, ça en fait automatiquement le pointeur le plus élevé et le plus au-dessus.
-//       // global_z_index = global_z_index + 1
-//       // if (document.getElementById(pointer.id)) {
-//       //   document.getElementById(pointer.id).style.zIndex = global_z_index
-//       // }
-
-//       // check hover
-//       checkHover(pointer)
-//     }
+//   Object.entries(instance.pointers.all()).forEach(([key, value]) => {
+//     circleRoutine(value, len, index)
+//     instance.pointers.set(key, value)
+//     index++
 //   })
+//   break
+
+// case 'startCountingPlayers':
+//   instance.scoreSprintEntreePublic.set('startTime', new Date())
+//   break
+// case 'stopCountingPlayers':
+//   instance.scoreSprintEntreePublic.set('endTime', new Date())
+//   break
+// case 'displayPlayerCount':
+//   // we need to substract 2 because 2 of the objects of scroSprintEntreePublic are startTime and endTime
+//   let plural = { s: '', ont: 'a' }
+//   let text = ''
+//   let count = Object.keys(instance.scoreSprintEntreePublic.all()).length - 2
+
+//   if (count > 1 || count == 0) {
+//     plural.s = 's'
+//     plural.ont = 'ont'
+//   }
+
+//   text = `${count} personne${plural.s} ${plural.ont} déjà commencé à jouer.`
+//   console.log(text)
+
+//   if (count < 0)
+//     text =
+//       "oups Samuel a oublié de lancer le programme pour regarder qui était en train de faire des trucs avec sa souris! _again!_ Ou alors il y a un bug peut-être, auquel cas pardon Samuel d'avoir été passif-agressif. Enfin ceci dit si y'a un bug c'est aussi de ma faute donc bon"
+
+//   handlePupitreMessage({ type: 'newLine', content: text })
+
+//   break
+
+// case 'startRace':
+//   instance.scoreSprint1p.set('startTime', new Date())
+//   break
+
+// case 'showNick':
+//   // get ID of that pointer, associate it with a new nick and show the nick div.
+//   data = instance.scoreSprint1p.all()
+//   // get everything and then get the smallest score
+//   const smallestTime = Object.entries(data).reduce(
+//     (min, [key, value]) => {
+//       return value.time < min.value.time ? { key, value } : min
+//     },
+//     { key: null, value: { time: Infinity } },
+//   )
+
+//   _pointer = instance.pointers.get(smallestTime.key)
+//   console.log(_pointer)
+//   _pointer.nick = 'Atalante-du-7e-Arrdt'
+//   instance.pointers.set(smallestTime.key, _pointer)
+
+//   instance.areNamesHidden.set(false)
+//   break
+
+//     case 'savemeDvd':
+//       document.getElementById('saveme').classList.add('saveme-animated')
+//       break
+
+//     case 'showClocks':
+//       instance.areClocksHidden.set(false)
+//       break
+
+//     case 'startTimers':
+//       requestAnimationFrame(animateMiniClocks)
+
+//       break
+
+//     default:
+//       break
+//   }
 // }
 
 Template.show.helpers({
@@ -389,16 +267,16 @@ Template.show.helpers({
   allPointers(arg) {
     if (arg.hash.getAdmin === true) {
       // the pointer with ?id=samuel is the boss!
-      pointer = instance.pointers.get('samuel')
+      const pointer = instance.pointers.get('samuel')
       if (pointer == undefined) {
         return
       } else {
         return [pointer]
       }
     } else {
-      allPointers = instance.pointers.all()
+      const allPointers = instance.pointers.all()
       const { samuel, ...userData } = allPointers
-      pointers = Object.values(userData)
+      const pointers = Object.values(userData)
       return pointers
     }
   },
@@ -469,126 +347,127 @@ Template.show.events({
     }
   },
 
-  'mouseup #background'(event, tpl, extra) {
-    // console.log('click background')
-    if (instance.arePointersHidden.get()) return
-    if (!extra) return
+  // 'mouseup #background'(event, tpl, extra) {
+  //   // console.log('click background')
+  //   if (instance.arePointersHidden.get()) return
+  //   if (!extra) return
 
-    let pointer = instance.pointers.get(extra.pointer.id)
-    if (!pointer) {
-      return
-    }
+  //   let pointer = instance.pointers.get(extra.pointer.id)
+  //   if (!pointer) {
+  //     return
+  //   }
 
-    //Is it currently the 2p sprint race? (this is to get the second player)
-    if (instance.scoreSprint2p.get('startTime') && !instance.scoreSprint2p.get('endTime')) {
-      const _id = extra.pointer.id
+  //   //Is it currently the 2p sprint race? (this is to get the second player)
+  //   if (instance.scoreSprint2p.get('startTime') && !instance.scoreSprint2p.get('endTime')) {
+  //     const _id = extra.pointer.id
 
-      // we need to check if it's not p1 clicking!!! we'll clean that stuff later
-      p1data = instance.scoreSprint1p.all()
+  //     // we need to check if it's not p1 clicking!!! we'll clean that stuff later
+  //     p1data = instance.scoreSprint1p.all()
 
-      const smallestTimep1 = Object.entries(p1data).reduce(
-        (min, [key, value]) => {
-          return value.time < min.value.time ? { key, value } : min
-        },
-        { key: null, value: { time: Infinity } },
-      )
+  //     const smallestTimep1 = Object.entries(p1data).reduce(
+  //       (min, [key, value]) => {
+  //         return value.time < min.value.time ? { key, value } : min
+  //       },
+  //       { key: null, value: { time: Infinity } },
+  //     )
 
-      p1id = instance.pointers.get(smallestTimep1.key).id
-      console.log(p1id, extra.pointer.id)
-      if (p1id == extra.pointer.id) return
+  //     p1id = instance.pointers.get(smallestTimep1.key).id
+  //     console.log(p1id, extra.pointer.id)
+  //     if (p1id == extra.pointer.id) return
 
-      //////// if it's not p1, go along
+  //     //////// if it's not p1, go along
 
-      const finishTime = new Date()
-      const score = finishTime - instance.scoreSprint2p.get('startTime')
-      instance.scoreSprint2p.set(_id, { time: score })
-      instance.scoreSprint2p.set('endTime', finishTime)
+  //     const finishTime = new Date()
+  //     const score = finishTime - instance.scoreSprint2p.get('startTime')
+  //     instance.scoreSprint2p.set(_id, { time: score })
+  //     instance.scoreSprint2p.set('endTime', finishTime)
 
-      data = instance.scoreSprint2p.all()
-      // get everything and then get the smallest score
-      const smallestTime = Object.entries(data).reduce(
-        (min, [key, value]) => {
-          return value.time < min.value.time ? { key, value } : min
-        },
-        { key: null, value: { time: Infinity } },
-      )
+  //     data = instance.scoreSprint2p.all()
+  //     // get everything and then get the smallest score
+  //     const smallestTime = Object.entries(data).reduce(
+  //       (min, [key, value]) => {
+  //         return value.time < min.value.time ? { key, value } : min
+  //       },
+  //       { key: null, value: { time: Infinity } },
+  //     )
 
-      Meteor.setTimeout(() => {
-        document.getElementById('pointer' + _id).style.transform = 'scale(1000)'
+  //     Meteor.setTimeout(() => {
+  //       document.getElementById('pointer' + _id).style.transform = 'scale(1000)'
 
-        document.getElementById('pointer' + _id).classList.remove('opacity-0')
-      }, 20)
+  //       document.getElementById('pointer' + _id).classList.remove('opacity-0')
+  //     }, 20)
 
-      Meteor.setTimeout(() => {
-        document
-          .getElementById('pointer' + _id)
-          .classList.add('transition-transform', 'duration-[1s]')
-      }, 50)
+  //     Meteor.setTimeout(() => {
+  //       document
+  //         .getElementById('pointer' + _id)
+  //         .classList.add('transition-transform', 'duration-[1s]')
+  //     }, 50)
 
-      Meteor.setTimeout(() => {
-        document.getElementById('pointer' + _id).style.transform = ''
-      }, 100)
+  //     Meteor.setTimeout(() => {
+  //       document.getElementById('pointer' + _id).style.transform = ''
+  //     }, 100)
 
-      Meteor.setTimeout(() => {
-        console.log(instance.pointers.all(), smallestTime)
+  //     Meteor.setTimeout(() => {
+  //       console.log(instance.pointers.all(), smallestTime)
 
-        _pointer = instance.pointers.get(smallestTime.key)
-        _pointer.nick = 'Méléagre-de-la-guille'
-        instance.pointers.set(smallestTime.key, _pointer)
-      }, 1000)
-    }
+  //       _pointer = instance.pointers.get(smallestTime.key)
+  //       _pointer.nick = 'Méléagre-de-la-guille'
+  //       instance.pointers.set(smallestTime.key, _pointer)
+  //     }, 1000)
+  //   }
 
-    //Is it currently the 1p sprint race? (this is to get the first player)
-    if (instance.scoreSprint1p.get('startTime') && !instance.scoreSprint1p.get('endTime')) {
-      console.log('PROUUUT')
-      const _id = extra.pointer.id
+  //   //Is it currently the 1p sprint race? (this is to get the first player)
+  //   if (instance.scoreSprint1p.get('startTime') && !instance.scoreSprint1p.get('endTime')) {
+  //     console.log('PROUUUT')
+  //     const _id = extra.pointer.id
 
-      const finishTime = new Date()
-      const score = finishTime - instance.scoreSprint1p.get('startTime')
-      instance.scoreSprint1p.set(_id, { time: score })
-      instance.scoreSprint1p.set('endTime', finishTime)
+  //     const finishTime = new Date()
+  //     const score = finishTime - instance.scoreSprint1p.get('startTime')
+  //     instance.scoreSprint1p.set(_id, { time: score })
+  //     instance.scoreSprint1p.set('endTime', finishTime)
 
-      document.getElementById('pointer' + _id).style.transform = 'scale(1000)'
+  //     document.getElementById('pointer' + _id).style.transform = 'scale(1000)'
 
-      document.getElementById('pointer' + _id).classList.remove('opacity-0')
+  //     document.getElementById('pointer' + _id).classList.remove('opacity-0')
 
-      Meteor.setTimeout(() => {
-        document
-          .getElementById('pointer' + _id)
-          .classList.add('transition-transform', 'duration-[1s]')
-      }, 50)
+  //     Meteor.setTimeout(() => {
+  //       document
+  //         .getElementById('pointer' + _id)
+  //         .classList.add('transition-transform', 'duration-[1s]')
+  //     }, 50)
 
-      Meteor.setTimeout(() => {
-        document.getElementById('pointer' + _id).style.transform = ''
-      }, 100)
-    }
+  //     Meteor.setTimeout(() => {
+  //       document.getElementById('pointer' + _id).style.transform = ''
+  //     }, 100)
+  //   }
 
-    //Is it currently the entree public sprint race?
-    // sprint-entree-public?
-    if (
-      instance.scoreSprintEntreePublic.get('startTime') &&
-      !instance.scoreSprintEntreePublic.get('endTime') &&
-      !instance.scoreSprintEntreePublic.get(extra.pointer.id)
-    ) {
-      // the race has started but isn't finished and the reactiveDict doesn't already contain a log for that pointer's id.
-      const finishTime = new Date()
-      const score = finishTime - instance.scoreSprintEntreePublic.get('startTime')
+  //   //Is it currently the entree public sprint race?
+  //   // sprint-entree-public?
+  //   if (
+  //     instance.scoreSprintEntreePublic.get('startTime') &&
+  //     !instance.scoreSprintEntreePublic.get('endTime') &&
+  //     !instance.scoreSprintEntreePublic.get(extra.pointer.id)
+  //   ) {
+  //     // the race has started but isn't finished and the reactiveDict doesn't already contain a log for that pointer's id.
+  //     const finishTime = new Date()
+  //     const score = finishTime - instance.scoreSprintEntreePublic.get('startTime')
 
-      // score is in milisecs
-      instance.scoreSprintEntreePublic.set(extra.pointer.id, { time: score })
-    }
+  //     // score is in milisecs
+  //     instance.scoreSprintEntreePublic.set(extra.pointer.id, { time: score })
+  //   }
 
-    //Does the pointer currently hold a tree?
-    if (pointer.tree) {
-      //Make up a new tree identifier (they're sequential)
-      let newTreeId = 'tree-' + Object.keys(instance.plantedTrees.all()).length
-      //Add that tree to the reactive plantedTrees dictionary, so it can appear on the page
-      instance.plantedTrees.set(newTreeId, { coords: pointer.coords, tree: pointer.tree })
-      //The pointer no longer holds a tree
-      pointer.tree = null
-      instance.pointers.set(pointer.id, pointer)
-    }
-  },
+  //   //Does the pointer currently hold a tree?
+  //   if (pointer.tree) {
+  //     //Make up a new tree identifier (they're sequential)
+  //     let newTreeId = 'tree-' + Object.keys(instance.plantedTrees.all()).length
+  //     //Add that tree to the reactive plantedTrees dictionary, so it can appear on the page
+  //     instance.plantedTrees.set(newTreeId, { coords: pointer.coords, tree: pointer.tree })
+  //     //The pointer no longer holds a tree
+  //     pointer.tree = null
+  //     instance.pointers.set(pointer.id, pointer)
+  //   }
+  // },
+
   'mouseup .pointer'(event, tpl, extra) {
     if (instance.arePointersHidden.get()) return
 
@@ -661,14 +540,20 @@ simulateRightMouseUp = function (pointer) {
     const _pointer = pointer
     const _bot = bot
 
+    const DOMPointer = document.getElementById(pointer.id)
+    const coords = {
+      x: Number(DOMPointer.getAttribute('data-x')),
+      y: Number(DOMPointer.getAttribute('data-y')),
+    }
+
     // this is to create the pointer
     instance.pointers.set(bot.id, bot)
     // this is to animate the pointer
     autoclickerSpawn(pointer, bot)
 
     setTimeout(() => {
-      autoClickerMine(_pointer, _bot)
-    }, 250)
+      autoClickerMine(_pointer, _bot, coords)
+    }, 201)
   }
 }
 
@@ -765,7 +650,6 @@ export const simulateMouseDown = function (pointer) {
 
 function getElementsUnder(pointer) {
   const DOMpointer = document.getElementById(pointer.id)
-  console.log(DOMpointer)
   if (DOMpointer != null) {
     const coords = {
       x: Number(DOMpointer.getAttribute('data-x')),
@@ -834,21 +718,6 @@ export const checkHover = function (pointer) {
   }
 }
 
-//A buffered click is a click that was added as part of an animation (usually for bots), waiting for the end of the frame to be applied
-function checkBufferedClick(pointer) {
-  //If there's a buffered click: do it now
-  if (pointer.bufferedClick) {
-    simulateMouseDown(pointer)
-    setTimeout(function () {
-      simulateMouseUp(pointer)
-    }, 150)
-  }
-  //Reset the flag
-  pointer = instance.pointers.get(pointer.id, pointer)
-  pointer.bufferedClick = false
-  instance.pointers.set(pointer.id, pointer)
-}
-
 //Shorthand for "getting a data attribute in `element` as an integer to add `amount` to it before re-saving the new value as a data attribute"
 export const addToDataAttribute = function (element, attr, amount) {
   let value = parseInt(element.getAttribute(attr) ?? 0)
@@ -899,111 +768,6 @@ export const die = function (element) {
     element.style.opacity = '0'
   }, 50)
 }
-
-//Receives the text that finished displaying in the lettreur.
-//We can check what's displayed and react accordingly (eg launch a bot routine)
-// TellShowWeFinishedDisplayingParagraph = function (text) {
-//   switch (text) {
-//     // ACTE II
-//     case 'Bonjour!':
-//       // les joueureuses/bots apparaissent (fade in)
-//       ;[...bots, ...players].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         welcomeRoutine(pointer)
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-//     case 'Est-ce que vous pourriez vous rassembler devant moi?':
-//       ;[...bots].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         regroupRoutine(pointer)
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-//     case 'est-ce que vous pourriez essayer de faire un cercle autour de moi?':
-//       ;[...bots].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         circleRoutine(pointer)
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-//     case 'peut-être que ce serait mieux? merci vous êtes sympas.':
-//       // les joueureuses doivent faire un carré autour de samuel
-//       ;[...bots].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         squareRoutine(pointer)
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-//     case "au milieu j'ai mis le salaire net médian en 2022 à titre de comparaison.":
-//       // les joueureuses doivent se mettre sur un axe en fonction de leurs revenus
-//       ;[...bots].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         axisRoutine(pointer, {
-//           xMin: 200,
-//           xMax: instance.windowBoundaries.width - 200,
-//           y: instance.windowBoundaries.height * 0.46,
-//         })
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-//     case 'du genre':
-//       // les joueureuses doivent se mettre sur un axe en fonction de la dernière fois qu'iels ont mangé
-//       ;[...bots].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         axisRoutine(pointer, {
-//           xMin: 200,
-//           xMax: instance.windowBoundaries.width - 200,
-//           y: instance.windowBoundaries.height * 0.73,
-//         })
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-//     case 'ou alors je sais pas, pourquoi pas ça sinon':
-//       ;[...bots].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         graphRoutine(pointer, {
-//           xMin: instance.windowBoundaries.width * 0.25,
-//           xMax: instance.windowBoundaries.width * 0.75,
-//           yMin: instance.windowBoundaries.height * 0.12,
-//           yMax: instance.windowBoundaries.height * 0.77,
-//         })
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-
-//     case 'hmmm':
-//       //Fin du minijeu de positionnement: les bots retournent à leur "maison"
-//       ;[...bots].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         pointer.events.push({
-//           type: 'humanizedMove',
-//           from: null,
-//           to: pointer.homeCoords ?? { x: 0, y: 0 },
-//           duration: randomBetween(2000, 3000),
-//         })
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-
-//     case 'pour en revenir au pointeur de souris':
-//       ;[...bots].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         playgroundRoutine(pointer)
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-
-//       break
-//     case "cachez-vous parce que si j'arrive à vous toucher,":
-//       ;[...bots, ...players].forEach((p) => {
-//         pointer = instance.pointers.get(p.id)
-//         pointer.killable = true
-//         instance.pointers.set(p.id, pointer)
-//       })
-//       break
-//   }
-// }
 
 isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
   // can return : x-in-bounds / overflow-left / overflow-right / y-in-bounds / overflow-bottom / overflow-top
