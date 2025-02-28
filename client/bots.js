@@ -394,11 +394,7 @@ export const autoClickerMine = function (father, bot) {
   // okay let's go, destroy pointer and add html svg with animation
   // this is superb performance-wise
   const _bot = bot
-  const botDOMpointer = document.getElementById(_bot.id)
-  const coords = {
-    x: Number(botDOMpointer.getAttribute('data-x')),
-    y: Number(botDOMpointer.getAttribute('data-y')),
-  }
+  coords = readDomCoords(_bot.id)
 
   setInterval(() => {
     const DOMpointer = document.getElementById(_bot.owner)
@@ -466,11 +462,7 @@ export const autoClickerMine = function (father, bot) {
 
 export const autoclickerSpawn = function (father, bot) {
   // console.log(father)
-  const DOMpointer = document.getElementById(father.id)
-  parentCoords = {
-    x: Number(DOMpointer.getAttribute('data-x')),
-    y: Number(DOMpointer.getAttribute('data-y')),
-  }
+  parentCoords = readDomCoords(father.id)
 
   // here we need to update the DOM en fonction du dataset
   setTimeout(() => {
@@ -487,9 +479,7 @@ export const autoclickerSpawn = function (father, bot) {
     // Apply the updated transform
     botDOMpointer.style.transform = transform
 
-    // Also apply the updated data
-    botDOMpointer.setAttribute('data-x', parentCoords.x)
-    botDOMpointer.setAttribute('data-y', parentCoords.y)
+    writeDomCoords(bot.id, parentCoords)
 
     newCoords = {
       x: parentCoords.x + randomBetween(-50, 50),
@@ -502,7 +492,7 @@ export const autoclickerSpawn = function (father, bot) {
         type: 'move',
         from: null,
         to: { x: newCoords.x, y: newCoords.y },
-        duration: 200,
+        duration: 199,
         pointer: bot,
       },
     })

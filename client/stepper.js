@@ -167,10 +167,7 @@ function handleTickUpdate(message) {
 
     const DOMpointer = document.getElementById(pointer.id) || null
 
-    const coords = {
-      x: Number(DOMpointer?.getAttribute('data-x')),
-      y: Number(DOMpointer?.getAttribute('data-y')),
-    }
+    coords = readDomCoords(pointer.id)
 
     if (!pointer.locked) {
       //Move messages are relative (e.g. 1px right, 2px down)
@@ -236,8 +233,7 @@ function handleTickUpdate(message) {
         DOMpointer.style.transform = transform
 
         // Also apply the updated data
-        DOMpointer.setAttribute('data-x', coords.x)
-        DOMpointer.setAttribute('data-y', coords.y)
+        writeDomCoords(pointer.id, coords)
       }
 
       // check clicks
@@ -297,10 +293,7 @@ function handleAutoPlay(message) {
 
     case 'move':
       const DOMpointer = document.getElementById(pointer.id)
-      const coords = {
-        x: Number(DOMpointer?.getAttribute('data-x')),
-        y: Number(DOMpointer?.getAttribute('data-y')),
-      }
+      coords = readDomCoords(pointer.id)
       // console.log("message from ", _message.from, "message to ",  _message.to)
       //Use the current coordinates for `from` and `to` if they have not been specified
       if (_message.from == null) _message.from = { ...coords }
@@ -309,25 +302,14 @@ function handleAutoPlay(message) {
       coords.x = lerp(_message.from.x, _message.to.x, t)
       coords.y = lerp(_message.from.y, _message.to.y, t)
 
-      // update data and transform
-
-      // here we need to update the DOM en fonction du dataset
-
       let transform = DOMpointer?.style.transform || ''
-
-      // Remove any existing translate (optional if you want to overwrite it every time)
       transform = transform.replace(/translate\([^)]+\)/, '')
-
-      // Add the new translate
       transform = `${transform} translate(${coords.x}px, ${coords.y}px)`.trim()
 
-      // Apply the updated transform
       if (DOMpointer) {
         DOMpointer.style.transform = transform
 
-        // Also apply the updated data
-        DOMpointer.setAttribute('data-x', coords.x)
-        DOMpointer.setAttribute('data-y', coords.y)
+        writeDomCoords(pointer.id, coords)
       }
 
       break

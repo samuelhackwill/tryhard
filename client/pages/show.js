@@ -351,10 +351,7 @@ simulateRightMouseUp = function (pointer) {
     const _bot = bot
 
     const DOMPointer = document.getElementById(pointer.id)
-    const coords = {
-      x: Number(DOMPointer.getAttribute('data-x')),
-      y: Number(DOMPointer.getAttribute('data-y')),
-    }
+    const coords = readDomCoords(pointer.id)
 
     // this is to create the pointer
     instance.pointers.set(bot.id, bot)
@@ -461,10 +458,8 @@ export const simulateMouseDown = function (pointer) {
 function getElementsUnder(pointer) {
   const DOMpointer = document.getElementById(pointer.id)
   if (DOMpointer != null) {
-    const coords = {
-      x: Number(DOMpointer.getAttribute('data-x')),
-      y: Number(DOMpointer.getAttribute('data-y')),
-    }
+    const coords = readDomCoords(pointer.id)
+
     let elements = document.elementsFromPoint(coords.x, coords.y)
 
     //Ignore elements without an id
@@ -670,4 +665,23 @@ pay = function (author, amount) {
       money.toLocaleString('fr-FR')
     return true
   }
+}
+
+readDomCoords = function (id) {
+  const DOMpointer = document.getElementById(id)
+  if (DOMpointer) {
+    return {
+      x: Number(DOMpointer.getAttribute('data-x')),
+      y: Number(DOMpointer.getAttribute('data-y')),
+    }
+  } else {
+    return { x: 0, y: 0 }
+  }
+}
+
+writeDomCoords = function (id, coords) {
+  const DOMpointer = document.getElementById(id)
+
+  DOMpointer.setAttribute('data-x', coords.x)
+  DOMpointer.setAttribute('data-y', coords.y)
 }
