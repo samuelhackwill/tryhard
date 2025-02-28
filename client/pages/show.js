@@ -1,25 +1,14 @@
 import { Template } from 'meteor/templating'
 import { ReactiveDict } from 'meteor/reactive-dict'
-import { stepper, clientEventQueue } from '../stepper.js'
+import { stepper } from '../stepper.js'
 import { playAudio } from '../audioAssets/audio.js'
 import { streamer } from '../../both/streamer.js'
-import {
-  circleRoutine,
-  killAnimation,
-  graphRoutine,
-  autoclickerSpawn,
-  autoClickerMine,
-} from '../bots.js'
-
-import { handlePupitreMessage } from '../components/feed.js'
+import { killAnimation, autoclickerSpawn, autoClickerMine } from '../bots.js'
 
 import '../components/main.js'
 import './show.html'
-import { animateMiniClocks } from '../components/clock.js'
 
 import { disabledMice } from '../../both/disabledMice.js'
-
-// let bots = []
 
 Template.show.onCreated(function () {
   this.autorun(() => {
@@ -32,21 +21,14 @@ Template.show.onCreated(function () {
 
   this.pointerWidth = new ReactiveVar(1.5)
   this.pointerHeight = new ReactiveVar(2.3)
-  this.scoreSprintEntreePublic = new ReactiveDict()
-  this.scoreSprint1p = new ReactiveDict()
-  this.scoreSprint2p = new ReactiveDict()
+
   this.areNamesHidden = new ReactiveVar(true)
   this.areClocksHidden = new ReactiveVar(true)
   this.arePointersHidden = new ReactiveVar(false)
-  this.plantedTrees = new ReactiveDict()
   this.pointers = new ReactiveDict()
 
   this.windowBoundaries = { x: 0, y: 0, width: window.innerWidth, height: window.innerHeight }
 
-  // fuuuuu
-  // ux state for windows
-  this.isAdminOpen = new ReactiveVar(false)
-  this.adminPosition = new ReactiveVar([0, 0])
   this.whichBackground = new ReactiveVar('slate.png')
 
   // make instance callable from everywhere
@@ -55,21 +37,6 @@ Template.show.onCreated(function () {
   setInterval(() => {
     stepper()
   }, (1 / 64.0) * 1000)
-
-  //   // //Create 96 bots
-  //   this.bots = [] //Keep the array of bots on hand, it's easier than filtering this.pointers every time
-  //   for (let i = 0; i < 96; i++) {
-  //     let bot = createBot('bot' + i)
-  //     bot.hoveredElementId = 'feed'
-  //     //QUICKFIX: set a default state (hidden, not dead, etc). Probably should be done elsewhere
-  //     resetRoutine(bot)
-  //     this.pointers.set(bot.id, bot)
-  //     bots.push(bot)
-  //   }
-  //   //Keep this around: it gives bots a home position
-  //   sendToSides(bots, this.windowBoundaries)
-
-  //   bots.forEach((b) => this.pointers.set(b.id, b))
 })
 
 Template.show.onRendered(function () {
@@ -347,127 +314,6 @@ Template.show.events({
     }
   },
 
-  // 'mouseup #background'(event, tpl, extra) {
-  //   // console.log('click background')
-  //   if (instance.arePointersHidden.get()) return
-  //   if (!extra) return
-
-  //   let pointer = instance.pointers.get(extra.pointer.id)
-  //   if (!pointer) {
-  //     return
-  //   }
-
-  //   //Is it currently the 2p sprint race? (this is to get the second player)
-  //   if (instance.scoreSprint2p.get('startTime') && !instance.scoreSprint2p.get('endTime')) {
-  //     const _id = extra.pointer.id
-
-  //     // we need to check if it's not p1 clicking!!! we'll clean that stuff later
-  //     p1data = instance.scoreSprint1p.all()
-
-  //     const smallestTimep1 = Object.entries(p1data).reduce(
-  //       (min, [key, value]) => {
-  //         return value.time < min.value.time ? { key, value } : min
-  //       },
-  //       { key: null, value: { time: Infinity } },
-  //     )
-
-  //     p1id = instance.pointers.get(smallestTimep1.key).id
-  //     console.log(p1id, extra.pointer.id)
-  //     if (p1id == extra.pointer.id) return
-
-  //     //////// if it's not p1, go along
-
-  //     const finishTime = new Date()
-  //     const score = finishTime - instance.scoreSprint2p.get('startTime')
-  //     instance.scoreSprint2p.set(_id, { time: score })
-  //     instance.scoreSprint2p.set('endTime', finishTime)
-
-  //     data = instance.scoreSprint2p.all()
-  //     // get everything and then get the smallest score
-  //     const smallestTime = Object.entries(data).reduce(
-  //       (min, [key, value]) => {
-  //         return value.time < min.value.time ? { key, value } : min
-  //       },
-  //       { key: null, value: { time: Infinity } },
-  //     )
-
-  //     Meteor.setTimeout(() => {
-  //       document.getElementById('pointer' + _id).style.transform = 'scale(1000)'
-
-  //       document.getElementById('pointer' + _id).classList.remove('opacity-0')
-  //     }, 20)
-
-  //     Meteor.setTimeout(() => {
-  //       document
-  //         .getElementById('pointer' + _id)
-  //         .classList.add('transition-transform', 'duration-[1s]')
-  //     }, 50)
-
-  //     Meteor.setTimeout(() => {
-  //       document.getElementById('pointer' + _id).style.transform = ''
-  //     }, 100)
-
-  //     Meteor.setTimeout(() => {
-  //       console.log(instance.pointers.all(), smallestTime)
-
-  //       _pointer = instance.pointers.get(smallestTime.key)
-  //       _pointer.nick = 'Méléagre-de-la-guille'
-  //       instance.pointers.set(smallestTime.key, _pointer)
-  //     }, 1000)
-  //   }
-
-  //   //Is it currently the 1p sprint race? (this is to get the first player)
-  //   if (instance.scoreSprint1p.get('startTime') && !instance.scoreSprint1p.get('endTime')) {
-  //     console.log('PROUUUT')
-  //     const _id = extra.pointer.id
-
-  //     const finishTime = new Date()
-  //     const score = finishTime - instance.scoreSprint1p.get('startTime')
-  //     instance.scoreSprint1p.set(_id, { time: score })
-  //     instance.scoreSprint1p.set('endTime', finishTime)
-
-  //     document.getElementById('pointer' + _id).style.transform = 'scale(1000)'
-
-  //     document.getElementById('pointer' + _id).classList.remove('opacity-0')
-
-  //     Meteor.setTimeout(() => {
-  //       document
-  //         .getElementById('pointer' + _id)
-  //         .classList.add('transition-transform', 'duration-[1s]')
-  //     }, 50)
-
-  //     Meteor.setTimeout(() => {
-  //       document.getElementById('pointer' + _id).style.transform = ''
-  //     }, 100)
-  //   }
-
-  //   //Is it currently the entree public sprint race?
-  //   // sprint-entree-public?
-  //   if (
-  //     instance.scoreSprintEntreePublic.get('startTime') &&
-  //     !instance.scoreSprintEntreePublic.get('endTime') &&
-  //     !instance.scoreSprintEntreePublic.get(extra.pointer.id)
-  //   ) {
-  //     // the race has started but isn't finished and the reactiveDict doesn't already contain a log for that pointer's id.
-  //     const finishTime = new Date()
-  //     const score = finishTime - instance.scoreSprintEntreePublic.get('startTime')
-
-  //     // score is in milisecs
-  //     instance.scoreSprintEntreePublic.set(extra.pointer.id, { time: score })
-  //   }
-
-  //   //Does the pointer currently hold a tree?
-  //   if (pointer.tree) {
-  //     //Make up a new tree identifier (they're sequential)
-  //     let newTreeId = 'tree-' + Object.keys(instance.plantedTrees.all()).length
-  //     //Add that tree to the reactive plantedTrees dictionary, so it can appear on the page
-  //     instance.plantedTrees.set(newTreeId, { coords: pointer.coords, tree: pointer.tree })
-  //     //The pointer no longer holds a tree
-  //     pointer.tree = null
-  //     instance.pointers.set(pointer.id, pointer)
-  //   }
-  // },
-
   'mouseup .pointer'(event, tpl, extra) {
     if (instance.arePointersHidden.get()) return
 
@@ -482,42 +328,6 @@ Template.show.events({
       }
     }
   },
-  // 'click #folderVestiaire'(event, tpl, extra) {
-  //   if (!extra) return //No extra data was provided: we don't know which pointer clicked?
-  //   let pointer = instance.pointers.get(extra.pointer.id)
-  //   //Don't let locked pointers change their accessories
-  //   if (pointer.locked) return
-
-  //   //Clear the event queue (this helps bot dress up immediately, humans probably don't have events)
-  //   pointer.events = []
-
-  //   if (pointer.id == 'samuel') {
-  //     dressupAnimation(pointer, getRandomBossAccessory())
-  //   } else {
-  //     dressupAnimation(pointer, getRandomAccessory())
-  //   }
-
-  //   instance.pointers.set(pointer.id, pointer)
-  // },
-  // 'click #folderTrees'(event, tpl, extra) {
-  //   if (!extra) return //No extra data was provided: we don't know which pointer clicked?
-  //   let pointer = instance.pointers.get(extra.pointer.id)
-
-  //   //Don't let locked pointers change their accessories
-  //   if (pointer.locked) return
-
-  //   treePickUpAnimation(pointer, getRandomTree())
-
-  //   instance.pointers.set(pointer.id, pointer)
-  // },
-  // 'click #folderAdmin'(event, tpl, extra) {
-  //   if (extra) {
-  //     instance.adminPosition.set([extra.pointer.coords.x, extra.pointer.coords.y])
-  //   } else {
-  //     instance.adminPosition.set([event.pageX, event.pageY])
-  //   }
-  //   GlobalEvent.set(GlobalEvents.OUVRIR_LA_FNET)
-  // },
 })
 
 simulateMouseEvent = function (button, status, pointer) {
