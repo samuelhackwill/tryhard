@@ -91,6 +91,7 @@ clic clic clic clic clic clic clic clic clic! -->
 `textToBlack`
 `showNicks`
 `debug-bot-pointers`
+`stockMarket`
 une souris s'est déplacée.
 une souris a cessé de se déplacer.
 une deuxième souris s'est déplacée!

@@ -5,6 +5,8 @@ import { playAudio } from '../audioAssets/audio.js'
 import { streamer } from '../../both/streamer.js'
 import { killAnimation, autoclickerSpawn, autoClickerMine } from '../bots.js'
 
+import { handleButtonClick } from '../components/btnDashboard.js'
+
 import '../components/main.js'
 import './show.html'
 
@@ -256,6 +258,9 @@ Template.show.helpers({
 })
 
 Template.show.events({
+  'mouseup .trade'(e) {
+    handleButtonClick(e)
+  },
   'mouseup #saveme'(e, t, p) {
     clock = document.getElementById('pointer' + p.pointer.id).querySelector('.miniclock')
 
@@ -267,7 +272,8 @@ Template.show.events({
       }, 250)
     }
   },
-  'mouseup #bonjourSamuel'(e, template, p) {
+  'mouseup .bonjourSamuel'(e, template, p) {
+    console.log('BNOJOUR!')
     if (instance.arePointersHidden.get()) return
 
     // ok so here we're using JSON parsing & stringifying because we can't store js objects directly in the html-data attributes.
@@ -396,6 +402,7 @@ export const simulateMouseUp = function (pointer) {
   if (elements.length == 0) return
 
   for (element of elements) {
+    // console.log(element)
     $(element).trigger('mouseup', { pointer: pointer })
   }
   elements.forEach((e) => e.classList.remove('clicked'))

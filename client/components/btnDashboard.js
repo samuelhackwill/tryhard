@@ -29,6 +29,10 @@ Template.btnDashboard.onCreated(function () {
 
 function handlePupitreAction(message) {
   switch (message.content) {
+    case 'stockMarket':
+      createTradingButtons()
+      break
+
     case 'showBonjour':
       addCentralButton('bonjour')
       break
@@ -178,7 +182,7 @@ addCentralButton = function (which) {
 
           // Set the button's attributes and classes
           bonjour.className =
-            'bg-blue-500 absolute h-8 w-fit m-1 text-white px-2 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-sm'
+            'bg-blue-500 absolute h-8 w-fit m-1 text-white px-2 rounded shadow-md transition-transform shadow-neutral-800 transform stops-events select-none text-sm bonjourSamuel'
           bonjour.id = 'button-bonjourSamuel' + x + v
           bonjour.style.left = x * 90 + 'px'
           bonjour.style.top = v * 60 + 'px'
@@ -268,5 +272,73 @@ addText = function (id, value) {
 
     // Remove the temporary wrapper
     tempWrapper.remove()
+  })
+}
+
+export const createTradingButtons = function () {
+  const container = document.createElement('div')
+  container.className =
+    'absolute grid grid-cols-2 grid-rows-2 gap-4 justify-center items-center w-[100vw] justify-items-center h-[100vh] mt-12'
+  document.getElementsByClassName('milieuContainer')[0].appendChild(container)
+
+  const buttons = [
+    { id: 'button-highRiskBuy', label: 'HIGH RISK - BUY', type: 'highRisk' },
+    { id: 'button-highRiskSell', label: 'HIGH RISK - SELL', type: 'highRisk' },
+    { id: 'button-mediumYieldBuy', label: 'MEDIUM YIELD - BUY', type: 'mediumYield' },
+    { id: 'button-mediumYieldSell', label: 'MEDIUM YIELD - SELL', type: 'mediumYield' },
+  ]
+
+  const values = {
+    highRisk: 100,
+    mediumYield: 50,
+  }
+
+  buttons.forEach((button) => {
+    const btn = document.createElement('button')
+    btn.id = button.id
+    btn.setAttribute('data-clickedCount', 0)
+    btn.innerText = `${button.label}: ${
+      button.type === 'highRisk' ? values.highRisk : values.mediumYield
+    }`
+    btn.className =
+      'px-6 py-3 text-lg font-medium text-white bg-gray-600 rounded-sm text-black w-full max-w-[300px] stops-events select-none trade button'
+
+    container.appendChild(btn)
+  })
+}
+
+export const handleButtonClick = (e) => {
+  console.log(e.currentTarget.innerHTML)
+  const values = {
+    highRisk: 100,
+    mediumYield: 50,
+  }
+
+  const buttons = [
+    { id: 'button-highRiskBuy', label: 'HIGH RISK - BUY', type: 'highRisk' },
+    { id: 'button-highRiskSell', label: 'HIGH RISK - SELL', type: 'highRisk' },
+    { id: 'button-mediumYieldBuy', label: 'MEDIUM YIELD - BUY', type: 'mediumYield' },
+    { id: 'button-mediumYieldSell', label: 'MEDIUM YIELD - SELL', type: 'mediumYield' },
+  ]
+
+  if (e.currentTarget.innerHTML.startsWith('HIGH') === true) {
+    // High risk changes every click, large range
+    values.highRisk = Math.floor(Math.random() * (999 - 50 + 1)) + 50
+  } else if (e.currentTarget.innerHTML.startsWith('MEDIUM') === true) {
+    // Medium yield changes 1 out of 3 clicks, smaller range
+    const clickedCount = Number(e.currentTarget.getAttribute('data-clickedCount')) + 1
+    if (clickedCount % 3 === 0) {
+      values.mediumYield = Math.floor(Math.random() * (300 - 100 + 1)) + 100
+    }
+    e.currentTarget.setAttribute('data-clickedCount', clickedCount)
+  }
+
+  buttons.forEach((button) => {
+    const btn = document.getElementById(button.id)
+    if (btn) {
+      btn.innerText = `${button.label}: ${
+        button.type === 'highRisk' ? values.highRisk : values.mediumYield
+      }`
+    }
   })
 }
