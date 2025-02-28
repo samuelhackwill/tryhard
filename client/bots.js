@@ -492,7 +492,7 @@ export const autoclickerSpawn = function (father, bot) {
         type: 'move',
         from: null,
         to: { x: newCoords.x, y: newCoords.y },
-        duration: 199,
+        duration: 100,
         pointer: bot,
       },
     })

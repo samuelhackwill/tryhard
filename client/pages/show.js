@@ -360,7 +360,7 @@ simulateRightMouseUp = function (pointer) {
 
     setTimeout(() => {
       autoClickerMine(_pointer, _bot, coords)
-    }, 201)
+    }, 99)
   }
 }
 
