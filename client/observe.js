@@ -15,7 +15,7 @@ export const observe = function (what, args) {
   } else {
     switch (what) {
       case 'newClick':
-        if (observing.includes(what) && clickTimeStamps.length >= 2) {
+        if (observing.includes(what) && clickTimeStamps.length >= 4) {
           console.log(
             "we're removing the observation of new clicks (for performance reasons) cause everybody's here.",
           )
@@ -30,9 +30,10 @@ export const observe = function (what, args) {
             return
           } else {
             clickTimeStamps.push({ id: args, timestamp: Date.now() })
+            const nieme = clickTimeStamps.length > 1 ? clickTimeStamps.length + 'e' : ''
             handlePupitreMessage({
               type: 'newLine',
-              content: `une ${clickTimeStamps.length}e souris a produit un clic.`,
+              content: `une ${nieme} souris a produit un clic.`,
             })
           }
         } else {
@@ -42,7 +43,7 @@ export const observe = function (what, args) {
         break
 
       case 'newMove':
-        if (observing.includes(what) && moveTimeStamps.length >= 2) {
+        if (observing.includes(what) && moveTimeStamps.length >= 4) {
           console.log(
             "we're removing the observation of new moves (for performance reasons) cause everybody's here.",
           )
@@ -57,9 +58,10 @@ export const observe = function (what, args) {
             return
           } else {
             moveTimeStamps.push({ id: args, timestamp: Date.now() })
+            const nieme = moveTimeStamps.length > 1 ? moveTimeStamps.length + 'e' : ''
             handlePupitreMessage({
               type: 'newLine',
-              content: `une ${moveTimeStamps.length}e souris s'est déplacée.`,
+              content: `une ${nieme} souris s'est déplacée.`,
             })
           }
         } else {
