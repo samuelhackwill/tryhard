@@ -2,7 +2,8 @@ import { handlePupitreMessage } from './components/feed'
 
 export let observing = []
 
-const mouseTimeStamps = []
+const clickTimeStamps = []
+const moveTimeStamps = []
 
 export const observe = function (what, args) {
   // check that observing contains what.
@@ -14,7 +15,7 @@ export const observe = function (what, args) {
   } else {
     switch (what) {
       case 'newClick':
-        if (observing.includes(what) && mouseTimeStamps.length >= 2) {
+        if (observing.includes(what) && clickTimeStamps.length >= 2) {
           console.log(
             "we're removing the observation of new clicks (for performance reasons) cause everybody's here.",
           )
@@ -24,21 +25,45 @@ export const observe = function (what, args) {
 
         if (observing.includes(what)) {
           console.log("we're observing new clicks.")
-          // check in mousetimestamps if there is an object with the same id as args.id. if it's the case, return. if it's not, send a pupitre action.
-          // if mousetimestamps contains as many elements as totalActiveMice
-          // then remove thyself from the observing array.
-          if (mouseTimeStamps.find((item) => item.id === args)) {
+          if (clickTimeStamps.find((item) => item.id === args)) {
             console.log('this mouse has already been greeted.')
             return
           } else {
-            mouseTimeStamps.push({ id: args, timestamp: Date.now() })
+            clickTimeStamps.push({ id: args, timestamp: Date.now() })
             handlePupitreMessage({
               type: 'newLine',
-              content: `une ${mouseTimeStamps.length}e souris a produit un clic.`,
+              content: `une ${clickTimeStamps.length}e souris a produit un clic.`,
             })
           }
         } else {
           console.log('observing does not include newclick.')
+          return
+        }
+        break
+
+      case 'newMove':
+        if (observing.includes(what) && moveTimeStamps.length >= 2) {
+          console.log(
+            "we're removing the observation of new moves (for performance reasons) cause everybody's here.",
+          )
+          // stop looking for new mice if the array already contains everybody, i.e. everybody has moved.
+          observing = observing.filter((elem) => elem !== what)
+        }
+
+        if (observing.includes(what)) {
+          console.log("we're observing new moves.")
+          if (moveTimeStamps.find((item) => item.id === args)) {
+            console.log('this mouse has already been greeted.')
+            return
+          } else {
+            moveTimeStamps.push({ id: args, timestamp: Date.now() })
+            handlePupitreMessage({
+              type: 'newLine',
+              content: `une ${moveTimeStamps.length}e souris s'est déplacée.`,
+            })
+          }
+        } else {
+          console.log('observing does not include newMove.')
           return
         }
         break

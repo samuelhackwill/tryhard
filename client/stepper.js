@@ -4,7 +4,7 @@ import { autoClickerMine, moveInFrontOfCaptcha, moveOffOfCaptcha } from './bots.
 import { streamer } from '../both/streamer.js'
 import { removeTimeouts } from './components/pasUnRobot.js'
 
-import { observing } from './observe.js'
+import { observe, observing } from './observe.js'
 
 import {
   createPointer,
@@ -70,7 +70,7 @@ function stepEventQueue(queue) {
 function handlePupitreAction(message) {
   switch (message.content) {
     case 'startObserving':
-      observing.push('newClick')
+      observing.push('newClick', 'newMove')
       break
     case 'bgToblue':
       instance.bgColor.set('blue')
@@ -222,6 +222,8 @@ function handleTickUpdate(message) {
         default:
           break
       }
+
+      observe('newMove', pointer.id)
 
       // here we need to update the DOM en fonction du dataset
 
