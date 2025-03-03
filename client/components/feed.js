@@ -33,7 +33,7 @@ export const handlePupitreAction = function (message) {
 }
 
 export const handlePupitreMessage = function (message) {
-  feed = document.getElementById('feed')
+  const feed = document.getElementById('feed')
 
   const feedItem = document.createElement('div')
   feedItem.className = 'ml-2 feedItem transition-opacity duration-1000 '
@@ -58,20 +58,18 @@ export const handlePupitreMessage = function (message) {
 
   feed.prepend(feedItem)
 
-  // TYPING ANIMATION HERE
-  Meteor.setTimeout(() => {
-    index = 0
-    arr = [...feed.children[0].children]
+  const arr = [...feed.children[0].children]
+  let index = 0
 
-    prout = Meteor.setInterval(() => {
-      if (index > arr.length - 1) {
-        Meteor.clearInterval(prout)
-        return
-      }
-      arr[index].style.opacity = 1
-      index = index + 1
-    }, 5)
-  }, 0)
+  // TYPING ANIMATION HERE
+  const interval = Meteor.setInterval(() => {
+    if (index > arr.length - 1) {
+      Meteor.clearInterval(interval)
+      return
+    }
+    arr[index].style.opacity = 1
+    index++
+  }, 5)
 
   // ALTERNATIVE TYPING ANIMATION HERE, SLOWER BUT MORE FLUID.
   // function revealChar() {
