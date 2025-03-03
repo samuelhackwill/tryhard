@@ -1,4 +1,9 @@
 import './background.html'
+import { streamer } from '../../both/streamer.js'
+
+streamer.on('pupitreAction', function () {
+  streamer.on('pupitreAction', handlePupitreAction)
+})
 
 Template.background.helpers({
   getBg() {
@@ -21,3 +26,17 @@ Template.background.helpers({
     // }
   },
 })
+
+function handlePupitreAction(message) {
+  switch (message.content) {
+    case 'bgToblue':
+      instance.bgColor.set('blue')
+      break
+    case 'bgToblack':
+      instance.bgColor.set('#1C1917')
+      break
+    case 'bgTogrey':
+      instance.bgColor.set('oklch(0.869 0.022 252.894)')
+      break
+  }
+}

@@ -23,9 +23,7 @@ const noise = new ValueNoise()
 streamer.on('tickUpdate', function (message) {
   clientEventQueue.push({ origin: 'serverTick', payload: message })
 })
-streamer.on('pupitreAction', function (message) {
-  clientEventQueue.push({ origin: 'pupitre', payload: message })
-})
+streamer.on('pupitreAction', handlePupitreAction)
 
 export const stepper = function (pointerCallbacks = []) {
   stepEventQueue(clientEventQueue)
@@ -48,9 +46,6 @@ function stepEventQueue(queue) {
     if (queue[i].origin == 'autoplay') {
       handleAutoPlay(queue[i].payload)
     }
-    if (queue[i].origin == 'pupitre') {
-      handlePupitreAction(queue[i].payload)
-    }
     if (queue[i].origin == 'serverTick') {
       handleTickUpdate(queue[i].payload)
     }
@@ -70,16 +65,13 @@ function stepEventQueue(queue) {
 function handlePupitreAction(message) {
   switch (message.content) {
     case 'startObserving':
+      pollingTopMouse = setTimeout(function () {
+        updateTopMouse()
+        updateTopGradins()
+        updateTopHalf()
+        console.log("checking who's the best mouse")
+      }, 1000)
       observing.push('newClick', 'newMove')
-      break
-    case 'bgToblue':
-      instance.bgColor.set('blue')
-      break
-    case 'bgToblack':
-      instance.bgColor.set('#1C1917')
-      break
-    case 'bgTogrey':
-      instance.bgColor.set('oklch(0.869 0.022 252.894)')
       break
     case 'showNicks':
       instance.areNamesHidden.set(false)
