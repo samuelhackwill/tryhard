@@ -4,6 +4,8 @@ import { autoClickerMine, moveInFrontOfCaptcha, moveOffOfCaptcha } from './bots.
 import { streamer } from '../both/streamer.js'
 import { removeTimeouts } from './components/pasUnRobot.js'
 
+import { observing } from './observe.js'
+
 import {
   createPointer,
   checkHover,
@@ -67,6 +69,9 @@ function stepEventQueue(queue) {
 
 function handlePupitreAction(message) {
   switch (message.content) {
+    case 'startObserving':
+      observing.push('newClick')
+      break
     case 'bgToblue':
       instance.bgColor.set('blue')
       break

@@ -248,6 +248,9 @@ const sendAction = function (string, instructions) {
 const checkBeforeEmit = function (context) {
   if (String(context.type) == 'text') {
     switch (Template.instance().selectedHeader.get()) {
+      case 'startObserving':
+        sendAction('startObserving')
+        break
       case 'captchas-single-player':
         _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
         _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
