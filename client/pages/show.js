@@ -12,7 +12,7 @@ import './show.html'
 
 import { disabledMice } from '../../both/disabledMice.js'
 
-import { observe, observing } from '../observe.js'
+import { observe } from '../observe.js'
 
 Template.show.onCreated(function () {
   this.autorun(() => {
@@ -373,14 +373,7 @@ simulateRightMouseUp = function (pointer) {
 }
 
 export const simulateMouseUp = function (pointer) {
-  let _observe = false
-  console.log(observing)
-
-  if (observing.length > 0) {
-    _observe = true
-  }
-
-  if (_observe) observe('newClick', pointer.id)
+  observe('newClick', pointer.id)
 
   const domPointer = document.getElementById(pointer.id)
 
