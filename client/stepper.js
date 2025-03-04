@@ -5,15 +5,8 @@ import { streamer } from '../both/streamer.js'
 import { removeTimeouts } from './components/pasUnRobot.js'
 
 import { observe, observing } from './observe.js'
-
-import {
-  createPointer,
-  checkHover,
-  simulateMouseDown,
-  simulateMouseUp,
-  getRasp,
-  getMouseBrand,
-} from '../client/pages/show.js'
+import { updateTopMouse } from '../client/components/feed.js'
+import { createPointer, checkHover } from '../client/pages/show.js'
 
 let clientEventQueue = []
 let catpchaTemplateContainer = []
@@ -62,44 +55,20 @@ function stepEventQueue(queue) {
   }
 }
 
+// all this shit should be moved to show but wtvr
 function handlePupitreAction(message) {
   switch (message.content) {
     case 'startObserving':
-      pollingTopMouse = setTimeout(function () {
+      pollingTopMouse = setInterval(function () {
         updateTopMouse()
-        updateTopGradins()
-        updateTopHalf()
+        // updateTopGradins()
+        // updateTopHalf()
         console.log("checking who's the best mouse")
       }, 1000)
       observing.push('newClick', 'newMove')
       break
     case 'showNicks':
       instance.areNamesHidden.set(false)
-      break
-    case 'captcha-spin':
-      if (message.args) {
-        document.getElementById('pasUnRobot').classList.add('rotate-loop-fast')
-      } else {
-        document.getElementById('pasUnRobot').classList.add('rotate-loop')
-      }
-      break
-    case 'cancelCaptchaTimeouts':
-      removeTimeouts()
-      break
-    case 'killCaptchas':
-      // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
-      removeTimeouts()
-      const element = document.getElementById('pasUnRobot')
-      if (element) {
-        element.style.opacity = 0
-
-        Meteor.setTimeout(function () {
-          catpchaTemplateContainer.forEach((captcha) => {
-            Blaze.remove(captcha)
-          })
-        }, parseFloat(getComputedStyle(element).transitionDuration) * 1000)
-      }
-
       break
     case 'unchoosePlayers':
       Object.values(instance.pointers.all()).forEach((obj) => {

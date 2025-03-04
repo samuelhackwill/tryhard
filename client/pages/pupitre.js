@@ -242,6 +242,7 @@ const sendLine = function (string) {
 
 const sendAction = function (string, instructions) {
   _args = instructions || 0
+  // console.log('pupitreAction', { type: 'action', content: string, args: _args })
   streamer.emit('pupitreAction', { type: 'action', content: string, args: _args })
 }
 

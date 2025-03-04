@@ -1,14 +1,17 @@
 import './feed.html'
 import { streamer } from '../../both/streamer.js'
+import './reactiveLine.js'
 
-let emphasisTrigger = false
+reactiveLinesContainer = []
 
-Template.feed.onCreated(function () {
-  streamer.on('pupitreMessage', handlePupitreMessage)
-  streamer.on('pupitreAction', handlePupitreAction)
+streamer.on('pupitreAction', function (message) {
+  handlePupitreAction(message)
+})
+streamer.on('pupitreMessage', function (message) {
+  handlePupitreMessage(message)
 })
 
-export const handlePupitreAction = function (message) {
+const handlePupitreAction = function (message) {
   switch (message.content) {
     case 'textToBlack':
       instance.textColor.set('black')
@@ -39,25 +42,65 @@ export const handlePupitreMessage = function (message) {
   feedItem.className = 'ml-2 feedItem transition-opacity duration-1000 '
   feedItem.style.marginBottom = '32px'
 
+  function appendSpan(content, className = 'opacity-0') {
+    const span = document.createElement('span')
+    span.className = className
+    span.textContent = content
+    feedItem.appendChild(span)
+  }
+
+  let variableBuffer = null
+  let emphasisTrigger = false
+
   message.content.split('').forEach((char) => {
-    // si c'est une étoile, passe en mode emphasis
-    // si c'est une deuxième étoile passe en mode fin de l'emphasis
-    if (char == '_') {
+    if (variableBuffer !== null) {
+      // We're inside a [variable]
+      if (char === ']') {
+        // Variable finished — insert a span with the variable value
+        // OK SO WHEN WE USE VARIABLES THIS WAY, THEY NEED TO BE
+        // > SCOPED TO SHOW INSTANCE
+        // > and also be reactive vars.
+        // bye
+        const variableName = variableBuffer
+        // const variableValue = instance[variableName].get() ?? `[${variableName}]`
+
+        reactiveLinesContainer.push(
+          Blaze.renderWithData(
+            Template.reactiveLine,
+            { name: variableName },
+            feedItem, // Append directly into feedItem
+          ),
+        )
+
+        // appendSpan(variableValue, `opacity-0 variable ${variableName}`)
+        variableBuffer = null // exit variable mode
+      } else {
+        variableBuffer += char
+      }
+      return
+    }
+
+    if (char === '[') {
+      // Start capturing variable name
+      variableBuffer = ''
+      return
+    }
+
+    if (char === '_') {
+      // Toggle emphasis
       emphasisTrigger = !emphasisTrigger
       return
     }
-    const span = document.createElement('span')
-    if (emphasisTrigger === true) {
-      span.className = 'opacity-0 italic !font-serif !text-yellow-100'
-    } else {
-      span.className = 'opacity-0'
-    }
-    span.textContent = char // Assign the character to the span
-    feedItem.appendChild(span) // Append the span to the div
+
+    // Normal character
+    const className = emphasisTrigger
+      ? 'opacity-0 italic !font-serif !text-yellow-100'
+      : 'opacity-0'
+
+    appendSpan(char, className)
   })
 
   feed.prepend(feedItem)
-
   const arr = [...feed.children[0].children]
   let index = 0
 
@@ -106,3 +149,36 @@ Template.feed.helpers({
     }
   },
 })
+
+export const updateTopMouse = function () {
+  const allDomPointers = Array.from(document.getElementsByClassName('pointer'))
+  const moneyElements = allDomPointers.map((pointer) => {
+    const cleanValue = pointer.querySelector('#money').innerHTML.replace(/\s/g, '')
+    const numberValue = Number(cleanValue)
+    return numberValue
+  })
+
+  moneyElements.sort((a, b) => b - a)
+
+  instance.GoldMouseScore.set(moneyElements[0])
+  instance.SilverMouseScore.set(moneyElements[1])
+  instance.CopperMouseScore.set(moneyElements[2])
+
+  const matchingPointer = allDomPointers.find((pointer) => {
+    const moneySpan = pointer.querySelector('#money')
+    if (!moneySpan) return false
+
+    const cleanValue = moneySpan.innerHTML.replace(/\s/g, '')
+    return Number(cleanValue) === moneyElements[0]
+  })
+
+  console.log('best mouse is ', matchingPointer ? matchingPointer.id : null)
+
+  // well, we'd like to change the color of the gold pointer but it's crashing so..
+  // maybe just make a helper in the pointers who look for the goldmouse var instead
+  _pointer = instance.pointers.get(matchingPointer.id)
+  console.log(_pointer)
+  _pointer.bgColor = '#FFD700'
+  _pointer.outlineColor = '#000000'
+  instance.pointers.set(matchingPointer.id, _pointer)
+}

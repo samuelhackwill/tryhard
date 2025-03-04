@@ -78,7 +78,6 @@ function handlePupitreAction(message) {
 
 Template.btnDashboard.helpers({
   displayClock() {
-    console.log(isClockDisplayed.get())
     return isClockDisplayed.get()
   },
 })

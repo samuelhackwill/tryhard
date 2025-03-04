@@ -1,7 +1,6 @@
 import { handlePupitreMessage } from './components/feed'
 
 export let observing = []
-
 const clickTimeStamps = []
 const moveTimeStamps = []
 

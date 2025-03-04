@@ -1,7 +1,10 @@
 import './pasUnRobot.html'
-
 import { moveOffOfCaptcha } from '../bots.js'
+import { streamer } from '../../both/streamer.js'
 
+streamer.on('pupitreAction', function () {
+  streamer.on('pupitreAction', handlePupitreAction)
+})
 pasUnRobotTimeouts = []
 newX = 1
 newY = 1
@@ -169,3 +172,33 @@ unchoosePlayer = function (player) {
 // makeCaptchaFlee = function () {
 //   Blaze.getView(document.getElementById('pasUnRobot')).templateInstance().fleeing.set(true)
 // }
+
+function handlePupitreAction(message) {
+  switch (message.content) {
+    case 'captcha-spin':
+      if (message.args) {
+        document.getElementById('pasUnRobot').classList.add('rotate-loop-fast')
+      } else {
+        document.getElementById('pasUnRobot').classList.add('rotate-loop')
+      }
+      break
+    case 'cancelCaptchaTimeouts':
+      removeTimeouts()
+      break
+    case 'killCaptchas':
+      // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
+      removeTimeouts()
+      const element = document.getElementById('pasUnRobot')
+      if (element) {
+        element.style.opacity = 0
+
+        Meteor.setTimeout(function () {
+          catpchaTemplateContainer.forEach((captcha) => {
+            Blaze.remove(captcha)
+          })
+        }, parseFloat(getComputedStyle(element).transitionDuration) * 1000)
+      }
+
+      break
+  }
+}

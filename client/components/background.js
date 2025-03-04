@@ -1,14 +1,19 @@
 import './background.html'
 import { streamer } from '../../both/streamer.js'
 
-streamer.on('pupitreAction', function () {
-  streamer.on('pupitreAction', handlePupitreAction)
+flamesBgContainer = []
+
+streamer.on('pupitreAction', function (message) {
+  handlePupitreAction(message)
+})
+
+Template.flamesBg.onRendered(function () {
+  document.getElementById('flamesContainer').style.opacity = '1'
 })
 
 Template.background.helpers({
   getBg() {
     // return 'bg-[blue]'
-    console.log(instance.bgColor.get())
     return 'background-color :' + instance.bgColor.get() + ';'
     // let currentView = Template.instance().view
 
@@ -27,7 +32,7 @@ Template.background.helpers({
   },
 })
 
-function handlePupitreAction(message) {
+const handlePupitreAction = function (message) {
   switch (message.content) {
     case 'bgToblue':
       instance.bgColor.set('blue')
@@ -37,6 +42,11 @@ function handlePupitreAction(message) {
       break
     case 'bgTogrey':
       instance.bgColor.set('oklch(0.869 0.022 252.894)')
+      break
+    case 'bgToFlames':
+      console.log('PROUT')
+      const bg = document.getElementById('background')
+      flamesBgContainer.push(Blaze.render(Template.flamesBg, bg))
       break
   }
 }

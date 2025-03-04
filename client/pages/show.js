@@ -18,6 +18,9 @@ Template.show.onCreated(function () {
   this.autorun(() => {
     this.subscribe('disabledMice')
   })
+  this.GoldMouseScore = new ReactiveVar(0)
+  this.SilverMouseScore = new ReactiveVar(0)
+  this.CopperMouseScore = new ReactiveVar(0)
 
   this.bgColor = new ReactiveVar('#1C1917')
   this.feedToggle = new ReactiveVar(true)
