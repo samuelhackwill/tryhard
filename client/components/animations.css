@@ -130,3 +130,34 @@
 .clic-animation {
   animation: clicStep 0.2s steps(2, end) infinite alternate;
 }
+
+@keyframes playv {
+  0% {
+    background-position-y: 0px;
+  }
+  100% {
+    background-position-y: -384px; /* Moves down 6 rows */
+  }
+}
+
+@keyframes playh {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: -640px; /* Moves across 10 columns */
+  }
+}
+
+.flame {
+  width: 64px;
+  height: 64px;
+  background-image: url('fire1_64.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 9999;
+  pointer-events: none;
+
+  /* Apply separate X and Y animations */
+  animation: playv 0.1s steps(6) infinite, playh 0.1s steps(10) infinite;
+}

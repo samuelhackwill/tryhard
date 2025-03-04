@@ -94,7 +94,9 @@ clic clic clic clic clic clic clic clic clic! -->
 la souris la plus industrieuse a produit [GoldMouseScore] clics!
 la deuxième souris la plus industrieuse a produit [SilverMouseScore] clics!
 la troisième souris la plus industrieuse a produit [CopperMouseScore] clics!
+`burnPointers`
 `bgToFlames`
+`removeFlames`
 
 <!-- je suis un peu choqué par ce qui vient de se passer
 tout à l'heure
