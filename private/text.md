@@ -94,6 +94,10 @@ clic clic clic clic clic clic clic clic clic! -->
 la souris la plus industrieuse a produit [GoldMouseScore] clics!
 la deuxième souris la plus industrieuse a produit [SilverMouseScore] clics!
 la troisième souris la plus industrieuse a produit [CopperMouseScore] clics!
+en raison de la production d'un trop grand nombre de clics, les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique.
+Le monde va malheureusement exploser et tout le monde va mourir.
+Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
+
 `burnPointers`
 `bgToFlames`
 `removeFlames`

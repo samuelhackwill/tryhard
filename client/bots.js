@@ -2,7 +2,7 @@ import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math
 
 import { pushToClientEventQueue } from '../client/stepper.js'
 
-autoclickerIntervals = {}
+autoclickerIntervals = []
 
 export const moveOffOfCaptcha = function (pointer) {
   // Randomly decide if we pick from the 1st or 4th quarter
@@ -396,14 +396,16 @@ export const autoClickerMine = function (father, bot) {
   const _bot = bot
   coords = readDomCoords(_bot.id)
 
-  setInterval(() => {
-    const DOMpointer = document.getElementById(_bot.owner)
-    const cleanValue = DOMpointer.querySelector('#money').innerHTML.replace(/\s/g, '')
-    let money = Number(cleanValue)
+  autoclickerIntervals.push(
+    setInterval(() => {
+      const DOMpointer = document.getElementById(_bot.owner)
+      const cleanValue = DOMpointer.querySelector('#money').innerHTML.replace(/\s/g, '')
+      let money = Number(cleanValue)
 
-    money = money + 1
-    DOMpointer.querySelector('#money').innerHTML = money.toLocaleString('fr-FR')
-  }, 400)
+      money = money + 1
+      DOMpointer.querySelector('#money').innerHTML = money.toLocaleString('fr-FR')
+    }, 400),
+  )
 
   const targetDiv = document.getElementById('pointersContainer')
 

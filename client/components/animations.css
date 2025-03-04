@@ -161,3 +161,18 @@
   /* Apply separate X and Y animations */
   animation: playv 0.1s steps(6) infinite, playh 0.1s steps(10) infinite;
 }
+
+@keyframes fallWithGravity {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.falling-skull {
+  animation: fallWithGravity 1s ease-in forwards;
+}
