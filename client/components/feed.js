@@ -16,6 +16,9 @@ const handlePupitreAction = function (message) {
     case 'textToBlack':
       instance.textColor.set('black')
       break
+    case 'textToWhite':
+      instance.textColor.set('white')
+      break
     case 'hideFeed':
       instance.feedToggle.set(false)
       break
@@ -39,7 +42,7 @@ export const handlePupitreMessage = function (message) {
   const feed = document.getElementById('feed')
 
   const feedItem = document.createElement('div')
-  feedItem.className = 'ml-2 feedItem transition-opacity duration-1000 '
+  feedItem.className = 'ml-2 feedItem transition-opacity duration-1000'
   feedItem.style.marginBottom = '32px'
 
   function appendSpan(content, className = 'opacity-0') {
@@ -128,13 +131,13 @@ export const handlePupitreMessage = function (message) {
   // ANIMATION OF AVANT-DERNIERE LINE HERE
 
   // we need to fade all the lines as they are added, but not the first one. The feed has an empty children so length is 3 when we've only got 2 lines of test for some reason.
-  if (feed.children.length < 2) {
-    return
-  } else {
-    Meteor.setTimeout(() => {
-      feed.children[1].style.opacity = '0.2'
-    }, 0)
-  }
+  // if (feed.children.length < 2) {
+  //   return
+  // } else {
+  //   Meteor.setTimeout(() => {
+  //     feed.children[1].style.opacity = '0.5'
+  //   }, 0)
+  // }
 }
 
 Template.feed.helpers({
@@ -164,21 +167,56 @@ export const updateTopMouse = function () {
   instance.SilverMouseScore.set(moneyElements[1])
   instance.CopperMouseScore.set(moneyElements[2])
 
-  const matchingPointer = allDomPointers.find((pointer) => {
-    const moneySpan = pointer.querySelector('#money')
-    if (!moneySpan) return false
+  // const matchingPointer = allDomPointers.find((pointer) => {
+  //   const moneySpan = pointer.querySelector('#money')
+  //   if (!moneySpan) return false
 
-    const cleanValue = moneySpan.innerHTML.replace(/\s/g, '')
-    return Number(cleanValue) === moneyElements[0]
+  //   const cleanValue = moneySpan.innerHTML.replace(/\s/g, '')
+  //   return Number(cleanValue) === moneyElements[0]
+  // })
+
+  // console.log('best mouse is ', matchingPointer ? matchingPointer.id : null)
+
+  // Reset all previous top pointers' colors
+  const pointers = Object.values(instance.pointers.all())
+
+  pointers.forEach((p) => {
+    p.bgColor = '#000000' // Default (black)
+    p.outlineColor = '#FFFFFF' // Default (white)
+    instance.pointers.set(p.id, p)
   })
 
-  console.log('best mouse is ', matchingPointer ? matchingPointer.id : null)
+  // Find the top 3 pointers based on the highest money values
+  const topPointers = moneyElements
+    .slice(0, 3)
+    .map((score) =>
+      allDomPointers.find((pointer) => {
+        const moneySpan = pointer.querySelector('#money')
+        if (!moneySpan) return false
+        return Number(moneySpan.innerHTML.replace(/\s/g, '')) === score
+      }),
+    )
+    .filter(Boolean) // Remove any undefined/null values
 
-  // well, we'd like to change the color of the gold pointer but it's crashing so..
-  // maybe just make a helper in the pointers who look for the goldmouse var instead
-  _pointer = instance.pointers.get(matchingPointer.id)
-  console.log(_pointer)
-  _pointer.bgColor = '#FFD700'
-  _pointer.outlineColor = '#000000'
-  instance.pointers.set(matchingPointer.id, _pointer)
+  // Apply the colors to the top 3 pointers if they exist
+  if (topPointers[0]) {
+    _pointer = instance.pointers.get(topPointers[0].id)
+    _pointer.bgColor = '#FFD700' // Gold
+    _pointer.outlineColor = '#000000'
+    instance.pointers.set(topPointers[0].id, _pointer)
+  }
+
+  if (topPointers[1]) {
+    _pointer = instance.pointers.get(topPointers[1].id)
+    _pointer.bgColor = '#999B9B' // Silver
+    _pointer.outlineColor = '#6B6C6C'
+    instance.pointers.set(topPointers[1].id, _pointer)
+  }
+
+  if (topPointers[2]) {
+    _pointer = instance.pointers.get(topPointers[2].id)
+    _pointer.bgColor = '#815924' // Copper
+    _pointer.outlineColor = '#000000'
+    instance.pointers.set(topPointers[2].id, _pointer)
+  }
 }
