@@ -5,6 +5,12 @@ streamer.on('pupitreAction', function (message) {
   handlePupitreAction(message)
 })
 
+Template.samuel.onRendered(function () {
+  setTimeout(() => {
+    document.getElementById('samuel').style.opacity = '1'
+  }, 50)
+})
+
 const handlePupitreAction = function (message) {
   switch (message.content) {
     case 'samuelDVD':
