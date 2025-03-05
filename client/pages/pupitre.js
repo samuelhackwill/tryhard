@@ -7,8 +7,6 @@ import { disabledMice } from '../../both/disabledMice.js'
 import { getRasp, getMouseBrand } from './show.js'
 
 Template.pupitre.onCreated(function () {
-  Session.set('state', 'mise')
-
   Meteor.call('resetConnectedDevices')
 
   this.autorun(() => {
@@ -118,21 +116,13 @@ Template.pupitre.helpers({
     }
   },
 
-  state() {
-    if (Session.get('state')) {
-      return Session.get('state')
+  selectedHeader() {
+    if (Template.instance().selectedHeader.get()) {
+      return '§ ' + Template.instance().selectedHeader.get()
     } else {
       return 'no state found'
     }
   },
-
-  // selectedHeader() {
-  //   if (Template.instance().selectedHeader.get()) {
-  //     return '§ ' + Template.instance().selectedHeader.get()
-  //   } else {
-  //     return
-  //   }
-  // },
 
   getHeaders() {
     return Template.instance().headers.get()
@@ -188,7 +178,7 @@ Template.pupitre.events({
     })
   },
   'click .header'() {
-    Session.set('state', String(this))
+    broadcastState(String(this))
     Template.instance().selectedHeader.set(String(this))
     // the timeout is to make sure blaze has rendered, lulz.
     Meteor.setTimeout(() => {
@@ -257,12 +247,16 @@ const sendAction = function (string, instructions) {
   streamer.emit('pupitreAction', { type: 'action', content: string, args: _args })
 }
 
+const broadcastState = function (string) {
+  streamer.emit('pupitreStateChange', { type: 'stateChange', content: string })
+}
+
 const checkBeforeEmit = function (context) {
   if (String(context.type) == 'text') {
     switch (Template.instance().selectedHeader.get()) {
-      case 'startObserving':
-        sendAction('startObserving')
-        break
+      // here goes all non-standard behaviour. we don't need
+      // to name every action keyword because they are being
+      // pris en charge by the default block down down
       case 'captchas-single-player':
         _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
         _readingSpeed = Number(document.getElementById('reading-speed-slider').value)

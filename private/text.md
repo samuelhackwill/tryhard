@@ -38,6 +38,8 @@
 
 ## II-le-succes-s1
 
+<!-- attention, le nom "ii-le-succes" est utilisé par show pour savoir s'il faut compter les clics ou pas -->
+
 `showFeed`
 `bgTogrey`
 `textToBlack`

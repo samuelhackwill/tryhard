@@ -15,6 +15,11 @@ import { disabledMice } from '../../both/disabledMice.js'
 import { observe } from '../observe.js'
 
 Template.show.onCreated(function () {
+  streamer.on('pupitreStateChange', function (message) {
+    instance.state.set(message.content)
+    console.log(instance.state.get())
+  })
+
   this.autorun(() => {
     this.subscribe('disabledMice')
   })
@@ -37,6 +42,8 @@ Template.show.onCreated(function () {
   this.windowBoundaries = { x: 0, y: 0, width: window.innerWidth, height: window.innerHeight }
 
   this.whichBackground = new ReactiveVar('slate.png')
+
+  this.state = new ReactiveVar('init')
 
   // make instance callable from everywhere
   instance = this
@@ -410,11 +417,13 @@ export const simulateMouseUp = function (pointer) {
   }
   elements.forEach((e) => e.classList.remove('clicked'))
 
-  // bonjour il faudrait un switch qui vérifie dans quel moment du spectacle on est, sinon on va faire gagner de l'argent aux gens quand ils cliquent sur les captchaaaasss on verra plus tard fuck go fuck
-  const DOMcounter = domPointer.querySelector('#money')
-  const cleanValue = DOMcounter.innerHTML.replace(/\s/g, '')
-  const DOMcounterValue = Number(cleanValue) + 1
-  DOMcounter.innerHTML = DOMcounterValue
+  // only add to money if we're in the appropriate moment of the show.
+  if (instance.state.get('state').startsWith('ii-le-succes')) {
+    const DOMcounter = domPointer.querySelector('#money')
+    const cleanValue = DOMcounter.innerHTML.replace(/\s/g, '')
+    const DOMcounterValue = Number(cleanValue) + 1
+    DOMcounter.innerHTML = DOMcounterValue
+  }
 }
 
 export const simulateMouseDown = function (pointer) {
