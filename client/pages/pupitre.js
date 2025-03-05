@@ -7,6 +7,8 @@ import { disabledMice } from '../../both/disabledMice.js'
 import { getRasp, getMouseBrand } from './show.js'
 
 Template.pupitre.onCreated(function () {
+  Session.set('state', 'mise')
+
   Meteor.call('resetConnectedDevices')
 
   this.autorun(() => {
@@ -116,13 +118,21 @@ Template.pupitre.helpers({
     }
   },
 
-  selectedHeader() {
-    if (Template.instance().selectedHeader.get()) {
-      return '§ ' + Template.instance().selectedHeader.get()
+  state() {
+    if (Session.get('state')) {
+      return Session.get('state')
     } else {
-      return
+      return 'no state found'
     }
   },
+
+  // selectedHeader() {
+  //   if (Template.instance().selectedHeader.get()) {
+  //     return '§ ' + Template.instance().selectedHeader.get()
+  //   } else {
+  //     return
+  //   }
+  // },
 
   getHeaders() {
     return Template.instance().headers.get()
@@ -178,6 +188,7 @@ Template.pupitre.events({
     })
   },
   'click .header'() {
+    Session.set('state', String(this))
     Template.instance().selectedHeader.set(String(this))
     // the timeout is to make sure blaze has rendered, lulz.
     Meteor.setTimeout(() => {

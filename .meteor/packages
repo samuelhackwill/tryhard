@@ -26,3 +26,4 @@ blaze-hot               # Update files using Blaze's API with HMR
 ostrio:flow-router-extra
 rocketchat:streamer
 underscore
+session

@@ -51,7 +51,7 @@ const handlePupitreAction = function (message) {
     case 'podium':
       createPodium()
       break
-    case 'showSamuel':
+    case 'samuelSpawn':
       Blaze.render(Template.samuel, bg)
       break
   }

@@ -142,7 +142,7 @@ export const handlePupitreMessage = function (message) {
 
 Template.feed.helpers({
   getTextColor() {
-    instance.textColor.get()
+    return 'text-' + instance.textColor.get()
   },
   feedHider() {
     if (instance.feedToggle.get() === true) {

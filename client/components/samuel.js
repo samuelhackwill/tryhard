@@ -51,8 +51,9 @@ Template.samuel.onRendered(function () {
 
 const handlePupitreAction = function (message) {
   switch (message.content) {
-    case 'samuelDVD':
-      document.getElementById('samuel').classList.add('saveme-animated')
+    case 'showSamuel':
+      document.getElementById('samuel').classList.add('opacity-1')
+      document.getElementById('samuel').classList.remove('opacity-0')
       break
   }
 }
