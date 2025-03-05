@@ -34,12 +34,18 @@ Template.samuel.onRendered(function () {
     samuel.classList.remove('saveme-animated')
 
     // Apply new styles based on the current position of the element
-    samuel.style.position = 'absolute' // Make it absolute to place it anywhere on the screen
-    samuel.style.left = `${rect.left}px` // Set left position based on current position
-    samuel.style.top = `${rect.top}px` // Set top position based on current position
-    samuel.style.opacity = '0.5' // Adjust opacity or other properties to reflect the state when it hits the corner
+    samuel.style.position = 'absolute'
+    samuel.style.left = `${rect.left}px`
+    samuel.style.top = `${rect.top}px`
 
-    // Optionally, you can apply other styles or trigger additional animations
+    setTimeout(() => {
+      // smile and then fadeout
+      document.getElementById('samuelImg').classList.add('bg-samuelSmile')
+      document.getElementById('samuelImg').classList.remove('bg-samuel')
+      setTimeout(() => {
+        samuel.style.opacity = '0'
+      }, 1000)
+    }, 1000)
   }, time * 1000 + 50) // wait for the time before corner hit
 })
 

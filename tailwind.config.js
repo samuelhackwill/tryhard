@@ -13,6 +13,8 @@ module.exports = {
         pointer: "url('/pointer.png')",
         folder: "url('/folder.png')",
         samuel: "url('/samuel.png')",
+        samuelSad: "url('/samuel_sad.png')",
+        samuelSmile: "url('/samuel_smile.png')",
       },
     },
   },
