@@ -80,6 +80,7 @@ function fadeAudio(audioElement, fadeType = 'in', duration = 10000) {
     }, stepTime)
   }
 }
+
 const addFlames = function () {
   const autoclickers = document.querySelectorAll('.autoclicker')
   const pointers = document.querySelectorAll('.pointer')
@@ -120,15 +121,13 @@ const addFlames = function () {
 
     document.body.appendChild(flame)
 
-    // lol what's going on here
-    flame.style.animation = `playv ${animationDuration / 1000}s steps(${rows}) infinite, 
-                             playh ${
-                               animationDuration / (columns * 10)
-                             }s steps(${columns}) infinite`
+    // lol the linter likes this line
+    flame.style.animation = `playv ${animationDuration / 1000}s steps(${rows}) infinite, playh ${
+      animationDuration / (columns * 10)
+    }s steps(${columns}) infinite`
   }
 
   function startFlamingSequence() {
-    const totalElements = allElements.length
     const firstBatchCount = 5
     const pauseDuration = 2000 // Pause for 2 seconds
     let currentDelay = 0
@@ -147,7 +146,32 @@ const addFlames = function () {
       '9.wav',
     ]
 
+    // Extract and sort money values to find the top 3
+    const moneyValues = [...pointers]
+      .map((element) => {
+        const moneySpan = element.querySelector('#money')
+        if (!moneySpan) return null
+        return Number(moneySpan.innerHTML.replace(/\s/g, ''))
+      })
+      .filter((value) => value !== null)
+      .sort((a, b) => b - a)
+
+    const topMoneyValues = moneyValues.slice(0, 3) // Top 3 values
+    // console.log('Top 3 Money Values:', topMoneyValues)
+
     allElements.forEach((element, index) => {
+      // Get money value
+      const moneySpan = element.querySelector('#money')
+      const moneyValue = moneySpan ? Number(moneySpan.innerHTML.replace(/\s/g, '')) : null
+
+      // console.log(`Checking pointer ID: ${element.id}, Money: ${moneyValue}`)
+
+      // Skip inflaming if the money value is in the top 3
+      if (moneyValue !== null && topMoneyValues.includes(moneyValue)) {
+        console.log(`Skipping inflaming for ${element.id} (Top 3 Pointer)`)
+        return
+      }
+
       if (index < firstBatchCount) {
         currentDelay += maxDelay
       } else if (index === firstBatchCount) {
@@ -157,6 +181,7 @@ const addFlames = function () {
       }
 
       setTimeout(() => {
+        // console.log(`Inflaming pointer: ${element.id}`)
         const randomSound =
           lighterPath + soundEffects[Math.floor(Math.random() * soundEffects.length)]
         const audio = new Audio(randomSound)
@@ -178,15 +203,41 @@ const addFlames = function () {
     })
     autoclickerIntervals.length = 0
 
+    // Extract and sort money values to find the top 3
+    const moneyValues = [...pointers]
+      .map((element) => {
+        const moneySpan = element.querySelector('#money')
+        if (!moneySpan) return null
+        return Number(moneySpan.innerHTML.replace(/\s/g, ''))
+      })
+      .filter((value) => value !== null)
+      .sort((a, b) => b - a)
+
+    const topMoneyValues = moneyValues.slice(0, 3) // Top 3 values
+    // console.log('Top 3 Money Values:', topMoneyValues)
+
     const explosionPath = './explosions/'
     const explosionSounds = ['0.mp3', '1.mp3', '2.mp3', '3.mp3', '4.mp3', '5.mp3', '6.mp3']
     const explosionDelay = 50 // 50ms between each explosion
+
     // Capture flames as a fixed array before modifying them
-    // Convert flames collection into an array (fixed snapshot)
     const flamesQueue = Array.from(document.getElementsByClassName('flame'))
 
     allElements.forEach((pointer, index) => {
+      // Get money value
+      const moneySpan = pointer.querySelector('#money')
+      const moneyValue = moneySpan ? Number(moneySpan.innerHTML.replace(/\s/g, '')) : null
+
+      // console.log(`Checking explosion for pointer ${pointer.id}, Money: ${moneyValue}`)
+
+      // Skip explosion if the money value is in the top 3
+      if (moneyValue !== null && topMoneyValues.includes(moneyValue)) {
+        console.log(`Skipping explosion for ${pointer.id} (Top 3 Pointer)`)
+        return
+      }
+
       setTimeout(() => {
+        console.log(`Exploding pointer: ${pointer.id}`)
         const rect = pointer.getBoundingClientRect()
         const explosion = document.createElement('img')
         explosion.src = `boom.gif?t=${new Date().getTime()}`
@@ -213,6 +264,7 @@ const addFlames = function () {
         // **Remove one flame per explosion**
         const flame = flamesQueue.shift() // Get the first available flame
         if (flame) {
+          console.log(`Fading out flame for pointer: ${pointer.id}`)
           flame.style.opacity = '0'
 
           setTimeout(() => {
@@ -254,13 +306,7 @@ const addFlames = function () {
         }, 1000)
       }, index * explosionDelay) // Delay each explosion by index * 50ms
     })
-
-    // **Run final function when all explosions are done**
-    const totalDuration = allElements.length * explosionDelay + 1000
-    setTimeout(() => {
-      console.log('All explosions done, clearing pointers...')
-      instance.pointers.clear()
-    }, totalDuration)
   }
+
   startFlamingSequence()
 }

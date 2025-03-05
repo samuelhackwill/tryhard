@@ -186,6 +186,9 @@ export const updateTopMouse = function () {
     instance.pointers.set(p.id, p)
   })
 
+  // if no one has clicked, please return. we don't want a random pointer to turn gold even before anyone has clicked
+  if (moneyElements[0] === 0) return []
+
   // Find the top 3 pointers based on the highest money values
   const topPointers = moneyElements
     .slice(0, 3)
@@ -208,8 +211,8 @@ export const updateTopMouse = function () {
 
   if (topPointers[1]) {
     _pointer = instance.pointers.get(topPointers[1].id)
-    _pointer.bgColor = '#999B9B' // Silver
-    _pointer.outlineColor = '#6B6C6C'
+    _pointer.bgColor = '#C7C7C7' // Silver
+    _pointer.outlineColor = '#000000'
     instance.pointers.set(topPointers[1].id, _pointer)
   }
 
