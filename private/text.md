@@ -59,6 +59,11 @@ clic clic clic clic clic clic clic clic clic! -->
 `togglePointers`
 `showNicks`
 
+## samuel-le-dvd
+
+`showSamuel`
+`samuelDVD`
+
 ## prologue
 
 - La vie contemplative n'est utile que si elle éclaire la vie _active_, dit le philosophe.

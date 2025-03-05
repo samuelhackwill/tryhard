@@ -16,8 +16,8 @@
 :root {
   --container-w: tan(atan2(var(--w_raw), 1px));
   --container-h: tan(atan2(var(--h_raw), 1px));
-  --logo-w: 240;
-  --logo-h: 80;
+  --logo-w: 512;
+  --logo-h: 288;
   --speed: 180; /* pixels per second */
 
   --duration-x: calc((var(--container-w) - var(--logo-w)) / var(--speed) * 1s);
@@ -30,12 +30,14 @@
 }
 
 .saveme-animated {
-  background-color: hsl(calc(360 / 25 * (var(--color-y) * 5 + var(--color-x))) 100% 50%) !important;
-
   animation: x var(--duration-x) linear infinite alternate,
     y var(--duration-y) linear infinite alternate,
     colorX calc(var(--duration-x) * 5) step-start infinite,
     colorY calc(var(--duration-y) * 5) step-start infinite;
+}
+
+.saveme-animated > div {
+  border-color: hsl(calc(360 / 25 * (var(--color-y) * 5 + var(--color-x))) 100% 50%) !important;
 }
 
 @keyframes x {

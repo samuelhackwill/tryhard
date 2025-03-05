@@ -12,6 +12,7 @@ module.exports = {
         cursor: "url('/cursor.png')",
         pointer: "url('/pointer.png')",
         folder: "url('/folder.png')",
+        samuel: "url('/samuel.png')",
       },
     },
   },

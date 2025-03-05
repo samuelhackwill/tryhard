@@ -22,6 +22,8 @@ Template.background.helpers({
 })
 
 const handlePupitreAction = function (message) {
+  const bg = document.getElementById('background')
+
   switch (message.content) {
     case 'bgToblue':
       instance.bgColor.set('blue')
@@ -36,7 +38,6 @@ const handlePupitreAction = function (message) {
       addFlames()
       break
     case 'bgToFlames':
-      const bg = document.getElementById('background')
       Blaze.render(Template.flamesBg, bg)
       break
     case 'removeFlames':
@@ -49,6 +50,9 @@ const handlePupitreAction = function (message) {
       break
     case 'podium':
       createPodium()
+      break
+    case 'showSamuel':
+      Blaze.render(Template.samuel, bg)
       break
   }
 }

@@ -144,10 +144,6 @@ Template.show.onRendered(function () {
 //   instance.areNamesHidden.set(false)
 //   break
 
-//     case 'savemeDvd':
-//       document.getElementById('saveme').classList.add('saveme-animated')
-//       break
-
 //     case 'showClocks':
 //       instance.areClocksHidden.set(false)
 //       break
