@@ -47,6 +47,9 @@ const handlePupitreAction = function (message) {
         Blaze.remove(flamesBgView)
       }, 20000)
       break
+    case 'podium':
+      createPodium()
+      break
   }
 }
 
@@ -168,7 +171,7 @@ const addFlames = function () {
 
       // Skip inflaming if the money value is in the top 3
       if (moneyValue !== null && topMoneyValues.includes(moneyValue)) {
-        console.log(`Skipping inflaming for ${element.id} (Top 3 Pointer)`)
+        // console.log(`Skipping inflaming for ${element.id} (Top 3 Pointer)`)
         return
       }
 
@@ -232,7 +235,7 @@ const addFlames = function () {
 
       // Skip explosion if the money value is in the top 3
       if (moneyValue !== null && topMoneyValues.includes(moneyValue)) {
-        console.log(`Skipping explosion for ${pointer.id} (Top 3 Pointer)`)
+        // console.log(`Skipping explosion for ${pointer.id} (Top 3 Pointer)`)
         return
       }
 
@@ -309,4 +312,65 @@ const addFlames = function () {
   }
 
   startFlamingSequence()
+}
+
+function createPodium() {
+  // Create the podium container
+  const podium = document.createElement('div')
+  podium.classList.add('podium')
+
+  // Create podium columns
+  const second = document.createElement('div')
+  second.classList.add('box', 'second')
+  second.textContent = '2'
+
+  const first = document.createElement('div')
+  first.classList.add('box', 'first')
+  first.textContent = '1'
+
+  const third = document.createElement('div')
+  third.classList.add('box', 'third')
+  third.textContent = '3'
+
+  // Append boxes to podium
+  podium.appendChild(second)
+  podium.appendChild(first)
+  podium.appendChild(third)
+
+  // Apply initial styles
+  Object.assign(podium.style, {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    display: 'flex',
+    alignItems: 'flex-end',
+    opacity: '0', // Start hidden
+    transition: 'opacity 1s ease-in-out', // Fade-in animation
+  })
+
+  // Apply styles to boxes
+  const boxStyles = {
+    width: '160px',
+    backgroundColor: 'white',
+    border: '3px solid black',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: '36px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  }
+
+  Object.assign(second.style, boxStyles, { height: '100px' }) // 2nd place (medium height)
+  Object.assign(first.style, boxStyles, { height: '130px' }) // 1st place (tallest)
+  Object.assign(third.style, boxStyles, { height: '80px' }) // 3rd place (shortest)
+
+  // Append to the body
+  document.body.appendChild(podium)
+
+  // Trigger fade-in after a short delay
+  setTimeout(() => {
+    podium.style.opacity = '1'
+  }, 100)
 }
