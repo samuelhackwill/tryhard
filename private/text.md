@@ -47,6 +47,7 @@
 
 ## II-le-succes-s2
 
+`startCheckingTopMouse`
 la souris la plus industrieuse a produit [GoldMouseScore] clics!
 la deuxième souris la plus industrieuse a produit [SilverMouseScore] clics!
 la troisième souris la plus industrieuse a produit [CopperMouseScore] clics!
@@ -66,6 +67,8 @@ Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 
 ## II-le-succes-s5
 
+`hideFeed`
+`clearFeed`
 `podium`
 `removeFlames`
 `bgToBlack`

@@ -152,74 +152,69 @@ Template.feed.helpers({
     }
   },
 })
-
 export const updateTopMouse = function () {
   const allDomPointers = Array.from(document.getElementsByClassName('pointer'))
-  const moneyElements = allDomPointers.map((pointer) => {
-    const cleanValue = pointer.querySelector('#money').innerHTML.replace(/\s/g, '')
-    const numberValue = Number(cleanValue)
-    return numberValue
-  })
 
-  moneyElements.sort((a, b) => b - a)
+  // Extract and sort money values (descending order)
+  const moneyElements = allDomPointers
+    .map((pointer) => {
+      const cleanValue = pointer.querySelector('#money')?.innerHTML.replace(/\s/g, '')
+      return Number(cleanValue) || 0
+    })
+    .sort((a, b) => b - a)
+
+  // If no one has clicked, prevent assigning colors randomly
+  if (moneyElements[0] === 0) return []
 
   instance.GoldMouseScore.set(moneyElements[0])
   instance.SilverMouseScore.set(moneyElements[1])
   instance.CopperMouseScore.set(moneyElements[2])
 
-  // const matchingPointer = allDomPointers.find((pointer) => {
-  //   const moneySpan = pointer.querySelector('#money')
-  //   if (!moneySpan) return false
-
-  //   const cleanValue = moneySpan.innerHTML.replace(/\s/g, '')
-  //   return Number(cleanValue) === moneyElements[0]
-  // })
-
-  // console.log('best mouse is ', matchingPointer ? matchingPointer.id : null)
-
   // Reset all previous top pointers' colors
   const pointers = Object.values(instance.pointers.all())
-
   pointers.forEach((p) => {
     p.bgColor = '#000000' // Default (black)
     p.outlineColor = '#FFFFFF' // Default (white)
     instance.pointers.set(p.id, p)
   })
 
-  // if no one has clicked, please return. we don't want a random pointer to turn gold even before anyone has clicked
-  if (moneyElements[0] === 0) return []
-
-  // Find the top 3 pointers based on the highest money values
-  const topPointers = moneyElements
-    .slice(0, 3)
-    .map((score) =>
-      allDomPointers.find((pointer) => {
-        const moneySpan = pointer.querySelector('#money')
-        if (!moneySpan) return false
-        return Number(moneySpan.innerHTML.replace(/\s/g, '')) === score
-      }),
-    )
-    .filter(Boolean) // Remove any undefined/null values
-
-  // Apply the colors to the top 3 pointers if they exist
-  if (topPointers[0]) {
-    _pointer = instance.pointers.get(topPointers[0].id)
-    _pointer.bgColor = '#FFD700' // Gold
-    _pointer.outlineColor = '#000000'
-    instance.pointers.set(topPointers[0].id, _pointer)
+  // **Rank Assignment (Handles Ties)**
+  const ranking = new Map()
+  let currentRank = 1
+  for (const money of moneyElements) {
+    if (!ranking.has(money)) {
+      ranking.set(money, currentRank)
+      currentRank++
+      if (ranking.size >= 3) break // Stop when we have at least 3 ranks
+    }
   }
 
-  if (topPointers[1]) {
-    _pointer = instance.pointers.get(topPointers[1].id)
-    _pointer.bgColor = '#C7C7C7' // Silver
-    _pointer.outlineColor = '#000000'
-    instance.pointers.set(topPointers[1].id, _pointer)
-  }
+  // Find pointers corresponding to top ranked scores
+  const rankedPointers = allDomPointers
+    .map((pointer) => {
+      const moneySpan = pointer.querySelector('#money')
+      if (!moneySpan) return null
+      const moneyValue = Number(moneySpan.innerHTML.replace(/\s/g, '')) || 0
+      return { pointer, money: moneyValue, rank: ranking.get(moneyValue) || null }
+    })
+    .filter((entry) => entry.rank !== null) // Keep only ranked pointers
 
-  if (topPointers[2]) {
-    _pointer = instance.pointers.get(topPointers[2].id)
-    _pointer.bgColor = '#815924' // Copper
-    _pointer.outlineColor = '#000000'
-    instance.pointers.set(topPointers[2].id, _pointer)
-  }
+  // **Assign Colors Based on Rank**
+  rankedPointers.forEach(({ pointer, rank }) => {
+    const _pointer = instance.pointers.get(pointer.id)
+    if (!_pointer) return
+
+    if (rank === 1) {
+      _pointer.bgColor = '#FFD700' // Gold
+      _pointer.outlineColor = '#000000'
+    } else if (rank === 2) {
+      _pointer.bgColor = '#C7C7C7' // Silver
+      _pointer.outlineColor = '#000000'
+    } else if (rank === 3) {
+      _pointer.bgColor = '#815924' // Copper
+      _pointer.outlineColor = '#000000'
+    }
+
+    instance.pointers.set(pointer.id, _pointer)
+  })
 }

@@ -244,7 +244,7 @@ const addFlames = function () {
       }
 
       setTimeout(() => {
-        console.log(`Exploding pointer: ${pointer.id}`)
+        // console.log(`Exploding pointer: ${pointer.id}`)
         const rect = pointer.getBoundingClientRect()
         const explosion = document.createElement('img')
         explosion.src = `boom.gif?t=${new Date().getTime()}`
@@ -271,7 +271,7 @@ const addFlames = function () {
         // **Remove one flame per explosion**
         const flame = flamesQueue.shift() // Get the first available flame
         if (flame) {
-          console.log(`Fading out flame for pointer: ${pointer.id}`)
+          // console.log(`Fading out flame for pointer: ${pointer.id}`)
           flame.style.opacity = '0'
 
           setTimeout(() => {

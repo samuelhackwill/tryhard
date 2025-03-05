@@ -58,13 +58,14 @@ function stepEventQueue(queue) {
 // all this shit should be moved to show but wtvr
 function handlePupitreAction(message) {
   switch (message.content) {
-    case 'startObserving':
+    case 'startCheckingTopMouse':
       pollingTopMouse = setInterval(function () {
         updateTopMouse()
         // updateTopGradins()
         // updateTopHalf()
-        console.log("checking who's the best mouse")
-      }, 1000)
+      }, 16)
+      break
+    case 'startObserving':
       observing.push('newClick', 'newMove')
       break
     case 'showNicks':
