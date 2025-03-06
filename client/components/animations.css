@@ -178,3 +178,19 @@
 .falling-skull {
   animation: fallWithGravity 1s ease-in forwards;
 }
+
+@keyframes flashText {
+  0% {
+    color: red;
+  }
+  50% {
+    color: black;
+  }
+  100% {
+    color: red;
+  }
+}
+
+.flashing-text {
+  animation: flashText 1s infinite;
+}

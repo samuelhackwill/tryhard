@@ -6,6 +6,7 @@
 ## samuel-le-dvd
 
 `samuelSpawn`
+`samuelGo!`
 
 ## I-les-philosophes
 
@@ -44,6 +45,9 @@
 `bgTogrey`
 `textToBlack`
 `startObserving`
+il est difficile de comprendre ce que font les souris
+c'est un chaos de souris
+les souris elles-même savent-elles seulement qui elles sont, et ce qu'elles font?
 
 ## II-le-succes-s2
 
@@ -51,16 +55,49 @@
 la souris la plus industrieuse a produit [GoldMouseScore] clics!
 la deuxième souris la plus industrieuse a produit [SilverMouseScore] clics!
 la troisième souris la plus industrieuse a produit [CopperMouseScore] clics!
-en raison de la production d'un trop grand nombre de clics, les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique.
-Le monde va malheureusement exploser et tout le monde va mourir.
-Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 
 ## II-le-succes-s3
 
+les souris
+continuèrent
+à cliquer
+pour produire
+cette fois
+de nouvelles
+souris
+permettant
+une production
+toujours plus importante
+de clics
 `showNicks`
 
 ## II-le-succes-s4
 
+\
+\
+\
+\
+\
+en raison de la production d'un trop grand nombre de clics, les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique.
+`alertLine`
+\
+\
+\
+\
+\
+Le monde
+va malheureusement
+exploser
+et
+tout
+le monde
+va mourir.
+\
+\
+\
+\
+\
+Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 `burnPointers`
 `bgToFlames`
 
@@ -70,7 +107,7 @@ Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 `clearFeed`
 `addPodium`
 `removeFlames`
-`bgToBlack`
+`bgToblack`
 `removePodium`
 `togglePointers`
 `clearPointers`
@@ -100,11 +137,27 @@ est-ce que vous êtes des robots? -->
 ## III-captchas-1j-s1
 
 `samuelShow`
+hello again
+c'est moi samuel
+hm!
+c'est étrange ce qui vient de se passer
+ou plutôt disons que
+_votre comportement_
+était étrange.
+ça me donne un doute
+j'aimerais vous faire passer un test.
+je vais vous appeler les un.e.s après les autres
+si vous avez un doute sur qui est appelé à l'écran
+vous pouvez vérifier le nom de votre souris
+sur votre souris
+merci de compléter le test
+`hideFeed`
 
 ## III-captchas-1j-s2
 
 <!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
 
+`bgTogrey`
 `killCaptchas`
 je ne suis pas un robot
 je ne suis pas un robot

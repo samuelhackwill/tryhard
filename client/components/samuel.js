@@ -5,11 +5,12 @@ streamer.on('pupitreAction', function (message) {
   handlePupitreAction(message)
 })
 
+let time = undefined
+
 Template.samuel.onRendered(function () {
   let samuel = document.getElementById('samuel')
   setTimeout(() => {
     samuel.style.opacity = '1'
-    document.getElementById('samuel').classList.add('saveme-animated')
   }, 50)
 
   // Example usage:
@@ -21,39 +22,51 @@ Template.samuel.onRendered(function () {
 
   console.log(screenWidth, screenHeight, logoWidth, logoHeight, speed)
 
-  const time = timeToNextCorner(screenWidth, screenHeight, logoWidth, logoHeight, speed)
+  time = timeToNextCorner(screenWidth, screenHeight, logoWidth, logoHeight, speed)
   console.log(`Time to next corner bounce: ${time} seconds`) // this looks acurate
-
-  setTimeout(() => {
-    console.log('corner hit!')
-
-    // Get current position of the logo
-    const rect = samuel.getBoundingClientRect()
-
-    // Remove the animation class to stop it
-    samuel.classList.remove('saveme-animated')
-
-    // Apply new styles based on the current position of the element
-    samuel.style.position = 'absolute'
-    samuel.style.left = `${rect.left}px`
-    samuel.style.top = `${rect.top}px`
-
-    setTimeout(() => {
-      // smile and then fadeout
-      document.getElementById('samuelImg').classList.add('bg-samuelSmile')
-      document.getElementById('samuelImg').classList.remove('bg-samuel')
-      setTimeout(() => {
-        samuel.style.opacity = '0'
-      }, 1000)
-    }, 1000)
-  }, time * 1000 + 50) // wait for the time before corner hit
 })
 
 const handlePupitreAction = function (message) {
   switch (message.content) {
-    case 'showSamuel':
-      document.getElementById('samuel').classList.add('opacity-1')
-      document.getElementById('samuel').classList.remove('opacity-0')
+    case 'samuelGo!':
+      document.getElementById('samuel').classList.add('saveme-animated')
+
+      setTimeout(() => {
+        console.log('corner hit!')
+
+        // Get current position of the logo
+        const rect = samuel.getBoundingClientRect()
+
+        // Remove the animation class to stop it
+        samuel.classList.remove('saveme-animated')
+
+        samuel.style.position = 'absolute'
+        samuel.style.right = `${window.innerWidth - rect.right}px` // Align to the right
+        samuel.style.top = `${rect.top}px`
+
+        setTimeout(() => {
+          // smile and then fadeout
+          document.getElementById('samuelImg').classList.add('bg-samuelSmile')
+          document.getElementById('samuelImg').classList.remove('bg-samuel')
+          setTimeout(() => {
+            samuel.classList.add('opacity-0')
+            samuel.classList.remove('opacity-1')
+          }, 2000)
+        }, 1000)
+      }, time * 1000 + 50) // wait for the time before corner hit
+      break
+    case 'samuelShow':
+      document.getElementById('samuel').classList.remove('h-[18rem]', 'w-[32rem]')
+      document.getElementById('samuel').classList.add('h-[12rem]', 'w-[14rem]')
+      document
+        .getElementById('samuelImg')
+        .classList.remove('border-red-600', 'border-8', 'bg-samuelSmile')
+      document.getElementById('samuelImg').classList.add('border-black', 'border-4', 'bg-samuel')
+
+      setTimeout(() => {
+        document.getElementById('samuel').classList.add('opacity-1')
+        document.getElementById('samuel').classList.remove('opacity-0')
+      }, 50)
       break
   }
 }

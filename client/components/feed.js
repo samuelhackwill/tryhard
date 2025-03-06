@@ -13,6 +13,9 @@ streamer.on('pupitreMessage', function (message) {
 
 const handlePupitreAction = function (message) {
   switch (message.content) {
+    case 'alertLine':
+      document.getElementById('feed').firstChild.classList.add('flashing-text')
+      break
     case 'textToBlack':
       instance.textColor.set('black')
       break
@@ -168,17 +171,10 @@ export const updateTopMouse = function () {
   // If no one has clicked, prevent assigning colors randomly
   if (moneyElements[0] === 0) return []
 
-  instance.GoldMouseScore.set(moneyElements[0])
-  instance.SilverMouseScore.set(moneyElements[1])
-  instance.CopperMouseScore.set(moneyElements[2])
-
-  // Reset all previous top pointers' colors
-  const pointers = Object.values(instance.pointers.all())
-  pointers.forEach((p) => {
-    p.bgColor = '#000000' // Default (black)
-    p.outlineColor = '#FFFFFF' // Default (white)
-    instance.pointers.set(p.id, p)
-  })
+  // Assign Gold, Silver, Copper scores (store their values)
+  instance.GoldMouseScore.set(moneyElements[0] || 0)
+  instance.SilverMouseScore.set(moneyElements[1] || 0)
+  instance.CopperMouseScore.set(moneyElements[2] || 0)
 
   // **Rank Assignment (Handles Ties)**
   const ranking = new Map()
@@ -191,6 +187,8 @@ export const updateTopMouse = function () {
     }
   }
 
+  // console.log('Ranking Map:', ranking)
+
   // Find pointers corresponding to top ranked scores
   const rankedPointers = allDomPointers
     .map((pointer) => {
@@ -201,7 +199,22 @@ export const updateTopMouse = function () {
     })
     .filter((entry) => entry.rank !== null) // Keep only ranked pointers
 
-  // **Assign Colors Based on Rank**
+  // console.log('Ranked Pointers:', rankedPointers)
+
+  // **Get Podium Pointer IDs Before Resetting**
+  const podiumPointerIds = rankedPointers.map((entry) => entry.pointer.id)
+
+  // **Reset only non-podium pointers**
+  const allPointers = Object.values(instance.pointers.all())
+  allPointers.forEach((p) => {
+    if (!podiumPointerIds.includes(p.id)) {
+      p.bgColor = '#000000' // Default (black)
+      p.outlineColor = '#FFFFFF' // Default (white)
+      instance.pointers.set(p.id, p)
+    }
+  })
+
+  // **Assign Colors Based on Rank (No Overwriting)**
   rankedPointers.forEach(({ pointer, rank }) => {
     const _pointer = instance.pointers.get(pointer.id)
     if (!_pointer) return

@@ -1,4 +1,4 @@
-.feedItem:not(.reactiveLine) {
+.feedItem:not(:where(.reactiveLine, .flashing-text)) {
   opacity: 0.2;
   transition: opacity 1s;
 }

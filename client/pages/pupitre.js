@@ -18,8 +18,6 @@ Template.pupitre.onCreated(function () {
   this.selectedHeader = new ReactiveVar('mise')
   this.connectedDevices = new ReactiveVar('')
   this.selectedPlayer = new ReactiveVar('ffa')
-  this.Captcha1jIndex = new ReactiveVar(0)
-  this.Captcha1jPlayersCount = new ReactiveVar(0)
 
   Meteor.call('returnText', (err, res) => {
     if (err) {
@@ -49,22 +47,21 @@ Template.pupitre.onCreated(function () {
         }
       }
     })
-  }, 1000)
+  }, 10000)
 })
 
 Template.pupitre.helpers({
   getSomeIndex() {
-    switch (Template.instance().selectedHeader.get()) {
-      case 'captchas-single-player':
-        const index = Template.instance().Captcha1jIndex?.get()
-        const maxIndex = Template.instance().Captcha1jPlayersCount?.get()
-        return index + '/' + maxIndex
-        break
-
-      default:
-        return ''
-        break
-    }
+    // switch (Template.instance().selectedHeader.get()) {
+    //   case 'iii-captchas-1j-s2':
+    //     const index = Template.instance().Captcha1jIndex?.get()
+    //     const maxIndex = Template.instance().Captcha1jPlayersCount?.get()
+    //     return index + '/' + maxIndex
+    //     break
+    //   default:
+    //     return ''
+    //     break
+    // }
   },
   isSelectedPlayer(e) {
     // console.log(e + '_' + String(this), Template.instance().selectedPlayer.get())
@@ -151,9 +148,9 @@ Template.pupitre.events({
       Template.instance().selectedPlayer.set('ffa')
       sendAction('unchoosePlayers')
     } else {
-      const who = getRasp(e.target.id) + '_' + getMouseBrand(e.target.id, 0)
-      Template.instance().selectedPlayer.set(who)
-      sendAction('choosePlayer', who)
+      // const who = getRasp(e.target.id) + '_' + getMouseBrand(e.target.id, 0)
+      // Template.instance().selectedPlayer.set(who)
+      // sendAction('choosePlayer', who)
     }
     // console.log(Template.instance().selectedPlayer.get())
   },
@@ -200,10 +197,10 @@ Template.pupitre.events({
     }
 
     switch (String(this)) {
-      case 'captchas-single-player':
-        numberOfPlayers = Array.from(document.querySelectorAll('.mouseToggle:checked')).length
-        Template.instance().Captcha1jPlayersCount.set(numberOfPlayers)
-        break
+      // case 'iii-captchas-1j-s2':
+      //   numberOfPlayers = Array.from(document.querySelectorAll('.mouseToggle:checked')).length
+      //   Template.instance().Captcha1jPlayersCount.set(numberOfPlayers)
+      //   break
 
       default:
         break
@@ -257,10 +254,11 @@ const checkBeforeEmit = function (context) {
       // here goes all non-standard behaviour. we don't need
       // to name every action keyword because they are being
       // pris en charge by the default block down down
-      case 'captchas-single-player':
+      case 'iii-captchas-1j-s2':
         _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
         _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
         _surpriseAmount = document.getElementById('surprise-slider').value
+        sendAction('choosePlayer', { disabledPlayers: disabledMice.find({}).fetch() })
         sendAction('newCaptcha-1j', {
           text: String(context.value),
           coords: { x: 0, y: 0 },
@@ -269,22 +267,6 @@ const checkBeforeEmit = function (context) {
           surpriseAmount: Number(_surpriseAmount) * 1000,
         })
         document.getElementById('surprise-slider').value = _surpriseAmount - 1
-
-        _index = Template.instance().Captcha1jIndex.get()
-
-        activePlayer = Array.from(document.querySelectorAll('.mouseToggle:checked'))[_index]
-        brand = activePlayer.getAttribute('data-brand')
-        rasp = activePlayer.getAttribute('data-rasp')
-
-        document.getElementById(rasp + '_' + brand + '-chosen').click()
-
-        if (_index == Template.instance().Captcha1jPlayersCount.get() - 1) {
-          alert('cool, everybody has completed a captcha! nice!')
-          _index = -1
-        }
-        _index++
-        Template.instance().Captcha1jIndex.set(_index)
-
         break
 
       default:

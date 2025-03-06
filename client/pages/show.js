@@ -351,33 +351,29 @@ simulateMouseEvent = function (button, status, pointer) {
   if (button == 'BTN_LEFT' && status == 'released') {
     simulateMouseUp(pointer)
   }
-  if (button == 'BTN_RIGHT' && status == 'released') {
-    simulateRightMouseUp(pointer)
-  }
+  // if (button == 'BTN_RIGHT' && status == 'released') {
+  //   simulateRightMouseUp(pointer)
+  // }
 }
 
 simulateRightMouseUp = function (pointer) {
-  if (instance.state.get() != 'ii-le-succes-s3') return
-
-  const hasPaymentSucceeded = pay(pointer, 1)
-  if (hasPaymentSucceeded) {
-    let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
-    bot.hoveredElementId = 'feed'
-    const _pointer = pointer
-    const _bot = bot
-
-    const DOMPointer = document.getElementById(pointer.id)
-    const coords = readDomCoords(pointer.id)
-
-    // this is to create the pointer
-    instance.pointers.set(bot.id, bot)
-    // this is to animate the pointer
-    autoclickerSpawn(pointer, bot)
-
-    setTimeout(() => {
-      autoClickerMine(_pointer, _bot, coords)
-    }, 99)
-  }
+  // if (instance.state.get() != 'ii-le-succes-s3') return
+  // const hasPaymentSucceeded = pay(pointer, 1)
+  // if (hasPaymentSucceeded) {
+  //   let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
+  //   bot.hoveredElementId = 'feed'
+  //   const _pointer = pointer
+  //   const _bot = bot
+  //   const DOMPointer = document.getElementById(pointer.id)
+  //   const coords = readDomCoords(pointer.id)
+  //   // this is to create the pointer
+  //   instance.pointers.set(bot.id, bot)
+  //   // this is to animate the pointer
+  //   autoclickerSpawn(pointer, bot)
+  //   setTimeout(() => {
+  //     autoClickerMine(_pointer, _bot, coords)
+  //   }, 99)
+  // }
 }
 
 export const simulateMouseUp = function (pointer) {
@@ -425,6 +421,28 @@ export const simulateMouseUp = function (pointer) {
     const cleanValue = DOMcounter.innerHTML.replace(/\s/g, '')
     const DOMcounterValue = Number(cleanValue) + 1
     DOMcounter.innerHTML = DOMcounterValue
+  }
+
+  // only enable autolicker production if we're at ii le succes s3.
+  if (instance.state.get() != 'ii-le-succes-s3') return
+
+  const hasPaymentSucceeded = pay(pointer, 1)
+  if (hasPaymentSucceeded) {
+    let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
+    bot.hoveredElementId = 'feed'
+    const _pointer = pointer
+    const _bot = bot
+
+    const coords = readDomCoords(pointer.id)
+
+    // this is to create the pointer
+    instance.pointers.set(bot.id, bot)
+    // this is to animate the pointer
+    autoclickerSpawn(pointer, bot)
+
+    setTimeout(() => {
+      autoClickerMine(_pointer, _bot, coords)
+    }, 99)
   }
 }
 
@@ -563,6 +581,7 @@ export const createPointer = function (id, bot = false, _owner) {
     bgColor: '#000000',
     outlineColor: '#FFFFFF',
     initializationCoords: { x: -50, y: -50 },
+    chosenCount: 0,
     events: [],
     bot: bot,
     owner: _owner || null,

@@ -222,7 +222,7 @@ async def monitor_mice(queue):
             "connected_mice": sorted_devices,
         })
 
-        await asyncio.sleep(1)
+        await asyncio.sleep(10)
 
 async def main():
     queue = asyncio.Queue()
