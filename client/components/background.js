@@ -48,8 +48,16 @@ const handlePupitreAction = function (message) {
         Blaze.remove(flamesBgView)
       }, 20000)
       break
-    case 'podium':
+    case 'addPodium':
       createPodium()
+      break
+    case 'removePodium':
+      const podium = document.getElementById('podium')
+      podium.style.opacity = '0'
+      setTimeout(() => {
+        podium.remove()
+      }, 1000)
+
       break
     case 'samuelSpawn':
       Blaze.render(Template.samuel, bg)
@@ -322,6 +330,7 @@ function createPodium() {
   // Create the podium container
   const podium = document.createElement('div')
   podium.classList.add('podium')
+  podium.id = 'podium'
 
   // Create podium columns
   const second = document.createElement('div')

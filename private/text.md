@@ -69,9 +69,12 @@ Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 
 `hideFeed`
 `clearFeed`
-`podium`
+`addPodium`
 `removeFlames`
 `bgToBlack`
+`removePodium`
+`togglePointers`
+`clearPointers`
 
 <!-- je suis un peu choqué par ce qui vient de se passer
 tout à l'heure

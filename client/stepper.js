@@ -11,6 +11,15 @@ import { createPointer, checkHover } from '../client/pages/show.js'
 let clientEventQueue = []
 let catpchaTemplateContainer = []
 
+// we need to know when it's forbiden to spawn new mice, so it's hard-coded here. yep
+const canSpawnDuringTheseSequences = [
+  'mise',
+  'ii-le-succes-s1',
+  'ii-le-succes-s2',
+  'ii-le-succes-s3',
+  'iii-captchas-1j-s2',
+]
+
 const noise = new ValueNoise()
 
 streamer.on('tickUpdate', function (message) {
@@ -58,6 +67,16 @@ function stepEventQueue(queue) {
 // all this shit should be moved to show but wtvr
 function handlePupitreAction(message) {
   switch (message.content) {
+    case 'clearPointers':
+      instance.pointers.clear()
+      break
+    case 'togglePointers':
+      const _trueOrFalse = instance.arePointersHidden.get()
+      const _hidden = !_trueOrFalse
+
+      instance.arePointersHidden.set(_hidden)
+      break
+
     case 'startCheckingTopMouse':
       pollingTopMouse = setInterval(function () {
         updateTopMouse()
@@ -113,10 +132,13 @@ function handleTickUpdate(message) {
       // lol d'ailleurs ça va être un délire pendant l'entrée public de regarder qui prend quelle souris. y'a des cowboys qui vont sans doute prendre la souris que j'ai pas prévu pour leur siège.
 
       // donc on appelle le serveur pour savoir si la souris est cancel et pi cé tou
-      const canceled = isMouseDisabled(element)
-      if (canceled) {
-        return
-      }
+      const unoccupiedSeat = isMouseDisabled(element)
+
+      if (unoccupiedSeat) return
+
+      const spawnForbiden = !canSpawnDuringTheseSequences.includes(instance.state.get())
+
+      if (spawnForbiden) return
 
       pointer = createPointer(element.client)
 
