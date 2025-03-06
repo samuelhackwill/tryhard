@@ -14,11 +14,7 @@ export const observe = function (what, args) {
   } else {
     switch (what) {
       case 'newClick':
-        if (observing.includes(what) && clickTimeStamps.length >= 4) {
-          // console.log(
-          //   "we're removing the observation of new clicks (for performance reasons) cause everybody's here.",
-          // )
-          // stop looking for new mice if the array already contains everybody, i.e. everybody has moved.
+        if (observing.includes(what)) {
           observing = observing.filter((elem) => elem !== what)
         }
 
@@ -42,11 +38,7 @@ export const observe = function (what, args) {
         break
 
       case 'newMove':
-        if (observing.includes(what) && moveTimeStamps.length >= 4) {
-          // console.log(
-          //   "we're removing the observation of new moves (for performance reasons) cause everybody's here.",
-          // )
-          // stop looking for new mice if the array already contains everybody, i.e. everybody has moved.
+        if (observing.includes(what)) {
           observing = observing.filter((elem) => elem !== what)
         }
 
