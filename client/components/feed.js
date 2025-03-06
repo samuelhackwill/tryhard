@@ -67,6 +67,8 @@ export const handlePupitreMessage = function (message) {
         const variableName = variableBuffer
         // const variableValue = instance[variableName].get() ?? `[${variableName}]`
 
+        feedItem.classList.add('reactiveLine')
+
         reactiveLinesContainer.push(
           Blaze.renderWithData(
             Template.reactiveLine,

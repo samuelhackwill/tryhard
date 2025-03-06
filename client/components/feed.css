@@ -1,0 +1,9 @@
+.feedItem:not(.reactiveLine) {
+  opacity: 0.2;
+  transition: opacity 1s;
+}
+
+/* Target the last feedItem and set its opacity to 1 */
+.feedItem:first-child {
+  opacity: 1;
+}
