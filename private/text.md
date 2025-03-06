@@ -167,22 +167,16 @@ je ne suis pas un robot
 je ne suis pas un robot
 je ne suis pas un robot
 je ne suis pas une tondeuse
-
-body horror transhumaniste plutôt que des vrais exemples iot
-
 je ne suis pas une brosse à dents électrique
-je ne suis pas une caméra de surveillance
-je ne suis pas une voiture électrique volée
-je ne suis pas une porte de garage hackée
-je ne suis pas une serrure intelligente infectée
-je ne suis pas un frigo connecté
+je ne suis pas une oreille collée sur un porte
+je ne suis pas un dentier automatique
 je ne suis pas une imprimante wifi
 je ne suis pas une imprimante wifi, du genre de celles qui commandent toute seules leurs cartouches de toner sur internet quand il n'y a plus d'encre
 je ne suis pas l'imprimante wifi du théâtre qui après avoir imprimé votre billet se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi"
-je ne suis pas un objet qui, n'obéissant qu'aux lois de la gravité, aurait involontairement (?) exercé une pression sur le bouton de la souris en chutant dessus
+je ne suis pas un objet qui, n'obéissant qu'aux lois de la gravité, aurait exercé une pression sur le bouton de la souris en chutant dessus
 je ne suis pas un rat, qui après un million d'années d'évolution aurait développé un bras et un pouce opposable et aurait cliqué sur le bouton de la souris
 je ne suis pas la volonté de dieu qui est intervenue pour cliquer sur le bouton de souris
-je ne suis pas la petite case à cocher, qui, indépendamment de toute action (de l'imprimante wifi, de la gravité,) du rat, de dieu, se serait quand même retrouvée cochée mystérieusement.
+je ne suis pas la petite case à cocher, qui, indépendamment de toute action de l'imprimante wifi ou de dieu, se serait quand même retrouvée cochée mystérieusement.
 je ne suis pas la petite case à cocher qui en aurait eu marre d'attendre et se serait auto-cochée pour tromper l'ennui.
 je ne suis pas la petite case à cocher, qui, parce qu'elle avait honte que personne ne l'avait jamais cochée, aurait fait semblant qu'en fait, on lui avait déjà cliqué dessus, et même plein de fois.
 je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en criant : "Dieu est mort!"
@@ -218,6 +212,9 @@ je suis fier de ne pas être un robot
 je suis déçu de ne pas être un robot?
 je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot?
 tout d'un coup on fait un peu moins le malin de ne pas être un robot?
+je ne suis pas un robot
+je ne suis pas un robot
+je ne suis pas un robot
 
 <!--
 ## captchas-multiplayer-samuel-est-content
