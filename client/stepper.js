@@ -13,6 +13,7 @@ let catpchaTemplateContainer = []
 
 // we need to know when it's forbiden to spawn new mice, so it's hard-coded here. yep
 const canSpawnDuringTheseSequences = [
+  'init',
   'mise',
   'ii-le-succes-s1',
   'ii-le-succes-s2',

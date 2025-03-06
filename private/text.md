@@ -58,7 +58,6 @@ Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 ## II-le-succes-s3
 
 `showNicks`
-`enableAutoclickers`
 
 ## II-le-succes-s4
 
@@ -101,6 +100,8 @@ est-ce que vous êtes des robots? -->
 ## III-captchas-1j-s1
 
 `samuelShow`
+
+## III-captchas-1j-s2
 
 <!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
 

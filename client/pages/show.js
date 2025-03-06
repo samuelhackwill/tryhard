@@ -357,6 +357,8 @@ simulateMouseEvent = function (button, status, pointer) {
 }
 
 simulateRightMouseUp = function (pointer) {
+  if (instance.state.get() != 'ii-le-succes-s3') return
+
   const hasPaymentSucceeded = pay(pointer, 1)
   if (hasPaymentSucceeded) {
     let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
