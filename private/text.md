@@ -159,6 +159,7 @@ merci de compléter le test
 
 `bgTogrey`
 `killCaptchas`
+`showNicks`
 je ne suis pas un robot
 je ne suis pas un robot
 je ne suis pas un robot

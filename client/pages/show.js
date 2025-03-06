@@ -166,6 +166,13 @@ Template.show.onRendered(function () {
 // }
 
 Template.show.helpers({
+  isItCaptchaTime() {
+    if (instance.state.get() == 'iii-captchas-1j-s2') {
+      return true
+    } else {
+      return false
+    }
+  },
   isChosen() {
     if (this.chosen == undefined) {
       return true

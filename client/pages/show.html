@@ -141,9 +141,14 @@
               areNamesHidden
             }}"
           >
+          {{#if isItCaptchaTime}}
+            {{#if isChosen}}
+              {{ this.rasp }} {{ this.mouseBrand }}
+            {{/if}}
+          {{else}}
           <span id="money"> 0 </span>
+          {{/if}}
             <!-- {{ this.nick }} -->
-            <!-- {{ this.rasp }}_{{ this.mouseBrand }} -->
           </div>
 
           <!-- <span
