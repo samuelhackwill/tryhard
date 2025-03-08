@@ -233,6 +233,10 @@ async def main():
         print(f"Running in simulation mode with {num_devices} devices.")
         mice_task = asyncio.create_task(simulate_mouse_events(queue, num_devices))
     else:
+        if os.geteuid() != 0:
+            sys.stderr.write("Error: This script must be run as root (sudo).\n")
+            sys.exit(1)
+
         print("Running in real device mode.")
         mice_task = asyncio.create_task(monitor_mice(queue))
 
