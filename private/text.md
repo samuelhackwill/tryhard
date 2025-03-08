@@ -1,12 +1,12 @@
 ## mise
 
-`togglePointers`
-`showNicks`
+`clearPointers`
 
 ## samuel-le-dvd
 
 `samuelSpawn`
 `samuelGo!`
+`bgTogrey`
 
 ## I-les-philosophes
 
@@ -136,6 +136,8 @@ est-ce que vous êtes des robots? -->
 
 ## III-captchas-1j-s1
 
+`showFeed`
+`textToWhite`
 `samuelShow`
 hello again
 c'est moi samuel
@@ -157,9 +159,11 @@ merci de compléter le test
 
 <!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
 
-`bgTogrey`
 `killCaptchas`
+
+`bgTogrey`
 `showNicks`
+`togglePointers`
 je ne suis pas un robot
 je ne suis pas un robot
 je ne suis pas un robot
@@ -215,6 +219,8 @@ tout d'un coup on fait un peu moins le malin de ne pas être un robot?
 je ne suis pas un robot
 je ne suis pas un robot
 je ne suis pas un robot
+je ne suis pas un robot, et par ailleurs, la sortie de résidence est terminée, merci d'être venu.e.s! même si au fond vous êtes un robot
+`bgToblack`
 
 <!--
 ## captchas-multiplayer-samuel-est-content

@@ -10,7 +10,7 @@ let time = undefined
 Template.samuel.onRendered(function () {
   let samuel = document.getElementById('samuel')
   setTimeout(() => {
-    samuel.style.opacity = '1'
+    samuel.classList.remove('opacity-0')
   }, 50)
 
   // Example usage:
@@ -49,22 +49,22 @@ const handlePupitreAction = function (message) {
           document.getElementById('samuelImg').classList.add('bg-samuelSmile')
           document.getElementById('samuelImg').classList.remove('bg-samuel')
           setTimeout(() => {
+            let samuel = document.getElementById('samuel')
+            console.log(samuel)
             samuel.classList.add('opacity-0')
-            samuel.classList.remove('opacity-1')
           }, 2000)
         }, 1000)
       }, time * 1000 + 50) // wait for the time before corner hit
       break
     case 'samuelShow':
-      document.getElementById('samuel').classList.remove('h-[18rem]', 'w-[32rem]')
-      document.getElementById('samuel').classList.add('h-[12rem]', 'w-[14rem]')
+      document.getElementById('samuel').classList.remove('h-[17rem]', 'w-[30rem]')
+      document.getElementById('samuel').classList.add('h-[18rem]', 'w-[16rem]')
       document
         .getElementById('samuelImg')
         .classList.remove('border-red-600', 'border-8', 'bg-samuelSmile')
       document.getElementById('samuelImg').classList.add('border-black', 'border-4', 'bg-samuel')
 
       setTimeout(() => {
-        document.getElementById('samuel').classList.add('opacity-1')
         document.getElementById('samuel').classList.remove('opacity-0')
       }, 50)
       break

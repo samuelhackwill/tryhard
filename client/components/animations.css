@@ -16,8 +16,8 @@
 :root {
   --container-w: tan(atan2(var(--w_raw), 1px));
   --container-h: tan(atan2(var(--h_raw), 1px));
-  --logo-w: 512;
-  --logo-h: 288;
+  --logo-w: 480;
+  --logo-h: 272;
   --speed: 180; /* pixels per second */
 
   --duration-x: calc((var(--container-w) - var(--logo-w)) / var(--speed) * 1s);
