@@ -417,7 +417,6 @@ export const simulateMouseUp = function (pointer) {
   if (elements.length == 0) return
 
   for (element of elements) {
-    // console.log(element)
     $(element).trigger('mouseup', { pointer: pointer })
   }
   elements.forEach((e) => e.classList.remove('clicked'))
@@ -484,20 +483,40 @@ export const simulateMouseDown = function (pointer) {
 
   if (elements.length == 0) return
   for (element of elements) {
-    // we need to restrict clicks on privileged buttons, like the admin buttons
-    // so that only samuel can click on them.
     if (element.classList.contains('privileged') && pointer.id != 'samuel') {
       return
     }
 
-    //Trigger a jQuery click event with extra data (the pointer)
-    $(element).trigger('mousedown', { pointer: pointer })
-    element.classList.add('clicked')
+    const elementZindex = parseInt(getComputedStyle(element).zIndex, 10) || 0
+    const pointerZindex = parseInt(getComputedStyle(domPointer).zIndex, 10) || 0
 
-    //TODO: figure out a better event propagation mechanism
-    // Here's part of the issue: https://stackoverflow.com/questions/3277369/how-to-simulate-a-click-by-using-x-y-coordinates-in-javascript/78993824#78993824
-    //QUICKFIX: privileged elements stop propagating a click event.
-    if (element.classList.contains('stops-events')) break
+    if (elementZindex > pointerZindex) {
+      console.log(
+        'click not registered because element has a highter zindex than pointie',
+        element.id,
+        'with zindex :',
+        elementZindex,
+        '. pointer zindex :',
+        pointerZindex,
+      )
+      return
+    } else {
+      $(element).trigger('mouseup', { pointer: pointer })
+      $(element).trigger('mousedown', { pointer: pointer })
+      element.classList.add('clicked')
+
+      // we need to restrict clicks on
+      //  privileged buttons, like the admin buttons
+      // so that only samuel can click on them.
+
+      //Trigger a jQuery click event with extra data (the pointer)
+
+      //TODO: figure out a better event propagation mechanism
+      // Here's part of the issue: https://stackoverflow.com/questions/3277369/how-to-simulate-a-click-by-using-x-y-coordinates-in-javascript/78993824#78993824
+      //QUICKFIX: privileged elements stop propagating a click event.
+
+      if (element.classList.contains('stops-events')) break
+    }
   }
 }
 
