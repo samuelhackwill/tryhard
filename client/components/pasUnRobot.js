@@ -6,6 +6,9 @@ streamer.on('pupitreAction', function () {
   streamer.on('pupitreAction', handlePupitreAction)
 })
 pasUnRobotTimeouts = []
+
+export let catpchaTemplateContainer = []
+
 newX = 1
 newY = 1
 
@@ -31,33 +34,27 @@ Template.pasUnRobot.onCreated(function () {
 Template.pasUnRobot.onRendered(function () {
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 
-  console.log(
-    'debug : TIME TO COMPLETE CAPTCHA =',
-    'surprise time :',
-    this.data.surpriseAmount,
-    '+ reading time :',
-    this.minReadingTime,
-    ' + hesitation time : ',
-    this.data.hesitationAmount,
-  )
+  // console.log(
+  //   'debug : TIME TO COMPLETE CAPTCHA =',
+  //   'surprise time :',
+  //   this.data.surpriseAmount,
+  //   '+ reading time :',
+  //   this.minReadingTime,
+  //   ' + hesitation time : ',
+  //   this.data.hesitationAmount,
+  // )
+
   const handle = Template.instance().view
   setTimeout(() => {
     document.getElementById('pasUnRobot').classList.remove('opacity-0')
   }, 50)
 
+  const t = this
+  const v = this.view
   pasUnRobotTimeouts.push(
     setTimeout(() => {
-      console.log('timeout!!')
-      const element = document.getElementById('pasUnRobot')
-      element.style.opacity = 0
-
-      pasUnRobotTimeouts.push(
-        setTimeout(() => {
-          Blaze.remove(handle)
-
-          unchoosePlayer()
-        }, 300),
-      )
+      console.log('player failed to complete captcha')
+      checkAndDie(t, v, false)
     }, timeToComplete),
   )
 })
@@ -96,7 +93,7 @@ Template.pasUnRobot.events({
       clickTimestamp.getTime() - t.timestamp.getTime() >
       t.minReadingTime + t.data.surpriseAmount
     ) {
-      checkAndDie(t, t.view, obj.pointer)
+      checkAndDie(t, t.view, true)
     } else {
       // console.log(
       //   'attend encore ',
@@ -109,23 +106,26 @@ Template.pasUnRobot.events({
         t.data.surpriseAmount -
         (clickTimestamp.getTime() - Template.instance().timestamp.getTime())
       setTimeout(() => {
-        checkAndDie(t, t.view, obj.pointer)
+        checkAndDie(t, t.view, true)
       }, wait)
       Template.instance().waiting.set(true)
     }
   },
 })
 
-checkAndDie = function (t, handle, pointer) {
+checkAndDie = function (t, handle, passed) {
   removeTimeouts()
+  if (passed) {
+    t.waiting.set(false)
+    setTimeout(() => {
+      document.getElementById('checkbox-pasUnRobot').checked = true
+    }, 50)
+  } else {
+    setCheckboxToFailed(document.getElementById('checkbox-pasUnRobot'))
+  }
 
-  t.waiting.set(false)
   setTimeout(() => {
-    document.getElementById('checkbox-pasUnRobot').checked = true
-  }, 50)
-
-  setTimeout(() => {
-    console.log('captcha completed!!')
+    // console.log('captcha completed!!')
     const element = document.getElementById('pasUnRobot')
     element.style.opacity = 0
 
@@ -159,6 +159,9 @@ unchoosePlayer = function (player) {
 
   if (_player == null) {
     let chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
+    if (!chosenItem) {
+      return
+    }
     chosenItem.chosen = false
     moveOffOfCaptcha(chosenItem)
     instance.pointers.set(chosenItem.id, chosenItem)
@@ -201,4 +204,41 @@ function handlePupitreAction(message) {
 
       break
   }
+}
+
+function setCheckboxToFailed(checkbox) {
+  if (!checkbox) {
+    console.error('Checkbox element not found!')
+    return
+  }
+
+  // Ensure the checkbox has a wrapper
+  const parentDiv = checkbox.closest('.flex-none') // Find the correct container
+  if (!parentDiv) {
+    console.error('Parent container not found!')
+    return
+  }
+
+  // Create the ❌ element
+  const cross = document.createElement('span')
+  cross.textContent = '❓'
+  cross.classList.add('checkbox-cross')
+  cross.style.position = 'absolute'
+  cross.style.fontSize = '24px'
+  cross.style.fontWeight = 'bold'
+  cross.style.color = 'red'
+  cross.style.pointerEvents = 'none' // Allows checkbox clicks
+  cross.style.top = '50%'
+  cross.style.left = '50%'
+  cross.style.transform = 'translate(-50%, -50%)'
+
+  // Ensure the checkbox container is relatively positioned
+  parentDiv.style.position = 'relative'
+
+  // **Disable all mouse events on the checkbox**
+  checkbox.style.pointerEvents = 'none'
+  checkbox.disabled = true // Prevent interaction programmatically
+
+  // Append the ❌ inside the checkbox's container
+  parentDiv.appendChild(cross)
 }

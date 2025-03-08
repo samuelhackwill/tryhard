@@ -2,14 +2,13 @@ import { lerp, peakAtHalf, clampPointToArea, convertRemToPixels } from '../both/
 import { ValueNoise } from 'value-noise-js'
 import { autoClickerMine, moveInFrontOfCaptcha, moveOffOfCaptcha } from './bots.js'
 import { streamer } from '../both/streamer.js'
-import { removeTimeouts } from './components/pasUnRobot.js'
+import { removeTimeouts, catpchaTemplateContainer } from './components/pasUnRobot.js'
 import { getRasp, getMouseBrand } from '../client/pages/show.js'
 import { observe, observing } from './observe.js'
 import { updateTopMouse } from '../client/components/feed.js'
 import { createPointer, checkHover } from '../client/pages/show.js'
 
 let clientEventQueue = []
-let catpchaTemplateContainer = []
 
 // we need to know when it's forbiden to spawn new mice, so it's hard-coded here. yep
 const canSpawnDuringTheseSequences = [
