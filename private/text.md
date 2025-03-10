@@ -24,9 +24,21 @@
 
 - cliquer ne fera pas mal à la souris, car elle est morte depuis longtemps, c'est un cadavre de souris, pas une souris vivante, dit le philosophe-médecin-légiste.
 
+- cliquer ne fera pas vraiment mal à la souris, parce qu'elle a l'habitude, dit le philosophe traditionaliste.
+
+- il y existe un contrat tacite entre les souris et les humains, ajoute le philosophe-éleveur de souris, les souris permettent volontairement aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris.
+
+- Dieu a donné non pas un, mais deux boutons et une roulette aux souris, c'est bien la preuve que les hommes doivent cliquer dessus, dit le philosophe créationniste.
+
+- Oui, les souris peuvent souffrir quand on leur clique dessus. Les souris sont emprisonnées dans cette existence en raison des causes et conditions de leur karma passé. Mais chaque être sensible, quelle que soit sa forme, mérite la compassion et le respect, car tous aspirent à être libérés de la souffrance, nous explique le philosophe bouddhiste.
+
 - Oui, cliquer fera mal à la souris ; mais la douleur n'est qu'une information transmise au cerveau, dit le philosophe ascétique.
 
-- la souris aura mal, certes, mais le plaisir total du nombre de personnes dans la salle divisé par le nombre de souris qui auront mal (si l'on part du principe que tout le monde ne cliquera pas) égale plus de plaisir que de souffrance, _il faut donc cliquer sur la souris_, dit le philosophe utilitariste.
+- la souris aura mal, certes, mais si on divise le plaisir total _x_ conféré par chaque clic par la douleur _y_ ressentie par les souris, on arrive à un résultat supérieur à zéro, _il faut donc cliquer sur la souris_, dit le philosophe utilitariste.
+
+- non seulement il faut cliquer sur la souris, mais si on considère qu'un clic = une unité de plaisir, alors il faut faire en sorte que le nombre total de clics sur terre soit aussi élevé que possible, ajoute le philosophe totaliste.
+
+- non seulement il faut qu'il en soit ainsi sur terre, mais maintenant que l'humanité a le pouvoir d'organiser les conditions de la vie, nous avons le devoir moral de prioriser avant toute chose la maximisation du nombre de clics produits à l'échelle de l'univers, ajoute son collègue long-termiste.
 
 - la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche.
 
@@ -165,11 +177,15 @@ merci de compléter le test
 `showNicks`
 `togglePointers`
 je ne suis pas un robot
-je ne suis pas un robot
-je ne suis pas un robot
-je ne suis pas un robot
-je ne suis pas un robot
-je ne suis pas un robot
+moi non plus je ne suis pas un robot
+ah c'est marrant que vous me posiez la question parce que moi non plus je ne suis pas un robot
+pareil que la personne précédente
+idem
+alors je sais ce que vous pensez, ça fait déjà plein de personnes qui ont dit qu'iels n'étaient pas des robots donc quelque part ça donne moins de crédit au fait que moi aussi je prétende ne pas être un robot mais je vous jure que je ne suis pas un robot non plus
+alors. Il se trouve que la personne qui vient de répondre a menti, je sais de source sûre que c'est un robot, mais moi par contre je ne suis pas un robot.
+je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains.
+je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot.
+après conseil, j'affirme que je ne peux pas juridiquement être considéré comme un robot, au sens légal du terme.
 je ne suis pas une tondeuse
 je ne suis pas une brosse à dents électrique
 je ne suis pas une oreille collée sur un porte
@@ -193,9 +209,15 @@ ce sont mes signaux électriques
 je suis qui je suis
 je pense ce que je pense
 mes pensées sont nées dans mon cerveau et pas ailleurs
-je ne fais pas semblant d'avoir des pensées,
+je ne fais pas semblant d'avoir des pensées
 je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau.
-je transporte 80 milliards de neurones dans mon cerveau, qui... font leurs trucs de neurones
+quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot
+la preuve que je suis humain, c'est que je suis d'abord allé vérifier toutes les notes de bas de page et j'ai pesé les biais potentiels des auteurs de cet argument, ainsi que des intermédiaires par lesquels cette idée m'est parvenue
+la preuve que je suis humain, c'est que j'ai déjà eu une idée entièrement nouvelle
+la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case
+la preuve que je suis humain, c'est que je peux faire des trucs bizarres et créatifs avec ma souris avant de cliquer sur cette case.
+la preuve que je suis humain, c'est que je peux aller à droite et à gauche avant de cliquer sur cette case.
+la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau, qui... font leurs trucs de neurones
 je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue
 j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, dans mon colon
 je ne suis pas une bactérie anaérobie

@@ -384,6 +384,9 @@ simulateRightMouseUp = function (pointer) {
 }
 
 export const simulateMouseUp = function (pointer) {
+  const audio = new Audio('mouseUp.mp3')
+  audio.play()
+
   observe('newClick', pointer.id)
 
   const domPointer = document.getElementById(pointer.id)
@@ -453,6 +456,9 @@ export const simulateMouseUp = function (pointer) {
 }
 
 export const simulateMouseDown = function (pointer) {
+  const audio = new Audio('mouseDown.mp3')
+  audio.play()
+
   const elements = getElementsUnder(pointer)
   const domPointer = document.getElementById(pointer.id)
 
