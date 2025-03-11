@@ -34,17 +34,23 @@
 
 - Oui, cliquer fera mal à la souris ; mais la douleur n'est qu'une information transmise au cerveau, dit le philosophe ascétique.
 
-- la souris aura mal, certes, mais si on divise le plaisir total _x_ conféré par chaque clic par la douleur _y_ ressentie par les souris, on arrive à un résultat supérieur à zéro, _il faut donc cliquer sur la souris_, dit le philosophe utilitariste.
-
-- non seulement il faut cliquer sur la souris, mais si on considère qu'un clic = une unité de plaisir, alors il faut faire en sorte que le nombre total de clics sur terre soit aussi élevé que possible, ajoute le philosophe totaliste.
-
-- non seulement il faut qu'il en soit ainsi sur terre, mais maintenant que l'humanité a le pouvoir d'organiser les conditions de la vie, nous avons le devoir moral de prioriser avant toute chose la maximisation du nombre de clics produits à l'échelle de l'univers, ajoute son collègue long-termiste.
-
 - la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche.
 
 - toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer.
 
-- "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote.
+- "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote pendant sa soirée barbecue.
+
+- la souris aura mal, certes, mais si on divise le plaisir total _x_ conféré par chaque clic par la douleur _y_ ressentie par les souris, on arrive à un résultat supérieur à zéro, _il faut donc cliquer sur la souris_, dit le philosophe utilitariste.
+
+- non seulement il faut cliquer sur la souris, mais si on considère qu'un clic = une unité de plaisir, alors il faut faire en sorte que le nombre total de clics sur terre soit aussi élevé que possible, ajoute le philosophe totaliste-maximaliste.
+
+- non seulement il faut qu'il en soit ainsi sur terre, continue-t-il, mais maintenant que l'humanité a le pouvoir d'organiser les conditions de la vie, nous avons le devoir moral de prioriser avant toute chose la maximisation du nombre de clics produits à l'échelle de l'univers.
+
+- il n'est pas certain que la souris ait mal, mais c'est vraisemblable, et en raison du nombre astronomique de souris qu'il y a maintenant dans l'univers, il est raisonnable de renoncer à cliquer sur la souris au cas où, dit le philosophe sentientiste.
+
+- dans l'hypothèse où la souris pourrait ressentir du plaisir et de la souffrance, il est raisonnable de pondérer l'importance que l'on donne a sa souffrance au nombre de boutons qu'elle possède, afin de pouvoir hiérarchiser nos priorités morales, par exemple vis à vis des claviers AZERTY 105 touches, dit le philosophe gradualiste.
+
+- la souris a mal, certes, mais sa souffrance d'aujourd'hui n'a pas d'importance en comparaison avec toutes les unités de plaisir qui seront créées dans le futur grâce aux progrès technologiques, ajoute le philosophe long-termiste.
 
 `hideFeed`
 `clearFeed`
@@ -52,6 +58,11 @@
 ## II-le-succes-s1
 
 <!-- attention, le nom "ii-le-succes" est utilisé par show pour savoir s'il faut compter les clics ou pas -->
+<!--
+une souris s'est déplacée (continuous)
+une souris a produit un clic (continous)
+une souris a produit un clic droit (one shot)
+une souris -->
 
 `showFeed`
 `bgTogrey`
@@ -177,15 +188,6 @@ merci de compléter le test
 `showNicks`
 `togglePointers`
 je ne suis pas un robot
-moi non plus je ne suis pas un robot
-ah c'est marrant que vous me posiez la question parce que moi non plus je ne suis pas un robot
-pareil que la personne précédente
-idem
-alors je sais ce que vous pensez, ça fait déjà plein de personnes qui ont dit qu'iels n'étaient pas des robots donc quelque part ça donne moins de crédit au fait que moi aussi je prétende ne pas être un robot mais je vous jure que je ne suis pas un robot non plus
-alors. Il se trouve que la personne qui vient de répondre a menti, je sais de source sûre que c'est un robot, mais moi par contre je ne suis pas un robot.
-je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains.
-je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot.
-après conseil, j'affirme que je ne peux pas juridiquement être considéré comme un robot, au sens légal du terme.
 je ne suis pas une tondeuse
 je ne suis pas une brosse à dents électrique
 je ne suis pas une oreille collée sur un porte
@@ -225,6 +227,7 @@ je ne suis pas un virus
 un robot, je ne suis pas
 pas un robot je ne suis
 un robot, moi? non non
+arrêtez de dire que je suis un robot
 c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L
 je saigne (quand mes veines ne sont plus étanches)
 je pue (pas forcément en ce moment)
@@ -238,10 +241,46 @@ je suis fier de ne pas être un robot
 je suis déçu de ne pas être un robot?
 je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot?
 tout d'un coup on fait un peu moins le malin de ne pas être un robot?
+je ne suis pas vexé quand on fait une blague sur le caractère fini de mon existence
+je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux échecs, au go, au poker, au shogi, aux dames, à la guerre.
+cet état de fait ne m'inquiète pas du tout, je suis en confiance
 je ne suis pas un robot
-je ne suis pas un robot
-je ne suis pas un robot
-je ne suis pas un robot, et par ailleurs, la sortie de résidence est terminée, merci d'être venu.e.s! même si au fond vous êtes un robot
+moi non plus je ne suis pas un robot
+pareil que la personne précédente
+idem
+alors je sais ce que vous pensez, ça fait déjà plein de personnes qui ont dit qu'iels n'étaient pas des robots donc ça donne moins de crédit au fait que moi aussi je prétende ne pas être un robot mais je vous jure que je ne suis pas un robot
+alors. Il se trouve que la personne qui vient de répondre a menti, je sais de source sûre que c'est un robot, mais moi par contre je ne suis pas un robot.
+je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains.
+je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot.
+après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme.
+nous ne sommes pas individuellement des robots.
+nous ne sommes pas collectivement un robot.
+je suis humain, et en plus, je suis un bon humain.
+je suis le meilleur humain.
+je suis le pire humain.
+je suis humain car je n'ai jamais commis les actes suivants : meurtre de masse, traffic d'organes, mise en esclavage, expérimentations médicales non consenties, détention illégale d'autrui.
+je suis tellement humain qu'il ne m'est jamais passé par la tête de déclencher une attaque au gaz sarin sur mes ennemis.
+je suis tellement humain que j'ai généreusement pardonné tous les dictateurs et tortionnaires vivants, et renoncé à les pourchasser dans le monde pour les décapiter
+je suis tellement un être humain que renonce au plaisir de marcher exprès sur les pieds des autres êtres humains dans le métro
+je suis tellement un être humain que je renonce au plaisir d'uriner sur les gens dans le métro
+je suis tellement un être humain que je renonce à un repas facile dans le métro, avec toutes ces personnes qui se tiennent à la barre et ne peuvent pas éviter que je leur croque le bras
+je suis tellement un être humain que je ne paye pas toujours le métro
+je suis tellement humain que je n'ai pas compris que c'était le fait que les gens payent le métro qui fait qu'on peut prendre le métro
+je suis tellement humain que je suis prêt à partager mon salaire avec quiconque dans la salle qui gagne moins que moi, sur présentation de vos 3 derniers bulletins de salaire
+je suis tellement humain que je suis prêt à renoncer à mon héritage si quelqu'un dans la salle me le demande
+je ne suis pas une souris
+je. ne. suis. pas. un. robot. (plusieurs coches)
+je possède les 3 qualités suivantes : je suis riche. je sais lire l'heure. je suis étanche.
+je possède les 3 défauts suivants : je suis agi par ma libido. je pleure. je suis tout le temps fatigué.
+je possède les 1 qualités suivantes : je suis mortel.
+je suis humain car j'ai des préférences
+je suis humain parce que je sais tourner autour du rectangle avec ma souris avant de cliquer
+je suis humain parce que je sais faire des zigzags avec ma souris avant de cliquer
+je suis humain parce que je sais ne pas cliquer
+je suis humain et par contre combien de temps encore ça va durer ce jeu?
+je suis humain et donc j'ai d'autres choses à faire de ma soirée
+je suis humain et donc j'ai compris la blague
+
 `bgToblack`
 
 <!--

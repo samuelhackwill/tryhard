@@ -34,15 +34,15 @@ Template.pasUnRobot.onCreated(function () {
 Template.pasUnRobot.onRendered(function () {
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 
-  // console.log(
-  //   'debug : TIME TO COMPLETE CAPTCHA =',
-  //   'surprise time :',
-  //   this.data.surpriseAmount,
-  //   '+ reading time :',
-  //   this.minReadingTime,
-  //   ' + hesitation time : ',
-  //   this.data.hesitationAmount,
-  // )
+  console.log(
+    'debug : TIME TO COMPLETE CAPTCHA =',
+    'surprise time :',
+    this.data.surpriseAmount,
+    '+ reading time :',
+    this.minReadingTime,
+    ' + hesitation time : ',
+    this.data.hesitationAmount,
+  )
 
   const handle = Template.instance().view
   setTimeout(() => {

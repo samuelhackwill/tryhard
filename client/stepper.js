@@ -1,11 +1,7 @@
-import { lerp, peakAtHalf, clampPointToArea, convertRemToPixels } from '../both/math-helpers.js'
+import { lerp, convertRemToPixels } from '../both/math-helpers.js'
 import { ValueNoise } from 'value-noise-js'
-import { autoClickerMine, moveInFrontOfCaptcha, moveOffOfCaptcha } from './bots.js'
 import { streamer } from '../both/streamer.js'
-import { removeTimeouts, catpchaTemplateContainer } from './components/pasUnRobot.js'
-import { getRasp, getMouseBrand } from '../client/pages/show.js'
-import { observe, observing } from './observe.js'
-import { updateTopMouse } from '../client/components/feed.js'
+import { observe } from './observe.js'
 import { createPointer, checkHover } from '../client/pages/show.js'
 
 let clientEventQueue = []
@@ -25,7 +21,6 @@ const noise = new ValueNoise()
 streamer.on('tickUpdate', function (message) {
   clientEventQueue.push({ origin: 'serverTick', payload: message })
 })
-streamer.on('pupitreAction', handlePupitreAction)
 
 export const stepper = function (pointerCallbacks = []) {
   stepEventQueue(clientEventQueue)
@@ -64,145 +59,6 @@ function stepEventQueue(queue) {
   }
 }
 
-// all this shit should be moved to show but wtvr
-function handlePupitreAction(message) {
-  switch (message.content) {
-    case 'clearPointers':
-      instance.pointers.clear()
-      break
-    case 'togglePointers':
-      const _trueOrFalse = instance.arePointersHidden.get()
-      const _hidden = !_trueOrFalse
-
-      instance.arePointersHidden.set(_hidden)
-      break
-
-    case 'startCheckingTopMouse':
-      pollingTopMouse = setInterval(function () {
-        updateTopMouse()
-        // updateTopGradins()
-        // updateTopHalf()
-      }, 16)
-      break
-    case 'startObserving':
-      observing.push('newClick', 'newMove')
-      break
-    case 'showNicks':
-      instance.areNamesHidden.set(false)
-      break
-    case 'unchoosePlayers':
-      Object.values(instance.pointers.all()).forEach((obj) => {
-        _pointer = instance.pointers.get(obj.id)
-        _pointer.chosen = undefined
-        instance.pointers.set(obj.id, _pointer)
-      })
-      break
-    case 'choosePlayer':
-      // Get list of disabled pointers (brand + rasp)
-      const disabledMice = message.args.disabledMice || []
-
-      // Extract rasp and brand from pointer ID
-      function extractRaspAndBrand(pointerId) {
-        const rasp = getRasp(pointerId)
-        const brand = getMouseBrand(pointerId)
-        return { rasp, brand }
-      }
-
-      // Get all available pointers
-      let allPointers = Object.values(instance.pointers.all())
-
-      if (allPointers.length === 0) {
-        return
-      }
-
-      // Ensure every pointer has a playCount property
-      allPointers.forEach((pointer) => {
-        let _pointer = instance.pointers.get(pointer.id)
-        if (!_pointer) return
-
-        if (_pointer.playCount === undefined) {
-          _pointer.playCount = 0
-        }
-
-        // ✅ DO NOT REMOVE OR RESET POINTERS - Only update chosen state
-        _pointer.chosen = false
-        instance.pointers.set(pointer.id, _pointer)
-      })
-
-      // Remove disabled pointers
-      let eligiblePointers = allPointers.filter((pointer) => {
-        const { rasp, brand } = extractRaspAndBrand(pointer.id)
-        return !disabledMice.some(
-          (disabledMouse) => disabledMouse.rasp === rasp && disabledMouse.brand === brand,
-        )
-      })
-
-      if (eligiblePointers.length === 0) {
-        eligiblePointers = allPointers
-      }
-
-      // Find the lowest playCount among eligible pointers
-      const minPlayCount = Math.min(...eligiblePointers.map((pointer) => pointer.playCount))
-
-      // Get only pointers with the minimum playCount
-      let leastPickedPointers = eligiblePointers.filter(
-        (pointer) => pointer.playCount === minPlayCount,
-      )
-
-      if (leastPickedPointers.length === 0) {
-        leastPickedPointers = eligiblePointers
-      }
-
-      // Pick a random pointer from the least-picked ones
-      const selectedPointer =
-        leastPickedPointers[Math.floor(Math.random() * leastPickedPointers.length)]
-
-      if (!selectedPointer) {
-        console.error('No pointer was selected! Aborting to prevent crash.')
-        return
-      }
-
-      // Ensure the selected pointer exists before proceeding
-      let updatedPointer = instance.pointers.get(selectedPointer.id)
-      if (!updatedPointer) {
-        console.error(`Selected pointer ${selectedPointer.id} not found in instance.pointers!`)
-        return
-      }
-
-      updatedPointer.playCount++
-      updatedPointer.chosen = true
-
-      instance.pointers.set(selectedPointer.id, updatedPointer)
-
-      moveInFrontOfCaptcha(updatedPointer)
-
-      break
-    // case 'choosePlayer':
-    //   Object.values(instance.pointers.all()).forEach((obj) => {
-    //     let transformedId = getRasp(obj.id) + '_' + getMouseBrand(obj.id)
-    //     _pointer = instance.pointers.get(obj.id)
-    //     _pointer.chosen = transformedId === message.args
-
-    //     if (transformedId === message.args) {
-    //       moveInFrontOfCaptcha(_pointer)
-    //     }
-
-    //     instance.pointers.set(obj.id, _pointer)
-    //   })
-    //   break
-    case 'newCaptcha-1j':
-      catpchaTemplateContainer.push(
-        Blaze.renderWithData(
-          Template.pasUnRobot,
-          message.args,
-          document.getElementsByClassName('milieuContainer')[0],
-        ),
-      )
-      break
-  }
-  return
-}
-
 function handleTickUpdate(message) {
   message.forEach((element, i) => {
     let pointer = instance.pointers.get(element.client)
@@ -218,8 +74,15 @@ function handleTickUpdate(message) {
 
       const spawnForbiden = !canSpawnDuringTheseSequences.includes(instance.state.get())
 
-      if (spawnForbiden) return
-
+      if (spawnForbiden) {
+        console.log(
+          'spawn forbidden during sequence ',
+          instance.state.get(),
+          '. Spawn is only possible during sequences : ',
+          canSpawnDuringTheseSequences.join(', '),
+        )
+        return
+      }
       pointer = createPointer(element.client)
 
       // pointer.initialisationCoords = { y: i * 15, x: i * 2 }
