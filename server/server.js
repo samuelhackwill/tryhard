@@ -1,5 +1,6 @@
 import { streamer } from '../both/streamer.js'
-import { disabledMice } from '../both/disabledMice.js'
+import { disabledMice } from '../both/api.js'
+import { SalleLayout } from '../both/api.js'
 
 // Import the WebSocket library
 const WebSocket = require('ws')
@@ -10,9 +11,25 @@ const PING_INTERVAL = 5000
 
 let connectedRasps = []
 queue = []
+disabledMice.remove({})
 
 Meteor.publish('disabledMice', function () {
   return disabledMice.find({})
+})
+
+Meteor.publish('salleLayout', function () {
+  return SalleLayout.find({})
+})
+
+Meteor.startup(() => {
+  // fixtures
+  if (SalleLayout.find().count() === 0) {
+    SalleLayout.insert({
+      rows: 6,
+      columns: 4,
+      cells: [], // Will hold {row, col, deviceId}
+    })
+  }
 })
 
 console.log(

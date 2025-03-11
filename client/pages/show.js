@@ -11,7 +11,7 @@ import { catpchaTemplateContainer } from '../components/pasUnRobot.js'
 import '../components/main.js'
 import './show.html'
 
-import { disabledMice } from '../../both/disabledMice.js'
+import { disabledMice } from '../../both/api.js'
 
 import { observe } from '../observe.js'
 
@@ -25,6 +25,7 @@ Template.show.onCreated(function () {
   this.autorun(() => {
     this.subscribe('disabledMice')
   })
+
   this.GoldMouseScore = new ReactiveVar(0)
   this.SilverMouseScore = new ReactiveVar(0)
   this.CopperMouseScore = new ReactiveVar(0)
@@ -79,6 +80,7 @@ function handlePupitreAction(message) {
       }, 16)
       break
     case 'startObserving':
+      console.log('how many active mouse are they?')
       observing.push('newClick', 'newMove')
       break
     case 'showNicks':
@@ -513,8 +515,6 @@ simulateRightMouseUp = function (pointer) {
 export const simulateMouseUp = function (pointer) {
   const audio = new Audio('mouseUp.mp3')
   audio.play()
-
-  observe('newClick', pointer.id)
 
   const domPointer = document.getElementById(pointer.id)
 

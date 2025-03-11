@@ -2,7 +2,7 @@ import './pupitre.html'
 
 import { streamer } from '../../both/streamer.js'
 
-import { disabledMice } from '../../both/disabledMice.js'
+import { disabledMice } from '../../both/api.js'
 
 import { getRasp, getMouseBrand } from './show.js'
 
@@ -30,23 +30,32 @@ Template.pupitre.onCreated(function () {
 
   Meteor.setInterval(() => {
     // currently this is not reliable to detect disonnections!!! if a device OR a mouse is removed during the show i won't know about it. It should be pretty simple to implement though, all we need is to tell mouse_grabr to send a signal to the server. The current polling is only to get NEW devices.
-    document.getElementById('rasp_update_status').innerText = 'listening for rasps...'
-    this.connectedDevices.set('')
     // console.log(this.connectedDevices.get())
-    Meteor.call('getConnectedDevices', (err, res) => {
-      if (err) {
-        alert(err)
-        document.getElementById('rasp_update_status').innerText =
-          'there was an error during the mouse count :x'
-      } else {
-        this.connectedDevices.set(res)
-        if (res.length < 1) {
-          document.getElementById('rasp_update_status').innerText = 'no mice found!'
+    document.getElementById('rasp_update_status').innerText = `polling rasps...`
+
+    setTimeout(() => {
+      Meteor.call('getConnectedDevices', (err, res) => {
+        if (err) {
+          alert(err)
+          document.getElementById('rasp_update_status').innerText =
+            'there was an error during the mouse count :x'
         } else {
-          document.getElementById('rasp_update_status').innerText = 'update complete!'
+          if (res.length < 1) {
+            document.getElementById('rasp_update_status').innerText = 'no mice found!'
+            this.connectedDevices.set('')
+          } else {
+            console.log(res)
+            const totalMice = res.reduce((acc, entry) => acc + (entry.mice?.length || 0), 0)
+            const activeMice = totalMice - disabledMice.find({}).fetch().length
+            document.getElementById('rasp_update_status').innerText = `rasps polled!`
+            document.getElementById(
+              'rasp_update_count',
+            ).innerText = `total of ${activeMice} active mice out of ${totalMice} mice connected.`
+            this.connectedDevices.set(res)
+          }
         }
-      }
-    })
+      })
+    }, 250)
   }, 10000)
 })
 
@@ -98,7 +107,7 @@ Template.pupitre.helpers({
   },
   getMice() {
     // le serveur nous envoie des noms de souris longs comme le bras parce qu'ils incluent le chemin input/dev etc etc donc on cleane en claquant une grosse regex, et si on a pas de match on garde tout le nom quand même histoire de pas oublier des souris parce qu'on les connaissait pas.
-    cleanMice = []
+    const cleanMice = []
 
     for (x = 0; x < this.mice.length; x++) {
       cleanMice.push(getMouseBrand(this.mice[x]))

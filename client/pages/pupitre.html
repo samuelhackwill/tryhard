@@ -108,52 +108,6 @@
 
           </div>
 
-          <div id="rasp_update_status" class="text-violet-600 italic">listening for rasps...</div>
-          <span>R/B/activated/chosen</span>
-
-          <div>
-            <span class="mr-1">ffa ♪┏(・o・)┛♪</span>
-            <input
-              id="radio-ffa"
-              type="radio"
-              {{isSelectedPlayer}}
-              name="list-chosen"
-              class="playerToggle w-4 h-4 bg-gray-100 border-gray-300"
-            />
-          </div>
-
-          {{#each getConnectedDevices}}
-            <div class="m-2">
-              <div>{{ name }}</div>
-              {{#each getMice}}
-                <div>
-                  <label
-                    for="default-checkbox"
-                    class="ms-2 -ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >
-                    {{../name}}_{{ this }}
-                  </label>
-                  <input 
-                    data-rasp="{{../name}}" 
-                    data-brand="{{ this }}" 
-                    id="checkbox-{{../name}}{{ this }}" 
-                    {{isChecked ../name}} 
-                    type="checkbox" 
-                    value="" 
-                    class="mouseToggle ml-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500" 
-                  />
-                  <!-- <input 
-                    id="{{../name}}_{{ this }}-chosen"
-                    {{isSelectedPlayer ../name this}} 
-                    type="radio" 
-                    value="" 
-                    name="list-chosen"
-                    class="playerToggle w-4 h-4 bg-gray-100 border-gray-300" 
-                  /> -->
-                </div>
-              {{/each}}
-            </div>
-          {{/each}}
         </div>
       </div>
     </div>

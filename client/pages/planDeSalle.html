@@ -1,0 +1,81 @@
+<template name="planDeSalle">
+  
+    <div class="p-4 h-full w-full overflow-y-scroll">
+      <div id="rasp_update_status" class="text-violet-600 italic">polling rasps...</div>
+      <div id="rasp_update_count" class="text-violet-600 italic">waiting poll...</div>
+
+      <div class="grid gap-4" style="grid-template-columns: repeat({{gridColumns}}, minmax(0, 1fr));">
+        {{#each gridCells}}
+          <div 
+            class="border border-gray-300 p-2 flex flex-col justify-between min-h-[120px] dropzone"
+            data-row="{{row}}"
+            data-col="{{col}}"
+          >
+            <!-- TOP SECTION: Assigned device block -->
+            <div class="flex items-center justify-center h-[60px]">
+              {{#if (deviceInCell row col)}}
+                {{> deviceBlock device=(deviceInCell row col) row=row col=col }}
+              {{/if}}
+            </div>
+      
+            <div class="grid grid-cols-4 gap-1 mt-2 text-center text-sm text-gray-600">
+              {{#each (mouseSlotNumbers row col)}}
+                {{#if this.number}}
+                  <div class="border rounded p-1" data-mouse="{{this.mouseId}}" title="{{this.mouseId}}">
+                    {{this.number}}
+                  </div>
+                {{else}}
+                  <div class="border rounded p-1 opacity-30" title="Disabled mouse"></div>
+                {{/if}}
+              {{/each}}
+            </div>
+          </div>
+        {{/each}}
+      </div>
+        
+      <h2 class="mt-10 text-lg font-bold">Inventory (unassigned devices)</h2>
+      <div 
+        id="inventory-dropzone"
+        class="inventory-dropzone flex flex-wrap border-t mt-4 pt-2 h-[60px] overflow-y-auto bg-white"
+      >
+        {{#each unassignedDevices}}
+          {{> deviceBlock device=this }}
+        {{/each}}
+      </div>
+    </div>
+  </template>
+  
+  <template name="deviceBlock">
+    <div 
+      class="cursor-move border p-1 m-1 bg-gray-200 rounded drag-block  {{#if isAssigned device.name}}w-full{{/if}}"
+      draggable="true"
+      data-id="{{device._id}}"
+      data-row="{{row}}"
+      data-col="{{col}}"
+    >
+      {{device.name}}
+      <div class="grid grid-cols-4">
+        {{#each device.mice}}
+          <input 
+            data-rasp="{{../device.name}}" 
+            data-brand="{{ this }}" 
+            id="checkbox-{{../name}}{{ this }}" 
+            {{isChecked ../device.name}} 
+            type="checkbox" 
+            value="" 
+            class="mouseToggle min-w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500" 
+            title="{{../device.name}}_{{this}}"
+          />
+          <!-- <input 
+            id="{{../name}}_{{ this }}-chosen"
+            {{isSelectedPlayer ../name this}} 
+            type="radio" 
+            value="" 
+            name="list-chosen"
+            class="playerToggle w-4 h-4 bg-gray-100 border-gray-300" 
+          /> -->
+        {{/each}}
+      </div>
+    </div>
+  </template>
+  
