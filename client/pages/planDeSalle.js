@@ -127,7 +127,7 @@ Template.planDeSalle.onRendered(function () {
 
         SalleLayout.update(currentLayout._id, { $set: { cells: newCells } }, (err) => {
           if (err) {
-            console.error('[DROP] Update failed:', err)
+            // console.error('[DROP] Update failed:', err)
           } else {
             //console.log('[DROP] Update successful.')
           }
@@ -181,42 +181,48 @@ Template.planDeSalle.helpers({
     const rows = layout.rows
     const cols = layout.columns
 
-    // Step 1: Build zigzag order of cells
+    // Step 1: Build zigzag order of cells (bottom row right-to-left, then alternate)
     const orderedCells = []
     for (let r = rows - 1; r >= 0; r--) {
       const rowCells = []
       for (let c = 0; c < cols; c++) {
         rowCells.push({ row: r, col: c })
       }
-      if ((rows - 1 - r) % 2 === 0) {
-        // Even-indexed line from bottom → reverse row (right to left)
-        rowCells.reverse()
+      const rowFromBottom = rows - 1 - r
+      if (rowFromBottom % 2 === 0) {
+        rowCells.reverse() // Even index from bottom → right to left
       }
       orderedCells.push(...rowCells)
     }
 
-    // Step 2: Assign mouse slot numbers preserving order and padding at disabled indices
+    // Step 2: Assign global mouse slot numbers in order, visible in all cells
     let currentNumber = 1
     const cellSlotMap = {} // key = "row_col" → [ { number, mouseId } | '' ]
 
+    // Prebuild full slot map before returning one cell's values
     orderedCells.forEach((cell) => {
       const assignment = layout.cells.find((c) => c.row === cell.row && c.col === cell.col)
-      if (!assignment) return
+      if (!assignment) {
+        cellSlotMap[`${cell.row}_${cell.col}`] = ['', '', '', '']
+        return
+      }
 
       const device = devices.find((d) => d.name === assignment.deviceId)
-      if (!device || !device.mice) return
+      if (!device || !device.mice) {
+        cellSlotMap[`${cell.row}_${cell.col}`] = ['', '', '', '']
+        return
+      }
 
       const slots = []
       device.mice.forEach((mouseBrand) => {
         const fullKey = `${device.name}_${mouseBrand}`
         if (disabledSet.has(fullKey)) {
-          slots.push('') // placeholder for disabled mouse
+          slots.push('')
         } else {
           slots.push({ number: currentNumber++, mouseId: fullKey })
         }
       })
 
-      // Ensure array length is always 4
       while (slots.length < 4) {
         slots.push('')
       }
@@ -226,7 +232,6 @@ Template.planDeSalle.helpers({
 
     return cellSlotMap[`${row}_${col}`] || ['', '', '', '']
   },
-
   gridColumns() {
     const layout = SalleLayout.findOne()
     return layout?.columns || 4

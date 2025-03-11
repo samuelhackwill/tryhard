@@ -25,7 +25,7 @@
                     {{this.number}}
                   </div>
                 {{else}}
-                  <div class="border rounded p-1 opacity-30" title="Disabled mouse"></div>
+                  <div class="border rounded p-1 opacity-30"></div>
                 {{/if}}
               {{/each}}
             </div>
@@ -59,12 +59,12 @@
           <input 
             data-rasp="{{../device.name}}" 
             data-brand="{{ this }}" 
-            id="checkbox-{{../name}}{{ this }}" 
+            id="checkbox-{{../device.name}}{{ this }}" 
             {{isChecked ../device.name}} 
             type="checkbox" 
             value="" 
             class="mouseToggle min-w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500" 
-            title="{{../device.name}}_{{this}}"
+            title="{{../device.name}}_{{ this }}" 
           />
           <!-- <input 
             id="{{../name}}_{{ this }}-chosen"
