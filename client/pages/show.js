@@ -11,7 +11,7 @@ import { catpchaTemplateContainer } from '../components/pasUnRobot.js'
 import '../components/main.js'
 import './show.html'
 
-import { disabledMice } from '../../both/api.js'
+import { disabledMice, mouseOrder } from '../../both/api.js'
 
 import { observe } from '../observe.js'
 
@@ -24,6 +24,7 @@ Template.show.onCreated(function () {
 
   this.autorun(() => {
     this.subscribe('disabledMice')
+    this.subscribe('mouseOrder')
   })
 
   this.GoldMouseScore = new ReactiveVar(0)
@@ -98,27 +99,9 @@ function handlePupitreAction(message) {
       const pointer = findPointerByBrandAndRasp(
         getRasp(message.args.chosenOne),
         getMouseBrand(message.args.chosenOne),
+        'instance',
       )
 
-      function findPointerByBrandAndRasp(targetRasp, targetBrand) {
-        pointers = instance.pointers.all()
-        for (const key in pointers) {
-          if (pointers.hasOwnProperty(key)) {
-            const pointer = pointers[key]
-            // console.log(`[DEBUG] Checking pointer:`, pointer)
-
-            // console.log(`[DEBUG] pointer.rasp: "${pointer.rasp}" vs targetRasp: "${targetRasp}"`)
-            // console.log(
-            //   `[DEBUG] pointer.mouseBrand: "${pointer.mouseBrand}" vs targetBrand: "${targetBrand}"`,
-            // )
-
-            if (pointer.rasp === targetRasp && pointer.mouseBrand === targetBrand) {
-              console.log('[DEBUG] ✅ Match found:', pointer)
-              return pointer
-            }
-          }
-        }
-      }
       pointer.chosen = true
       instance.pointers.set(pointer.id, pointer)
 
@@ -685,6 +668,7 @@ export const addToDataAttribute = function (element, attr, amount) {
 }
 
 export const createPointer = function (id, bot = false, _owner) {
+  const _order = findPointerByBrandAndRasp(getRasp(id), getMouseBrand(id), 'mouseOrder').order
   return {
     id: id,
     rasp: getRasp(id),
@@ -693,6 +677,7 @@ export const createPointer = function (id, bot = false, _owner) {
     outlineColor: '#FFFFFF',
     initializationCoords: { x: -50, y: -50 },
     chosenCount: 0,
+    order: _order,
     events: [],
     bot: bot,
     owner: _owner || null,
@@ -703,7 +688,6 @@ export const createPointer = function (id, bot = false, _owner) {
     tree: null,
     killable: false,
     money: 0,
-    stock: { nwtec: 0, oilgs: 0, svdbt: 0, rlest: 0 },
     hoveredElementId: 'feed',
   }
 }
@@ -845,4 +829,42 @@ writeDomCoords = function (id, coords) {
 
   DOMpointer.setAttribute('data-x', coords.x)
   DOMpointer.setAttribute('data-y', coords.y)
+}
+
+const findPointerByBrandAndRasp = function (targetRasp, targetBrand, target) {
+  if (target == 'instance') {
+    pointers = instance.pointers.all()
+    for (const key in pointers) {
+      if (pointers.hasOwnProperty(key)) {
+        const pointer = pointers[key]
+        // console.log(`[DEBUG] Checking pointer:`, pointer)
+
+        // console.log(`[DEBUG] pointer.rasp: "${pointer.rasp}" vs targetRasp: "${targetRasp}"`)
+        // console.log(
+        //   `[DEBUG] pointer.mouseBrand: "${pointer.mouseBrand}" vs targetBrand: "${targetBrand}"`,
+        // )
+
+        if (pointer.rasp === targetRasp && pointer.mouseBrand === targetBrand) {
+          // console.log('[DEBUG] ✅ Match found:', pointer)
+          return pointer
+        }
+      }
+    }
+  } else {
+    const allEntries = mouseOrder.find().fetch()
+
+    for (const entry of allEntries) {
+      // console.log('[DEBUG] Checking entry:', entry)
+      // console.log(`[DEBUG] entry.device: "${entry.device}"`)
+      // console.log(`[DEBUG] targetRasp: "${targetRasp}" / targetBrand: "${targetBrand}"`)
+
+      if (entry.device && entry.device.includes(targetRasp) && entry.device.includes(targetBrand)) {
+        // console.log('[DEBUG] ✅ Match found:', entry)
+        return entry
+      }
+    }
+
+    console.log('[DEBUG] ❌ No match found in mouseOrder')
+    return null
+  }
 }

@@ -182,7 +182,11 @@ Meteor.methods({
   updateMouseOrder({ device, order }) {
     mouseOrder.upsert({ device }, { $set: { order } })
   },
-
+  eraseEveryDb() {
+    console.log('flashing mouseOrder and disabledMice')
+    mouseOrder.remove({})
+    disabledMice.remove({})
+  },
   async returnText() {
     text = parseMarkdown(Assets.absoluteFilePath('text.md'))
     return text

@@ -290,6 +290,9 @@ Template.deviceBlock.helpers({
 })
 
 Template.planDeSalle.events({
+  'click #flash'() {
+    Meteor.call('eraseEveryDb')
+  },
   'click #add-row'() {
     const layout = SalleLayout.findOne()
     if (layout) {
