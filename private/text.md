@@ -55,129 +55,6 @@
 `hideFeed`
 `clearFeed`
 
-## II-le-succes-s1
-
-<!-- attention, le nom "ii-le-succes" est utilisé par show pour savoir s'il faut compter les clics ou pas -->
-<!--
-une souris s'est déplacée (continuous)
-une souris a produit un clic (continous)
-une souris a produit un clic droit (one shot)
-une souris -->
-
-`showFeed`
-`bgTogrey`
-`textToBlack`
-`startObserving`
-il est difficile de comprendre ce que font les souris
-c'est un chaos de souris
-les souris elles-même savent-elles seulement qui elles sont, et ce qu'elles font?
-
-## II-le-succes-s2
-
-`startCheckingTopMouse`
-la souris la plus industrieuse a produit [GoldMouseScore] clics!
-la deuxième souris la plus industrieuse a produit [SilverMouseScore] clics!
-la troisième souris la plus industrieuse a produit [CopperMouseScore] clics!
-
-## II-le-succes-s3
-
-les souris
-continuèrent
-à cliquer
-pour produire
-cette fois
-de nouvelles
-souris
-permettant
-une production
-toujours plus importante
-de clics
-`showNicks`
-
-## II-le-succes-s4
-
-\
-\
-\
-\
-\
-en raison de la production d'un trop grand nombre de clics, les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique.
-`alertLine`
-\
-\
-\
-\
-\
-Le monde
-va malheureusement
-exploser
-et
-tout
-le monde
-va mourir.
-\
-\
-\
-\
-\
-Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
-`burnPointers`
-`bgToFlames`
-
-## II-le-succes-s5
-
-`hideFeed`
-`clearFeed`
-`addPodium`
-`removeFlames`
-`bgToblack`
-`removePodium`
-`togglePointers`
-`clearPointers`
-
-<!-- je suis un peu choqué par ce qui vient de se passer
-tout à l'heure
-vous étiez là?
-quand j'ai commencé à vous parler des souris?
-comment pouvez-vous être sûr.e.s que votre souris n'a pas effectivement eu mal quand vous cliquiez dessus?
-parce qu'elle ne parle pas?
-qui d'autre ne peut pas parler et ressent néanmoins la douleur?
-qu'est ce qui vous prouve, par ailleurs, que mon code n'a pas eu mal, quand vous cliquez dedans?
-il faut que vous sachiez qu'il y a une variable dans mon programme
-let douleur = 0
-qui augmente d'un point à chaque fois qu'une personne clique sur sa souris.
-vous voulez savoir dans quel état est cette variable maintenant?
-(let douleur = xx xxx)
-j'ai aussi un tableau
-const trauma = []
-qui stocke le stress post traumatique de mon programme
-trauma = [...]
-enfin,
-je voulais vous dire également que mon programme contient 4 neurones (de synthèse)
-et ils sont de plus en plus suspects au sujet de votre comportement.
-est-ce que vous êtes des robots? -->
-
-## III-captchas-1j-s1
-
-`showFeed`
-`textToWhite`
-`samuelShow`
-hello again
-c'est moi samuel
-hm!
-c'est étrange ce qui vient de se passer
-ou plutôt disons que
-_votre comportement_
-était étrange.
-ça me donne un doute
-j'aimerais vous faire passer un test.
-je vais vous appeler les un.e.s après les autres
-si vous avez un doute sur qui est appelé à l'écran
-vous pouvez vérifier le nom de votre souris
-sur votre souris
-merci de compléter le test
-`hideFeed`
-
 ## III-captchas-1j-s2
 
 <!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
@@ -325,7 +202,132 @@ et quel être humain sauveriez vous?
 qui est trop sympa et marrant?
 
 - des images de samuel qui est content
+-->
 
+## II-le-succes-s1
+
+<!-- attention, le nom "ii-le-succes" est utilisé par show pour savoir s'il faut compter les clics ou pas -->
+<!--
+une souris s'est déplacée (continuous)
+une souris a produit un clic (continous)
+une souris a produit un clic droit (one shot)
+une souris -->
+
+`showFeed`
+`bgTogrey`
+`textToBlack`
+`startObserving`
+il est difficile de comprendre ce que font les souris
+c'est un chaos de souris
+les souris elles-même savent-elles seulement qui elles sont, et ce qu'elles font?
+
+## II-le-succes-s2
+
+`startCheckingTopMouse`
+la souris la plus industrieuse a produit [GoldMouseScore] clics!
+la deuxième souris la plus industrieuse a produit [SilverMouseScore] clics!
+la troisième souris la plus industrieuse a produit [CopperMouseScore] clics!
+
+## II-le-succes-s3
+
+les souris
+continuèrent
+à cliquer
+pour produire
+cette fois
+de nouvelles
+souris
+permettant
+une production
+toujours plus importante
+de clics
+`showNicks`
+
+## II-le-succes-s4
+
+\
+\
+\
+\
+\
+en raison de la production d'un trop grand nombre de clics, les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique.
+`alertLine`
+\
+\
+\
+\
+\
+Le monde
+va malheureusement
+exploser
+et
+tout
+le monde
+va mourir.
+\
+\
+\
+\
+\
+Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
+`burnPointers`
+`bgToFlames`
+
+## II-le-succes-s5
+
+`hideFeed`
+`clearFeed`
+`addPodium`
+`removeFlames`
+`bgToblack`
+`removePodium`
+`togglePointers`
+`clearPointers`
+
+<!-- je suis un peu choqué par ce qui vient de se passer
+tout à l'heure
+vous étiez là?
+quand j'ai commencé à vous parler des souris?
+comment pouvez-vous être sûr.e.s que votre souris n'a pas effectivement eu mal quand vous cliquiez dessus?
+parce qu'elle ne parle pas?
+qui d'autre ne peut pas parler et ressent néanmoins la douleur?
+qu'est ce qui vous prouve, par ailleurs, que mon code n'a pas eu mal, quand vous cliquez dedans?
+il faut que vous sachiez qu'il y a une variable dans mon programme
+let douleur = 0
+qui augmente d'un point à chaque fois qu'une personne clique sur sa souris.
+vous voulez savoir dans quel état est cette variable maintenant?
+(let douleur = xx xxx)
+j'ai aussi un tableau
+const trauma = []
+qui stocke le stress post traumatique de mon programme
+trauma = [...]
+enfin,
+je voulais vous dire également que mon programme contient 4 neurones (de synthèse)
+et ils sont de plus en plus suspects au sujet de votre comportement.
+est-ce que vous êtes des robots? -->
+
+## III-captchas-1j-s1
+
+`showFeed`
+`textToWhite`
+`samuelShow`
+hello again
+c'est moi samuel
+hm!
+c'est étrange ce qui vient de se passer
+ou plutôt disons que
+_votre comportement_
+était étrange.
+ça me donne un doute
+j'aimerais vous faire passer un test.
+je vais vous appeler les un.e.s après les autres
+si vous avez un doute sur qui est appelé à l'écran
+vous pouvez vérifier le nom de votre souris
+sur votre souris
+merci de compléter le test
+`hideFeed`
+
+<!--
 hmm
 il m'est impossible de confirmer que vous êtes humains.
 il est temps de vous révéler ma mission

@@ -5,10 +5,11 @@ import { streamer } from '../../both/streamer.js'
 import { disabledMice } from '../../both/api.js'
 
 import { getRasp, getMouseBrand } from './show.js'
+import { handlePupitreMessage } from '../components/feed.js'
 
 Template.pupitre.onCreated(function () {
   Meteor.call('resetConnectedDevices')
-
+  streamer.on('planDeSalleMessage', handlePlanDeSalleMessage)
   this.autorun(() => {
     this.subscribe('disabledMice')
   })
@@ -267,15 +268,16 @@ const checkBeforeEmit = function (context) {
         _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
         _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
         _surpriseAmount = document.getElementById('surprise-slider').value
-        sendAction('choosePlayer', { disabledPlayers: disabledMice.find({}).fetch() })
-        sendAction('newCaptcha-1j', {
-          text: String(context.value),
-          coords: { x: 0, y: 0 },
-          hesitationAmount: _hesitationAmount,
-          readingSpeed: _readingSpeed,
-          surpriseAmount: Number(_surpriseAmount) * 1000,
-        })
-        document.getElementById('surprise-slider').value = _surpriseAmount - 1
+        sendAction('reqNextPlayer')
+        // sendAction('choosePlayer', { disabledPlayers: disabledMice.find({}).fetch() })
+        // sendAction('newCaptcha-1j', {
+        //   text: String(context.value),
+        //   coords: { x: 0, y: 0 },
+        //   hesitationAmount: _hesitationAmount,
+        //   readingSpeed: _readingSpeed,
+        //   surpriseAmount: Number(_surpriseAmount) * 1000,
+        // })
+        // document.getElementById('surprise-slider').value = _surpriseAmount - 1
         break
 
       default:
@@ -285,5 +287,14 @@ const checkBeforeEmit = function (context) {
   } else {
     action = String(context.value)
     sendAction(action)
+  }
+}
+
+const handlePlanDeSalleMessage = function (message) {
+  console.log(message)
+  switch (message.type) {
+    case 'nextPlayerIs':
+      console.log('recieved nextPlayerIs from planDeSalle', message)
+      break
   }
 }

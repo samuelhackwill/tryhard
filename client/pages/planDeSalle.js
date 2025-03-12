@@ -1,10 +1,13 @@
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
 import { SalleLayout, disabledMice, mouseOrder } from '../../both/api.js'
+import { streamer } from '../../both/streamer.js'
 
 import './planDeSalle.html'
 
 Template.planDeSalle.onCreated(function () {
+  streamer.on('pupitreAction', handlePupitreAction)
+
   this.connectedDevices = new ReactiveVar([]) // Initialisation
   const self = this
 
@@ -205,7 +208,7 @@ Template.planDeSalle.helpers({
         return
       }
 
-      const device = devices.find((d) => d.name === assignment.deviceId)
+      const device = devices?.find((d) => d.name === assignment.deviceId)
       if (!device || !device.mice) {
         cellSlotMap[`${cell.row}_${cell.col}`] = ['', '', '', '']
         return
@@ -253,7 +256,7 @@ Template.planDeSalle.helpers({
     if (!assignment) return null
 
     const devices = Template.instance().connectedDevices.get()
-    return devices.find((d) => d._id === assignment.deviceId)
+    return devices?.find((d) => d._id === assignment.deviceId)
   },
 
   unassignedDevices() {
@@ -261,7 +264,7 @@ Template.planDeSalle.helpers({
     const assignedIds = layout?.cells?.map((cell) => cell.deviceId) || []
 
     const devices = Template.instance().connectedDevices.get()
-    return devices.filter((d) => !assignedIds.includes(d._id))
+    return devices?.filter((d) => !assignedIds.includes(d._id))
   },
 })
 
@@ -351,3 +354,12 @@ Template.deviceBlock.events({
     })
   },
 })
+
+const handlePupitreAction = function (message) {
+  switch (message.content) {
+    case 'reqNextPlayer':
+      console.log('recieved reqNextPlayer from pupitre', message)
+      streamer.emit('planDeSalleMessage', { type: 'nextPlayerIs', content: 1 })
+      break
+  }
+}
