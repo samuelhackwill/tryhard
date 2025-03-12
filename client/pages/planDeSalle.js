@@ -6,10 +6,16 @@ import { streamer } from '../../both/streamer.js'
 import './planDeSalle.html'
 
 Template.planDeSalle.onCreated(function () {
-  streamer.on('pupitreAction', handlePupitreAction)
-
   this.connectedDevices = new ReactiveVar([]) // Initialisation
+  this.index = new ReactiveVar(0)
+
   const self = this
+
+  streamer.on('pupitreAction', function (message) {
+    const _message = message
+    _message.context = self
+    handlePupitreAction(_message)
+  })
 
   self.autorun(() => {
     this.subscribe('salleLayout')
@@ -256,7 +262,7 @@ Template.planDeSalle.helpers({
     if (!assignment) return null
 
     const devices = Template.instance().connectedDevices.get()
-    return devices?.find((d) => d._id === assignment.deviceId)
+    return devices.find((d) => d._id === assignment.deviceId)
   },
 
   unassignedDevices() {
@@ -264,7 +270,7 @@ Template.planDeSalle.helpers({
     const assignedIds = layout?.cells?.map((cell) => cell.deviceId) || []
 
     const devices = Template.instance().connectedDevices.get()
-    return devices?.filter((d) => !assignedIds.includes(d._id))
+    return devices.filter((d) => !assignedIds.includes(d._id))
   },
 })
 
@@ -359,7 +365,21 @@ const handlePupitreAction = function (message) {
   switch (message.content) {
     case 'reqNextPlayer':
       console.log('recieved reqNextPlayer from pupitre', message)
-      streamer.emit('planDeSalleMessage', { type: 'nextPlayerIs', content: 1 })
+      let _index = message.context.index.get()
+      const highest = mouseOrder.findOne({}, { sort: { order: -1 } })
+      const maxIndex = highest?.order || 0
+
+      // if index WAS >= the max number of collection, go back to one
+      if (_index >= maxIndex) {
+        _index = 1
+      } else {
+        _index = _index + 1
+      }
+
+      const chosenOne = mouseOrder.findOne({ order: _index })
+
+      message.context.index.set(_index)
+      streamer.emit('planDeSalleMessage', { type: 'nextPlayerIs', content: chosenOne })
       break
   }
 }

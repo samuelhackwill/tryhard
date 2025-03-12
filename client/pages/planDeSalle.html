@@ -2,10 +2,10 @@
 
   <div class="p-4 h-full w-full overflow-y-scroll">
     <div class="flex gap-2 mb-4">
-      <button id="add-row" class="px-3 py-1 bg-blue-200 rounded">+ Row</button>
-      <button id="remove-row" class="px-3 py-1 bg-red-200 rounded">− Row</button>
-      <button id="add-col" class="px-3 py-1 bg-blue-200 rounded">+ Column</button>
-      <button id="remove-col" class="px-3 py-1 bg-red-200 rounded">− Column</button>
+      <button id="add-row" class="px-3 py-1 bg-slate-200 rounded">+ Row</button>
+      <button id="remove-row" class="px-3 py-1 bg-slate-200 rounded">− Row</button>
+      <button id="add-col" class="px-3 py-1 bg-slate-200 rounded">+ Column</button>
+      <button id="remove-col" class="px-3 py-1 bg-slate-200 rounded">− Column</button>
   
       <div id="rasp_update_status" class="text-violet-600 italic">polling rasps...</div>
       <div id="rasp_update_count" class="text-violet-600 italic">waiting poll...</div>
@@ -57,7 +57,7 @@
   
 <template name="deviceBlock">
   <div 
-    class="cursor-move border p-1 m-1 bg-gray-200 rounded drag-block  {{#if isAssigned device.name}}w-full{{/if}}"
+    class="cursor-move border p-1 m-1 bg-green-300 rounded drag-block  {{#if isAssigned device.name}}w-full{{/if}}"
     draggable="true"
     data-id="{{device._id}}"
     data-row="{{row}}"

@@ -5,7 +5,6 @@ import { streamer } from '../../both/streamer.js'
 import { disabledMice } from '../../both/api.js'
 
 import { getRasp, getMouseBrand } from './show.js'
-import { handlePupitreMessage } from '../components/feed.js'
 
 Template.pupitre.onCreated(function () {
   Meteor.call('resetConnectedDevices')
@@ -28,36 +27,6 @@ Template.pupitre.onCreated(function () {
       this.headers.set(res.map((item) => item.header))
     }
   })
-
-  Meteor.setInterval(() => {
-    // currently this is not reliable to detect disonnections!!! if a device OR a mouse is removed during the show i won't know about it. It should be pretty simple to implement though, all we need is to tell mouse_grabr to send a signal to the server. The current polling is only to get NEW devices.
-    // console.log(this.connectedDevices.get())
-    document.getElementById('rasp_update_status').innerText = `polling rasps...`
-
-    setTimeout(() => {
-      Meteor.call('getConnectedDevices', (err, res) => {
-        if (err) {
-          alert(err)
-          document.getElementById('rasp_update_status').innerText =
-            'there was an error during the mouse count :x'
-        } else {
-          if (res.length < 1) {
-            document.getElementById('rasp_update_status').innerText = 'no mice found!'
-            this.connectedDevices.set('')
-          } else {
-            console.log(res)
-            const totalMice = res.reduce((acc, entry) => acc + (entry.mice?.length || 0), 0)
-            const activeMice = totalMice - disabledMice.find({}).fetch().length
-            document.getElementById('rasp_update_status').innerText = `rasps polled!`
-            document.getElementById(
-              'rasp_update_count',
-            ).innerText = `total of ${activeMice} active mice out of ${totalMice} mice connected.`
-            this.connectedDevices.set(res)
-          }
-        }
-      })
-    }, 250)
-  }, 10000)
 })
 
 Template.pupitre.helpers({
@@ -269,15 +238,6 @@ const checkBeforeEmit = function (context) {
         _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
         _surpriseAmount = document.getElementById('surprise-slider').value
         sendAction('reqNextPlayer')
-        // sendAction('choosePlayer', { disabledPlayers: disabledMice.find({}).fetch() })
-        // sendAction('newCaptcha-1j', {
-        //   text: String(context.value),
-        //   coords: { x: 0, y: 0 },
-        //   hesitationAmount: _hesitationAmount,
-        //   readingSpeed: _readingSpeed,
-        //   surpriseAmount: Number(_surpriseAmount) * 1000,
-        // })
-        // document.getElementById('surprise-slider').value = _surpriseAmount - 1
         break
 
       default:
@@ -294,7 +254,18 @@ const handlePlanDeSalleMessage = function (message) {
   console.log(message)
   switch (message.type) {
     case 'nextPlayerIs':
-      console.log('recieved nextPlayerIs from planDeSalle', message)
+      console.log('recieved nextPlayerIs from planDeSalle', message.content.device)
+
+      // sendAction('choosePlayer', { disabledPlayers: disabledMice.find({}).fetch() })
+      // sendAction('newCaptcha-1j', {
+      //   text: String(context.value),
+      //   coords: { x: 0, y: 0 },
+      //   hesitationAmount: _hesitationAmount,
+      //   readingSpeed: _readingSpeed,
+      //   surpriseAmount: Number(_surpriseAmount) * 1000,
+      // })
+      // document.getElementById('surprise-slider').value = _surpriseAmount - 1
+
       break
   }
 }

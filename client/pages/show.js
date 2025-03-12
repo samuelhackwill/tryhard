@@ -744,7 +744,9 @@ isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
 export const getMouseBrand = function (id, regexGroupOveride) {
   regexGroup = regexGroupOveride || 2
   const regex = /(.+)(hp|lenovo|dell|logitech|cherry|pixart|bot-\d*)(.+)/i
-  // "pixart" are KENSINGTON mice. It's the name of the taiwanese company making the mouse's chip, it's all over! But only KENSINGTON are unnamed so yeah. Simulated mouse are called "bot".
+  // "pixart" are KENSINGTON mice. It's the name of the taiwanese company making the mouse's chip, it's all over the place! But only KENSINGTON are unnamed so yeah. Simulated mouse are called "bot".
+  // also, gasp, some lenovo mouses are named logitech_lenovo lol.
+  // also there's some mice named "kye" something something.
   return id.replace(regex, `$${regexGroup}`)
 }
 
