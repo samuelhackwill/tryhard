@@ -221,10 +221,7 @@ const checkBeforeEmit = function (context) {
       // to name every action keyword because they are being
       // pris en charge by the default block down down
       case 'iii-captchas-1j-s2':
-        _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
-        _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
-        _surpriseAmount = document.getElementById('surprise-slider').value
-        sendAction('reqNextPlayer')
+        sendAction('reqNextPlayer', context)
         break
 
       default:
@@ -238,14 +235,17 @@ const checkBeforeEmit = function (context) {
 }
 
 const handlePlanDeSalleMessage = function (message) {
-  console.log(message)
+  // console.log(message)
   switch (message.type) {
     case 'nextPlayerIs':
-      console.log('recieved nextPlayerIs from planDeSalle', message.content.device)
+      console.log('recieved nextPlayerIs from planDeSalle', message)
+      _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
+      _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
+      _surpriseAmount = document.getElementById('surprise-slider').value
 
       sendAction('choosePlayer', { chosenOne: message.content.device })
       sendAction('newCaptcha-1j', {
-        text: String(context.value),
+        text: String(message.context.value),
         coords: { x: 0, y: 0 },
         hesitationAmount: _hesitationAmount,
         readingSpeed: _readingSpeed,

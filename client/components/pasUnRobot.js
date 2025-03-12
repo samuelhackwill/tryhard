@@ -163,10 +163,12 @@ unchoosePlayer = function (player) {
       return
     }
     chosenItem.chosen = false
+    chosenItem.captchaPlayCount++
     moveOffOfCaptcha(chosenItem)
     instance.pointers.set(chosenItem.id, chosenItem)
   } else {
     _player.chosen = false
+    chosenItem.captchaPlayCount++
     moveOffOfCaptcha(chosenItem)
     instance.pointers.set(chosenItem.id, chosenItem)
   }

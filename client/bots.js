@@ -5,16 +5,27 @@ import { pushToClientEventQueue } from '../client/stepper.js'
 autoclickerIntervals = []
 
 export const moveOffOfCaptcha = function (pointer) {
-  // Randomly decide if we pick from the 1st or 4th quarter
-  const inFirstQuarter = Math.random() < 0.5
+  // // Randomly decide if we pick from the 1st or 4th quarter
+  // const inFirstQuarter = Math.random() < 0.5
 
-  // Generate X coordinate within 5%-25% OR 75%-95% of width
-  const _x = inFirstQuarter
-    ? Math.random() * (window.innerWidth * 0.2) + window.innerWidth * 0.05 // Between 5% - 25%
-    : Math.random() * (window.innerWidth * 0.2) + window.innerWidth * 0.75 // Between 75% - 95%
+  // // Generate X coordinate within 5%-25% OR 75%-95% of width
+  // const _x = inFirstQuarter
+  //   ? Math.random() * (window.innerWidth * 0.2) + window.innerWidth * 0.05 // Between 5% - 25%
+  //   : Math.random() * (window.innerWidth * 0.2) + window.innerWidth * 0.75 // Between 75% - 95%
 
-  // Generate Y coordinate between 5% - 95% of height
-  const _y = Math.random() * (window.innerHeight * 0.9) + window.innerHeight * 0.05
+  // // Generate Y coordinate between 5% - 95% of height
+  // const _y = Math.random() * (window.innerHeight * 0.9) + window.innerHeight * 0.05
+
+  // Move off screen based on current mouse X: right if left side, left if right side
+
+  // console.log(pointer.captchaPlayCount)
+  const _x =
+    pointer.captchaPlayCount % 2 === 0
+      ? window.innerWidth * -0.2 // Exit to the left
+      : window.innerWidth * 1.2 // Exit to the right
+
+  // Generate Y coordinate within bottom third of the screen (66% - 100%)
+  const _y = Math.random() * (window.innerHeight * 0.34) + window.innerHeight * 0.66
 
   pushToClientEventQueue({
     origin: 'autoplay',
@@ -32,10 +43,6 @@ export const moveOffOfCaptcha = function (pointer) {
 }
 
 export const moveInFrontOfCaptcha = function (pointer) {
-  // get captcha position in the screen
-  // get catpcha height
-  // position yourself at x pixels below dat captcha
-
   pushToClientEventQueue({
     origin: 'autoplay',
     payload: {

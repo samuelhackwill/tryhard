@@ -676,7 +676,7 @@ export const createPointer = function (id, bot = false, _owner) {
     bgColor: '#000000',
     outlineColor: '#FFFFFF',
     initializationCoords: { x: -50, y: -50 },
-    chosenCount: 0,
+    captchaPlayCount: 0,
     order: _order,
     events: [],
     bot: bot,

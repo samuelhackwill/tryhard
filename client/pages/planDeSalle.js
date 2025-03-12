@@ -383,7 +383,11 @@ const handlePupitreAction = function (message) {
       const chosenOne = mouseOrder.findOne({ order: _index })
 
       message.context.index.set(_index)
-      streamer.emit('planDeSalleMessage', { type: 'nextPlayerIs', content: chosenOne })
+      streamer.emit('planDeSalleMessage', {
+        type: 'nextPlayerIs',
+        content: chosenOne,
+        context: message.args,
+      })
       break
   }
 }

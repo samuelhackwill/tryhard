@@ -6,14 +6,13 @@ import { createPointer, checkHover } from '../client/pages/show.js'
 
 let clientEventQueue = []
 
-// we need to know when it's forbiden to spawn new mice, so it's hard-coded here. yep
-const canSpawnDuringTheseSequences = [
+// we need to know when it's forbiden to MOVE, so it's hard-coded here. yep
+const moveAuthorized = [
   'init',
-  'mise',
+  'repetition',
   'ii-le-succes-s1',
   'ii-le-succes-s2',
   'ii-le-succes-s3',
-  'iii-captchas-1j-s2',
 ]
 
 const noise = new ValueNoise()
@@ -72,17 +71,6 @@ function handleTickUpdate(message) {
 
       if (unoccupiedSeat) return
 
-      const spawnForbiden = !canSpawnDuringTheseSequences.includes(instance.state.get())
-
-      if (spawnForbiden) {
-        console.log(
-          'spawn forbidden during sequence ',
-          instance.state.get(),
-          '. Spawn is only possible during sequences : ',
-          canSpawnDuringTheseSequences.join(', '),
-        )
-        return
-      }
       pointer = createPointer(element.client)
 
       // pointer.initialisationCoords = { y: i * 15, x: i * 2 }
@@ -95,6 +83,19 @@ function handleTickUpdate(message) {
 
       //we're only using meteor reactivity to CREATE the pointers in the DOM. that's it
       instance.pointers.set(pointer.id, pointer)
+    }
+
+    // let's check if we can move
+    const moveForbiden = !moveAuthorized.includes(instance.state.get())
+
+    if (moveForbiden && (pointer.chosen == undefined || pointer.chosen == false)) {
+      console.log(
+        'move forbidden during sequence ',
+        instance.state.get(),
+        '. Move is only possible during sequences : ',
+        moveAuthorized.join(', '),
+      )
+      return
     }
 
     const DOMpointer = document.getElementById(pointer.id) || null

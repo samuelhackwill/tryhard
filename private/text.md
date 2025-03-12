@@ -1,3 +1,21 @@
+## repetition
+
+`clearPointers`
+`hideFeed`
+`clearFeed`
+`killCaptchas`
+`bgTogrey`
+`showNicks`
+`togglePointers`
+`bgTogrey`
+`textToBlack`
+`startObserving`
+`startCheckingTopMouse`
+`textToWhite`
+`samuelSpawn`
+`samuelGo!`
+`samuelShow`
+
 ## mise
 
 `clearPointers`

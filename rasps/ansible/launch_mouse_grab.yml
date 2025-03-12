@@ -1,24 +1,32 @@
 ---
-- name: launch mouse-grabr script in SIMULATION MODE
+- name: Launch mouse-grabr script (simulation or normal mode)
   hosts: thRasps
   user: sam
+  become: true
+  become_method: sudo
   gather_facts: no
+  vars_files:
+    - secrets.yml
+
+  vars:
+    simulate_mode: false # Override with --extra-vars "simulate_mode=false"
+    ansible_become_password: '{{ secrets.raspRootPwd }}'
+
   tasks:
     - name: Ping all devices
       ping:
       register: ping_result
-      failed_when: ping_result is undefined # Mark unresponsive hosts as failed
+      failed_when: ping_result is undefined
 
-    - name: Launch mouse-grabr.py using python3
-      ansible.builtin.shell: |
-        nohup python3 /home/sam/Desktop/mouse-grabr.py simulate > /tmp/mouse-grabr.log 2>&1 &
+    - name: Define simulation argument
+      set_fact:
+        simulation_arg: "{{ 'simulate' if simulate_mode | bool else '' }}"
+
+    - name: Running script on devices
+      shell: python3 /home/sam/Desktop/mouse-grabr.py {{ simulation_arg }}
       args:
         executable: /bin/bash
-      when: ping_result is not failed
-
-    - name: Verify mouse-grabr process is running
-      shell: |
-        pgrep -fa "python3 /home/sam/Desktop/mouse-grabr.py simulate" | grep -v "pgrep"
-      register: process_status
-      changed_when: false
-      failed_when: process_status.stdout == ""
+      become: true
+      become_user: root
+      register: test_script_output
+      failed_when: false
