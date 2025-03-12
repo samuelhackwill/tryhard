@@ -276,8 +276,11 @@ Template.planDeSalle.helpers({
 
 Template.deviceBlock.helpers({
   isChecked(_rasp) {
+    console.log(_rasp, getMouseBrand(String(this)))
     // console.log(disabledMice.find({ rasp: _rasp, brand: String(this) }).fetch().length == 0)
-    if (disabledMice.find({ rasp: _rasp, brand: String(this) }).fetch().length == 0) {
+    if (
+      disabledMice.find({ rasp: _rasp, brand: getMouseBrand(String(this)) }).fetch().length == 0
+    ) {
       return 'checked'
     }
     return 'unchecked'
