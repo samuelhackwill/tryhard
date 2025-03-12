@@ -668,7 +668,7 @@ export const addToDataAttribute = function (element, attr, amount) {
 }
 
 export const createPointer = function (id, bot = false, _owner) {
-  const _order = findPointerByBrandAndRasp(getRasp(id), getMouseBrand(id), 'mouseOrder').order
+  const _order = findPointerByBrandAndRasp(getRasp(id), getMouseBrand(id), 'mouseOrder')?.order
   return {
     id: id,
     rasp: getRasp(id),

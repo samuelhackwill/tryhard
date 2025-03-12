@@ -2,17 +2,11 @@ import './pupitre.html'
 
 import { streamer } from '../../both/streamer.js'
 
-import { disabledMice } from '../../both/api.js'
-
 import { getRasp, getMouseBrand } from './show.js'
 
 Template.pupitre.onCreated(function () {
   Meteor.call('resetConnectedDevices')
   streamer.on('planDeSalleMessage', handlePlanDeSalleMessage)
-  this.autorun(() => {
-    this.subscribe('disabledMice')
-  })
-
   this.text = new ReactiveVar('')
   this.headers = new ReactiveVar([])
   this.selectedHeader = new ReactiveVar('mise')
@@ -63,13 +57,6 @@ Template.pupitre.helpers({
         return 'unchecked'
       }
     }
-  },
-  isChecked(_rasp) {
-    // console.log(disabledMice.find({ rasp: _rasp, brand: String(this) }).fetch().length == 0)
-    if (disabledMice.find({ rasp: _rasp, brand: String(this) }).fetch().length == 0) {
-      return 'checked'
-    }
-    return 'unchecked'
   },
   getConnectedDevices() {
     if (Template.instance().connectedDevices.get().length > 0)

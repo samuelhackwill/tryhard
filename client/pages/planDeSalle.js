@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
 import { SalleLayout, disabledMice, mouseOrder } from '../../both/api.js'
 import { streamer } from '../../both/streamer.js'
-
+import { getMouseBrand } from './show.js'
 import './planDeSalle.html'
 
 Template.planDeSalle.onCreated(function () {
@@ -359,7 +359,7 @@ Template.deviceBlock.events({
     Meteor.call('toggleMouse', {
       on: _on,
       rasp: e.target.dataset.rasp,
-      brand: e.target.dataset.brand,
+      brand: getMouseBrand(e.target.dataset.brand),
     })
   },
 })
