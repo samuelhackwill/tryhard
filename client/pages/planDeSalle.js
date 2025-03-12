@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating'
 import { ReactiveVar } from 'meteor/reactive-var'
-import { SalleLayout, disabledMice } from '../../both/api.js'
+import { SalleLayout, disabledMice, mouseOrder } from '../../both/api.js'
 
 import './planDeSalle.html'
 
@@ -8,18 +8,11 @@ Template.planDeSalle.onCreated(function () {
   this.connectedDevices = new ReactiveVar([]) // Initialisation
   const self = this
 
-  // Exemple : simulate load or fetch (remplace ceci par ta vraie source)
   self.autorun(() => {
     this.subscribe('salleLayout')
     this.subscribe('disabledMice')
+    this.subscribe('mouseOrder')
 
-    // Tu peux injecter ici les devices de manière réactive
-    // const dummyDevices = [
-    //   { _id: 'd1', name: 'th1'},
-    //   { _id: 'd2', name: 'th2'},
-    //   { _id: 'd3', name: 'th3'},
-    // ]
-    // self.connectedDevices.set(dummyDevices)
     Meteor.setInterval(() => {
       setTimeout(() => {
         Meteor.call('getConnectedDevices', (err, res) => {
@@ -56,7 +49,7 @@ Template.planDeSalle.onCreated(function () {
           }
         })
       }, 250)
-    }, 10000)
+    }, 2000)
   })
 })
 
@@ -168,6 +161,10 @@ Template.planDeSalle.onRendered(function () {
 })
 
 Template.planDeSalle.helpers({
+  getMouseOrder(mouseId) {
+    const entry = mouseOrder.findOne({ device: mouseId })
+    return entry?.order || ''
+  },
   mouseSlotNumbers(row, col) {
     const layout = SalleLayout.findOne()
     if (!layout || !layout.cells) return []
@@ -195,8 +192,9 @@ Template.planDeSalle.helpers({
       orderedCells.push(...rowCells)
     }
 
-    // Step 2: Assign global mouse slot numbers in order, visible in all cells
+    // console.log(orderedCells)
     let currentNumber = 1
+
     const cellSlotMap = {} // key = "row_col" → [ { number, mouseId } | '' ]
 
     // Prebuild full slot map before returning one cell's values
@@ -279,6 +277,55 @@ Template.deviceBlock.helpers({
     const layout = SalleLayout.findOne()
     if (!layout) return false
     return layout.cells.some((cell) => cell.deviceId === deviceName)
+  },
+})
+
+Template.planDeSalle.events({
+  'click #add-row'() {
+    const layout = SalleLayout.findOne()
+    if (layout) {
+      SalleLayout.update(layout._id, { $inc: { rows: 1 } })
+    }
+  },
+  'click #remove-row'() {
+    const layout = SalleLayout.findOne()
+    if (layout && layout.rows > 1) {
+      const removedRow = layout.rows - 1
+      const updatedCells = layout.cells.filter((cell) => cell.row !== removedRow)
+      SalleLayout.update(layout._id, {
+        $set: { rows: removedRow, cells: updatedCells },
+      })
+    }
+  },
+  'click #add-col'() {
+    const layout = SalleLayout.findOne()
+    if (layout) {
+      SalleLayout.update(layout._id, { $inc: { columns: 1 } })
+    }
+  },
+  'click #remove-col'() {
+    const layout = SalleLayout.findOne()
+    if (layout && layout.columns > 1) {
+      const removedCol = layout.columns - 1
+      const updatedCells = layout.cells.filter((cell) => cell.col !== removedCol)
+      SalleLayout.update(layout._id, {
+        $set: { columns: removedCol, cells: updatedCells },
+      })
+    }
+  },
+  'input .mouse-order-input'(event) {
+    const mouseId = event.target.dataset.mouseid
+    const newOrder = parseInt(event.target.value, 10)
+
+    if (!isNaN(newOrder)) {
+      Meteor.call('updateMouseOrder', { device: mouseId, order: newOrder }, (err, res) => {
+        if (err) {
+          console.error('Failed to update mouse order:', err)
+        } else {
+          console.log(`Updated ${mouseId} to order ${newOrder}`)
+        }
+      })
+    }
   },
 })
 

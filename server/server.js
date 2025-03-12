@@ -1,6 +1,5 @@
 import { streamer } from '../both/streamer.js'
-import { disabledMice } from '../both/api.js'
-import { SalleLayout } from '../both/api.js'
+import { disabledMice, mouseOrder, SalleLayout } from '../both/api.js'
 
 // Import the WebSocket library
 const WebSocket = require('ws')
@@ -19,6 +18,10 @@ Meteor.publish('disabledMice', function () {
 
 Meteor.publish('salleLayout', function () {
   return SalleLayout.find({})
+})
+
+Meteor.publish('mouseOrder', function () {
+  return mouseOrder.find({})
 })
 
 Meteor.startup(() => {
@@ -176,6 +179,10 @@ function updateDevices(data) {
 }
 
 Meteor.methods({
+  updateMouseOrder({ device, order }) {
+    mouseOrder.upsert({ device }, { $set: { order } })
+  },
+
   async returnText() {
     text = parseMarkdown(Assets.absoluteFilePath('text.md'))
     return text
