@@ -192,6 +192,15 @@ function handlePupitreAction(message) {
       break
     case 'killCaptchas':
       // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
+      let chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
+      if (!chosenItem) {
+        return
+      }
+      chosenItem.chosen = false
+      chosenItem.captchaPlayCount++
+      moveOffOfCaptcha(chosenItem)
+      instance.pointers.set(chosenItem.id, chosenItem)
+
       removeTimeouts()
       const element = document.getElementById('pasUnRobot')
       if (element) {
