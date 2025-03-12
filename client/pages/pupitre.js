@@ -256,15 +256,15 @@ const handlePlanDeSalleMessage = function (message) {
     case 'nextPlayerIs':
       console.log('recieved nextPlayerIs from planDeSalle', message.content.device)
 
-      // sendAction('choosePlayer', { disabledPlayers: disabledMice.find({}).fetch() })
-      // sendAction('newCaptcha-1j', {
-      //   text: String(context.value),
-      //   coords: { x: 0, y: 0 },
-      //   hesitationAmount: _hesitationAmount,
-      //   readingSpeed: _readingSpeed,
-      //   surpriseAmount: Number(_surpriseAmount) * 1000,
-      // })
-      // document.getElementById('surprise-slider').value = _surpriseAmount - 1
+      sendAction('choosePlayer', { chosenOne: message.content.device })
+      sendAction('newCaptcha-1j', {
+        text: String(context.value),
+        coords: { x: 0, y: 0 },
+        hesitationAmount: _hesitationAmount,
+        readingSpeed: _readingSpeed,
+        surpriseAmount: Number(_surpriseAmount) * 1000,
+      })
+      document.getElementById('surprise-slider').value = _surpriseAmount - 1
 
       break
   }

@@ -94,19 +94,35 @@ function handlePupitreAction(message) {
       })
       break
     case 'choosePlayer':
-      console.log('choose player', message.args)
-      // let updatedPointer = instance.pointers.get(selectedPointer.id)
-      // if (!updatedPointer) {
-      //   console.error(`Selected pointer ${selectedPointer.id} not found in instance.pointers!`)
-      //   return
-      // }
+      // Extract rasp and brand from pointer ID
+      const pointer = findPointerByBrandAndRasp(
+        getRasp(message.args.chosenOne),
+        getMouseBrand(message.args.chosenOne),
+      )
 
-      // updatedPointer.playCount++
-      // updatedPointer.chosen = true
+      function findPointerByBrandAndRasp(targetRasp, targetBrand) {
+        pointers = instance.pointers.all()
+        for (const key in pointers) {
+          if (pointers.hasOwnProperty(key)) {
+            const pointer = pointers[key]
+            // console.log(`[DEBUG] Checking pointer:`, pointer)
 
-      // instance.pointers.set(selectedPointer.id, updatedPointer)
+            // console.log(`[DEBUG] pointer.rasp: "${pointer.rasp}" vs targetRasp: "${targetRasp}"`)
+            // console.log(
+            //   `[DEBUG] pointer.mouseBrand: "${pointer.mouseBrand}" vs targetBrand: "${targetBrand}"`,
+            // )
 
-      // moveInFrontOfCaptcha(updatedPointer)
+            if (pointer.rasp === targetRasp && pointer.mouseBrand === targetBrand) {
+              console.log('[DEBUG] ✅ Match found:', pointer)
+              return pointer
+            }
+          }
+        }
+      }
+      pointer.chosen = true
+      instance.pointers.set(pointer.id, pointer)
+
+      moveInFrontOfCaptcha(pointer)
 
       break
     case 'newCaptcha-1j':
@@ -740,6 +756,14 @@ isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
     }
   }
 }
+
+// export const findMouseByRaspAndBrand = function (raspName, brand) {
+//   if (!raspName || !brand) return null
+//   const regex = new RegExp(`${raspName}.*${brand}`, 'i')
+//   instance.pointers.get()
+
+//   return mouseOrder.findOne({ device: { $regex: regex } })
+// }
 
 export const getMouseBrand = function (id, regexGroupOveride) {
   regexGroup = regexGroupOveride || 2
