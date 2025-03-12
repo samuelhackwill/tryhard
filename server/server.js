@@ -200,7 +200,7 @@ Meteor.methods({
   toggleMouse(data) {
     console.log(data)
     if (data.on == false) {
-      mouseOrder.remove({ device: data.rasp + '_' + data.brand })
+      mouseOrder.remove({ device: data.rasp + '_' + data.dirtybrand })
 
       disabledMice.insert({
         rasp: data.rasp,

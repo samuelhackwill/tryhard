@@ -360,6 +360,7 @@ Template.deviceBlock.events({
       on: _on,
       rasp: e.target.dataset.rasp,
       brand: getMouseBrand(e.target.dataset.brand),
+      dirtybrand: e.target.dataset.brand,
     })
   },
 })
