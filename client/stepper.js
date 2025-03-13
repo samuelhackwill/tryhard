@@ -113,9 +113,11 @@ function handleTickUpdate(message) {
         case 'overflow-right':
           coords.x =
             instance.windowBoundaries.width - convertRemToPixels(instance.pointerWidth.get())
+          observe('magellan', { p: pointer, corner: 'right' })
           break
         case 'overflow-left':
           coords.x = 0
+          observe('magellan', { p: pointer, corner: 'left' })
           break
 
         default:
@@ -136,9 +138,11 @@ function handleTickUpdate(message) {
         case 'overflow-bottom':
           coords.y =
             instance.windowBoundaries.height - convertRemToPixels(instance.pointerHeight.get())
+          observe('magellan', { p: pointer, corner: 'bottom' })
           break
         case 'overflow-top':
           coords.y = 0
+          observe('magellan', { p: pointer, corner: 'top' })
           break
 
         default:
@@ -256,4 +260,36 @@ function handleAutoPlay(message) {
 
 export const pushToClientEventQueue = function (message) {
   clientEventQueue.push(message)
+}
+
+isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
+  // can return : x-in-bounds / overflow-left / overflow-right / y-in-bounds / overflow-bottom / overflow-top
+  // console.log(axis, coords, acceleration, elemSize)
+  if (axis == 'x') {
+    if (coords + acceleration + elemSize > instance.windowBoundaries.width) {
+      return 'overflow-right'
+    }
+    if (coords + acceleration < 0) {
+      return 'overflow-left'
+    }
+    if (
+      coords + acceleration + elemSize < instance.windowBoundaries.width &&
+      coords + acceleration > 0
+    ) {
+      return 'x-in-bounds'
+    }
+  } else {
+    if (coords + acceleration + elemSize > instance.windowBoundaries.height) {
+      return 'overflow-bottom'
+    }
+    if (coords + acceleration < 0) {
+      return 'overflow-top'
+    }
+    if (
+      coords + acceleration + elemSize < instance.windowBoundaries.height &&
+      coords + acceleration > 0
+    ) {
+      return 'y-in-bounds'
+    }
+  }
 }

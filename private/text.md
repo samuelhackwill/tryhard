@@ -253,7 +253,6 @@ les souris elles-même savent-elles où elles sont à l'écran?
 ont-elles une idée de ce qu'elles font?
 pourquoi cliquent-elles?
 pourquoi bougent-elles?
-prout
 
 ## II-le-succes-s2
 

@@ -4,16 +4,14 @@ import { stepper } from '../stepper.js'
 import { playAudio } from '../audioAssets/audio.js'
 import { streamer } from '../../both/streamer.js'
 import { killAnimation, autoclickerSpawn, moveInFrontOfCaptcha, autoClickerMine } from '../bots.js'
-
 import { handleButtonClick } from '../components/btnDashboard.js'
 import { catpchaTemplateContainer } from '../components/pasUnRobot.js'
+import { disabledMice, mouseOrder } from '../../both/api.js'
+import { observe, observing } from '../observe.js'
+import { updateTopMouse } from '../components/feed.js'
 
 import '../components/main.js'
 import './show.html'
-
-import { disabledMice, mouseOrder } from '../../both/api.js'
-
-import { observe, observing } from '../observe.js'
 
 Template.show.onCreated(function () {
   streamer.on('pupitreStateChange', function (message) {
@@ -81,7 +79,7 @@ function handlePupitreAction(message) {
       }, 16)
       break
     case 'startObserving':
-      observing.push('newClick', 'newMove')
+      observing.push('newClick', 'newMove', 'magellan')
       break
     case 'showNicks':
       instance.areNamesHidden.set(false)
@@ -678,6 +676,7 @@ export const createPointer = function (id, bot = false, _owner) {
     outlineColor: '#FFFFFF',
     initializationCoords: { x: -50, y: -50 },
     captchaPlayCount: 0,
+    cornersTouched: {},
     order: _order,
     events: [],
     bot: bot,
@@ -708,38 +707,6 @@ export const die = function (element) {
   Meteor.setTimeout(function () {
     element.style.opacity = '0'
   }, 50)
-}
-
-isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
-  // can return : x-in-bounds / overflow-left / overflow-right / y-in-bounds / overflow-bottom / overflow-top
-  // console.log(axis, coords, acceleration, elemSize)
-  if (axis == 'x') {
-    if (coords + acceleration + elemSize > instance.windowBoundaries.width) {
-      return 'overflow-right'
-    }
-    if (coords + acceleration < 0) {
-      return 'overflow-left'
-    }
-    if (
-      coords + acceleration + elemSize < instance.windowBoundaries.width &&
-      coords + acceleration > 0
-    ) {
-      return 'x-in-bounds'
-    }
-  } else {
-    if (coords + acceleration + elemSize > instance.windowBoundaries.height) {
-      return 'overflow-bottom'
-    }
-    if (coords + acceleration < 0) {
-      return 'overflow-top'
-    }
-    if (
-      coords + acceleration + elemSize < instance.windowBoundaries.height &&
-      coords + acceleration > 0
-    ) {
-      return 'y-in-bounds'
-    }
-  }
 }
 
 // export const findMouseByRaspAndBrand = function (raspName, brand) {
