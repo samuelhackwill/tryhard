@@ -13,7 +13,7 @@ import './show.html'
 
 import { disabledMice, mouseOrder } from '../../both/api.js'
 
-import { observe } from '../observe.js'
+import { observe, observing } from '../observe.js'
 
 Template.show.onCreated(function () {
   streamer.on('pupitreStateChange', function (message) {
@@ -38,7 +38,7 @@ Template.show.onCreated(function () {
   this.pointerWidth = new ReactiveVar(1.5)
   this.pointerHeight = new ReactiveVar(2.3)
 
-  this.areNamesHidden = new ReactiveVar(true)
+  this.areNamesHidden = new ReactiveVar(false)
   this.areClocksHidden = new ReactiveVar(true)
   this.arePointersHidden = new ReactiveVar(false)
   this.pointers = new ReactiveDict()
@@ -47,7 +47,7 @@ Template.show.onCreated(function () {
 
   this.whichBackground = new ReactiveVar('slate.png')
 
-  this.state = new ReactiveVar('init')
+  this.state = new ReactiveVar('repetition')
 
   // make instance callable from everywhere
   instance = this
@@ -81,7 +81,6 @@ function handlePupitreAction(message) {
       }, 16)
       break
     case 'startObserving':
-      console.log('how many active mouse are they?')
       observing.push('newClick', 'newMove')
       break
     case 'showNicks':
@@ -448,6 +447,8 @@ simulateRightMouseUp = function (pointer) {
 }
 
 export const simulateMouseUp = function (pointer) {
+  observe('newClick', pointer.id)
+
   const audio = new Audio('mouseUp.mp3')
   audio.play()
 

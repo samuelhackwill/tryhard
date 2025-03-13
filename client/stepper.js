@@ -146,7 +146,6 @@ function handleTickUpdate(message) {
       }
 
       observe('newMove', pointer.id)
-      observe('newClick', pointer.id)
 
       // here we need to update the DOM en fonction du dataset
 

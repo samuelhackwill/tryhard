@@ -235,9 +235,25 @@ une souris -->
 `bgTogrey`
 `textToBlack`
 `startObserving`
-il est difficile de comprendre ce que font les souris
-c'est un chaos de souris
-les souris elles-même savent-elles seulement qui elles sont, et ce qu'elles font?
+wow!
+tout le monde se déplace!
+tout le monde clique!
+c'est une place de village!
+c'est une ville!
+c'est une usine!
+c'est une métropole!
+c'est une autoroute!
+c'est une prison!
+ce sont des fourmis sur un pique-nique!
+ce sont des mouche sur un cadavre!
+ce sont des neurones dans un cortex!
+c'est un chaos de souris!
+c'est difficile de comprendre ce que font les souris!
+les souris elles-même savent-elles où elles sont à l'écran?
+ont-elles une idée de ce qu'elles font?
+pourquoi cliquent-elles?
+pourquoi bougent-elles?
+prout
 
 ## II-le-succes-s2
 

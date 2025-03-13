@@ -10,7 +10,6 @@ const PING_INTERVAL = 5000
 
 let connectedRasps = []
 queue = []
-disabledMice.remove({})
 
 Meteor.publish('disabledMice', function () {
   return disabledMice.find({})
