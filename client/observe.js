@@ -1,8 +1,8 @@
 import { handlePupitreMessage } from './components/feed'
 
 export let observing = []
-const clickTimeStamps = []
-const moveTimeStamps = []
+const clickTimestampsMap = {}
+const moveTimestampsMap = {}
 const magellanHighScore = []
 
 export const observe = function (what, args) {
@@ -23,13 +23,16 @@ export const observe = function (what, args) {
         //   observing = observing.filter((elem) => elem !== what)
         // }
 
-        // console.log("we're observing new clicks.")
-        if (clickTimeStamps.find((item) => item.id === args)) {
-          // console.log('this mouse has already been greeted.')
+        // Inside your handler:
+        if (clickTimestampsMap[args]) {
+          // Mouse has already clicked before → ignore
           return
         } else {
-          clickTimeStamps.push({ id: args, timestamp: Date.now() })
-          const nieme = clickTimeStamps.length > 1 ? clickTimeStamps.length + 'e' : ''
+          // First time this mouse clicks → record and log message
+          clickTimestampsMap[args] = Date.now()
+
+          const clickCount = Object.keys(clickTimestampsMap).length
+          const nieme = clickCount > 1 ? clickCount + 'e' : ''
           handlePupitreMessage({
             type: 'newLine',
             content: `une ${nieme} souris a produit un clic.`,
@@ -46,13 +49,17 @@ export const observe = function (what, args) {
         //   observing = observing.filter((elem) => elem !== what)
         // }
 
-        // console.log("we're observing new moves.")
-        if (moveTimeStamps.find((item) => item.id === args)) {
-          // console.log('this mouse has already been greeted.')
+        // Inside your handler:
+        if (moveTimestampsMap[args]) {
+          // Mouse has already moved before → just update timestamp
+          moveTimestampsMap[args] = Date.now()
           return
         } else {
-          moveTimeStamps.push({ id: args, timestamp: Date.now() })
-          const nieme = moveTimeStamps.length > 1 ? moveTimeStamps.length + 'e' : ''
+          // First time this mouse moves → initialize and log message
+          moveTimestampsMap[args] = Date.now()
+
+          const mouseCount = Object.keys(moveTimestampsMap).length
+          const nieme = mouseCount > 1 ? mouseCount + 'e' : ''
           handlePupitreMessage({
             type: 'newLine',
             content: `une ${nieme} souris s'est déplacée.`,

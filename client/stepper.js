@@ -75,7 +75,7 @@ function handleTickUpdate(message) {
       }
       // players.push(pointer)
 
-      //we're only using meteor reactivity to CREATE the pointers in the DOM. that's it
+      //we're only writing into meteor reactivity to CREATE the pointers in the DOM. that's it
       instance.pointers.set(pointer.id, pointer)
     }
 
