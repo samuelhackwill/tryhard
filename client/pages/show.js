@@ -494,26 +494,26 @@ export const simulateMouseUp = function (pointer) {
   }
 
   // only enable autolicker production if we're at ii le succes s3.
-  if (instance.state.get() != 'ii-le-succes-s3') return
+  // if (instance.state.get() != 'ii-le-succes-s3') return
 
-  const hasPaymentSucceeded = pay(pointer, 1)
-  if (hasPaymentSucceeded) {
-    let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
-    bot.hoveredElementId = 'feed'
-    const _pointer = pointer
-    const _bot = bot
+  // const hasPaymentSucceeded = pay(pointer, 1)
+  // if (hasPaymentSucceeded) {
+  //   let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
+  //   bot.hoveredElementId = 'feed'
+  //   const _pointer = pointer
+  //   const _bot = bot
 
-    const coords = readDomCoords(pointer.id)
+  //   const coords = readDomCoords(pointer.id)
 
-    // this is to create the pointer
-    instance.pointers.set(bot.id, bot)
-    // this is to animate the pointer
-    autoclickerSpawn(pointer, bot)
+  //   // this is to create the pointer
+  //   instance.pointers.set(bot.id, bot)
+  //   // this is to animate the pointer
+  //   autoclickerSpawn(pointer, bot)
 
-    setTimeout(() => {
-      autoClickerMine(_pointer, _bot, coords)
-    }, 99)
-  }
+  //   setTimeout(() => {
+  //     autoClickerMine(_pointer, _bot, coords)
+  //   }, 99)
+  // }
 }
 
 export const simulateMouseDown = function (pointer) {
@@ -667,7 +667,7 @@ export const addToDataAttribute = function (element, attr, amount) {
 }
 
 export const createPointer = function (id, bot = false, _owner) {
-  const _order = findPointerByBrandAndRasp(getRasp(id), getMouseBrand(id), 'mouseOrder')?.order
+  const _order = findPointerByBrandAndRasp(getRasp(id, 1), getMouseBrand(id), 'mouseOrder')?.order
   return {
     id: id,
     rasp: getRasp(id),
@@ -719,7 +719,7 @@ export const die = function (element) {
 
 export const getMouseBrand = function (id, regexGroupOveride) {
   regexGroup = regexGroupOveride || 2
-  const regex = /(.+)(hp|lenovo|dell|logitech|cherry|pixart|bot-\d*)(.+)/i
+  const regex = /(.+)(logitech|hp|lenovo|dell|cherry|pixart|bot-\d*)(.+)/i
   // "pixart" are KENSINGTON mice. It's the name of the taiwanese company making the mouse's chip, it's all over the place! But only KENSINGTON are unnamed so yeah. Simulated mouse are called "bot".
   // also, gasp, some lenovo mouses are named logitech_lenovo lol.
   // also there's some mice named "kye" something something.
@@ -728,7 +728,17 @@ export const getMouseBrand = function (id, regexGroupOveride) {
 
 export const getRasp = function (id, regexGroupOveride) {
   regexGroup = regexGroupOveride || 1
-  const regex = /(th\d{0,})(.+)/i
+  const regex = /\b(th\d+)_([^-]+(?:-[^']+)?)/i
+  console.log(
+    'getting rasp of id :',
+    id,
+    '. Group 0 :',
+    id.replace(regex, `$0`),
+    '. Group 1 :',
+    id.replace(regex, `$1`),
+    '. Group 2 :',
+    id.replace(regex, `$2`),
+  )
   return id.replace(regex, `$${regexGroup}`)
 }
 
@@ -805,15 +815,15 @@ const findPointerByBrandAndRasp = function (targetRasp, targetBrand, target) {
     for (const key in pointers) {
       if (pointers.hasOwnProperty(key)) {
         const pointer = pointers[key]
-        // console.log(`[DEBUG] Checking pointer:`, pointer)
+        console.log(`[DEBUG] Checking pointer:`, pointer)
 
-        // console.log(`[DEBUG] pointer.rasp: "${pointer.rasp}" vs targetRasp: "${targetRasp}"`)
-        // console.log(
-        //   `[DEBUG] pointer.mouseBrand: "${pointer.mouseBrand}" vs targetBrand: "${targetBrand}"`,
-        // )
+        console.log(`[DEBUG] pointer.rasp: "${pointer.rasp}" vs targetRasp: "${targetRasp}"`)
+        console.log(
+          `[DEBUG] pointer.mouseBrand: "${pointer.mouseBrand}" vs targetBrand: "${targetBrand}"`,
+        )
 
         if (pointer.rasp === targetRasp && pointer.mouseBrand === targetBrand) {
-          // console.log('[DEBUG] ✅ Match found:', pointer)
+          console.log('[DEBUG] ✅ Match found:', pointer)
           return pointer
         }
       }
@@ -822,12 +832,16 @@ const findPointerByBrandAndRasp = function (targetRasp, targetBrand, target) {
     const allEntries = mouseOrder.find().fetch()
 
     for (const entry of allEntries) {
-      // console.log('[DEBUG] Checking entry:', entry)
-      // console.log(`[DEBUG] entry.device: "${entry.device}"`)
-      // console.log(`[DEBUG] targetRasp: "${targetRasp}" / targetBrand: "${targetBrand}"`)
+      console.log('[DEBUG] Checking entry:', entry)
+      console.log(`[DEBUG] entry.device: "${entry.device}"`)
+      console.log(`[DEBUG] targetRasp: "${targetRasp}" / targetBrand: "${targetBrand}"`)
 
-      if (entry.device && entry.device.includes(targetRasp) && entry.device.includes(targetBrand)) {
-        // console.log('[DEBUG] ✅ Match found:', entry)
+      if (
+        entry.device &&
+        getRasp(entry.device) == targetRasp &&
+        getMouseBrand(entry.device) == targetBrand
+      ) {
+        console.log('[DEBUG] ✅ Match found:', entry)
         return entry
       }
     }
