@@ -185,6 +185,15 @@ Meteor.methods({
     console.log('flashing mouseOrder and disabledMice')
     mouseOrder.remove({})
     disabledMice.remove({})
+    SalleLayout.remove({})
+
+    if (SalleLayout.find().count() === 0) {
+      SalleLayout.insert({
+        rows: 6,
+        columns: 4,
+        cells: [], // Will hold {row, col, deviceId}
+      })
+    }
   },
   async returnText() {
     text = parseMarkdown(Assets.absoluteFilePath('text.md'))

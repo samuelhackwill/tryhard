@@ -1,0 +1,22 @@
+---
+- name: Test basic sudo on all thRasps
+  hosts: thRasps
+  user: sam
+  become: true
+  become_method: sudo
+  gather_facts: no
+
+  vars_files:
+    - secrets.yml
+
+  vars:
+    ansible_become_password: '{{ secrets.raspRootPwd }}'
+
+  tasks:
+    - name: Run whoami as root
+      shell: whoami
+      register: whoami_output
+
+    - name: Debug output
+      debug:
+        var: whoami_output.stdout

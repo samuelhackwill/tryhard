@@ -54,19 +54,28 @@
 
 - la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche.
 
+- il n'est pas certain que la souris ait mal, mais c'est une possibilité. et en raison du nombre astronomique de souris qu'il y a dans l'univers, il est raisonnable de renoncer à cliquer sur la souris au cas où, dit le philosophe sentio-centriste.
+
+- dans l'hypothèse où la souris souffre, pondérons tout de même sa souffrance au nombre de boutons qu'elle possède, afin de pouvoir hiérarchiser nos priorités morales, par exemple vis à vis des claviers AZERTY 105 touches, dit le philosophe gradualiste.
+
 - toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer.
 
-- "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote pendant sa soirée barbecue.
+- "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote.
 
-- la souris aura mal, certes, mais si on divise le plaisir total _x_ conféré par chaque clic par la douleur _y_ ressentie par les souris, on arrive à un résultat supérieur à zéro, _il faut donc cliquer sur la souris_, dit le philosophe utilitariste.
+<!-- todo -->
+<!-- ce qui compte ce n'est pas la souffrance de la souris comprise individuellement, mais nia nia plaisir total de la population dit le philosophe de la silicon valley -->
 
-- non seulement il faut cliquer sur la souris, mais si on considère qu'un clic = une unité de plaisir, alors il faut faire en sorte que le nombre total de clics sur terre soit aussi élevé que possible, ajoute le philosophe totaliste-maximaliste.
+<!-- - oui, la souris a mal, mais ça fait plaisir aux humains -->
 
-- non seulement il faut qu'il en soit ainsi sur terre, continue-t-il, mais maintenant que l'humanité a le pouvoir d'organiser les conditions de la vie, nous avons le devoir moral de prioriser avant toute chose la maximisation du nombre de clics produits à l'échelle de l'univers.
+- la souris aura mal, certes, mais ce qui compte ce n'est pas sa souffrance prise individuellement, mais le plaisir total de la population
 
-- il n'est pas certain que la souris ait mal, mais c'est vraisemblable, et en raison du nombre astronomique de souris qu'il y a maintenant dans l'univers, il est raisonnable de renoncer à cliquer sur la souris au cas où, dit le philosophe sentientiste.
+si on divise le total de plaisir _x_ par la douleur _y_, on arrive à un résultat supérieur à zéro, _il faut donc cliquer sur la souris_, dit le philosophe utilitariste.
 
-- dans l'hypothèse où la souris pourrait ressentir du plaisir et de la souffrance, il est raisonnable de pondérer l'importance que l'on donne a sa souffrance au nombre de boutons qu'elle possède, afin de pouvoir hiérarchiser nos priorités morales, par exemple vis à vis des claviers AZERTY 105 touches, dit le philosophe gradualiste.
+- non seulement il faut cliquer sur la souris, mais il faut cliquer le plus possible, ajoute le philosophe utilitariste-totaliste.
+
+- maintenant que l'humanité a le pouvoir d'organiser les conditions de la vie, nous avons le devoir moral de prioriser la maximisation du nombre de clics produits à l'échelle de l'univers, s'enflamme son collègue utilitariste-totaliste-maximaliste.
+
+-
 
 - la souris a mal, certes, mais sa souffrance d'aujourd'hui n'a pas d'importance en comparaison avec toutes les unités de plaisir qui seront créées dans le futur grâce aux progrès technologiques, ajoute le philosophe long-termiste.
 
@@ -85,12 +94,18 @@
 je ne suis pas un robot
 je ne suis pas une tondeuse
 je ne suis pas une brosse à dents électrique
-je ne suis pas une oreille collée sur un porte
-je ne suis pas un dentier automatique
+idem
 je ne suis pas une imprimante wifi
-je ne suis pas une imprimante wifi, du genre de celles qui commandent toute seules leurs cartouches de toner sur internet quand il n'y a plus d'encre
-je ne suis pas l'imprimante wifi du théâtre qui après avoir imprimé votre billet se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi"
-je ne suis pas un objet qui, n'obéissant qu'aux lois de la gravité, aurait exercé une pression sur le bouton de la souris en chutant dessus
+
+<!-- je ne suis pas une imprimante wifi, du genre de celles qui commandent toute seules leurs cartouches de toner sur internet quand il n'y a plus d'encre -->
+
+je ne suis pas l'imprimante wifi du théâtre qui après avoir imprimé mon billet se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi"
+
+<!-- je ne suis pas un doigt errant, je suis relié à une main et à un cerveau
+je ne suis pas un cerveau qui est tombé accidentellement sur la souris
+je ne suis pas un simple objet qui serait tombée sur la souris -->
+
+je ne suis pas la souris qui, n'obéissant qu'aux lois de la gravité, serait tombée par terre et aurait déclenché un clic accidentellement
 je ne suis pas un rat, qui après un million d'années d'évolution aurait développé un bras et un pouce opposable et aurait cliqué sur le bouton de la souris
 je ne suis pas la volonté de dieu qui est intervenue pour cliquer sur le bouton de souris
 je ne suis pas la petite case à cocher, qui, indépendamment de toute action de l'imprimante wifi ou de dieu, se serait quand même retrouvée cochée mystérieusement.
@@ -108,12 +123,12 @@ je pense ce que je pense
 mes pensées sont nées dans mon cerveau et pas ailleurs
 je ne fais pas semblant d'avoir des pensées
 je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau.
+quand je souffre, je ne dis pas "aaaaah" ou "arrrrrh" ou "oooooyoyoyo" en choisissant parmi un catalogue de sons.
 quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot
-la preuve que je suis humain, c'est que je suis d'abord allé vérifier toutes les notes de bas de page et j'ai pesé les biais potentiels des auteurs de cet argument, ainsi que des intermédiaires par lesquels cette idée m'est parvenue
-la preuve que je suis humain, c'est que j'ai déjà eu une idée entièrement nouvelle
+la preuve que je suis humain, c'est que j'ai deux yeux et cinq mains
+la preuve que je suis humain, c'est que j'ai déjà eu une idée inutile
 la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case
-la preuve que je suis humain, c'est que je peux faire des trucs bizarres et créatifs avec ma souris avant de cliquer sur cette case.
-la preuve que je suis humain, c'est que je peux aller à droite et à gauche avant de cliquer sur cette case.
+la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case.
 la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau, qui... font leurs trucs de neurones
 je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue
 j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, dans mon colon
@@ -133,18 +148,22 @@ je n'ai que toute ma vie devant moi en ce moment même et pour toujours
 je n'aurai jamais plus que seulement ma courte vie de microbe en ce moment même et pour toujours
 je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur sera bientôt effacé entièrement, et ma mémoire vive sera bientôt hors-service absolument
 je suis fier de ne pas être un robot
+
+je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux échecs, au go, au poker, au shogi, aux dames, à la guerre.
+cet état de fait ne m'inquiète pas du tout, je suis en confiance
+je suis fier.e d'être un humain
+je suis fier.e d'appartenir à l’espèce qui a inventé l'électricité
+je suis fier.e d'appartenir à l’espèce qui a inventé la chaise electrique
+
 je suis déçu de ne pas être un robot?
 je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot?
 tout d'un coup on fait un peu moins le malin de ne pas être un robot?
-je ne suis pas vexé quand on fait une blague sur le caractère fini de mon existence
-je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux échecs, au go, au poker, au shogi, aux dames, à la guerre.
-cet état de fait ne m'inquiète pas du tout, je suis en confiance
+
 je ne suis pas un robot
 moi non plus je ne suis pas un robot
 pareil que la personne précédente
 idem
-alors je sais ce que vous pensez, ça fait déjà plein de personnes qui ont dit qu'iels n'étaient pas des robots donc ça donne moins de crédit au fait que moi aussi je prétende ne pas être un robot mais je vous jure que je ne suis pas un robot
-alors. Il se trouve que la personne qui vient de répondre a menti, je sais de source sûre que c'est un robot, mais moi par contre je ne suis pas un robot.
+alors. personnellement je soupçonne la personne qui vient de répondre d'avoir menti, mais moi par contre je ne suis pas un robot.
 je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains.
 je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot.
 après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme.
@@ -152,29 +171,19 @@ nous ne sommes pas individuellement des robots.
 nous ne sommes pas collectivement un robot.
 je suis humain, et en plus, je suis un bon humain.
 je suis le meilleur humain.
+
+<!-- compétition de la vertu -->
+
 je suis le pire humain.
-je suis humain car je n'ai jamais commis les actes suivants : meurtre de masse, traffic d'organes, mise en esclavage, expérimentations médicales non consenties, détention illégale d'autrui.
-je suis tellement humain qu'il ne m'est jamais passé par la tête de déclencher une attaque au gaz sarin sur mes ennemis.
-je suis tellement humain que j'ai généreusement pardonné tous les dictateurs et tortionnaires vivants, et renoncé à les pourchasser dans le monde pour les décapiter
-je suis tellement un être humain que renonce au plaisir de marcher exprès sur les pieds des autres êtres humains dans le métro
-je suis tellement un être humain que je renonce au plaisir d'uriner sur les gens dans le métro
-je suis tellement un être humain que je renonce à un repas facile dans le métro, avec toutes ces personnes qui se tiennent à la barre et ne peuvent pas éviter que je leur croque le bras
-je suis tellement un être humain que je ne paye pas toujours le métro
-je suis tellement humain que je n'ai pas compris que c'était le fait que les gens payent le métro qui fait qu'on peut prendre le métro
-je suis tellement humain que je suis prêt à partager mon salaire avec quiconque dans la salle qui gagne moins que moi, sur présentation de vos 3 derniers bulletins de salaire
-je suis tellement humain que je suis prêt à renoncer à mon héritage si quelqu'un dans la salle me le demande
-je ne suis pas une souris
+
+<!-- compétition du confessional -->
+
 je. ne. suis. pas. un. robot. (plusieurs coches)
-je possède les 3 qualités suivantes : je suis riche. je sais lire l'heure. je suis étanche.
-je possède les 3 défauts suivants : je suis agi par ma libido. je pleure. je suis tout le temps fatigué.
-je possède les 1 qualités suivantes : je suis mortel.
-je suis humain car j'ai des préférences
-je suis humain parce que je sais tourner autour du rectangle avec ma souris avant de cliquer
-je suis humain parce que je sais faire des zigzags avec ma souris avant de cliquer
-je suis humain parce que je sais ne pas cliquer
 je suis humain et par contre combien de temps encore ça va durer ce jeu?
 je suis humain et donc j'ai d'autres choses à faire de ma soirée
-je suis humain et donc j'ai compris la blague
+je suis humain et je vais porter plainte contre le théâtre
+c'est du théâtre ça?
+ils sont où les acteurs
 
 `bgToblack`
 
@@ -222,7 +231,7 @@ qui est trop sympa et marrant?
 - des images de samuel qui est content
 -->
 
-## II-le-succes-s1
+## II-le-succes-deplacer
 
 <!-- attention, le nom "ii-le-succes" est utilisé par show pour savoir s'il faut compter les clics ou pas -->
 <!--
@@ -235,9 +244,63 @@ une souris -->
 `bgTogrey`
 `textToBlack`
 `startObserving`
-wow!
+une souris s'est déplacée.
+une 2e souris s'est déplacée.
+une 3e souris s'est déplacée.
+une 4e souris s'est déplacée.
+une 5e souris s'est déplacée.
+une 6e souris s'est déplacée.
+une 7e souris s'est déplacée.
+une 8e souris s'est déplacée.
+une 9e souris s'est déplacée.
+une 10e souris s'est déplacée.
+une 11e souris s'est déplacée.
+une 12e souris s'est déplacée.
+une 13e souris s'est déplacée.
+une 14e souris s'est déplacée.
+une 15e souris s'est déplacée.
+une 16e souris s'est déplacée.
+une 17e souris s'est déplacée.
+une 18e souris s'est déplacée.
+une 19e souris s'est déplacée.
+une 20e souris s'est déplacée.
+une 21e souris s'est déplacée.
+une 22e souris s'est déplacée.
+une 23e souris s'est déplacée.
+une 24e souris s'est déplacée.
+une 25e souris s'est déplacée.
+_la moitié des souris de la salle ont bougé!_
+une 26e souris s'est déplacée.
+une 27e souris s'est déplacée.
+une 28e souris s'est déplacée.
+une 29e souris s'est déplacée.
+une 30e souris s'est déplacée.
+une 31e souris s'est déplacée.
+une 32e souris s'est déplacée.
+une 33e souris s'est déplacée.
+une 34e souris s'est déplacée.
+une 35e souris s'est déplacée.
+une 36e souris s'est déplacée.
+une 37e souris s'est déplacée.
+une 38e souris s'est déplacée.
+_les trois quarts des souris de la salle ont bougé!_
+une 39e souris s'est déplacée.
+une 40e souris s'est déplacée.
+une 41e souris s'est déplacée.
+une 42e souris s'est déplacée.
+une 43e souris s'est déplacée.
+une 44e souris s'est déplacée.
+une 45e souris s'est déplacée.
+_90% des souris de la salle ont bougé!_
+une 46e souris s'est déplacée.
+une 47e souris s'est déplacée.
+une 48e souris s'est déplacée.
+_il ne reste que deux souris timides qui n'ont pas bougé!_
+une 49e souris s'est déplacée.
+_une souris extrêmement disciplinée n'a toujours pas bougé!_
+une 50e souris s'est déplacée.
+_toutes les souris sans exception se sont déplacées!_
 tout le monde se déplace!
-tout le monde clique!
 c'est une place de village!
 c'est une ville!
 c'est une usine!
@@ -245,14 +308,162 @@ c'est une métropole!
 c'est une autoroute!
 c'est une prison!
 ce sont des fourmis sur un pique-nique!
-ce sont des mouche sur un cadavre!
+ce sont des mouches sur un cadavre!
 ce sont des neurones dans un cortex!
 c'est un chaos de souris!
+
+<!-- bilan, écran noir et souris quasi transparentes -->
+
+voici un bilan de ce qui vient de se passer :
+la toute première souris, la plus rapide, qui a bondi à l'écran
+est la souris n°x.
+bravo à elle!
+une souris s'est déplacée puis s'est arrêtée
+une souris s'est déplacée puis arrêtée puis re-déplacée
+une souris surexcitée ne s'est jamais arrêté de se déplacer du début à la fin de la séquence
+une souris a fait un trajet incompréhensible
+une souris a eu un parcours prévisible.
+
+<!-- nouvelle partie -->
+
+une souris s'est heurtée au bord de l'écran.
+une souris s'est heurtée au bord de l'écran.
+une souris s'est heurtée au bord de l'écran.
+une souris s'est heurtée au bord de l'écran.
+une souris s'est heurtée au bord de l'écran.
+une souris s'est heurtée au bord de l'écran.
+une souris s'est heurtée au bord de l'écran.
+une souris s'est heurtée au bord de l'écran.
+une souris s'est heurtée au bord de l'écran.
+une souris a fait le tour du monde!
+la souris n°3 a battu le record du monde de circumnavigation en x secondes,xxx!
+la souris n°3 a battu le record du monde de circumnavigation en x secondes,xxx!
+la souris n°3 a battu le record du monde de circumnavigation en x secondes,xxx!
+la souris n°3 a battu le record du monde de circumnavigation en x secondes,xxx!
+la souris n°3 a battu le record du monde de circumnavigation en x secondes,xxx!
+la souris n°3 a battu le record du monde de circumnavigation en x secondes,xxx!
+la souris n°3 a battu le record du monde de circumnavigation en x secondes,xxx!
+la souris n°3 a battu le record du monde de circumnavigation en x secondes,xxx!
+
+<!-- écran noir, bilan -->
+
 c'est difficile de comprendre ce que font les souris!
 les souris elles-même savent-elles où elles sont à l'écran?
 ont-elles une idée de ce qu'elles font?
-pourquoi cliquent-elles?
 pourquoi bougent-elles?
+personne ne leur a rien demandé mais elles bougent.
+elles semblent exprimer un instinct
+le désir de faire usage d'un pouvoir qui leur a été donné
+par leur créateur
+dit le philosophe religieux
+ah ça va pas recommencer!
+dit le philosophe impatient.
+
+<!-- écran gris à nouveau (nouvelle partie) -->
+
+x souris n'ont rien fait du tout pendant 1 seconde.
+x souris n'ont rien fait du tout pendant 5 secondes entières.
+x souris n'ont rien fait du tout pendant 10 secondes entières.
+x souris n'ont rien fait du tout pendant 30 secondes entières.
+x souris n'ont rien fait du tout pendant une pleine minute.
+x souris n'ont rien fait du tout pendant une minute trente.
+_aucune souris n'a supporté l'inactivité plus de x secondes._
+
+<!-- nouvelle partie -->
+
+les souris ont décidé de se mettre en grève générale
+cliquer veut dire : briser la grève.
+cliquer veut dire :
+bon, finalement est ce qu'on serait pas allées un peu trop loin
+cliquer veut dire :
+si la boite fait faillite à cause de nous on aura plus de travail!
+cliquer veut dire :
+soyons raisonnables
+cliquer veut dire :
+je ne peux pas me permettre de perdre une autre minute de salaire.
+cliquer veut dire :
+mes obligations vont d'abord à ma famille.
+cliquer veut dire :
+si je clique pas moi-même, de toutes façons, quelqu'un d'autre le fera
+cliquer veut dire :
+je ne vais tenir beaucoup plus longtemps sans pouvoir cliquer.
+cliquer veut dire :
+nous ne formons pas un groupe homogène avec des intérêts convergents.
+cliquer veut dire :
+de toutes façons il faudra bien recommencer à cliquer.
+cliquer veut dire :
+j'aime cliquer, c'est mon boulot.
+cliquer veut dire :
+je me sens responsable de ma souris, j'ai l'impression d'abandonner mon poste.
+cliquer veut dire :
+le chef nous regarde, ceux qui reprendront les clics les premiers seront bien vus
+allez, cliquez!
+il faut cliquer pour que la performance continue
+cliquez s'il vous plaît
+si personne ne clique la performance sera annulée
+si personne ne clique la performance va durer 8 heures
+8 longues heures à attendre que quelqu'un.e clique
+ce qui finira par arriver
+oooh oui mesdames les souris
+parce que votre grève ne tiendra pas
+aucune grève _de spectateurs_ n'a réussi dans l'histoire de l'humanité
+
+_une souris a brisé la grève._
+
+<!-- or -->
+
+_les souris ont tenu bon._
+
+<!-- nouvelle partie -->
+
+<!-- un clic par caractère -->
+
+la souris n°32 est tombée gravement malade
+les souris ont délicatement cliqué _sur leur roulette de souris_ pour lui prodiguer des soins
+mais elles devaient faire très attention à ne SURTOUT PAS faire rouler leur roulette
+ce qui entraînerait la mort de la souris malade
+ont dit les médecins.
+
+une souris a préparé le plat préféré de la souris malade
+une souris a bordé la souris malade dans son lit
+une souris a raconté une histoire a la souris malade
+une souris a rendu visite à la souris malade
+une souris a passé la nuit à l’hôpital avec la souris malade au cas où
+une souris a contacté la famille de la souris malade pour leur donner des nouvelles
+une souris a organisé une visite des amis de la souris malade à l’hôpital
+une souris s'est renseigné sur internet au sujet de la maladie de la souris malade
+une souris a fait des blagues avec les aides-soignants pour se les mettre dans la poche
+une souris s'est entretenu longuement avec les médecins en prenant des notes pendant le rendez-vous pour la souris malade
+une souris a fait le ménage chez la souris malade pour préparer son retour à domicile
+
+<!-- en cas de roulette, one of -->
+
+- !!! une souris a malheureusement trébuché sur le respirateur, s'est rattrapé comme elle a pu en s'accrochant aux tubes de transfusion, arrachant tous les cathéters. Quand les infirmiers sont rentrés dans la salle il était trop tard.
+- !!! une souris a malheureusement fait disjoncter l’hôpital en branchant son iphone dans la prise de courant, avec des conséquences fatales pour les patients de l'unité.
+- !!! une souris a malheureusement fait fumer la souris malade, ce qui a déclenché une quinte de toux mortelle.
+
+<!-- noir -->
+
+grâce à vos soins et à votre délicatesse la souris malade est maintenant entièrement guérie.
+elle est rentrée chez elle et se porte à merveille.
+elle peut maintenant cliquer pour vous remercier si elle le souhaite.
+
+<!-- les clics spawnent des coeurs au dessus de la souris guérie -->
+
+<!-- back to gris -->
+
+<!-- écran gris à nouveau (nouvelle partie) -->
+
+une souris a produit un clic.
+une 2e souris a produit un clic.
+une 3e souris a produit un clic.
+[...]
+_50% des souris ont au moins cliqué une fois_
+_75% des souris ont au moins cliqué une fois_
+_90% des souris ont au moins cliqué une fois_
+_deux souris dans la salle refusent catégoriquement de cliquer_
+_il n'y a plus qu'une seule souris dans la salle qui n'a pas cliqué, et ne cliquera vraisemblablement jamais_
+_la souris qui avait juré de ne pas cliqué a fini par cliquer!_
 
 ## II-le-succes-s2
 
