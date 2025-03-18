@@ -34,7 +34,7 @@
     y var(--duration-y) linear infinite alternate,
     colorX calc(var(--duration-x) * 5) step-start infinite,
     colorY calc(var(--duration-y) * 5) step-start infinite;
-  animation-delay: -24.7s;
+  animation-delay: -7.05s;
 }
 
 .saveme-animated > div {
