@@ -114,11 +114,6 @@
   animation: endless-rotate 2s linear infinite;
 }
 
-.rotate-loop-fast {
-  transform-origin: center;
-  animation: endless-rotate 0.2s linear infinite;
-}
-
 @keyframes clicStep {
   0%,
   50% {

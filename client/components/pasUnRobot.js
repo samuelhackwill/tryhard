@@ -6,6 +6,11 @@ pasUnRobotTimeouts = []
 
 export let catpchaTemplateContainer = []
 
+const interestingSpeeds = [
+  235, 33, 40, 49, 42, 50, 52, 56, 131, 129, 61, 67, 94, 87, 109, 186, 217, 243, 275, 282, 284, 291,
+  297, 304, 311, 407, 317, 358, 393, 423,
+]
+
 newX = 1
 newY = 1
 
@@ -202,10 +207,39 @@ const handlePupitreAction = function (message) {
   // message.context contains the original template which was bound to the streamer. Hm i wonder what will happen when we have several templates of captcha in the same page.
   switch (message.content) {
     case 'captcha-spin':
-      if (message.args) {
-        document.getElementById('pasUnRobot').classList.add('rotate-loop-fast')
-      } else {
-        document.getElementById('pasUnRobot').classList.add('rotate-loop')
+      console.log(message.args)
+      const captcha = document.getElementById('pasUnRobot')
+      captcha.classList.add('rotate-loop')
+
+      switch (message.args) {
+        case 'fast':
+          captcha.style.animationDuration = '1.2s'
+          break
+        case 'superFast':
+          captcha.style.animationDuration = '.2s'
+          break
+        case 'ultraFast':
+          captcha.style.animationDuration = '.05s'
+          break
+        case 'randomFast':
+          captcha.style.animationDuration = `${
+            interestingSpeeds[Math.floor(Math.random() * interestingSpeeds.length)]
+          }ms`
+          captcha.style.animationDirection = Math.random() < 0.5 ? 'reverse' : 'normal'
+
+          break
+        case 'reverse':
+          captcha.style.animationDirection = 'reverse'
+          break
+        case 'pause':
+          if (captcha.style.animationPlayState === 'paused') {
+            captcha.style.animationPlayState = 'running'
+          } else {
+            captcha.style.animationPlayState = 'paused'
+          }
+          break
+        default:
+          break
       }
       break
     case 'cancelCaptchaTimeouts':

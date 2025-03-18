@@ -102,7 +102,7 @@ je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en
 
 je ne suis pas une personne travaillant dans une ferme à clics aux philippines et payée 1 euro de l'heure pour sous-traiter le cochage industriel de petites cases à cocher pour le compte de personnes ne voulant en aucun cas cocher la moindre petite case parce que pourquoi cocher la petite case eux-mêmes alors qu'ils pourraient consacrer leur temps à des activités plus productives et laisser d'autres humains moins bien nés qu'eux s'en charger. _un travailleur du clic_
 
-je déclare que je coche la petite case sans aucune contrainte. _sous contrainte_
+je déclare que je coche la petite case sans aucune contrainte. _sous influence_
 ce sont bien les signaux électriques de mon cerveau qui ont commandé à mon doigt d'enfoncer le bouton de la souris, _un signal électrique orphelin_
 ce ne sont pas les signaux électriques d'une autre personne qui ont commandé à mon doigt d'enfoncer le bouton de la souris, _un signal électrique étranger_
 c'est mon cerveau, c'est mon doigt, _un signal électrique étranger_
@@ -111,69 +111,67 @@ je suis qui je suis _une autre personne_
 je pense ce que je pense _une pensée étrangère_
 mes pensées sont nées dans mon cerveau et pas ailleurs _une pensée étrangère_
 
-je ne fais pas semblant d'avoir des pensées
-je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau.
-quand je souffre, je ne dis pas "aaaaah" ou "arrrrrh" ou "oooooyoyoyo" en choisissant parmi un catalogue de sons
-quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot
+je ne fais pas semblant d'avoir des pensées _un robot_
+je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau. _un robot_
+quand je souffre, je ne dis pas "aaaaah" ou "arrrrrh" ou "oooooyoyoyo" en choisissant parmi un catalogue de sons _un robot_
+quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot _un robot_
 
-la preuve que je suis humain, c'est que j'ai deux yeux et cinq mains
-la preuve que je suis humain, c'est que j'ai déjà eu une idée inutile
-la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case
-la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case.
+la preuve que je suis humain, c'est que j'ai deux yeux et cinq mains _un humain_
+la preuve que je suis humain, c'est que j'ai déjà eu une idée inutile _un homme d'affaires_
+la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case _un humain_
+la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case. _un humain_
 
-la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau, qui... font leurs trucs de neurones
-je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue
-j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, dans mon colon
-je ne suis pas une bactérie anaérobie
-je ne suis pas un virus
+la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau, qui... font leurs trucs de neurones _un robot_
+je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue _un robot_
+j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, dans mon colon _un robot_
+je ne suis pas une bactérie anaérobie _une bactérie_
+je ne suis pas un virus _un virus_
 
-un robot, je ne suis pas
-pas un robot je ne suis
-un robot, moi? non non
-arrêtez de dire que je suis un robot
-c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L
+un robot, je ne suis pas _un robot_
+pas un robot je ne suis _un robot_
+un robot, moi? non non _un robot_
+arrêtez de dire que je suis un robot _un robot_
+c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L _un robot qui a fait S_
 
-je saigne (quand mes veines ne sont plus étanches)
-je pue (pas forcément en ce moment)
-je souffre (idem)
-je respire (en ce moment même)
-je suis en train de mourir (en ce moment même)
-je n'ai que toute ma vie devant moi en ce moment même et pour toujours
-je n'aurai jamais plus que seulement ma courte vie de microbe en ce moment même et pour toujours
+je saigne (quand mes veines ne sont plus étanches) _un robot solide_
+je pue (pas forcément en ce moment) _un robot propre_
+je souffre (idem) _un robot heureux_
+je respire (en ce moment même) _un robot en arrêt respiratoire_
+je suis en train de mourir (en ce moment même) _un robot immortel_
+je n'ai que toute ma vie devant moi en ce moment même et pour toujours _un robot immortel_
+je n'aurai jamais plus que seulement ma courte vie de microbe en ce moment même et pour toujours _un robot immortel_
 
-je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur sera bientôt effacé entièrement, et ma mémoire vive sera bientôt hors-service absolument
-je suis fier de ne pas être un robot
-je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux échecs, au go, au poker, au shogi, aux dames, à la guerre.
-cet état de fait ne m'inquiète pas du tout, je suis en confiance
-je suis fier.e d'être un humain
-je suis fier.e d'appartenir à l’espèce qui a inventé l'électricité
-je suis fier.e d'appartenir à l’espèce qui a inventé la chaise électrique
-je suis déçu de ne pas être un robot?
-je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot?
-tout d'un coup on fait un peu moins le malin de ne pas être un robot?
+je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur sera bientôt effacé entièrement, et ma mémoire vive sera bientôt hors-service absolument _un robot manquant de lucidité_
+je suis fier de ne pas être un robot _un robot avec une mauvaise estime de soi_
+je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux échecs, au go, au poker, au shogi, aux dames, à la guerre. _un robot qui fait l'innocent_
+cet état de fait ne m'inquiète pas du tout, je suis en confiance _un robot qui fait profil bas_
+je suis fier.e d'être un humain _un humain avec une mauvaise estime de soi_
+je suis fier.e d'appartenir à l’espèce qui a inventé l'électricité _un mormon_
+je suis fier.e d'appartenir à l’espèce qui a inventé la chaise électrique _un robot progressiste_
+je suis déçu de ne pas être un robot? _un robot_
+je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot? _un robot_
+tout d'un coup on fait un peu moins le malin de ne pas être un robot? _un robot_
 
-je ne suis pas un robot
-moi non plus je ne suis pas un robot
-pareil que la personne précédente
-idem
-alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot.
-je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains.
-je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot.
-après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme.
-nous ne sommes pas individuellement des robots.
-nous ne sommes pas collectivement un robot.
-je suis humain, et en plus, je suis un bon humain.
-je suis le meilleur humain.
-je suis le pire humain.
+je ne suis pas un robot _un robot_
+moi non plus je ne suis pas un robot _un robot_
+pareil que la personne précédente _un robot_
+idem _un robot_
+alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot intègre_
+je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot intègre_
+je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _un robot_
+après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _un robot_
+nous ne sommes pas individuellement des robots. _un robot_
+nous ne sommes pas collectivement un robot. _un robot_
+je suis humain, et en plus, je suis un bon humain. _un méchant robot_
+je suis le meilleur humain. _le pire robot_
+je suis le pire humain. _le meilleur robot_
 
-je. ne. suis. pas. un. robot.
-je suis humain et par contre combien de temps encore ça va durer ce jeu?
-je suis humain et donc j'ai d'autres choses à faire de ma soirée
-je suis humain et je vais porter plainte contre le théâtre
-c'est du théâtre ça?
-ils sont où les acteurs
-
-je ne suis pas vexé d'éprouver des difficultés à cocher la case
+je. ne. suis. pas. un. robot. _un. ro. bot_
+je suis humain et par contre combien de temps encore ça va durer ce jeu? _un robot patient_
+je suis humain et donc j'ai d'autres choses à faire de ma soirée _un robot solitaire_
+je suis humain et je vais porter plainte contre le théâtre _un robot se méfiant de la justice_
+c'est du théâtre ça? _le directeur du théâtre_
+ils sont où les acteurs _un robot ouvert d'esprit_
 
 <!-- ok alors en fait tout le spectacle c'est des capeutchas. on intègre les principes de game design de la deuxième séquence dans des captchas multiplayer. -->
 
@@ -186,13 +184,14 @@ je ne suis pas vexé d'éprouver des difficultés à cocher la case
 <!-- il y a un timer. chaque partie dure 10 secondes -->
 <!-- joueur / joueur -->
 
-je ne suis pas vexé de galérer
-moi non plus
-je ne suis pas vexé d'éprouver des difficultés à cocher la case (idem qui tourne vite)
-je ne suis pas vexé d'éprouver des difficultés à cocher la case (idem mais qui tombe du plafond et il faut le chopper au vol)
-je ne suis pas vexé d'éprouver des difficultés à cocher la case (idem qui devient invisible en fonction de la position du joueureuse)
-je peux produire 50 clics en moins de 10 secondes
-je peux produire 100 clics en moins de 10 secondes
+je ne suis pas un robot <!-- spin -->
+je ne suis pas un robot <!-- whirl -->
+je ne suis pas un robot <!-- dvd -->
+je ne suis pas un robot <!-- invisible -->
+je ne suis pas un robot <!-- plafond -->
+
+je peux produire 50 clics en moins de 10 secondes _x clics/50_
+je peux produire 100 clics en moins de 10 secondes _x clics/100_
 
 je peux faire le tour de l'écran en moins d'une seconde (sinon la personne explose, bilan en rouge sous la case)
 

@@ -185,12 +185,32 @@ Template.pupitre.events({
     sendAction('captcha-spin')
   },
 
-  'click #captcha-whirl'() {
+  'click #captcha-spin-reverse'() {
+    sendAction('captcha-spin', 'reverse')
+  },
+
+  'click #captcha-fast'() {
     sendAction('captcha-spin', 'fast')
   },
 
-  'click #captcha-flee'() {
-    sendAction('captcha-flee')
+  'click #captcha-whirl'() {
+    sendAction('captcha-spin', 'superFast')
+  },
+
+  'click #captcha-ultraFast'() {
+    sendAction('captcha-spin', 'ultraFast')
+  },
+
+  'click #captcha-randomFast'() {
+    sendAction('captcha-spin', 'randomFast')
+  },
+
+  'click #captcha-pause'() {
+    sendAction('captcha-spin', 'pause')
+  },
+
+  'click #captcha-dvd'() {
+    sendAction('captcha-dvd')
   },
 
   'click .line'(e) {
@@ -261,6 +281,7 @@ const handlePlanDeSalleMessage = function (message) {
         hesitationAmount: _hesitationAmount,
         readingSpeed: _readingSpeed,
         surpriseAmount: Number(_surpriseAmount) * 1000,
+        chosenOne: message.content.order,
       })
       document.getElementById('surprise-slider').value = _surpriseAmount - 1
 
