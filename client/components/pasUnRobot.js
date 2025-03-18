@@ -210,15 +210,19 @@ const handlePupitreAction = function (message) {
     case 'dvd':
       document.documentElement.style.setProperty('--logo-w', captcha.offsetWidth)
       document.documentElement.style.setProperty('--logo-h', captcha.offsetHeight)
-      captcha.classList.remove('-translate-x-1/2', '-translate-y-1/2', 'left-1/2', 'top-1/2')
-      captcha.classList.add('saveme-animated')
+      // captcha.classList.remove('-translate-x-1/2', '-translate-y-1/2', 'left-1/2', 'top-1/2')
+      // captcha.classList.add('saveme-animated')
 
       // uncomment this is you want to find when the animation is going to pass through the center of
-      // screen
-      // console.log(
-      //   'you should add a delay : ',
-      //   findApproximateCenterTime(captcha, 'both', 10000, 50),
-      // )
+      // screen. It's pretty nice. comment the animation-delay property in animations.css first though,
+      // or else it won't work! bisous la tournée! lol
+      // chaotic evil
+      // findApproximateCenterTime(captcha, 'both', 30000, 10)
+      prepareAnimationWithCenteredStart({
+        realId: 'pasUnRobot',
+        duration: 30000,
+        resolution: 50,
+      })
 
       break
     case 'captcha-spin':
@@ -333,48 +337,85 @@ const showWarning = function (t) {
   t.warning.set(true)
 }
 
-findApproximateCenterTime = function (el, axis = 'both', duration = 5000, resolution = 100) {
-  const animations = el.getAnimations()
-  if (!animations.length) {
-    console.warn('No animations found on this element.')
+function prepareAnimationWithCenteredStart({
+  realId,
+  axis = 'both',
+  duration = 10000,
+  resolution = 50,
+  animationClass = 'saveme-animated',
+}) {
+  const realEl = document.getElementById(realId)
+  if (!realEl) {
+    console.warn(`Element #${realId} not found`)
     return
   }
 
-  // Assume first animation controls the movement (DVD-style)
-  animations.forEach((anim) => anim.pause())
+  // Clone the real element
+  const shadowEl = realEl.cloneNode(true)
+  shadowEl.id = `${realId}-shadow`
 
-  const screenCenterX = window.innerWidth / 2
-  const screenCenterY = window.innerHeight / 2
-  let closestTime = 0
-  let smallestDistance = Infinity
+  // Apply styles to make it hidden but measurable
+  shadowEl.style.visibility = 'hidden'
+  shadowEl.style.pointerEvents = 'none'
+  shadowEl.style.position = 'absolute'
+  shadowEl.style.top = '0'
+  shadowEl.style.left = '0'
+  shadowEl.style.zIndex = '-9999'
+  shadowEl.style.animationPlayState = 'paused'
+  shadowEl.classList.remove('-translate-x-1/2', '-translate-y-1/2', 'left-1/2', 'top-1/2')
+  shadowEl.classList.add(animationClass)
 
-  for (let t = 0; t <= duration; t += resolution) {
-    animations.forEach((anim) => (anim.currentTime = t))
+  // Insert it into DOM
+  document.body.appendChild(shadowEl)
 
-    const rect = el.getBoundingClientRect()
-    const elementCenterX = rect.left + rect.width / 2
-    const elementCenterY = rect.top + rect.height / 2
-
-    let dx = 0,
-      dy = 0
-    if (axis === 'x' || axis === 'both') {
-      dx = Math.abs(elementCenterX - screenCenterX)
+  // Wait for a brief moment to ensure layout is computed
+  setTimeout(() => {
+    const animations = shadowEl.getAnimations()
+    if (!animations.length) {
+      console.warn('No animations found on cloned element.')
+      shadowEl.remove()
+      return
     }
-    if (axis === 'y' || axis === 'both') {
-      dy = Math.abs(elementCenterY - screenCenterY)
+
+    const screenCenterX = window.innerWidth / 2
+    const screenCenterY = window.innerHeight / 2
+    let closestTime = 0
+    let smallestDistance = Infinity
+
+    for (let t = 0; t <= duration; t += resolution) {
+      animations.forEach((anim) => (anim.currentTime = t))
+
+      const rect = shadowEl.getBoundingClientRect()
+      const elementCenterX = rect.left + rect.width / 2
+      const elementCenterY = rect.top + rect.height / 2
+
+      let dx = 0,
+        dy = 0
+      if (axis === 'x' || axis === 'both') {
+        dx = Math.abs(elementCenterX - screenCenterX)
+      }
+      if (axis === 'y' || axis === 'both') {
+        dy = Math.abs(elementCenterY - screenCenterY)
+      }
+
+      const distance = Math.sqrt(dx * dx + dy * dy)
+      if (distance < smallestDistance) {
+        smallestDistance = distance
+        closestTime = t
+      }
     }
 
-    const distance = Math.sqrt(dx * dx + dy * dy)
+    setTimeout(() => {
+      // Apply computed negative delay to real element
+      const negativeDelay = `-${closestTime}ms`
+      realEl.style.animationDelay = negativeDelay
+      realEl.classList.add(animationClass)
 
-    if (distance < smallestDistance) {
-      smallestDistance = distance
-      closestTime = t
-    }
-  }
-
-  // Snap to that frame
-  animations.forEach((anim) => (anim.currentTime = closestTime))
-
-  console.log(`Closest center time ≈ ${closestTime}ms`)
-  return closestTime
+      // Clean up shadow
+      shadowEl.remove()
+      realEl.classList.remove('-translate-x-1/2', '-translate-y-1/2', 'left-1/2', 'top-1/2')
+      console.log(`>> Closest center time ≈ ${closestTime}ms`)
+      console.log(`>> Applied animation-delay: ${negativeDelay} to #${realId}`)
+    }, 500)
+  }, 50) // slight delay ensures layout is measurable
 }
