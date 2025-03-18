@@ -210,7 +210,7 @@ Template.pupitre.events({
   },
 
   'click #captcha-dvd'() {
-    sendAction('captcha-dvd')
+    sendAction('dvd')
   },
 
   'click .line'(e) {

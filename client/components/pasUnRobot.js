@@ -205,10 +205,15 @@ const unchoosePlayer = function (player) {
 
 const handlePupitreAction = function (message) {
   // message.context contains the original template which was bound to the streamer. Hm i wonder what will happen when we have several templates of captcha in the same page.
+  const captcha = document.getElementById('pasUnRobot')
   switch (message.content) {
+    case 'dvd':
+      document.documentElement.style.setProperty('--logo-w', captcha.offsetWidth)
+      document.documentElement.style.setProperty('--logo-h', captcha.offsetHeight)
+      captcha.classList.remove('-translate-x-1/2', '-translate-y-1/2', 'left-1/2', 'top-1/2')
+      captcha.classList.add('saveme-animated')
+      break
     case 'captcha-spin':
-      console.log(message.args)
-      const captcha = document.getElementById('pasUnRobot')
       captcha.classList.add('rotate-loop')
 
       switch (message.args) {

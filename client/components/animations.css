@@ -18,7 +18,7 @@
   --container-h: tan(atan2(var(--h_raw), 1px));
   --logo-w: 480;
   --logo-h: 272;
-  --speed: 180; /* pixels per second */
+  --speed: 300; /* pixels per second */
 
   --duration-x: calc((var(--container-w) - var(--logo-w)) / var(--speed) * 1s);
   --duration-y: calc((var(--container-h) - var(--logo-h)) / var(--speed) * 1s);
@@ -34,6 +34,7 @@
     y var(--duration-y) linear infinite alternate,
     colorX calc(var(--duration-x) * 5) step-start infinite,
     colorY calc(var(--duration-y) * 5) step-start infinite;
+  animation-delay: -24.7s;
 }
 
 .saveme-animated > div {
@@ -112,6 +113,11 @@
 .rotate-loop {
   transform-origin: center;
   animation: endless-rotate 2s linear infinite;
+}
+
+.rotate-loop-fast {
+  transform-origin: center;
+  animation: endless-rotate 0.2s linear infinite;
 }
 
 @keyframes clicStep {
