@@ -56,6 +56,10 @@ Template.pasUnRobot.onRendered(function () {
       console.log('player failed to complete captcha')
       checkAndDie(t, v, false)
     }, timeToComplete),
+    setTimeout(() => {
+      console.log('warn player that time almost over')
+      showWarning()
+    }, timeToComplete * 0.5),
   )
 })
 
@@ -218,38 +222,45 @@ function handlePupitreAction(message) {
 }
 
 function setCheckboxToFailed(checkbox) {
-  if (!checkbox) {
-    console.error('Checkbox element not found!')
-    return
-  }
+  document.getElementById('warning').innerHTML = 'hannn la souris n°2 est un robot han'
 
-  // Ensure the checkbox has a wrapper
-  const parentDiv = checkbox.closest('.flex-none') // Find the correct container
-  if (!parentDiv) {
-    console.error('Parent container not found!')
-    return
-  }
+  // if (!checkbox) {
+  //   console.error('Checkbox element not found!')
+  //   return
+  // }
 
-  // Create the ❌ element
-  const cross = document.createElement('span')
-  cross.textContent = '❓'
-  cross.classList.add('checkbox-cross')
-  cross.style.position = 'absolute'
-  cross.style.fontSize = '24px'
-  cross.style.fontWeight = 'bold'
-  cross.style.color = 'red'
-  cross.style.pointerEvents = 'none' // Allows checkbox clicks
-  cross.style.top = '50%'
-  cross.style.left = '50%'
-  cross.style.transform = 'translate(-50%, -50%)'
+  // // Ensure the checkbox has a wrapper
+  // const parentDiv = checkbox.closest('.flex-none') // Find the correct container
+  // if (!parentDiv) {
+  //   console.error('Parent container not found!')
+  //   return
+  // }
 
-  // Ensure the checkbox container is relatively positioned
-  parentDiv.style.position = 'relative'
+  // // Create the ❌ element
+  // const cross = document.createElement('span')
+  // cross.textContent = '❓'
+  // cross.classList.add('checkbox-cross')
+  // cross.style.position = 'absolute'
+  // cross.style.fontSize = '24px'
+  // cross.style.fontWeight = 'bold'
+  // cross.style.color = 'red'
+  // cross.style.pointerEvents = 'none' // Allows checkbox clicks
+  // cross.style.top = '50%'
+  // cross.style.left = '50%'
+  // cross.style.transform = 'translate(-50%, -50%)'
 
-  // **Disable all mouse events on the checkbox**
-  checkbox.style.pointerEvents = 'none'
-  checkbox.disabled = true // Prevent interaction programmatically
+  // // Ensure the checkbox container is relatively positioned
+  // parentDiv.style.position = 'relative'
 
-  // Append the ❌ inside the checkbox's container
-  parentDiv.appendChild(cross)
+  // // **Disable all mouse events on the checkbox**
+  // checkbox.style.pointerEvents = 'none'
+  // checkbox.disabled = true // Prevent interaction programmatically
+
+  // // Append the ❌ inside the checkbox's container
+  // parentDiv.appendChild(cross)
+}
+
+function showWarning() {
+  document.getElementById('warning').classList.remove('opacity-0')
+  document.getElementById('warningBorder').classList.remove('opacity-0')
 }

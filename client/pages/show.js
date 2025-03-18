@@ -729,16 +729,16 @@ export const getMouseBrand = function (id, regexGroupOveride) {
 export const getRasp = function (id, regexGroupOveride) {
   regexGroup = regexGroupOveride || 1
   const regex = /\b(th\d+)_([^-]+(?:-[^']+)?)/i
-  console.log(
-    'getting rasp of id :',
-    id,
-    '. Group 0 :',
-    id.replace(regex, `$0`),
-    '. Group 1 :',
-    id.replace(regex, `$1`),
-    '. Group 2 :',
-    id.replace(regex, `$2`),
-  )
+  // console.log(
+  //   'getting rasp of id :',
+  //   id,
+  //   '. Group 0 :',
+  //   id.replace(regex, `$0`),
+  //   '. Group 1 :',
+  //   id.replace(regex, `$1`),
+  //   '. Group 2 :',
+  //   id.replace(regex, `$2`),
+  // )
   return id.replace(regex, `$${regexGroup}`)
 }
 
@@ -815,15 +815,15 @@ const findPointerByBrandAndRasp = function (targetRasp, targetBrand, target) {
     for (const key in pointers) {
       if (pointers.hasOwnProperty(key)) {
         const pointer = pointers[key]
-        console.log(`[DEBUG] Checking pointer:`, pointer)
+        // console.log(`[DEBUG] Checking pointer:`, pointer)
 
-        console.log(`[DEBUG] pointer.rasp: "${pointer.rasp}" vs targetRasp: "${targetRasp}"`)
-        console.log(
-          `[DEBUG] pointer.mouseBrand: "${pointer.mouseBrand}" vs targetBrand: "${targetBrand}"`,
-        )
+        // console.log(`[DEBUG] pointer.rasp: "${pointer.rasp}" vs targetRasp: "${targetRasp}"`)
+        // console.log(
+        //   `[DEBUG] pointer.mouseBrand: "${pointer.mouseBrand}" vs targetBrand: "${targetBrand}"`,
+        // )
 
         if (pointer.rasp === targetRasp && pointer.mouseBrand === targetBrand) {
-          console.log('[DEBUG] ✅ Match found:', pointer)
+          // console.log('[DEBUG] ✅ Match found:', pointer)
           return pointer
         }
       }
@@ -832,21 +832,21 @@ const findPointerByBrandAndRasp = function (targetRasp, targetBrand, target) {
     const allEntries = mouseOrder.find().fetch()
 
     for (const entry of allEntries) {
-      console.log('[DEBUG] Checking entry:', entry)
-      console.log(`[DEBUG] entry.device: "${entry.device}"`)
-      console.log(`[DEBUG] targetRasp: "${targetRasp}" / targetBrand: "${targetBrand}"`)
+      // console.log('[DEBUG] Checking entry:', entry)
+      // console.log(`[DEBUG] entry.device: "${entry.device}"`)
+      // console.log(`[DEBUG] targetRasp: "${targetRasp}" / targetBrand: "${targetBrand}"`)
 
       if (
         entry.device &&
         getRasp(entry.device) == targetRasp &&
         getMouseBrand(entry.device) == targetBrand
       ) {
-        console.log('[DEBUG] ✅ Match found:', entry)
+        // console.log('[DEBUG] ✅ Match found:', entry)
         return entry
       }
     }
 
-    console.log('[DEBUG] ❌ No match found in mouseOrder')
+    // console.log('[DEBUG] ❌ No match found in mouseOrder')
     return null
   }
 }
