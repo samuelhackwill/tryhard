@@ -82,8 +82,8 @@
 `showNicks`
 `togglePointers`
 
-je ne suis pas un robot
-je ne suis pas une tondeuse
+je ne suis pas un robot _robot_
+je ne suis pas une tondeuse _tondeuse_
 je ne suis pas une brosse à dents électrique
 idem
 je ne suis pas une imprimante wifi
@@ -173,7 +173,7 @@ je suis humain et je vais porter plainte contre le théâtre
 c'est du théâtre ça?
 ils sont où les acteurs
 
-je ne suis pas vexé d'éprouver des difficultés à cocher la case (captcha normal, on comprend pas)
+je ne suis pas vexé d'éprouver des difficultés à cocher la case
 
 <!-- ok alors en fait tout le spectacle c'est des capeutchas. on intègre les principes de game design de la deuxième séquence dans des captchas multiplayer. -->
 
@@ -186,8 +186,8 @@ je ne suis pas vexé d'éprouver des difficultés à cocher la case (captcha nor
 <!-- il y a un timer. chaque partie dure 10 secondes -->
 <!-- joueur / joueur -->
 
-je ne suis pas vexé d'éprouver des difficultés à cocher la case (idem mais qui tourne lentement)
-je ne suis pas vexé d'éprouver des difficultés à cocher la case (idem qui se déplace a peu près comme le logo DVD et en changeant de couleur)
+je ne suis pas vexé de galérer
+moi non plus
 je ne suis pas vexé d'éprouver des difficultés à cocher la case (idem qui tourne vite)
 je ne suis pas vexé d'éprouver des difficultés à cocher la case (idem mais qui tombe du plafond et il faut le chopper au vol)
 je ne suis pas vexé d'éprouver des difficultés à cocher la case (idem qui devient invisible en fonction de la position du joueureuse)

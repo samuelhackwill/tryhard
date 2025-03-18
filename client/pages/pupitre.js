@@ -109,6 +109,14 @@ Template.pupitre.events({
   'click #override-timeout'() {
     sendAction('cancelCaptchaTimeouts')
   },
+  'click #hurry'() {
+    sendAction('cancelCaptchaTimeouts')
+    sendAction('hurry')
+  },
+  'click #fail'() {
+    sendAction('cancelCaptchaTimeouts')
+    sendAction('fail')
+  },
   'click .playerToggle'(e) {
     if (e.target.id == 'radio-ffa') {
       Template.instance().selectedPlayer.set('ffa')
@@ -223,6 +231,9 @@ const checkBeforeEmit = function (context) {
       case 'iii-captchas-1j-s2':
         sendAction('reqNextPlayer', context)
         break
+      case 'iii-captchas-multiplayer':
+        sendAction('reqNextPlayer', context)
+        break
 
       default:
         sendLine(String(context.value))
@@ -245,7 +256,7 @@ const handlePlanDeSalleMessage = function (message) {
 
       sendAction('choosePlayer', { chosenOne: message.content.device })
       sendAction('newCaptcha-1j', {
-        text: String(message.context.value),
+        text: getCaptchaTextAndFailstate(String(message.context.value)),
         coords: { x: 0, y: 0 },
         hesitationAmount: _hesitationAmount,
         readingSpeed: _readingSpeed,
@@ -254,5 +265,31 @@ const handlePlanDeSalleMessage = function (message) {
       document.getElementById('surprise-slider').value = _surpriseAmount - 1
 
       break
+  }
+}
+
+const getCaptchaTextAndFailstate = function (string) {
+  // so this function is used to incruste de la data dans le captcha
+  // so that if the player fails the captcha,
+  // the checkAndDie function knows what the player IS
+  // ie what challenge he failed.
+  // "je ne suis pas un robot" > "j1 est un robot".
+  const emphasisRegex = /_(.*?)_/
+  const match = string.match(emphasisRegex)
+
+  if (match) {
+    const emphasis = match[1]
+    const cleanedValue = string.replace(emphasisRegex, '').trim()
+
+    return {
+      value: cleanedValue,
+      emphasis: emphasis,
+    }
+  } else {
+    // default to "la souris n°2 est un robot"
+    return {
+      value: string,
+      emphasis: 'robot',
+    }
   }
 }

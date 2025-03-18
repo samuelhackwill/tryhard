@@ -2,9 +2,6 @@ import './pasUnRobot.html'
 import { moveOffOfCaptcha } from '../bots.js'
 import { streamer } from '../../both/streamer.js'
 
-streamer.on('pupitreAction', function () {
-  streamer.on('pupitreAction', handlePupitreAction)
-})
 pasUnRobotTimeouts = []
 
 export let catpchaTemplateContainer = []
@@ -13,10 +10,17 @@ newX = 1
 newY = 1
 
 Template.pasUnRobot.onCreated(function () {
+  const self = this
+  streamer.on('pupitreAction', function (message) {
+    _message = message
+    message.context = self
+    handlePupitreAction(_message)
+  })
   // refactor : this.state would be better, to avoid multi-state-bordels
   this.waiting = new ReactiveVar(false)
   // this.fleeing = new ReactiveVar(false)
   this.timestamp = new Date()
+  this.warning = false
 
   // this.autorun(() => {
   //   // Get the chosen item reactively
@@ -28,7 +32,7 @@ Template.pasUnRobot.onCreated(function () {
   // })
 
   const speedRatio = 0.9 - -this.data.readingSpeed * 0.05
-  this.minReadingTime = estimateReadingTime(this.data.text) * speedRatio
+  this.minReadingTime = estimateReadingTime(this.data.text.value) * speedRatio
 })
 
 Template.pasUnRobot.onRendered(function () {
@@ -72,7 +76,7 @@ Template.pasUnRobot.helpers({
     return Template.instance().waiting.get()
   },
   jeNeSuisPas() {
-    return this.text
+    return this.text.value
   },
 })
 
@@ -117,7 +121,7 @@ Template.pasUnRobot.events({
   },
 })
 
-checkAndDie = function (t, handle, passed) {
+const checkAndDie = function (t, handle, passed) {
   removeTimeouts()
   if (passed) {
     t.waiting.set(false)
@@ -145,7 +149,7 @@ export const removeTimeouts = function () {
   pasUnRobotTimeouts = []
 }
 
-estimateReadingTime = function (text) {
+const estimateReadingTime = function (text) {
   const L = text.length
   // alors ce que j'ai fait c'est que j'ai fourni des data points à notre ami (je me suis enregistré en train de faire défiler les captchas à un rythme qui me semblait acceptable) et il a écrit les maths pour fit the curve. C'est fou. C'est toujours beaucoup trop lent avec les gros textes though.
 
@@ -158,7 +162,7 @@ estimateReadingTime = function (text) {
   return a + b * L + c * L ** 2
 }
 
-unchoosePlayer = function (player) {
+const unchoosePlayer = function (player) {
   let _player = player || null
 
   if (_player == null) {
@@ -182,7 +186,7 @@ unchoosePlayer = function (player) {
 //   Blaze.getView(document.getElementById('pasUnRobot')).templateInstance().fleeing.set(true)
 // }
 
-function handlePupitreAction(message) {
+const handlePupitreAction = function (message) {
   switch (message.content) {
     case 'captcha-spin':
       if (message.args) {
@@ -193,6 +197,12 @@ function handlePupitreAction(message) {
       break
     case 'cancelCaptchaTimeouts':
       removeTimeouts()
+      break
+    case 'hurry':
+      showWarning()
+      break
+    case 'fail':
+      checkAndDie(message.context, message.context.view, false)
       break
     case 'killCaptchas':
       // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
@@ -221,7 +231,7 @@ function handlePupitreAction(message) {
   }
 }
 
-function setCheckboxToFailed(checkbox) {
+const setCheckboxToFailed = function (checkbox) {
   document.getElementById('warning').innerHTML = 'hannn la souris n°2 est un robot han'
 
   // if (!checkbox) {
@@ -253,14 +263,14 @@ function setCheckboxToFailed(checkbox) {
   // parentDiv.style.position = 'relative'
 
   // // **Disable all mouse events on the checkbox**
-  // checkbox.style.pointerEvents = 'none'
-  // checkbox.disabled = true // Prevent interaction programmatically
+  checkbox.style.pointerEvents = 'none'
+  checkbox.disabled = true // Prevent interaction programmatically
 
   // // Append the ❌ inside the checkbox's container
   // parentDiv.appendChild(cross)
 }
 
-function showWarning() {
+const showWarning = function () {
   document.getElementById('warning').classList.remove('opacity-0')
   document.getElementById('warningBorder').classList.remove('opacity-0')
 }

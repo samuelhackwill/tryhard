@@ -228,7 +228,7 @@ function handlePupitreAction(message) {
 
 Template.show.helpers({
   isItCaptchaTime() {
-    if (instance.state.get() == 'iii-captchas-1j-s2') {
+    if (instance.state.get() == startsWith('iii-captchas')) {
       return true
     } else {
       return false

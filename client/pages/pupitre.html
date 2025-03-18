@@ -29,6 +29,25 @@
         </div>
 
         <div class="col-span-2 pr-4 overflow-y-auto" id="textLinesColumn">
+          <button
+          class="bg-slate-200 hover:bg-blue-300 text-xs px-2 py-1 rounded"
+          id="override-timeout"
+        >
+          override timeout!
+        </button>
+          <button
+          class="bg-slate-200 hover:bg-red-300 text-xs px-2 py-1 rounded"
+          id="hurry"
+        >
+          hurry
+        </button>
+          <button
+          class="bg-slate-200 hover:bg-red-300 text-xs px-2 py-1 rounded"
+          id="fail"
+        >
+          fail
+        </button>
+
           <div class="mb-8">
             <!-- la barre de surprise, qui diminue automatiquement dans le temps, sert à ralentir l'action quand on découvre une nouvelle interface comme par exemple les captchas. -->
 
@@ -51,12 +70,6 @@
              
             <div>
               <span>hesitation</span>
-              <button
-                class="bg-slate-200 hover:bg-red-300 text-xs px-2 py-1 rounded"
-                id="override-timeout"
-              >
-                override timeout!
-              </button>
             </div>
 
             <div class="relative mb-8 text-gray-500">
