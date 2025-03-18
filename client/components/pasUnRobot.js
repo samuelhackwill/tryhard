@@ -20,7 +20,8 @@ Template.pasUnRobot.onCreated(function () {
   this.waiting = new ReactiveVar(false)
   // this.fleeing = new ReactiveVar(false)
   this.timestamp = new Date()
-  this.warning = false
+  this.warning = new ReactiveVar(false)
+  this.failed = new ReactiveVar(false)
 
   // this.autorun(() => {
   //   // Get the chosen item reactively
@@ -62,7 +63,7 @@ Template.pasUnRobot.onRendered(function () {
     }, timeToComplete),
     setTimeout(() => {
       console.log('warn player that time almost over')
-      showWarning()
+      showWarning(t)
     }, timeToComplete * 0.5),
   )
 })
@@ -72,6 +73,16 @@ Template.pasUnRobot.helpers({
   //   console.log('fleeing changed!', Template.instance().fleeing.get())
   //   return Template.instance().fleeing.get()
   // },
+  isFailed() {
+    return Template.instance().failed.get()
+  },
+  isWarning() {
+    if (Template.instance().warning.get() == true) {
+      return 'opacity-1'
+    } else {
+      return 'opacity-0'
+    }
+  },
   hasInteracted() {
     return Template.instance().waiting.get()
   },
@@ -129,6 +140,7 @@ const checkAndDie = function (t, handle, passed) {
       document.getElementById('checkbox-pasUnRobot').checked = true
     }, 50)
   } else {
+    t.failed.set(true)
     setCheckboxToFailed(document.getElementById('checkbox-pasUnRobot'))
   }
 
@@ -187,6 +199,7 @@ const unchoosePlayer = function (player) {
 // }
 
 const handlePupitreAction = function (message) {
+  // message.context contains the original template which was bound to the streamer. Hm i wonder what will happen when we have several templates of captcha in the same page.
   switch (message.content) {
     case 'captcha-spin':
       if (message.args) {
@@ -199,9 +212,10 @@ const handlePupitreAction = function (message) {
       removeTimeouts()
       break
     case 'hurry':
-      showWarning()
+      showWarning(message.context)
       break
     case 'fail':
+      showWarning(message.context)
       checkAndDie(message.context, message.context.view, false)
       break
     case 'killCaptchas':
@@ -232,8 +246,6 @@ const handlePupitreAction = function (message) {
 }
 
 const setCheckboxToFailed = function (checkbox) {
-  document.getElementById('warning').innerHTML = 'hannn la souris n°2 est un robot han'
-
   // if (!checkbox) {
   //   console.error('Checkbox element not found!')
   //   return
@@ -270,7 +282,6 @@ const setCheckboxToFailed = function (checkbox) {
   // parentDiv.appendChild(cross)
 }
 
-const showWarning = function () {
-  document.getElementById('warning').classList.remove('opacity-0')
-  document.getElementById('warningBorder').classList.remove('opacity-0')
+const showWarning = function (t) {
+  t.warning.set(true)
 }

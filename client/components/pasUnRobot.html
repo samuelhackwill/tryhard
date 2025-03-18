@@ -7,7 +7,7 @@
     <!-- Red border layer with opacity control -->
     <div
       id="warningBorder"
-      class="pointer-events-none absolute inset-0 border-2 opacity-0 border-red-600 transition-opacity"
+      class="pointer-events-none absolute inset-0 border-2  {{isWarning}} border-red-600 transition-opacity"
     ></div>
 
     <div class="flex items-center justify-center rounded-lg" id="pasUnRobotWhiteBox">
@@ -54,7 +54,13 @@
         </div>
       </div>
 
-      <div class="text-red-600 mt-2 transition-opacity opacity-0" id="warning"> merci de cocher la petite case </div>
+      <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
+        {{#if isFailed}}
+        la souris n°2 est {{this.text.emphasis}}
+        {{else}}
+        merci de cocher la petite case
+        {{/if}}
+       </div>
     </div>
 </div>
 

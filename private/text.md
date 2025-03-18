@@ -82,34 +82,34 @@
 `showNicks`
 `togglePointers`
 
-je ne suis pas un robot _robot_
-je ne suis pas une tondeuse _tondeuse_
-je ne suis pas une brosse à dents électrique
-idem
-je ne suis pas une imprimante wifi
-je ne suis pas l'imprimante wifi du théâtre qui après avoir imprimé mon billet se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi"
+je ne suis pas un robot _un robot_
+je ne suis pas une tondeuse _une tondeuse_
+je ne suis pas une brosse à dents électrique _une brosse à dents_
+idem _une brosse à dents_
+je ne suis pas une imprimante _une imprimante_
+je ne suis pas l'imprimante du théâtre qui après avoir imprimé mon billet se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi"
 
-je ne suis pas la souris qui serait tombée par terre et aurait accidentellement cliqué au bon endroit
-je ne suis pas un simple objet qui serait tombé sur la souris et aurait produit un clic
-je ne suis pas un doigt errant qui serait entré dans le théâtre et aurait cliqué sur une souris
-je ne suis pas un rat, qui après un million d'années d'évolution aurait développé un bras et un pouce opposable et aurait cliqué sur le bouton de la souris
-je ne suis pas la volonté de dieu qui est intervenue pour cliquer sur le bouton de souris
+je ne suis pas la souris qui serait tombée par terre et aurait accidentellement cliqué au bon endroit _la gravité_
+je ne suis pas un simple objet qui serait tombé sur la souris et aurait produit un clic _la gravité_
+je ne suis pas un doigt errant qui serait entré dans le théâtre et aurait cliqué sur une souris _un doigt errant_
+je ne suis pas un rat, qui après un million d'années d'évolution aurait développé un bras et un pouce opposable et aurait cliqué sur le bouton de la souris _un rat_
+je ne suis pas la volonté de dieu qui est intervenue pour cliquer sur le bouton de souris _la volonté de dieu_
 
-je ne suis pas la petite case à cocher, qui, indépendamment de toute action de l'imprimante wifi ou de dieu, se serait quand même retrouvée cochée mystérieusement.
-je ne suis pas la petite case à cocher qui en aurait eu marre d'attendre et se serait auto-cochée pour tromper l'ennui.
-je ne suis pas la petite case à cocher, qui, parce qu'elle avait honte que personne ne l'avait jamais cochée, aurait fait semblant qu'en fait, on lui avait déjà cliqué dessus, et même plein de fois.
-je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en criant : "Dieu est mort!"
+je ne suis pas la petite case à cocher, qui, indépendamment de toute action de l'imprimante wifi ou de dieu, se serait quand même retrouvée cochée mystérieusement. _la petite case_
+je ne suis pas la petite case à cocher qui en aurait eu marre d'attendre et se serait auto-cochée pour tromper l'ennui. _la petite case qui s'ennuie_
+je ne suis pas la petite case à cocher, qui, parce qu'elle avait honte que personne ne l'avait jamais cochée, aurait fait semblant qu'en fait, on lui avait déjà cliqué dessus, et même plein de fois. _la petite case vaniteuse_
+je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en criant : "Dieu est mort!" _la petite case athée_
 
-je ne suis pas une personne travaillant dans une ferme à clics aux philippines et payée 1 euro de l'heure pour sous-traiter le cochage industriel de petites cases à cocher pour le compte de personnes ne voulant en aucun cas cocher la moindre petite case parce que pourquoi cocher la petite case eux-mêmes alors qu'ils pourraient consacrer leur temps à des activités plus productives et laisser d'autres humains moins bien nés qu'eux s'en charger.
+je ne suis pas une personne travaillant dans une ferme à clics aux philippines et payée 1 euro de l'heure pour sous-traiter le cochage industriel de petites cases à cocher pour le compte de personnes ne voulant en aucun cas cocher la moindre petite case parce que pourquoi cocher la petite case eux-mêmes alors qu'ils pourraient consacrer leur temps à des activités plus productives et laisser d'autres humains moins bien nés qu'eux s'en charger. _un travailleur du clic_
 
-je déclare que je coche la petite case sans aucune contrainte.
-ce sont bien les signaux électriques de mon cerveau qui ont commandé à mon doigt d'enfoncer le bouton de la souris,
-ce ne sont pas les signaux électriques d'une autre personne qui ont commandé à mon doigt d'enfoncer le bouton de la souris,
-c'est mon cerveau, c'est mon doigt,
-ce sont mes signaux électriques
-je suis qui je suis
-je pense ce que je pense
-mes pensées sont nées dans mon cerveau et pas ailleurs
+je déclare que je coche la petite case sans aucune contrainte. _sous contrainte_
+ce sont bien les signaux électriques de mon cerveau qui ont commandé à mon doigt d'enfoncer le bouton de la souris, _un signal électrique orphelin_
+ce ne sont pas les signaux électriques d'une autre personne qui ont commandé à mon doigt d'enfoncer le bouton de la souris, _un signal électrique étranger_
+c'est mon cerveau, c'est mon doigt, _un signal électrique étranger_
+ce sont mes signaux électriques _un signal électrique étranger_
+je suis qui je suis _une autre personne_
+je pense ce que je pense _une pensée étrangère_
+mes pensées sont nées dans mon cerveau et pas ailleurs _une pensée étrangère_
 
 je ne fais pas semblant d'avoir des pensées
 je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau.
