@@ -239,10 +239,11 @@ const unchoosePlayer = function (player) {
 
 const handlePupitreAction = function (message) {
   // message.context contains the original template which was bound to the streamer. Hm i wonder what will happen when we have several templates of captcha in the same page.
-  const captcha = document.getElementById('pasUnRobot')
+  const captcha = document.getElementById(`pasUnRobot-${message.context.uuid}`)
   switch (message.content) {
     case 'changeOpacity':
-      document.getElementById('pasUnRobotWhiteBox').style.opacity = message.args / 10
+      document.getElementById(`pasUnRobotWhiteBox-${message.context.uuid}`).style.opacity =
+        message.args / 10
       break
     case 'dvd':
       document.documentElement.style.setProperty('--logo-w', captcha.offsetWidth)
@@ -256,7 +257,7 @@ const handlePupitreAction = function (message) {
       // chaotic evil
       // findApproximateCenterTime(captcha, 'both', 30000, 10)
       prepareAnimationWithCenteredStart({
-        realId: 'pasUnRobot',
+        realId: `pasUnRobot-${message.context.uuid}`,
         duration: 30000,
         resolution: 50,
       })
