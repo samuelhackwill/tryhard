@@ -122,6 +122,9 @@ Template.pupitre.events({
     sendAction('cancelCaptchaTimeouts')
     sendAction('fail')
   },
+  'click #kill'() {
+    sendAction('killCaptchas')
+  },
   'click .playerToggle'(e) {
     if (e.target.id == 'radio-ffa') {
       Template.instance().selectedPlayer.set('ffa')
