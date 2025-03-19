@@ -2,8 +2,6 @@ import './pasUnRobot.html'
 import { moveOffOfCaptcha } from '../bots.js'
 import { streamer } from '../../both/streamer.js'
 
-export let captchaTemplateContainer = []
-
 const interestingSpeeds = [
   235, 33, 40, 49, 42, 50, 52, 56, 131, 129, 61, 67, 94, 87, 109, 186, 217, 243, 275, 282, 284, 291,
   297, 304, 311, 407, 317, 358, 393, 423,
@@ -303,7 +301,7 @@ const handlePupitreAction = function (message) {
       checkAndDie(message.context, message.context.view, false)
       break
     case 'killCaptchas':
-      console.log('kill catpcahs')
+      console.log('kill catpcahs', message.context.uuid)
       // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
       let chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
       if (chosenItem) {
@@ -318,17 +316,18 @@ const handlePupitreAction = function (message) {
       // screen, maybe we need a more graceful way of hiding
       // everyone. We would need to access to each template's reactive data context
       // and switch this.rendered.set(false).
-      const element = document.getElementById('pasUnRobot')
+      const element = document.getElementById(`pasUnRobot-${message.context.uuid}`)
       if (element) {
         element.style.opacity = 0
-
-        Meteor.setTimeout(function () {
-          captchaTemplateContainer.forEach((captcha) => {
-            Blaze.remove(captcha)
-          })
-          captchaTemplateContainer.length = 0
-        }, parseFloat(getComputedStyle(element).transitionDuration) * 1000)
       }
+
+      const uuidAtCall = message.context.uuid
+      const viewAtCall = message.context.view
+
+      Meteor.setTimeout(function () {
+        console.log('removing captcha', uuidAtCall)
+        Blaze.remove(viewAtCall)
+      }, 1000)
 
       break
   }

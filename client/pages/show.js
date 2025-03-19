@@ -5,7 +5,6 @@ import { playAudio } from '../audioAssets/audio.js'
 import { streamer } from '../../both/streamer.js'
 import { killAnimation, autoclickerSpawn, moveInFrontOfCaptcha, autoClickerMine } from '../bots.js'
 import { handleButtonClick } from '../components/btnDashboard.js'
-import { captchaTemplateContainer } from '../components/pasUnRobot.js'
 import { disabledMice, mouseOrder } from '../../both/api.js'
 import { observe, observing } from '../observe.js'
 import { updateTopMouse } from '../components/feed.js'
@@ -115,22 +114,19 @@ function handlePupitreAction(message) {
       break
     case 'newCaptcha-1j':
       console.log(message.args)
-      captchaTemplateContainer.push(
-        Blaze.renderWithData(
-          Template.pasUnRobot,
-          message.args,
-          document.getElementsByClassName('milieuContainer')[0],
-        ),
+      Blaze.renderWithData(
+        Template.pasUnRobot,
+        message.args,
+        document.getElementsByClassName('milieuContainer')[0],
       )
       break
     case 'newTetris':
       // console.log(message.args)
-      captchaTemplateContainer.push(
-        Blaze.renderWithData(
-          Template.pasUnRobot,
-          message.args,
-          document.getElementsByClassName('milieuContainer')[0],
-        ),
+
+      Blaze.renderWithData(
+        Template.pasUnRobot,
+        message.args,
+        document.getElementsByClassName('milieuContainer')[0],
       )
       break
   }
