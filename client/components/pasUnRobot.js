@@ -15,12 +15,13 @@ newX = 1
 newY = 1
 
 Template.pasUnRobot.onCreated(function () {
-  const self = this
-  streamer.on('pupitreAction', function (message) {
-    _message = message
-    message.context = self
-    handlePupitreAction(_message)
-  })
+  this._pupitreHandler = (message) => {
+    message.context = this
+    handlePupitreAction(message)
+  }
+
+  streamer.on('pupitreAction', this._pupitreHandler)
+
   // refactor : this.state would be better, to avoid multi-state-bordels
   this.waiting = new ReactiveVar(false)
   // this.fleeing = new ReactiveVar(false)
@@ -39,6 +40,10 @@ Template.pasUnRobot.onCreated(function () {
 
   const speedRatio = 0.9 - -this.data.readingSpeed * 0.05
   this.minReadingTime = estimateReadingTime(this.data.text.value) * speedRatio
+})
+
+Template.pasUnRobot.onDestroyed(function () {
+  streamer.removeListener('pupitreAction', this._pupitreHandler)
 })
 
 Template.pasUnRobot.onRendered(function () {
@@ -292,6 +297,7 @@ const handlePupitreAction = function (message) {
           catpchaTemplateContainer.forEach((captcha) => {
             Blaze.remove(captcha)
           })
+          catpchaTemplateContainer.length = 0
         }, parseFloat(getComputedStyle(element).transitionDuration) * 1000)
       }
 

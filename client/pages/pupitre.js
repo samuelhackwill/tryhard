@@ -5,6 +5,9 @@ import { streamer } from '../../both/streamer.js'
 import { getRasp, getMouseBrand } from './show.js'
 
 Template.pupitre.onCreated(function () {
+  console.dir(streamer)
+  console.log(Object.getPrototypeOf(streamer).unsubscribe)
+
   Meteor.call('resetConnectedDevices')
   streamer.on('planDeSalleMessage', handlePlanDeSalleMessage)
   this.text = new ReactiveVar('')
