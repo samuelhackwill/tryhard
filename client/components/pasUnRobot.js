@@ -100,6 +100,13 @@ Template.pasUnRobot.helpers({
   isFailed() {
     return Template.instance().failed.get()
   },
+  isDisabled() {
+    if (Template.instance().failed.get()) {
+      return 'disabled'
+    } else {
+      return
+    }
+  },
   isWarning() {
     if (Template.instance().warning.get() == true) {
       return 'opacity-1'
@@ -119,7 +126,7 @@ Template.pasUnRobot.helpers({
 })
 
 Template.pasUnRobot.events({
-  'mousedown #checkbox-pasUnRobot'(event, t, obj) {
+  'mousedown .checkbox-pasUnRobot'(event, t, obj) {
     removeTimeouts(t)
     console.log(t)
     clickTimestamp = new Date()
@@ -165,11 +172,10 @@ const checkAndDie = function (t, handle, passed) {
   if (passed) {
     t.waiting.set(false)
     setTimeout(() => {
-      document.getElementById('checkbox-pasUnRobot').checked = true
+      document.getElementById(`checkbox-pasUnRobot-${t.uuid}`).checked = true
     }, 50)
   } else {
     t.failed.set(true)
-    setCheckboxToFailed(document.getElementById('checkbox-pasUnRobot'))
   }
 
   setTimeout(() => {
@@ -312,7 +318,6 @@ const handlePupitreAction = function (message) {
       // screen, maybe we need a more graceful way of hiding
       // everyone. We would need to access to each template's reactive data context
       // and switch this.rendered.set(false).
-      console.log(message.context)
       const element = document.getElementById('pasUnRobot')
       if (element) {
         element.style.opacity = 0
@@ -329,42 +334,42 @@ const handlePupitreAction = function (message) {
   }
 }
 
-const setCheckboxToFailed = function (checkbox) {
-  // if (!checkbox) {
-  //   console.error('Checkbox element not found!')
-  //   return
-  // }
+// const setCheckboxToFailed = function (checkbox) {
+//   // if (!checkbox) {
+//   //   console.error('Checkbox element not found!')
+//   //   return
+//   // }
 
-  // // Ensure the checkbox has a wrapper
-  // const parentDiv = checkbox.closest('.flex-none') // Find the correct container
-  // if (!parentDiv) {
-  //   console.error('Parent container not found!')
-  //   return
-  // }
+//   // // Ensure the checkbox has a wrapper
+//   // const parentDiv = checkbox.closest('.flex-none') // Find the correct container
+//   // if (!parentDiv) {
+//   //   console.error('Parent container not found!')
+//   //   return
+//   // }
 
-  // // Create the ❌ element
-  // const cross = document.createElement('span')
-  // cross.textContent = '❓'
-  // cross.classList.add('checkbox-cross')
-  // cross.style.position = 'absolute'
-  // cross.style.fontSize = '24px'
-  // cross.style.fontWeight = 'bold'
-  // cross.style.color = 'red'
-  // cross.style.pointerEvents = 'none' // Allows checkbox clicks
-  // cross.style.top = '50%'
-  // cross.style.left = '50%'
-  // cross.style.transform = 'translate(-50%, -50%)'
+//   // // Create the ❌ element
+//   // const cross = document.createElement('span')
+//   // cross.textContent = '❓'
+//   // cross.classList.add('checkbox-cross')
+//   // cross.style.position = 'absolute'
+//   // cross.style.fontSize = '24px'
+//   // cross.style.fontWeight = 'bold'
+//   // cross.style.color = 'red'
+//   // cross.style.pointerEvents = 'none' // Allows checkbox clicks
+//   // cross.style.top = '50%'
+//   // cross.style.left = '50%'
+//   // cross.style.transform = 'translate(-50%, -50%)'
 
-  // // Ensure the checkbox container is relatively positioned
-  // parentDiv.style.position = 'relative'
+//   // // Ensure the checkbox container is relatively positioned
+//   // parentDiv.style.position = 'relative'
 
-  // // **Disable all mouse events on the checkbox**
-  checkbox.style.pointerEvents = 'none'
-  checkbox.disabled = true // Prevent interaction programmatically
+//   // // **Disable all mouse events on the checkbox**
+//   checkbox.style.pointerEvents = 'none'
+//   checkbox.disabled = true // Prevent interaction programmatically
 
-  // // Append the ❌ inside the checkbox's container
-  // parentDiv.appendChild(cross)
-}
+//   // // Append the ❌ inside the checkbox's container
+//   // parentDiv.appendChild(cross)
+// }
 
 const showWarning = function (t) {
   t.warning.set(true)

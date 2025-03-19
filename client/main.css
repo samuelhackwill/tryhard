@@ -17,11 +17,11 @@
     border-radius: 0.6rem;
   }
 
-  #pasUnRobotWhiteBox {
+  .pasUnRobotWhiteBox {
     transition: 0.5s;
   }
 
-  #pasUnRobotWhiteBox:has(input[type='checkbox'][hovered]) {
+  .pasUnRobotWhiteBox:has(input[type='checkbox'][hovered]) {
     box-shadow: 0 0 10pt 5pt cornflowerblue;
   }
 

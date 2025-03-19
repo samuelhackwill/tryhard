@@ -652,6 +652,7 @@ export const checkHover = function (pointer) {
     currentHoveredElement = currentHoveredElements[0]
     // console.log(currentHoveredElements[0])
   }
+  // console.log(currentHoveredElement)
 
   //"We were hovering something, now we're hovering something else"
   if (prevHoveredElement != currentHoveredElement) {
