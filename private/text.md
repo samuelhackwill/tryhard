@@ -27,7 +27,7 @@
 `samuelGo!`
 `bgTogrey` -->
 
-## I-les-philosophes
+## les-philosophes
 
 - La vie contemplative n'est utile que si elle éclaire la vie _active_, dit le philosophe.
 
@@ -72,7 +72,7 @@
 `hideFeed`
 `clearFeed`
 
-## III-captchas-1j-s2
+## captchas-1j-s1
 
 <!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
 
@@ -178,7 +178,7 @@ ils sont où les acteurs _un robot ouvert d'esprit_
 <!-- funny captchas -->
 <!-- il y a un timer pour chaque captcha et un message d'échec si les captchas ne sont pas validés -->
 
-## III-captchas-multiplayer
+## captchas-1j-funni
 
 <!-- ces captchas sont en mode die & retry. -->
 <!-- il y a un timer. chaque partie dure 10 secondes -->
@@ -198,6 +198,8 @@ je peux faire le tour de l'écran en moins d'une seconde (sinon la personne expl
 
 <!-- les jeux suivants sont gradin / gradin -->
 
+## captchas-gradin
+
 _nous_ ne sommes pas vexés d'éprouver des difficultés à cocher les cases (on remplit l'écran de captchas et y'a un gradin qui doit les grailler) (on sélectionne le gradin en cours)
 nous ne sommes pas vexés d'éprouver des difficultés à cocher les cases (y'en a plusieurs qui tombent du plafond et il faut en chopper un max et on est tout un gradin)
 nous pouvons produire 200 clics en moins de 10 secondes
@@ -209,7 +211,7 @@ c'est la case de gauche qui n'est pas piégée. (mensonge)
 
 c'est moi qui coche la case en premier.e
 
-<!-- ffa -->
+## captchas-ffa
 
 c'est moi qui coche la case en premier.e
 nous pouvons produire 1000 clics en moins de 10 secondes

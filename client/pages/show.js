@@ -99,11 +99,19 @@ function handlePupitreAction(message) {
         'instance',
       )
 
-      pointer.chosen = true
-      instance.pointers.set(pointer.id, pointer)
+      if (!pointer) {
+        console.log(
+          'while looking for pointer ',
+          getRasp(message.args.chosenOne),
+          getMouseBrand(message.args.chosenOne),
+          " could not find that guy. He's probably toggled in /plan but didn't trigger a createPointer yet on /show",
+        )
+      } else {
+        pointer.chosen = true
+        instance.pointers.set(pointer.id, pointer)
 
-      moveInFrontOfCaptcha(pointer)
-
+        moveInFrontOfCaptcha(pointer)
+      }
       break
     case 'newCaptcha-1j':
       console.log(message.args)
@@ -229,7 +237,7 @@ function handlePupitreAction(message) {
 
 Template.show.helpers({
   isItCaptchaTime() {
-    if (instance.state.get() == startsWith('iii-captchas')) {
+    if (instance.state.get() == startsWith('captchas-1j')) {
       return true
     } else {
       return false
