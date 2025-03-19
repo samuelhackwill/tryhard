@@ -3,7 +3,13 @@ import { ReactiveDict } from 'meteor/reactive-dict'
 import { stepper } from '../stepper.js'
 import { playAudio } from '../audioAssets/audio.js'
 import { streamer } from '../../both/streamer.js'
-import { killAnimation, autoclickerSpawn, moveInFrontOfCaptcha, autoClickerMine } from '../bots.js'
+import {
+  killAnimation,
+  autoclickerSpawn,
+  moveInFrontOfCaptcha,
+  moveOffOfCaptcha,
+  autoClickerMine,
+} from '../bots.js'
 import { handleButtonClick } from '../components/btnDashboard.js'
 import { disabledMice, mouseOrder } from '../../both/api.js'
 import { observe, observing } from '../observe.js'
@@ -83,12 +89,13 @@ function handlePupitreAction(message) {
     case 'showNicks':
       instance.areNamesHidden.set(false)
       break
-    case 'unchoosePlayers':
-      Object.values(instance.pointers.all()).forEach((obj) => {
-        _pointer = instance.pointers.get(obj.id)
-        _pointer.chosen = undefined
-        instance.pointers.set(obj.id, _pointer)
-      })
+    case 'unchoosePlayer':
+      unchoosePlayer()
+      // Object.values(instance.pointers.all()).forEach((obj) => {
+      // _pointer = instance.pointers.get(obj.id)
+      // _pointer.chosen = undefined
+      // instance.pointers.set(obj.id, _pointer)
+      // })
       break
     case 'choosePlayer':
       // Extract rasp and brand from pointer ID
@@ -242,13 +249,13 @@ function handlePupitreAction(message) {
 // }
 
 Template.show.helpers({
-  isItCaptchaTime() {
-    if (instance.state.get() == startsWith('captchas-1j')) {
-      return true
-    } else {
-      return false
-    }
-  },
+  // isItCaptchaTime() {
+  //   if (instance.state.get() == startsWith('captchas-1j')) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // },
   isChosen() {
     if (this.chosen == undefined) {
       return true
@@ -864,5 +871,25 @@ const findPointerByBrandAndRasp = function (targetRasp, targetBrand, target) {
 
     // console.log('[DEBUG] ❌ No match found in mouseOrder')
     return null
+  }
+}
+
+export const unchoosePlayer = function (player) {
+  let _player = player || null
+
+  if (_player == null) {
+    let chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
+    if (!chosenItem) {
+      return
+    }
+    chosenItem.chosen = false
+    chosenItem.captchaPlayCount++
+    moveOffOfCaptcha(chosenItem)
+    instance.pointers.set(chosenItem.id, chosenItem)
+  } else {
+    _player.chosen = false
+    chosenItem.captchaPlayCount++
+    moveOffOfCaptcha(chosenItem)
+    instance.pointers.set(chosenItem.id, chosenItem)
   }
 }

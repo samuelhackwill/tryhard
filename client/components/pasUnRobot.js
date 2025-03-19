@@ -1,6 +1,7 @@
 import './pasUnRobot.html'
 import { moveOffOfCaptcha } from '../bots.js'
 import { streamer } from '../../both/streamer.js'
+import { unchoosePlayer } from '../pages/show.js'
 
 const interestingSpeeds = [
   235, 33, 40, 49, 42, 50, 52, 56, 131, 129, 61, 67, 94, 87, 109, 186, 217, 243, 275, 282, 284, 291,
@@ -213,26 +214,6 @@ const estimateReadingTime = function (text) {
   return a + b * L + c * L ** 2
 }
 
-const unchoosePlayer = function (player) {
-  let _player = player || null
-
-  if (_player == null) {
-    let chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
-    if (!chosenItem) {
-      return
-    }
-    chosenItem.chosen = false
-    chosenItem.captchaPlayCount++
-    moveOffOfCaptcha(chosenItem)
-    instance.pointers.set(chosenItem.id, chosenItem)
-  } else {
-    _player.chosen = false
-    chosenItem.captchaPlayCount++
-    moveOffOfCaptcha(chosenItem)
-    instance.pointers.set(chosenItem.id, chosenItem)
-  }
-}
-
 // makeCaptchaFlee = function () {
 //   Blaze.getView(document.getElementById('pasUnRobot')).templateInstance().fleeing.set(true)
 // }
@@ -310,13 +291,7 @@ const handlePupitreAction = function (message) {
     case 'killCaptchas':
       console.log('kill catpcahs', message.context.uuid)
       // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
-      let chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
-      if (chosenItem) {
-        chosenItem.chosen = false
-        chosenItem.captchaPlayCount++
-        moveOffOfCaptcha(chosenItem)
-        instance.pointers.set(chosenItem.id, chosenItem)
-      }
+      unchoosePlayer()
 
       removeTimeouts(message.context)
       // well, now that we have a scenario where several captchas exist in the same
