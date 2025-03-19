@@ -5,8 +5,14 @@ import { streamer } from '../../both/streamer.js'
 import { getRasp, getMouseBrand } from './show.js'
 
 Template.pupitre.onCreated(function () {
+  this._handlePlanDeSalleMessage = (message) => {
+    message.template = this
+    handlePlanDeSalleMessage(message)
+  }
+
+  streamer.on('planDeSalleMessage', this._handlePlanDeSalleMessage)
+
   Meteor.call('resetConnectedDevices')
-  streamer.on('planDeSalleMessage', handlePlanDeSalleMessage)
   this.text = new ReactiveVar('')
   this.headers = new ReactiveVar([])
   this.selectedHeader = new ReactiveVar('mise')
@@ -256,10 +262,10 @@ const checkBeforeEmit = function (context) {
       // here goes all non-standard behaviour. we don't need
       // to name every action keyword because they are being
       // pris en charge by the default block down down
-      case 'captchas-1j-s1':
+      case 'captchas-1j-text':
         sendAction('reqNextPlayer', context)
         break
-      case 'captchas-1j-funni':
+      case 'captchas-1j-kinetic':
         sendAction('reqNextPlayer', context)
         break
 
@@ -278,56 +284,51 @@ const checkBeforeEmit = function (context) {
       console.log(action, args)
       switch (action) {
         case 'tetris':
-          sendAction('reqNextPlayer', { type: action, params: args })
+          sendAction('newTetris', {
+            type: 'tetris',
+            // we're not getting text from the same place, look at how checkBeforeEmit
+            // is parsing the args from action lines. We need to do this because we're
+            // going to pack a hell of a lot more pseudo code in the captchas of acte II
+            text: getCaptchaTextAndFailstate(args[0]),
+            hesitationAmount: 1000,
+            readingSpeed: 0,
+            surpriseAmount: -1000,
+          })
           break
         default:
           sendAction(action, args)
           break
       }
     } else {
+      console.log('proutos', value)
       sendAction(value)
     }
   }
 }
 
 const handlePlanDeSalleMessage = function (message) {
-  // console.log(message)
+  const state = message.template.selectedHeader.get()
+  console.log(state)
   switch (message.type) {
     case 'nextPlayerIs':
-      // console.log('recieved nextPlayerIs from planDeSalle', message)
-      _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
-      _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
-      _surpriseAmount = document.getElementById('surprise-slider').value
-
-      switch (message.context.type) {
-        case 'tetris':
-          // sendAction('choosePlayer', { chosenOne: message.content.device })
-          sendAction('newTetris', {
-            type: 'tetris',
-            // we're not getting text from the same place, look at how checkBeforeEmit
-            // is parsing the args from action lines. We need to do this because we're
-            // going to pack a hell of a lot more pseudo code in the captchas of acte II
-            text: getCaptchaTextAndFailstate(String(message.context.params[0])),
-            hesitationAmount: 1000,
-            readingSpeed: 0,
-            surpriseAmount: -1000,
-            // chosenOne: message.content.order,
-          })
-          break
-
-        default:
-          sendAction('choosePlayer', { chosenOne: message.content.device })
-          sendAction('newCaptcha-1j', {
-            text: getCaptchaTextAndFailstate(String(message.context.value)),
-            hesitationAmount: _hesitationAmount,
-            readingSpeed: _readingSpeed,
-            surpriseAmount: Number(_surpriseAmount) * 1000,
-            chosenOne: message.content.order,
-          })
-          document.getElementById('surprise-slider').value = _surpriseAmount - 1
-          break
+      if (!state.endsWith('manual')) {
+        // console.log('recieved nextPlayerIs from planDeSalle', message)
+        _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
+        _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
+        _surpriseAmount = document.getElementById('surprise-slider').value
+        sendAction('choosePlayer', { chosenOne: message.content.device })
+        sendAction('newCaptcha-1j', {
+          text: getCaptchaTextAndFailstate(String(message.context.value)),
+          hesitationAmount: _hesitationAmount,
+          readingSpeed: _readingSpeed,
+          surpriseAmount: Number(_surpriseAmount) * 1000,
+          chosenOne: message.content.order,
+        })
+        document.getElementById('surprise-slider').value = _surpriseAmount - 1
+      } else {
+        console.log('just choose player plise')
+        sendAction('choosePlayer', { chosenOne: message.content.device })
       }
-
       break
   }
 }
