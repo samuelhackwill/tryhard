@@ -106,6 +106,11 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
+  'input #opacity-slider'(e) {
+    // console.log('sliderChange', { id: sliderId, value: sliderValue })
+    sendAction('changeOpacity', e.target.value)
+  },
+
   'click #override-timeout'() {
     sendAction('cancelCaptchaTimeouts')
   },
