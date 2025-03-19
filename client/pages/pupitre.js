@@ -301,17 +301,17 @@ const handlePlanDeSalleMessage = function (message) {
 
       switch (message.context.type) {
         case 'tetris':
-          sendAction('choosePlayer', { chosenOne: message.content.device })
+          // sendAction('choosePlayer', { chosenOne: message.content.device })
           sendAction('newTetris', {
             type: 'tetris',
             // we're not getting text from the same place, look at how checkBeforeEmit
             // is parsing the args from action lines. We need to do this because we're
             // going to pack a hell of a lot more pseudo code in the captchas of acte II
             text: getCaptchaTextAndFailstate(String(message.context.params[0])),
-            hesitationAmount: _hesitationAmount,
-            readingSpeed: _readingSpeed,
-            surpriseAmount: Number(_surpriseAmount) * 1000,
-            chosenOne: message.content.order,
+            hesitationAmount: 1000,
+            readingSpeed: 0,
+            surpriseAmount: -1000,
+            // chosenOne: message.content.order,
           })
           break
 

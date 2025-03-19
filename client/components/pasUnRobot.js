@@ -30,7 +30,7 @@ Template.pasUnRobot.onCreated(function () {
   this.uuid = crypto.randomUUID()
 
   this.rotation = Math.floor(Math.random() * 360)
-  this.top = '20%'
+  this.top = '-45%'
   this.left = `${Math.floor(Math.random() * 81)}%`
 
   // this.autorun(() => {
@@ -54,15 +54,17 @@ Template.pasUnRobot.onDestroyed(function () {
 Template.pasUnRobot.onRendered(function () {
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 
-  // console.log(
-  //   'debug : TIME TO COMPLETE CAPTCHA =',
-  //   'surprise time :',
-  //   this.data.surpriseAmount,
-  //   '+ reading time :',
-  //   this.minReadingTime,
-  //   ' + hesitation time : ',
-  //   this.data.hesitationAmount,
-  // )
+  console.log(
+    'debug : TIME TO COMPLETE CAPTCHA =',
+    'surprise time :',
+    this.data.surpriseAmount,
+    '+ reading time :',
+    this.minReadingTime,
+    ' + hesitation time : ',
+    this.data.hesitationAmount,
+    ' = total ',
+    timeToComplete,
+  )
 
   setTimeout(() => {
     this.rendered.set(true)
@@ -92,8 +94,12 @@ Template.pasUnRobot.helpers({
     return Template.instance().data.type === 'tetris'
   },
   tetrisStyle() {
-    self = Template.instance()
-    return `top: ${self.top}; left: ${self.left}; transform: rotate(${self.rotation}deg);`
+    const self = Template.instance()
+    return `top: ${self.top}; left: ${self.left};`
+  },
+  tetrisRot() {
+    const self = Template.instance()
+    return `transform: rotate(${self.rotation}deg);`
   },
   isFailed() {
     return Template.instance().failed.get()
