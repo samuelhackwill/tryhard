@@ -2,9 +2,7 @@ import './pasUnRobot.html'
 import { moveOffOfCaptcha } from '../bots.js'
 import { streamer } from '../../both/streamer.js'
 
-pasUnRobotTimeouts = []
-
-export let catpchaTemplateContainer = []
+export let captchaTemplateContainer = []
 
 const interestingSpeeds = [
   235, 33, 40, 49, 42, 50, 52, 56, 131, 129, 61, 67, 94, 87, 109, 186, 217, 243, 275, 282, 284, 291,
@@ -15,7 +13,7 @@ newX = 1
 newY = 1
 
 Template.pasUnRobot.onCreated(function () {
-  console.log('new pasUnRobot ', this)
+  // console.log('new pasUnRobot ', this)
   this._pupitreHandler = (message) => {
     message.context = this
     handlePupitreAction(message)
@@ -29,6 +27,13 @@ Template.pasUnRobot.onCreated(function () {
   this.timestamp = new Date()
   this.warning = new ReactiveVar(false)
   this.failed = new ReactiveVar(false)
+  this.rendered = new ReactiveVar(false)
+  this.timeouts = new ReactiveVar([])
+  this.uuid = crypto.randomUUID()
+
+  this.rotation = Math.floor(Math.random() * 360)
+  this.top = '20%'
+  this.left = `${Math.floor(Math.random() * 81)}%`
 
   // this.autorun(() => {
   //   // Get the chosen item reactively
@@ -45,41 +50,42 @@ Template.pasUnRobot.onCreated(function () {
 
 Template.pasUnRobot.onDestroyed(function () {
   streamer.removeListener('pupitreAction', this._pupitreHandler)
+  removeTimeouts(this)
 })
 
 Template.pasUnRobot.onRendered(function () {
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 
-  console.log(
-    'debug : TIME TO COMPLETE CAPTCHA =',
-    'surprise time :',
-    this.data.surpriseAmount,
-    '+ reading time :',
-    this.minReadingTime,
-    ' + hesitation time : ',
-    this.data.hesitationAmount,
-  )
+  // console.log(
+  //   'debug : TIME TO COMPLETE CAPTCHA =',
+  //   'surprise time :',
+  //   this.data.surpriseAmount,
+  //   '+ reading time :',
+  //   this.minReadingTime,
+  //   ' + hesitation time : ',
+  //   this.data.hesitationAmount,
+  // )
 
-  const handle = Template.instance().view
   setTimeout(() => {
-    document.getElementById('pasUnRobot').classList.remove('opacity-0')
+    this.rendered.set(true)
   }, 50)
 
-  const t = this
-  const v = this.view
-  pasUnRobotTimeouts.push(
+  this.timeouts.set([
     setTimeout(() => {
       console.log('player failed to complete captcha')
-      checkAndDie(t, v, false)
+      checkAndDie(this, this.view, false)
     }, timeToComplete),
     setTimeout(() => {
       console.log('warn player that time almost over')
-      showWarning(t)
+      showWarning(this)
     }, timeToComplete * 0.5),
-  )
+  ])
 })
 
 Template.pasUnRobot.helpers({
+  uuid() {
+    return Template.instance().uuid
+  },
   // isFleeing() {
   //   console.log('fleeing changed!', Template.instance().fleeing.get())
   //   return Template.instance().fleeing.get()
@@ -87,8 +93,9 @@ Template.pasUnRobot.helpers({
   isTetris() {
     return Template.instance().data.type === 'tetris'
   },
-  tetrisClasses() {
-    return 'top-2 left-2'
+  tetrisStyle() {
+    self = Template.instance()
+    return `top: ${self.top}; left: ${self.left}; transform: rotate(${self.rotation}deg);`
   },
   isFailed() {
     return Template.instance().failed.get()
@@ -100,6 +107,9 @@ Template.pasUnRobot.helpers({
       return 'opacity-0'
     }
   },
+  isRendered() {
+    return Template.instance().rendered.get()
+  },
   hasInteracted() {
     return Template.instance().waiting.get()
   },
@@ -110,6 +120,8 @@ Template.pasUnRobot.helpers({
 
 Template.pasUnRobot.events({
   'mousedown #checkbox-pasUnRobot'(event, t, obj) {
+    removeTimeouts(t)
+    console.log(t)
     clickTimestamp = new Date()
     // console.log(
     //   'user completed captcha in :',
@@ -150,7 +162,6 @@ Template.pasUnRobot.events({
 })
 
 const checkAndDie = function (t, handle, passed) {
-  removeTimeouts()
   if (passed) {
     t.waiting.set(false)
     setTimeout(() => {
@@ -163,8 +174,9 @@ const checkAndDie = function (t, handle, passed) {
 
   setTimeout(() => {
     // console.log('captcha completed!!')
-    const element = document.getElementById('pasUnRobot')
-    element.style.opacity = 0
+    // const element = document.getElementById('pasUnRobot')
+    // element.style.opacity = 0
+    t.rendered.set(false)
 
     setTimeout(() => {
       unchoosePlayer()
@@ -173,9 +185,9 @@ const checkAndDie = function (t, handle, passed) {
   }, 1000)
 }
 
-export const removeTimeouts = function () {
-  pasUnRobotTimeouts.forEach(clearTimeout)
-  pasUnRobotTimeouts = []
+export const removeTimeouts = function (t) {
+  t.timeouts.get().forEach(clearTimeout)
+  t.timeouts.set([])
 }
 
 const estimateReadingTime = function (text) {
@@ -275,7 +287,7 @@ const handlePupitreAction = function (message) {
       }
       break
     case 'cancelCaptchaTimeouts':
-      removeTimeouts()
+      removeTimeouts(message.context)
       break
     case 'hurry':
       showWarning(message.context)
@@ -295,16 +307,21 @@ const handlePupitreAction = function (message) {
         instance.pointers.set(chosenItem.id, chosenItem)
       }
 
-      removeTimeouts()
+      removeTimeouts(message.context)
+      // well, now that we have a scenario where several captchas exist in the same
+      // screen, maybe we need a more graceful way of hiding
+      // everyone. We would need to access to each template's reactive data context
+      // and switch this.rendered.set(false).
+      console.log(message.context)
       const element = document.getElementById('pasUnRobot')
       if (element) {
         element.style.opacity = 0
 
         Meteor.setTimeout(function () {
-          catpchaTemplateContainer.forEach((captcha) => {
+          captchaTemplateContainer.forEach((captcha) => {
             Blaze.remove(captcha)
           })
-          catpchaTemplateContainer.length = 0
+          captchaTemplateContainer.length = 0
         }, parseFloat(getComputedStyle(element).transitionDuration) * 1000)
       }
 
