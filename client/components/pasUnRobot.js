@@ -15,6 +15,7 @@ newX = 1
 newY = 1
 
 Template.pasUnRobot.onCreated(function () {
+  console.log('new pasUnRobot ', this)
   this._pupitreHandler = (message) => {
     message.context = this
     handlePupitreAction(message)
@@ -83,6 +84,12 @@ Template.pasUnRobot.helpers({
   //   console.log('fleeing changed!', Template.instance().fleeing.get())
   //   return Template.instance().fleeing.get()
   // },
+  isTetris() {
+    return Template.instance().data.type === 'tetris'
+  },
+  tetrisClasses() {
+    return 'top-2 left-2'
+  },
   isFailed() {
     return Template.instance().failed.get()
   },
@@ -346,6 +353,7 @@ const showWarning = function (t) {
   t.warning.set(true)
 }
 
+// bloatware here, this is ONLY to make the dvd animation work.
 function prepareAnimationWithCenteredStart({
   realId,
   axis = 'both',

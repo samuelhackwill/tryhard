@@ -1,6 +1,6 @@
 <template name="pasUnRobot">
   <div
-    class="m-2 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 absolute  opacity-0 transition-opacity duration-200"
+    class="m-2 {{#if isTetris}} {{tetrisClasses}} {{else}}-translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 {{/if}} absolute  opacity-0 transition-opacity duration-200"
     id="pasUnRobot"
   >
     <div class="relative p-4">

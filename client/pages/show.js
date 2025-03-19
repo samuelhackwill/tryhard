@@ -123,6 +123,16 @@ function handlePupitreAction(message) {
         ),
       )
       break
+    case 'newTetris':
+      console.log(message.args)
+      catpchaTemplateContainer.push(
+        Blaze.renderWithData(
+          Template.pasUnRobot,
+          message.args,
+          document.getElementsByClassName('milieuContainer')[0],
+        ),
+      )
+      break
   }
   return
 }
