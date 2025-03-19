@@ -5,9 +5,6 @@ import { streamer } from '../../both/streamer.js'
 import { getRasp, getMouseBrand } from './show.js'
 
 Template.pupitre.onCreated(function () {
-  console.dir(streamer)
-  console.log(Object.getPrototypeOf(streamer).unsubscribe)
-
   Meteor.call('resetConnectedDevices')
   streamer.on('planDeSalleMessage', handlePlanDeSalleMessage)
   this.text = new ReactiveVar('')
@@ -268,13 +265,22 @@ const checkBeforeEmit = function (context) {
         break
     }
   } else {
+    // here we're parsing action lines in case they contain arguments
+    // IF THEY DO, then also check if it's a special captcha
     const value = String(context.value)
     const match = value.match(/^(\w+)\s*\[(.*)\]$/)
     if (match) {
       const action = match[1]
       const args = match[2].split(',').map((arg) => arg.trim())
       console.log(action, args)
-      sendAction(action, args)
+      switch (action) {
+        case 'tetris':
+          sendAction('reqNextPlayer', { type: action, params: args })
+          break
+        default:
+          sendAction(action, args)
+          break
+      }
     } else {
       sendAction(value)
     }
@@ -285,21 +291,39 @@ const handlePlanDeSalleMessage = function (message) {
   // console.log(message)
   switch (message.type) {
     case 'nextPlayerIs':
-      console.log('recieved nextPlayerIs from planDeSalle', message)
+      // console.log('recieved nextPlayerIs from planDeSalle', message)
       _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
       _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
       _surpriseAmount = document.getElementById('surprise-slider').value
 
-      sendAction('choosePlayer', { chosenOne: message.content.device })
-      sendAction('newCaptcha-1j', {
-        text: getCaptchaTextAndFailstate(String(message.context.value)),
-        coords: { x: 0, y: 0 },
-        hesitationAmount: _hesitationAmount,
-        readingSpeed: _readingSpeed,
-        surpriseAmount: Number(_surpriseAmount) * 1000,
-        chosenOne: message.content.order,
-      })
-      document.getElementById('surprise-slider').value = _surpriseAmount - 1
+      switch (message.context.type) {
+        case 'tetris':
+          sendAction('choosePlayer', { chosenOne: message.content.device })
+          sendAction('newTetris', {
+            type: 'tetris',
+            // we're not getting text from the same place, look at how checkBeforeEmit
+            // is parsing the args from action lines. We need to do this because we're
+            // going to pack a hell of a lot more pseudo code in the captchas of acte II
+            text: getCaptchaTextAndFailstate(String(message.context.params[0])),
+            hesitationAmount: _hesitationAmount,
+            readingSpeed: _readingSpeed,
+            surpriseAmount: Number(_surpriseAmount) * 1000,
+            chosenOne: message.content.order,
+          })
+          break
+
+        default:
+          sendAction('choosePlayer', { chosenOne: message.content.device })
+          sendAction('newCaptcha-1j', {
+            text: getCaptchaTextAndFailstate(String(message.context.value)),
+            hesitationAmount: _hesitationAmount,
+            readingSpeed: _readingSpeed,
+            surpriseAmount: Number(_surpriseAmount) * 1000,
+            chosenOne: message.content.order,
+          })
+          document.getElementById('surprise-slider').value = _surpriseAmount - 1
+          break
+      }
 
       break
   }
@@ -326,7 +350,7 @@ const getCaptchaTextAndFailstate = function (string) {
     // default to "la souris n°2 est un robot"
     return {
       value: string,
-      emphasis: 'robot',
+      emphasis: 'un robot',
     }
   }
 }
