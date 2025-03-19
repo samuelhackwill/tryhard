@@ -18,8 +18,8 @@ module.exports = {
       },
       keyframes: {
         fall: {
-          '0%': { transform: 'translateY(0%)' },
-          '100%': { transform: 'translateY(800%)' },
+          '0%': { transform: 'translateY(0vh)' },
+          '100%': { transform: 'translateY(200vh)' },
         },
       },
       animation: {
