@@ -265,8 +265,16 @@ const checkBeforeEmit = function (context) {
         break
     }
   } else {
-    action = String(context.value)
-    sendAction(action)
+    const value = String(context.value)
+    const match = value.match(/^(\w+)\s*\[(.*)\]$/)
+    if (match) {
+      const action = match[1]
+      const args = match[2].split(',').map((arg) => arg.trim())
+      console.log(action, args)
+      sendAction(action, args)
+    } else {
+      sendAction(value)
+    }
   }
 }
 

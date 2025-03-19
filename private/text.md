@@ -189,6 +189,7 @@ je ne suis pas un robot <!-- whirl -->
 je ne suis pas un robot <!-- dvd -->
 je ne suis pas un robot <!-- invisible -->
 je ne suis pas un robot <!-- plafond -->
+`tetris [je ne suis pas un robot]`
 
 je peux produire 50 clics en moins de 10 secondes _x clics/50_
 je peux produire 100 clics en moins de 10 secondes _x clics/100_

@@ -106,6 +106,7 @@ function handlePupitreAction(message) {
 
       break
     case 'newCaptcha-1j':
+      console.log(message.args)
       catpchaTemplateContainer.push(
         Blaze.renderWithData(
           Template.pasUnRobot,
