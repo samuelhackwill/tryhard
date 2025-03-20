@@ -318,8 +318,21 @@ const handlePupitreAction = function (message) {
       showWarning(message.context)
       break
     case 'fail':
+      // check if bob hasn't clicked
+      // THIS WONT WORK IF MULTIPLE CAPTCHAS!!!
+      // the clicks in show don't know about uuid of this template so it's tricky.
       showWarning(message.context)
       checkAndDie(message.context, message.context.view, false)
+      const hasntClicked = Number(document.getElementById('clickCounter').innerHTML) === 0
+      if (hasntClicked) {
+        document.getElementById(
+          'warning',
+        ).innerHTML = `la personne ${message.context.data.chosenOne} a résisté à l'impératif productiviste.`
+      } else {
+        document.getElementById(
+          'warning',
+        ).innerHTML = `la personne ${message.context.data.chosenOne} a cliqué à son rythme.`
+      }
       break
     case 'killCaptchas':
       console.log('kill catpcahs', message.context.uuid)

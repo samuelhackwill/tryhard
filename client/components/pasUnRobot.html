@@ -83,15 +83,7 @@
 
           {{#unless isPassed}}
             <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
-              {{#if isFailed}}
-                {{#if isZero}}
-                  la personne n°{{this.chosenOne}} a résisté à la pression et n'a pas cliqué.
-                {{else}}
-                  la personne n°{{this.chosenOne}} ne s'est pas laissé bousculer.
-                {{/if}}
-              {{else}}
               cliquer veut dire : appuyer sur sa souris
-              {{/if}}
             </div>
           {{else}}
             <div class="text-blue-300 mt-2 transition-opacity {{isWarning}}" id="warning"> 
