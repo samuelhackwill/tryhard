@@ -184,29 +184,30 @@ ils sont où les acteurs _un robot ouvert d'esprit_
 <!-- il y a un timer. chaque partie dure 10 secondes -->
 <!-- joueur / joueur -->
 
-je ne suis pas un robot <!-- spin -->
-je ne suis pas un robot <!-- spin-r -->
-je ne suis pas un robot <!-- fast -->
-je ne suis pas un robot <!-- dvd -->
-je ne suis pas un robot <!-- whirl -->
-je ne suis pas un robot <!-- ultraFast -->
-je ne suis pas un robot <!-- randomFast -->
-je ne suis pas un robot <!-- randomFast + pause -->
-je ne suis pas un robot <!-- invisible -->
+difficulté : très facile <!-- nothing -->
+difficulté : facile <!-- spin -->
+difficulté : facile avec variation <!-- spin-r -->
+difficulté : modérée <!-- fast -->
+difficulté : modérée avec variation <!-- dvd -->
+difficulté : difficile <!-- whirl -->
+difficulté : hard <!-- ultraFast -->
+difficulté : very hard<!-- randomFast -->
+difficulté : extrême <!-- randomFast + pause -->
+difficulté : impossible <!-- invisible -->
 
 ## captchas-1j-manual
 
 `reqNextPlayer`
-`tetris [je ne suis pas un robot]`
+`tetris [difficulté : tryhard]`
 `unchoosePlayer`
 `reqNextPlayer`
 `clicker [je peux cliquer]`
 `unchoosePlayer`
 `reqNextPlayer`
-`clicker [je peux cliquer 20 fois en 5 secondes, 50, 10]`
+`clicker [je peux produire, 50, 10]`
 `unchoosePlayer`
 `reqNextPlayer`
-`clicker [je peux cliquer 55 fois en 10 secondes, 60, 10]`
+`clicker [je peux produire, 60, 10]`
 `unchoosePlayer`
 
 je peux faire le tour de l'écran en moins d'une seconde (sinon la personne explose, bilan en rouge sous la case)

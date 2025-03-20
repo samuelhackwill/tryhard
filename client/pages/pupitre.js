@@ -284,10 +284,7 @@ const checkBeforeEmit = function (context) {
       console.log(action, args)
       switch (action) {
         case 'clicker':
-          sendAction('newClicker', {
-            type: 'clicker',
-            text: getCaptchaTextAndFailstate(args[0]),
-          })
+          sendAction('reqNextPlayer', { type: action, args: args })
           break
         case 'tetris':
           sendAction('newTetris', {
@@ -332,8 +329,18 @@ const handlePlanDeSalleMessage = function (message) {
         })
         document.getElementById('surprise-slider').value = _surpriseAmount - 1
       } else {
-        console.log('just choose player plise')
+        console.log('just choose player plise', message)
         sendAction('choosePlayer', { chosenOne: message.content.device })
+        if (message.context.type === 'clicker') {
+          sendAction('newClicker', {
+            type: 'clicker',
+            text: getCaptchaTextAndFailstate(message.context.args[0]),
+            hesitationAmount: 1000000,
+            readingSpeed: 1,
+            surpriseAmount: 1,
+            chosenOne: message.content.order,
+          })
+        }
       }
       break
   }
