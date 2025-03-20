@@ -72,7 +72,7 @@
 `hideFeed`
 `clearFeed`
 
-## captchas-1j-s1
+## captchas-1j-text
 
 <!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
 
@@ -178,32 +178,48 @@ ils sont où les acteurs _un robot ouvert d'esprit_
 <!-- funny captchas -->
 <!-- il y a un timer pour chaque captcha et un message d'échec si les captchas ne sont pas validés -->
 
-## captchas-1j-funni
+## captchas-1j-kinetic
 
 <!-- ces captchas sont en mode die & retry. -->
 <!-- il y a un timer. chaque partie dure 10 secondes -->
 <!-- joueur / joueur -->
 
 je ne suis pas un robot <!-- spin -->
-je ne suis pas un robot <!-- whirl -->
+je ne suis pas un robot <!-- spin-r -->
+je ne suis pas un robot <!-- fast -->
 je ne suis pas un robot <!-- dvd -->
+je ne suis pas un robot <!-- whirl -->
+je ne suis pas un robot <!-- ultraFast -->
+je ne suis pas un robot <!-- randomFast -->
+je ne suis pas un robot <!-- randomFast + pause -->
 je ne suis pas un robot <!-- invisible -->
-je ne suis pas un robot <!-- plafond -->
-`tetris [je ne suis pas un robot]`
 
-je peux produire 50 clics en moins de 10 secondes _x clics/50_
-je peux produire 100 clics en moins de 10 secondes _x clics/100_
+## captchas-1j-manual
+
+`reqNextPlayer`
+`tetris [je ne suis pas un robot]`
+`unchoosePlayer`
+`reqNextPlayer`
+`clicker [je peux cliquer]`
+`unchoosePlayer`
+`reqNextPlayer`
+`clicker [je peux cliquer 20 fois en 5 secondes, 50, 10]`
+`unchoosePlayer`
+`reqNextPlayer`
+`clicker [je peux cliquer 55 fois en 10 secondes, 60, 10]`
+`unchoosePlayer`
 
 je peux faire le tour de l'écran en moins d'une seconde (sinon la personne explose, bilan en rouge sous la case)
 
 <!-- les jeux suivants sont gradin / gradin -->
 
-## captchas-gradin
+## captchas-gradin-manual
 
-_nous_ ne sommes pas vexés d'éprouver des difficultés à cocher les cases (on remplit l'écran de captchas et y'a un gradin qui doit les grailler) (on sélectionne le gradin en cours)
-nous ne sommes pas vexés d'éprouver des difficultés à cocher les cases (y'en a plusieurs qui tombent du plafond et il faut en chopper un max et on est tout un gradin)
-nous pouvons produire 200 clics en moins de 10 secondes
-nous pouvons produire 1000 clics en moins de 10 secondes (et ce malgré le fait que nous sommes moins nombreuxses que les autres gradins ---> si contient disabled mice)
+_nous_ ne sommes pas un robot (on sélectionne 1+1 personne)
+_nous_ ne sommes pas un robot (on sélectionne le gradin en cours)
+_nous_ ne sommes pas un robot (y'en a plusieurs qui tombent du plafond et il faut en chopper un max et on est tout un gradin)
+_nous_ pouvons produire 200 clics en moins de 10 secondes
+_nous_ pouvons produire 1000 clics en moins de 10 secondes (et ce malgré le fait que nous sommes moins nombreuxses que les autres gradins ---> si contient disabled mice)
 
 une bombe va exploser sauf si je coche la bonne case. La bonne case est celle de gauche (mouse hover rouge/mouse hover vert) (+tic tac +clic avec de la reverb)
 ok alors la dernière fois c'était une blague mais cette fois-ci c'est vrai, c'est la case gauche qui n'est pas piégée.

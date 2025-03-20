@@ -283,6 +283,12 @@ const checkBeforeEmit = function (context) {
       const args = match[2].split(',').map((arg) => arg.trim())
       console.log(action, args)
       switch (action) {
+        case 'clicker':
+          sendAction('newClicker', {
+            type: 'clicker',
+            text: getCaptchaTextAndFailstate(args[0]),
+          })
+          break
         case 'tetris':
           sendAction('newTetris', {
             type: 'tetris',

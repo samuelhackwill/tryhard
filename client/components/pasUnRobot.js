@@ -22,7 +22,6 @@ Template.pasUnRobot.onCreated(function () {
 
   // refactor : this.state would be better, to avoid multi-state-bordels
   this.waiting = new ReactiveVar(false)
-  // this.fleeing = new ReactiveVar(false)
   this.timestamp = new Date()
   this.warning = new ReactiveVar(false)
   this.failed = new ReactiveVar(false)
@@ -33,15 +32,6 @@ Template.pasUnRobot.onCreated(function () {
   this.rotation = Math.floor(Math.random() * 360)
   this.top = '-45%'
   this.left = `${Math.floor(Math.random() * 81)}%`
-
-  // this.autorun(() => {
-  //   // Get the chosen item reactively
-  //   const chosenItem = Object.values(instance.pointers.all()).find((obj) => obj.chosen)
-
-  //   if (chosenItem && this.fleeing.get()) {
-  //     updateCaptchaPosition(this)
-  //   }
-  // })
 
   const speedRatio = 0.9 - -this.data.readingSpeed * 0.05
   this.minReadingTime = estimateReadingTime(this.data.text.value) * speedRatio
@@ -55,32 +45,52 @@ Template.pasUnRobot.onDestroyed(function () {
 Template.pasUnRobot.onRendered(function () {
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 
-  console.log(
-    'debug : TIME TO COMPLETE CAPTCHA =',
-    'surprise time :',
-    this.data.surpriseAmount,
-    '+ reading time :',
-    this.minReadingTime,
-    ' + hesitation time : ',
-    this.data.hesitationAmount,
-    ' = total ',
-    timeToComplete,
-  )
+  // console.log(
+  //   'debug : TIME TO COMPLETE CAPTCHA =',
+  //   'surprise time :',
+  //   this.data.surpriseAmount,
+  //   '+ reading time :',
+  //   this.minReadingTime,
+  //   ' + hesitation time : ',
+  //   this.data.hesitationAmount,
+  //   ' = total ',
+  //   timeToComplete,
+  // )
 
   setTimeout(() => {
     this.rendered.set(true)
   }, 50)
 
-  this.timeouts.set([
-    setTimeout(() => {
-      console.log('player failed to complete captcha')
-      checkAndDie(this, this.view, false)
-    }, timeToComplete),
-    setTimeout(() => {
-      console.log('warn player that time almost over')
-      showWarning(this)
-    }, timeToComplete * 0.5),
-  ])
+  const timeouts = []
+
+  switch (this.data.type) {
+    case 'tetris':
+      setTimeout(() => {
+        console.log('warn player that time almost over')
+        showWarning(this)
+      }, timeToComplete * 0.5)
+      break
+
+    case 'clicker':
+      window.addEventListener('mouseup', function () {
+        console.log('mégaaaa proutos')
+      })
+      break
+
+    default:
+      timeouts.push(
+        setTimeout(() => {
+          console.log('warn player that time almost over')
+          showWarning(this)
+        }, timeToComplete * 0.5),
+        setTimeout(() => {
+          console.log('player failed to complete captcha')
+          checkAndDie(this, this.view, false)
+        }, timeToComplete),
+      )
+      break
+  }
+  this.timeouts.set(timeouts)
 })
 
 Template.pasUnRobot.helpers({
@@ -91,6 +101,10 @@ Template.pasUnRobot.helpers({
   //   console.log('fleeing changed!', Template.instance().fleeing.get())
   //   return Template.instance().fleeing.get()
   // },
+  isClicker() {
+    // console.log(!Template.instance().data || !Template.instance().data.hasOwnProperty('type'))
+    return Template.instance().data.type === 'clicker'
+  },
   isTetris() {
     return Template.instance().data.type === 'tetris'
   },

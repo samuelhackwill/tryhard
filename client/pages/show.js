@@ -136,6 +136,14 @@ function handlePupitreAction(message) {
         document.getElementsByClassName('milieuContainer')[0],
       )
       break
+
+    case 'newClicker':
+      Blaze.renderWithData(
+        Template.pasUnRobot,
+        message.args,
+        document.getElementsByClassName('milieuContainer')[0],
+      )
+      break
   }
   return
 }

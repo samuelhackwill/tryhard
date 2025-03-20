@@ -23,7 +23,7 @@ module.exports = {
         },
       },
       animation: {
-        fall: 'fall 3s ease-in forwards',
+        fall: 'fall 4s ease-in forwards',
       },
     },
   },
