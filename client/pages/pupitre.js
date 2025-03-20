@@ -128,6 +128,10 @@ Template.pupitre.events({
     sendAction('cancelCaptchaTimeouts')
     sendAction('fail')
   },
+  'click #pass'() {
+    sendAction('cancelCaptchaTimeouts')
+    sendAction('pass')
+  },
   'click #kill'() {
     sendAction('killCaptchas')
   },

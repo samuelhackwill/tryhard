@@ -22,7 +22,7 @@
         <!-- Red border layer with opacity control -->
         <div
           id="warningBorder"
-          class="pointer-events-none absolute inset-0 border-2  {{isWarning}} border-red-600 transition-opacity"
+          class="pointer-events-none absolute inset-0 border-2  {{isWarning}} {{#unless isPassed}} border-red-600 {{else}} border-blue-300 {{/unless}} transition-opacity"
         >
         </div>
 
@@ -64,10 +64,10 @@
                   </div>
                 {{/unless}}
 
-                <div class="inline-block text-2xl ml-9 mr-6">{{ jeNeSuisPas }} 
+                <div class="inline-block text-2xl mr-6 {{#if isClicker}}ml-6{{else}}ml-9{{/if}}">{{ jeNeSuisPas }} 
 
                   {{#if isClicker}}
-                    <span id="clickCounter" class="text-blue-700 font-bold">0</span> 
+                    <span id="clickCounter" class="text-[blue] font-mono font-bold">0</span> 
                     <span> fois</span>
                     
                   {{/if}}
@@ -79,13 +79,38 @@
             </div>
           </div>
 
-          <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
-            {{#if isFailed}}
-            la personne n°{{this.chosenOne}} est probablement {{this.text.emphasis}}
-            {{else}}
-            merci de cocher la petite case
-            {{/if}}
-          </div>
+          {{#if isClicker}}
+
+          {{#unless isPassed}}
+            <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
+              {{#if isFailed}}
+                {{#if isZero}}
+                  la personne n°{{this.chosenOne}} a résisté à la pression et n'a pas cliqué.
+                {{else}}
+                  la personne n°{{this.chosenOne}} ne s'est pas laissé bousculer.
+                {{/if}}
+              {{else}}
+              cliquer veut dire : appuyer sur sa souris
+              {{/if}}
+            </div>
+          {{else}}
+            <div class="text-blue-300 mt-2 transition-opacity {{isWarning}}" id="warning"> 
+              la personne n°{{this.chosenOne}} a réussi à cliquer.
+            </div>
+          {{/unless}}
+
+
+          {{else}}
+
+            <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
+              {{#if isFailed}}
+              la personne n°{{this.chosenOne}} est probablement {{this.text.emphasis}}
+              {{else}}
+              merci de cocher la petite case
+              {{/if}}
+            </div>
+
+          {{/if}}
         </div>
     </div>
 </div>

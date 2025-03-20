@@ -25,6 +25,7 @@ Template.pasUnRobot.onCreated(function () {
   this.timestamp = new Date()
   this.warning = new ReactiveVar(false)
   this.failed = new ReactiveVar(false)
+  this.passed = new ReactiveVar(false)
   this.rendered = new ReactiveVar(false)
   this.timeouts = new ReactiveVar([])
   this.uuid = crypto.randomUUID()
@@ -101,6 +102,9 @@ Template.pasUnRobot.helpers({
   },
   isFailed() {
     return Template.instance().failed.get()
+  },
+  isPassed() {
+    return Template.instance().passed.get()
   },
   isDisabled() {
     if (Template.instance().failed.get()) {
@@ -193,6 +197,20 @@ const checkAndDie = function (t, handle, passed) {
   }, 1000)
 }
 
+const clickerDie = function (t, handle, passed) {
+  setTimeout(() => {
+    // console.log('captcha completed!!')
+    // const element = document.getElementById('pasUnRobot')
+    // element.style.opacity = 0
+    t.rendered.set(false)
+
+    setTimeout(() => {
+      checkAndDieOutro(t)
+      Blaze.remove(handle)
+    }, 300)
+  }, 1000)
+}
+
 const checkAndDieOutro = function (t) {
   if (t.data && t.data.type) {
     // console.log(`Type exists: ${t.data.type}`);
@@ -232,6 +250,11 @@ const handlePupitreAction = function (message) {
   // message.context contains the original template which was bound to the streamer. Hm i wonder what will happen when we have several templates of captcha in the same page.
   const captcha = document.getElementById(`pasUnRobot-${message.context.uuid}`)
   switch (message.content) {
+    case 'pass':
+      message.context.passed.set(true)
+      showWarning(message.context)
+      clickerDie(message.context, message.context.view, false)
+      break
     case 'changeOpacity':
       document.getElementById(`pasUnRobotWhiteBox-${message.context.uuid}`).style.opacity =
         message.args / 10
