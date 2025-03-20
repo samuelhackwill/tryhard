@@ -287,6 +287,15 @@ const checkBeforeEmit = function (context) {
       const args = match[2].split(',').map((arg) => arg.trim())
       console.log(action, args)
       switch (action) {
+        case 'chaises':
+          sendAction('chaises', {
+            type: 'chaises',
+            text: getCaptchaTextAndFailstate(args[0]),
+            hesitationAmount: 1000000,
+            readingSpeed: 1,
+            surpriseAmount: 1,
+          })
+          break
         case 'clicker':
           sendAction('reqNextPlayer', { type: action, args: args })
           break
@@ -307,7 +316,7 @@ const checkBeforeEmit = function (context) {
           break
       }
     } else {
-      console.log('proutos', value)
+      // console.log('proutos', value)
       sendAction(value)
     }
   }
@@ -333,7 +342,6 @@ const handlePlanDeSalleMessage = function (message) {
         })
         document.getElementById('surprise-slider').value = _surpriseAmount - 1
       } else {
-        console.log('just choose player plise', message)
         sendAction('choosePlayer', { chosenOne: message.content.device })
         if (message.context.type === 'clicker') {
           sendAction('newClicker', {

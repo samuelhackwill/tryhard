@@ -18,6 +18,8 @@ import { updateTopMouse } from '../components/feed.js'
 import '../components/main.js'
 import './show.html'
 
+const circleElements = []
+
 Template.show.onCreated(function () {
   streamer.on('pupitreStateChange', function (message) {
     instance.state.set(message.content)
@@ -138,6 +140,14 @@ function handlePupitreAction(message) {
       break
 
     case 'newClicker':
+      Blaze.renderWithData(
+        Template.pasUnRobot,
+        message.args,
+        document.getElementsByClassName('milieuContainer')[0],
+      )
+      break
+
+    case 'chaises':
       Blaze.renderWithData(
         Template.pasUnRobot,
         message.args,
@@ -905,5 +915,36 @@ export const unchoosePlayer = function (player) {
     chosenItem.captchaPlayCount++
     moveOffOfCaptcha(chosenItem)
     instance.pointers.set(chosenItem.id, chosenItem)
+  }
+}
+
+function recalculateCirclePositions() {
+  const screenWidth = window.innerWidth
+  const screenHeight = window.innerHeight
+  const n = circleElements.length
+
+  // Estimate max radius we can afford
+  const maxElementRadius = Math.max(...circleElements.map((e) => Math.max(e.width, e.height))) / 2
+  const usableRadius = Math.min(screenWidth, screenHeight) / 2 - maxElementRadius
+
+  for (let i = 0; i < n; i++) {
+    const angle = (2 * Math.PI * i) / n
+    const centerX = screenWidth / 2
+    const centerY = screenHeight / 2
+
+    const el = circleElements[i]
+    const x = centerX + usableRadius * Math.cos(angle) - el.width / 2
+    const y = centerY + usableRadius * Math.sin(angle) - el.height / 2
+
+    console.log(circleElements)
+    el.instance.circleX.set(x)
+    el.instance.circleY.set(y)
+  }
+}
+
+export const registerCircleElement = function (instance, width, height) {
+  circleElements.push({ instance, width, height })
+  if (circleElements.length === 7) {
+    recalculateCirclePositions()
   }
 }

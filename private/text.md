@@ -210,7 +210,7 @@ difficulté : impossible <!-- invisible -->
 `clicker [je peux produire, 60, 10]`
 `unchoosePlayer`
 
-je peux faire le tour de l'écran en moins d'une seconde (sinon la personne explose, bilan en rouge sous la case)
+<!-- je peux faire le tour de l'écran en moins d'une seconde (sinon la personne explose, bilan en rouge sous la case) -->
 
 <!-- les jeux suivants sont gradin / gradin -->
 
@@ -246,6 +246,10 @@ la preuve que nous sommes humains, c'est que si le spectacle nous ordonne de tro
 la preuve que nous sommes humains, c'est que si la souris n°12 a été supprimée, une personne tentera de venger sa mort (c'est la souris n°xx qui a collaboré) -->
 
 `bgToblack`
+
+## chaises
+
+`chaises [je suis une chaise]`
 
 ## moralité
 

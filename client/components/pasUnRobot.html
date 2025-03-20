@@ -1,11 +1,11 @@
 <template name="pasUnRobot">
   <div
     class="m-2 absolute transition-opacity duration-200
-    {{#unless isTetris}} 
-      -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 
-    {{else}} 
+    {{#if isTetris}} 
       animate-fall 
-    {{/unless}}   
+    {{else unless isChaisesMusicales}} 
+      -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 
+    {{/if}}   
     
     {{#if isRendered}}
       opacity-1
@@ -13,7 +13,8 @@
       opacity-0
     {{/if}}"
     id="pasUnRobot-{{uuid}}"
-    style="{{#if isTetris}}{{tetrisStyle}}{{/if}}"
+    style="{{#if isTetris}}{{tetrisStyle}}{{/if}}
+          {{#if isChaisesMusicales}}{{cmStyle}}{{/if}}"
   >
     <div class="animatedWrapper"
          style= "{{#if isTetris}} {{tetrisRot}} {{/if}}">

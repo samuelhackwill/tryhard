@@ -1,7 +1,7 @@
 import './pasUnRobot.html'
 import { moveOffOfCaptcha } from '../bots.js'
 import { streamer } from '../../both/streamer.js'
-import { unchoosePlayer } from '../pages/show.js'
+import { unchoosePlayer, registerCircleElement } from '../pages/show.js'
 
 const interestingSpeeds = [
   235, 33, 40, 49, 42, 50, 52, 56, 131, 129, 61, 67, 94, 87, 109, 186, 217, 243, 275, 282, 284, 291,
@@ -19,6 +19,9 @@ Template.pasUnRobot.onCreated(function () {
   }
 
   streamer.on('pupitreAction', this._pupitreHandler)
+  // this is only for les chaises musik
+  this.circleX = new ReactiveVar(0)
+  this.circleY = new ReactiveVar(0)
 
   // refactor : this.state would be better, to avoid multi-state-bordels
   this.waiting = new ReactiveVar(false)
@@ -44,6 +47,13 @@ Template.pasUnRobot.onDestroyed(function () {
 })
 
 Template.pasUnRobot.onRendered(function () {
+  const el = this.firstNode
+  const rect = el.getBoundingClientRect()
+
+  // Now call a global "recalculateCirclePositions()" that uses ALL sizes
+  registerCircleElement(this, rect.width, rect.height)
+  console.log(el)
+
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 
   console.log(
@@ -92,9 +102,16 @@ Template.pasUnRobot.helpers({
   isTetris() {
     return Template.instance().data.type === 'tetris'
   },
+  isChaisesMusicales() {
+    return Template.instance().data.type === 'chaises'
+  },
   tetrisStyle() {
     const self = Template.instance()
     return `top: ${self.top}; left: ${self.left};`
+  },
+  cmStyle() {
+    const self = Template.instance()
+    return `left: ${self.circleX.get()}px; top: ${self.circleY.get()}px;`
   },
   tetrisRot() {
     const self = Template.instance()
