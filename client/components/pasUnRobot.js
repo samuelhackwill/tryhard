@@ -72,9 +72,6 @@ Template.pasUnRobot.onRendered(function () {
       break
 
     case 'clicker':
-      window.addEventListener('mouseup', function () {
-        console.log('mégaaaa proutos')
-      })
       break
 
     default:

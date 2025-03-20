@@ -515,13 +515,19 @@ export const simulateMouseUp = function (pointer) {
   }
   elements.forEach((e) => e.classList.remove('clicked'))
 
-  // only add to money if we're in the appropriate moment of the show.
-  if (instance.state.get('state').startsWith('ii-le-succes')) {
-    const DOMcounter = domPointer.querySelector('#money')
-    const cleanValue = DOMcounter.innerHTML.replace(/\s/g, '')
-    const DOMcounterValue = Number(cleanValue) + 1
-    DOMcounter.innerHTML = DOMcounterValue
+  // this is dangerous : as soon as we get more than one clicker on the screen it won't play nice
+  const clickCounter = document.getElementById('clickCounter')
+  if (clickCounter) {
+    clickCounter.innerHTML = Number(clickCounter.innerHTML) + 1 || 1
   }
+
+  // only add to money if we're in the appropriate moment of the show.
+  // if (instance.state.get('state').startsWith('ii-le-succes')) {
+  //   const DOMcounter = domPointer.querySelector('#money')
+  //   const cleanValue = DOMcounter.innerHTML.replace(/\s/g, '')
+  //   const DOMcounterValue = Number(cleanValue) + 1
+  //   DOMcounter.innerHTML = DOMcounterValue
+  // }
 
   // only enable autolicker production if we're at ii le succes s3.
   // if (instance.state.get() != 'ii-le-succes-s3') return

@@ -1,6 +1,17 @@
 <template name="pasUnRobot">
   <div
-    class="m-2 {{#unless isTetris}} -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 {{else}} animate-fall {{/unless}} absolute  {{#if isRendered}}opacity-1{{else}}opacity-0{{/if}} transition-opacity duration-200"
+    class="m-2 absolute transition-opacity duration-200
+    {{#unless isTetris}} 
+      -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 
+    {{else}} 
+      animate-fall 
+    {{/unless}}   
+    
+    {{#if isRendered}}
+      opacity-1
+    {{else}}
+      opacity-0
+    {{/if}}"
     id="pasUnRobot-{{uuid}}"
     style="{{#if isTetris}}{{tetrisStyle}}{{/if}}"
   >
@@ -55,7 +66,7 @@
                   {{/if}}
                 </div>
                 {{/unless}}
-                <div class="inline-block text-2xl ml-9 mr-6">{{ jeNeSuisPas }}</div>
+                <div class="inline-block text-2xl ml-9 mr-6">{{ jeNeSuisPas }} {{#if isClicker}}<span id="clickCounter" class="text-blue-700 font-bold"></span> <span> fois</span>{{/if}}</div>
                 <!-- <div
                   class="absolute left-0 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 transform border-b border-l bg-white"
                 ></div> -->
