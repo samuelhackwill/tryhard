@@ -45,48 +45,34 @@ Template.pasUnRobot.onDestroyed(function () {
 Template.pasUnRobot.onRendered(function () {
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 
-  // console.log(
-  //   'debug : TIME TO COMPLETE CAPTCHA =',
-  //   'surprise time :',
-  //   this.data.surpriseAmount,
-  //   '+ reading time :',
-  //   this.minReadingTime,
-  //   ' + hesitation time : ',
-  //   this.data.hesitationAmount,
-  //   ' = total ',
-  //   timeToComplete,
-  // )
+  console.log(
+    'debug : TIME TO COMPLETE CAPTCHA =',
+    'surprise time :',
+    this.data.surpriseAmount,
+    '+ reading time :',
+    this.minReadingTime,
+    ' + hesitation time : ',
+    this.data.hesitationAmount,
+    ' = total ',
+    timeToComplete,
+  )
 
   setTimeout(() => {
     this.rendered.set(true)
   }, 50)
 
   const timeouts = []
+  timeouts.push(
+    setTimeout(() => {
+      console.log('warn player that time almost over')
+      showWarning(this)
+    }, timeToComplete * 0.5),
+    setTimeout(() => {
+      console.log('player failed to complete captcha')
+      checkAndDie(this, this.view, false)
+    }, timeToComplete),
+  )
 
-  switch (this.data.type) {
-    case 'tetris':
-      setTimeout(() => {
-        console.log('warn player that time almost over')
-        showWarning(this)
-      }, timeToComplete * 0.5)
-      break
-
-    case 'clicker':
-      break
-
-    default:
-      timeouts.push(
-        setTimeout(() => {
-          console.log('warn player that time almost over')
-          showWarning(this)
-        }, timeToComplete * 0.5),
-        setTimeout(() => {
-          console.log('player failed to complete captcha')
-          checkAndDie(this, this.view, false)
-        }, timeToComplete),
-      )
-      break
-  }
   this.timeouts.set(timeouts)
 })
 
@@ -201,10 +187,23 @@ const checkAndDie = function (t, handle, passed) {
     t.rendered.set(false)
 
     setTimeout(() => {
-      unchoosePlayer()
+      checkAndDieOutro(t)
       Blaze.remove(handle)
     }, 300)
   }, 1000)
+}
+
+const checkAndDieOutro = function (t) {
+  if (t.data && t.data.type) {
+    // console.log(`Type exists: ${t.data.type}`);
+    if (t.data.type === 'tetris' || t.data.type === 'clicker') {
+      return
+    } else {
+      unchoosePlayer()
+    }
+  } else {
+    unchoosePlayer()
+  }
 }
 
 export const removeTimeouts = function (t) {
