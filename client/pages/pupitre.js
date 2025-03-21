@@ -30,6 +30,9 @@ Template.pupitre.onCreated(function () {
 })
 
 Template.pupitre.helpers({
+  isItChairTime() {
+    return Template.instance().selectedHeader.get() == 'chaises'
+  },
   getChairsNumber() {
     return Template.instance().chairsNumber.get()
   },

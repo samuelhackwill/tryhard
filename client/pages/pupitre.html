@@ -16,63 +16,63 @@
             </div>
           {{/each}}
 
-          <div class="mt-4 pt-2 border-t-2">
-            <h1>chaises musicales</h1>
-            <div class="relative mb-4 text-gray-500">
-              <input
-                id="chairs-slider"
-                type="range"
-                value="{{getChairsNumber}}"
-                min="1"
-                max="50"
-                class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-300"
-              />
-            </div>
-            <button
-            class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-            id="chairs-send-jesuis"
-          >
-            on envoie <span> {{getChairsNumber}} [je suis une chaise]</span>
-
-          </button>
-          <button
-          class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-          id="chairs-send-x"
-        >
-          on envoie <span> {{getChairsNumber}} [je suis x]</span>
-
-        </button>
-        <div>
-          <button
-          class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-          id="chairs-start"
-        >
-          start
-
-        </button>
-        <button
-        class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-        id="chairs-stop"
-      >
-        stop!
-
-      </button>
-
-        </div>
-
-
-          </div>
-        </div>
+      </div>
 
         <div class="col-span-6 pr-4 overflow-y-auto" id="textLinesColumn">
-          {{#each getContent}}
-            <div class="mb-2">
-              <span class="text-xs text-slate-300">{{@index}}</span>
-              <a class="focus:bg-blue-50 cursor-pointer select-none hover:text-blue-600 line {{ styleActions }}" tabindex="0">
-                {{ this.value }}
-              </a>
+          {{#if isItChairTime}}
+            <div class="mt-4 pt-2 border-t-2">
+              <h1>chaises musicales</h1>
+              <div class="relative mb-4 text-gray-500">
+                <input
+                  id="chairs-slider"
+                  type="range"
+                  value="{{getChairsNumber}}"
+                  min="1"
+                  max="50"
+                  class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-300"
+                />
+              </div>
+              <button
+              class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+              id="chairs-send-jesuis"
+              >
+                on envoie <span class="font-mono"> {{getChairsNumber}} [je suis une chaise]</span>
+              </button>
+
+              <button
+              class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+              id="chairs-send-x"
+              >
+                on envoie <span class="font-mono"> {{getChairsNumber}} [je suis x]</span>
+              </button>
+
+              <div>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-start"
+                >
+                  start
+                </button>
+
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-stop"
+                >
+                  stop!
+
+                </button>
+              </div>
             </div>
-          {{/each}}
+            {{else}}
+            {{#each getContent}}
+              <div class="mb-2">
+                <span class="text-xs text-slate-300">{{@index}}</span>
+                <a class="focus:bg-blue-50 cursor-pointer select-none hover:text-blue-600 line {{ styleActions }}" tabindex="0">
+                  {{ this.value }}
+                </a>
+              </div>
+            {{/each}}
+          {{/if}}
         </div>
 
         <div class="col-span-2 pr-4 overflow-y-auto" id="textLinesColumn">

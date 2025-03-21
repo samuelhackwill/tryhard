@@ -742,20 +742,22 @@ export const createPointer = function (id, bot = false, _owner) {
     bgColor: '#000000',
     outlineColor: '#FFFFFF',
     initializationCoords: { x: -50, y: -50 },
-    captchaPlayCount: 0,
-    cornersTouched: {},
     order: _order,
-    events: [],
+    opacity: 1,
+    hoveredElementId: 'feed',
+    cornersTouched: {},
+    captchaPlayCount: 0,
+    seated: false,
+    // deprecated
     bot: bot,
+    killable: false,
     owner: _owner || null,
     seed: Math.random() * 1000000,
     gravity: 0, //in pixels per second
     locked: false,
-    opacity: 1,
-    tree: null,
-    killable: false,
     money: 0,
-    hoveredElementId: 'feed',
+    events: [],
+    tree: null,
   }
 }
 function createBot(id, isBot, owner) {

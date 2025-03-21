@@ -6,8 +6,14 @@ import { createPointer, checkHover } from '../client/pages/show.js'
 
 let clientEventQueue = []
 
-// we need to know when it's forbiden to MOVE, so it's hard-coded here. yep
-const moveAuthorized = ['repetition', 'ii-le-succes-s1', 'ii-le-succes-s2', 'ii-le-succes-s3']
+// we need to know when it's authorized to MOVE, so it's hard-coded here. yep
+const moveAuthorized = [
+  'repetition',
+  'captchas-ffa',
+  'captchas-1j-kinetic',
+  'captchas-1j-manual',
+  'chaises',
+]
 
 const noise = new ValueNoise()
 

@@ -151,9 +151,14 @@ Template.pasUnRobot.helpers({
 })
 
 Template.pasUnRobot.events({
-  'mousedown .pasUnRobot'(e, t, obj) {
-    if (t.data.type == 'chair') {
+  'mousedown .pasUnRobot'(e, t, p) {
+    const pointer = instance.pointers.get(p.pointer.id)
+
+    if (t.data.type == 'chair' && pointer.seated == false) {
       console.log('someone just clicked on a chair')
+      checkAndDie(t, t.view, true)
+      pointer.seated = true
+      instance.pointers.set(pointer.id, pointer)
     }
   },
   'mousedown .checkbox-pasUnRobot'(event, t, obj) {
