@@ -311,7 +311,9 @@ Template.show.helpers({
         if (
           this.hoveredElementId.startsWith('checkbox') == true ||
           this.hoveredElementId.startsWith('button') == true ||
-          (this.hoveredElementId.startsWith('pasUnRobot') && instance.state.get() == 'chaises')
+          (this.hoveredElementId.startsWith('pasUnRobot') &&
+            instance.state.get() == 'chaises' &&
+            this.seated == false)
         ) {
           return true
         }
@@ -321,10 +323,11 @@ Template.show.helpers({
         break
       case 'isCursor':
         if (
-          this.hoveredElementId.startsWith('th') != true &&
-          this.hoveredElementId.startsWith('button') != true &&
-          this.hoveredElementId.startsWith('checkbox') != true &&
-          this.hoveredElementId.startsWith('pasUnRobot') != true
+          (this.hoveredElementId.startsWith('th') != true &&
+            this.hoveredElementId.startsWith('button') != true &&
+            this.hoveredElementId.startsWith('checkbox') != true &&
+            this.hoveredElementId.startsWith('pasUnRobot') != true) ||
+          (this.hoveredElementId.startsWith('pasUnRobot') && this.seated == true)
         ) {
           return true
         }
@@ -676,7 +679,7 @@ function getElementsUnder(pointer) {
 }
 
 export const checkHover = function (pointer) {
-  if (pointer.chosen == false) {
+  if (pointer.chosen == false || pointer.seated) {
     // if pointer is deactivated, we don't want to trigger hover events when it's under a clickable element
     return
   }

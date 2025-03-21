@@ -16,6 +16,10 @@ module.exports = {
         samuelSad: "url('/samuel_sad.png')",
         samuelSmile: "url('/samuel_smile.png')",
       },
+      transitionProperty: {
+        'opacity-colors': 'opacity, background-color, border-color, color, fill, stroke',
+      },
+
       keyframes: {
         fall: {
           '0%': { transform: 'translateY(0vh)' },

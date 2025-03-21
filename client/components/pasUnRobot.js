@@ -58,17 +58,17 @@ Template.pasUnRobot.onRendered(function () {
 
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 
-  console.log(
-    'debug : TIME TO COMPLETE CAPTCHA =',
-    'surprise time :',
-    this.data.surpriseAmount,
-    '+ reading time :',
-    this.minReadingTime,
-    ' + hesitation time : ',
-    this.data.hesitationAmount,
-    ' = total ',
-    timeToComplete,
-  )
+  // console.log(
+  //   'debug : TIME TO COMPLETE CAPTCHA =',
+  //   'surprise time :',
+  //   this.data.surpriseAmount,
+  //   '+ reading time :',
+  //   this.minReadingTime,
+  //   ' + hesitation time : ',
+  //   this.data.hesitationAmount,
+  //   ' = total ',
+  //   timeToComplete,
+  // )
 
   setTimeout(() => {
     this.rendered.set(true)
@@ -158,6 +158,10 @@ Template.pasUnRobot.events({
       console.log('someone just clicked on a chair')
       checkAndDie(t, t.view, true)
       pointer.seated = true
+      setTimeout(() => {
+        pointer.bgColor = 'oklch(0.488 0.243 264.376)'
+        instance.pointers.set(pointer.id, pointer)
+      }, 100)
       instance.pointers.set(pointer.id, pointer)
     }
   },
