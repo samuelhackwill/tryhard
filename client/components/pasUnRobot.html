@@ -1,10 +1,13 @@
 <template name="pasUnRobot">
   <div
-    class="m-2 absolute transition-opacity duration-200
+    class="pasUnRobot m-2 absolute transition-opacity duration-200
     {{#if isTetris}} 
       animate-fall 
-    {{else unless isChaisesMusicales}} 
-      -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 
+    {{/if}}
+    {{#if isChaisesMusicales}}
+      chair
+    {{else}} 
+        -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 
     {{/if}}   
     
     {{#if isRendered}}
@@ -19,15 +22,18 @@
     <div class="animatedWrapper"
          style= "{{#if isTetris}} {{tetrisRot}} {{/if}}">
 
-      <div class="relative p-4">
+      <div class="relative {{#unless isChaisesMusicales}} p-4 {{/unless}}">
         <!-- Red border layer with opacity control -->
-        <div
-          id="warningBorder"
-          class="pointer-events-none absolute inset-0 border-2  {{isWarning}} {{#unless isPassed}} border-red-600 {{else}} border-blue-300 {{/unless}} transition-opacity"
-        >
-        </div>
+        {{#if isChaisesMusicales}}
+        {{else}}
+          <div
+            id="warningBorder"
+            class="pointer-events-none absolute inset-0 border-2  {{isWarning}}           {{#if isPassed}} border-blue-300 {{else}} border-red-600 {{/if}} transition-opacity"
 
-        <div class="flex items-center justify-center rounded-lg pasUnRobotWhiteBox" id="pasUnRobotWhiteBox-{{uuid}}">
+          >
+          </div>
+        {{/if}}
+        <div class="stops-events flex items-center justify-center rounded-lg pasUnRobotWhiteBox" id="pasUnRobotWhiteBox-{{uuid}}">
 
             <div class="relative flex w-max rounded-lg border bg-white p-6 px-10">
               <div class="flex items-center justify-center text-sm text-gray-800">
@@ -57,7 +63,7 @@
                       <input id="checkbox-pasUnRobot-{{uuid}}"
                         type="checkbox"
                         value=""
-                        class="checkbox-pasUnRobot m-2 h-8 w-8 rounded border-gray-300 bg-gray-100 text-red-600 focus:ring-2 focus:ring-red-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-red-600"
+                        class="stops-events checkbox-pasUnRobot m-2 h-8 w-8 rounded border-gray-300 bg-gray-100 text-red-600 focus:ring-2 focus:ring-red-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-red-600"
                         {{isDisabled}}
                         style="{{#if isFailed}}pointer-events:none;{{/if}}"
                       />
@@ -80,29 +86,33 @@
             </div>
           </div>
 
-          {{#if isClicker}}
+          {{#if isChaisesMusicales}}
+            {{else}}
+    
+            {{#if isClicker}}
 
-          {{#unless isPassed}}
-            <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
-              cliquer veut dire : appuyer sur sa souris
-            </div>
-          {{else}}
-            <div class="text-blue-300 mt-2 transition-opacity {{isWarning}}" id="warning"> 
-              la personne n°{{this.chosenOne}} a réussi à cliquer.
-            </div>
-          {{/unless}}
+            {{#unless isPassed}}
+              <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
+                cliquer veut dire : appuyer sur sa souris
+              </div>
+            {{else}}
+              <div class="text-blue-300 mt-2 transition-opacity {{isWarning}}" id="warning"> 
+                la personne n°{{this.chosenOne}} a réussi à cliquer.
+              </div>
+            {{/unless}}
 
 
-          {{else}}
+            {{else}}
 
-            <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
-              {{#if isFailed}}
-              la personne n°{{this.chosenOne}} est probablement {{this.text.emphasis}}
-              {{else}}
-              merci de cocher la petite case
-              {{/if}}
-            </div>
+              <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
+                {{#if isFailed}}
+                la personne n°{{this.chosenOne}} est probablement {{this.text.emphasis}}
+                {{else}}
+                merci de cocher la petite case
+                {{/if}}
+              </div>
 
+            {{/if}}
           {{/if}}
         </div>
     </div>

@@ -18,7 +18,7 @@ Template.pasUnRobot.onCreated(function () {
     handlePupitreAction(message)
   }
 
-  console.log(this.data)
+  // console.log(this.data)
 
   streamer.on('pupitreAction', this._pupitreHandler)
   // this is only for les chaises musik
@@ -105,7 +105,7 @@ Template.pasUnRobot.helpers({
     return Template.instance().data.type === 'tetris'
   },
   isChaisesMusicales() {
-    return Template.instance().data.type === 'chaises'
+    return Template.instance().data.type === 'chair'
   },
   tetrisStyle() {
     const self = Template.instance()
@@ -151,6 +151,11 @@ Template.pasUnRobot.helpers({
 })
 
 Template.pasUnRobot.events({
+  'mousedown .pasUnRobot'(e, t, obj) {
+    if (t.data.type == 'chair') {
+      console.log('someone just clicked on a chair')
+    }
+  },
   'mousedown .checkbox-pasUnRobot'(event, t, obj) {
     removeTimeouts(t)
     console.log(t)

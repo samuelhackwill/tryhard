@@ -117,7 +117,7 @@ Template.pupitre.helpers({
 Template.pupitre.events({
   'click #chairs-send-jesuis'(e) {
     sendAction('createChairs', {
-      type: 'chaises',
+      type: 'chair',
       hesitationAmount: 1000000,
       readingSpeed: 1,
       surpriseAmount: 1,
@@ -302,15 +302,15 @@ const checkBeforeEmit = function (context) {
       const args = match[2].split(',').map((arg) => arg.trim())
       console.log(action, args)
       switch (action) {
-        case 'chaises':
-          sendAction('chaises', {
-            type: 'chaises',
-            text: getCaptchaTextAndFailstate(args[0]),
-            hesitationAmount: 1000000,
-            readingSpeed: 1,
-            surpriseAmount: 1,
-          })
-          break
+        // case 'chaises':
+        //   sendAction('chaises', {
+        //     type: 'chair',
+        //     text: getCaptchaTextAndFailstate(args[0]),
+        //     hesitationAmount: 1000000,
+        //     readingSpeed: 1,
+        //     surpriseAmount: 1,
+        //   })
+        //   break
         case 'clicker':
           sendAction('reqNextPlayer', { type: action, args: args })
           break

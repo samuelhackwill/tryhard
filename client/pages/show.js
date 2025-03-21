@@ -69,6 +69,15 @@ Template.show.onRendered(function () {
 function handlePupitreAction(message) {
   switch (message.content) {
     case 'createChairs':
+      const style = document.createElement('style')
+      style.type = 'text/css'
+      style.innerHTML = `
+      .pasUnRobotWhiteBox[hovered] {
+        box-shadow: 0 0 10pt 5pt cornflowerblue;
+      }
+    `
+      document.head.appendChild(style)
+
       circleElements.length = 0
       for (let index = 0; index < message.args.howMany; index++) {
         Blaze.renderWithData(
@@ -297,12 +306,12 @@ Template.show.helpers({
       console.log('there might be a problem with the pointerType helper mate!')
       return
     }
-
     switch (value) {
       case 'isPointingHand':
         if (
           this.hoveredElementId.startsWith('checkbox') == true ||
-          this.hoveredElementId.startsWith('button') == true
+          this.hoveredElementId.startsWith('button') == true ||
+          (this.hoveredElementId.startsWith('pasUnRobot') && instance.state.get() == 'chaises')
         ) {
           return true
         }
@@ -314,7 +323,8 @@ Template.show.helpers({
         if (
           this.hoveredElementId.startsWith('th') != true &&
           this.hoveredElementId.startsWith('button') != true &&
-          this.hoveredElementId.startsWith('checkbox') != true
+          this.hoveredElementId.startsWith('checkbox') != true &&
+          this.hoveredElementId.startsWith('pasUnRobot') != true
         ) {
           return true
         }
@@ -946,7 +956,7 @@ function recalculateCirclePositions() {
     const x = centerX + usableRadius * Math.cos(angle) - el.width / 2
     const y = centerY + usableRadius * Math.sin(angle) - el.height / 2
 
-    console.log(circleElements)
+    // console.log(circleElements)
     el.instance.circleX.set(x)
     el.instance.circleY.set(y)
   }
@@ -954,13 +964,11 @@ function recalculateCirclePositions() {
 
 export const registerCircleElement = function (instance, width, height, howMany) {
   circleElements.push({ instance, width, height })
-  console.log('[circleElements] Length is', circleElements.length)
-  console.log('howMany is', howMany)
-  console.log('check is', circleElements.length === howMany)
+  // console.log('[circleElements] Length is', circleElements.length)
+  // console.log('howMany is', howMany)
+  // console.log('check is', circleElements.length === howMany)
 
-  Meteor.defet
   if (circleElements.length === howMany) {
-    console.log('fuck')
     recalculateCirclePositions()
   }
 }
