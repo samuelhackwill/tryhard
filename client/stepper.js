@@ -13,6 +13,7 @@ const moveAuthorized = [
   'captchas-1j-kinetic',
   'captchas-1j-manual',
   'chaises',
+  'chaises-squidGame',
 ]
 
 const noise = new ValueNoise()

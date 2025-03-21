@@ -68,7 +68,7 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message) {
   switch (message.content) {
-    case 'createChairs':
+    case 'squidGame':
       const style = document.createElement('style')
       style.type = 'text/css'
       style.innerHTML = `
@@ -78,6 +78,8 @@ function handlePupitreAction(message) {
     `
       document.head.appendChild(style)
 
+      break
+    case 'createChairs':
       circleElements.length = 0
       for (let index = 0; index < message.args.howMany; index++) {
         Blaze.renderWithData(
@@ -159,14 +161,6 @@ function handlePupitreAction(message) {
       break
 
     case 'newClicker':
-      Blaze.renderWithData(
-        Template.pasUnRobot,
-        message.args,
-        document.getElementsByClassName('milieuContainer')[0],
-      )
-      break
-
-    case 'chaises':
       Blaze.renderWithData(
         Template.pasUnRobot,
         message.args,
@@ -313,7 +307,7 @@ Template.show.helpers({
             instance.state.get() != 'chaises') ||
           this.hoveredElementId.startsWith('button') == true ||
           (this.hoveredElementId.startsWith('pasUnRobot') &&
-            instance.state.get() == 'chaises' &&
+            instance.state.get() == 'chaises-squidGame' &&
             this.seated == false)
         ) {
           return true
@@ -329,7 +323,9 @@ Template.show.helpers({
             this.hoveredElementId.startsWith('checkbox') != true &&
             this.hoveredElementId.startsWith('pasUnRobot') != true) ||
           (this.hoveredElementId.startsWith('pasUnRobot') && this.seated == true) ||
-          (this.hoveredElementId.startsWith('checkbox') && instance.state.get() == 'chaises')
+          ((this.hoveredElementId.startsWith('checkbox') ||
+            this.hoveredElementId.startsWith('pasUnRobot')) &&
+            instance.state.get() == 'chaises')
         ) {
           return true
         }

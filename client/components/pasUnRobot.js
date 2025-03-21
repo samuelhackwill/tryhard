@@ -157,7 +157,8 @@ Template.pasUnRobot.events({
     if (
       t.data.type == 'chair' &&
       pointer.seated == false &&
-      !e.target.classList.contains('clicked')
+      !e.target.classList.contains('clicked') &&
+      instance.state.get() == 'chaises-squidGame'
     ) {
       console.log('someone just clicked on a chair')
       checkAndDie(t, t.view, true)
@@ -169,8 +170,12 @@ Template.pasUnRobot.events({
     }
   },
   'mousedown .checkbox-pasUnRobot'(event, t, obj) {
+    if (instance.state.get() == 'chaises' || obj.pointer.seated == true) {
+      return
+    }
+
     removeTimeouts(t)
-    console.log(t)
+    // console.log(t)
     clickTimestamp = new Date()
     // console.log(
     //   'user completed captcha in :',

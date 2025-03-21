@@ -31,7 +31,7 @@ Template.pupitre.onCreated(function () {
 
 Template.pupitre.helpers({
   isItChairTime() {
-    return Template.instance().selectedHeader.get() == 'chaises'
+    return Template.instance().selectedHeader.get().startsWith('chaises')
   },
   getChairsNumber() {
     return Template.instance().chairsNumber.get()
@@ -118,6 +118,12 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
+  'click #chairs-start'() {
+    Template.instance().selectedHeader.set('chaises-squidGame')
+    broadcastState('chaises-squidGame')
+    sendAction('squidGame')
+    // also play music
+  },
   'click #chairs-killUnseated'() {
     sendAction('killUnseated')
   },
