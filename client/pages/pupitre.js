@@ -118,6 +118,9 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
+  'click #chairs-killUnseated'() {
+    sendAction('killUnseated')
+  },
   'click #chairs-send-jesuis'(e) {
     sendAction('createChairs', {
       type: 'chair',

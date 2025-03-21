@@ -309,7 +309,8 @@ Template.show.helpers({
     switch (value) {
       case 'isPointingHand':
         if (
-          this.hoveredElementId.startsWith('checkbox') == true ||
+          (this.hoveredElementId.startsWith('checkbox') == true &&
+            instance.state.get() != 'chaises') ||
           this.hoveredElementId.startsWith('button') == true ||
           (this.hoveredElementId.startsWith('pasUnRobot') &&
             instance.state.get() == 'chaises' &&
@@ -327,7 +328,8 @@ Template.show.helpers({
             this.hoveredElementId.startsWith('button') != true &&
             this.hoveredElementId.startsWith('checkbox') != true &&
             this.hoveredElementId.startsWith('pasUnRobot') != true) ||
-          (this.hoveredElementId.startsWith('pasUnRobot') && this.seated == true)
+          (this.hoveredElementId.startsWith('pasUnRobot') && this.seated == true) ||
+          (this.hoveredElementId.startsWith('checkbox') && instance.state.get() == 'chaises')
         ) {
           return true
         }

@@ -126,7 +126,7 @@ Template.pasUnRobot.helpers({
     return Template.instance().passed.get()
   },
   isDisabled() {
-    if (Template.instance().failed.get()) {
+    if (Template.instance().failed.get() || Template.instance().data.type == 'chair') {
       return 'disabled'
     } else {
       return

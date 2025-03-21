@@ -249,8 +249,6 @@ la preuve que nous sommes humains, c'est que si la souris n°12 a été supprim�
 
 ## chaises
 
-`/!\ use the buttons on the left hand side /!\`
-
 ## moralité
 
 bravo!

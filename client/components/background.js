@@ -25,6 +25,9 @@ const handlePupitreAction = function (message) {
   const bg = document.getElementById('background')
 
   switch (message.content) {
+    case 'killUnseated':
+      killUnseated()
+      break
     case 'bgToblue':
       instance.bgColor.set('blue')
       break
@@ -386,4 +389,104 @@ function createPodium() {
   setTimeout(() => {
     podium.style.opacity = '1'
   }, 100)
+}
+
+const killUnseated = function () {
+  const pointers = document.querySelectorAll('.pointer')
+
+  const explosionPath = './explosions/'
+  const explosionSounds = [
+    '1.mp3',
+    '1.mp3',
+    '1.mp3',
+    '1.mp3',
+    '1.mp3',
+    '1.mp3',
+    '1.mp3',
+    '1.mp3',
+    '1.mp3',
+    '2.mp3',
+    '3.mp3',
+  ]
+  const explosionDelay = 50 // 50ms between each explosion
+
+  pointers.forEach((pointer, index) => {
+    const isSeated = instance.pointers.get(pointer.id).seated
+
+    if (isSeated) {
+      return
+    }
+
+    setTimeout(() => {
+      // console.log(`Exploding pointer: ${pointer.id}`)
+      const rect = pointer.getBoundingClientRect()
+      const explosion = document.createElement('img')
+      explosion.src = `boom.gif?t=${new Date().getTime()}`
+      explosion.classList.add('explosion')
+
+      Object.assign(explosion.style, {
+        width: '128px',
+        height: '128px',
+        position: 'absolute',
+        top: `${rect.top + window.scrollY - 20}px`,
+        left: `${rect.left + window.scrollX - 40}px`,
+        zIndex: 10000,
+        pointerEvents: 'none',
+      })
+
+      document.body.appendChild(explosion)
+
+      // Play a random explosion sound
+      const randomExplosionSound =
+        explosionPath + explosionSounds[Math.floor(Math.random() * explosionSounds.length)]
+      const explosionAudio = new Audio(randomExplosionSound)
+      explosionAudio.play()
+
+      setTimeout(() => {
+        // Create the falling skull
+        const skull = document.createElement('span')
+        skull.textContent = '💀'
+        skull.classList.add('falling-skull') // Add animation class
+
+        const randomOffset = (Math.random() - 0.5) * 40 // Random X offset to avoid perfect stacking
+
+        Object.assign(skull.style, {
+          fontSize: '33px',
+          position: 'absolute',
+          top: `${rect.top + window.scrollY}px`,
+          left: `${rect.left + window.scrollX + randomOffset}px`,
+          zIndex: 9999,
+          pointerEvents: 'none',
+          animationDuration: `${Math.random() * 3 + 3}s`,
+        })
+
+        document.body.appendChild(skull)
+      }, 150)
+
+      pointer.remove()
+
+      // Remove explosion gif after animation ends
+      explosion.addEventListener('animationend', () => {
+        explosion.remove()
+      })
+
+      // Fallback: Remove after a few seconds (if no animation event)
+      setTimeout(() => {
+        explosion.remove()
+      }, 1000)
+    }, index * explosionDelay) // Delay each explosion by index * 50ms
+
+    setTimeout(() => {
+      unseatEveryone()
+    }, 3000)
+  })
+}
+
+const unseatEveryone = function () {
+  Object.entries(instance.pointers.all()).forEach(([key, pointer]) => {
+    pointer.seated = false
+    pointer.bgColor = '#000000'
+    pointer.hoveredElementId = 'feed'
+    instance.pointers.set(key, pointer)
+  })
 }
