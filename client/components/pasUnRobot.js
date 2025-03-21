@@ -154,15 +154,18 @@ Template.pasUnRobot.events({
   'mousedown .pasUnRobot'(e, t, p) {
     const pointer = instance.pointers.get(p.pointer.id)
 
-    if (t.data.type == 'chair' && pointer.seated == false) {
+    if (
+      t.data.type == 'chair' &&
+      pointer.seated == false &&
+      !e.target.classList.contains('clicked')
+    ) {
       console.log('someone just clicked on a chair')
       checkAndDie(t, t.view, true)
       pointer.seated = true
       setTimeout(() => {
         pointer.bgColor = 'oklch(0.488 0.243 264.376)'
         instance.pointers.set(pointer.id, pointer)
-      }, 100)
-      instance.pointers.set(pointer.id, pointer)
+      }, 0)
     }
   },
   'mousedown .checkbox-pasUnRobot'(event, t, obj) {
