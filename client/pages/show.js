@@ -68,6 +68,16 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message) {
   switch (message.content) {
+    case 'createChairs':
+      circleElements.length = 0
+      for (let index = 0; index < message.args.howMany; index++) {
+        Blaze.renderWithData(
+          Template.pasUnRobot,
+          message.args,
+          document.getElementsByClassName('milieuContainer')[0],
+        )
+      }
+      break
     case 'clearPointers':
       instance.pointers.clear()
       break
@@ -942,9 +952,15 @@ function recalculateCirclePositions() {
   }
 }
 
-export const registerCircleElement = function (instance, width, height) {
+export const registerCircleElement = function (instance, width, height, howMany) {
   circleElements.push({ instance, width, height })
-  if (circleElements.length === 7) {
+  console.log('[circleElements] Length is', circleElements.length)
+  console.log('howMany is', howMany)
+  console.log('check is', circleElements.length === howMany)
+
+  Meteor.defet
+  if (circleElements.length === howMany) {
+    console.log('fuck')
     recalculateCirclePositions()
   }
 }

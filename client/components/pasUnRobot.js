@@ -18,6 +18,8 @@ Template.pasUnRobot.onCreated(function () {
     handlePupitreAction(message)
   }
 
+  console.log(this.data)
+
   streamer.on('pupitreAction', this._pupitreHandler)
   // this is only for les chaises musik
   this.circleX = new ReactiveVar(0)
@@ -51,8 +53,8 @@ Template.pasUnRobot.onRendered(function () {
   const rect = el.getBoundingClientRect()
 
   // Now call a global "recalculateCirclePositions()" that uses ALL sizes
-  registerCircleElement(this, rect.width, rect.height)
-  console.log(el)
+  registerCircleElement(this, rect.width, rect.height, this.data.howMany)
+  // console.log(el)
 
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 

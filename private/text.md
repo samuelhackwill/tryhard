@@ -247,9 +247,10 @@ la preuve que nous sommes humains, c'est que si la souris n°12 a été supprim�
 
 `bgToblack`
 
+<!--
 ## chaises
 
-`chaises [je suis une chaise]`
+`chaises [je suis une chaise]` -->
 
 ## moralité
 

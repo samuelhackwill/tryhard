@@ -18,7 +18,7 @@ Template.pupitre.onCreated(function () {
   this.selectedHeader = new ReactiveVar('mise')
   this.connectedDevices = new ReactiveVar('')
   this.selectedPlayer = new ReactiveVar('ffa')
-
+  this.chairsNumber = new ReactiveVar(35)
   Meteor.call('returnText', (err, res) => {
     if (err) {
       alert(err)
@@ -30,6 +30,9 @@ Template.pupitre.onCreated(function () {
 })
 
 Template.pupitre.helpers({
+  getChairsNumber() {
+    return Template.instance().chairsNumber.get()
+  },
   getSomeIndex() {
     // switch (Template.instance().selectedHeader.get()) {
     //   case 'iii-captchas-1j-s2':
@@ -112,11 +115,23 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
+  'click #chairs-send-jesuis'(e) {
+    sendAction('createChairs', {
+      type: 'chaises',
+      hesitationAmount: 1000000,
+      readingSpeed: 1,
+      surpriseAmount: 1,
+      howMany: Number(Template.instance().chairsNumber.get()),
+      text: { value: 'je suis une chaise', emphasis: 'chaise' },
+    })
+  },
+  'input #chairs-slider'(e) {
+    Template.instance().chairsNumber.set(e.target.value)
+  },
   'input #opacity-slider'(e) {
     // console.log('sliderChange', { id: sliderId, value: sliderValue })
     sendAction('changeOpacity', e.target.value)
   },
-
   'click #override-timeout'() {
     sendAction('cancelCaptchaTimeouts')
   },
