@@ -122,6 +122,7 @@ Template.pupitre.helpers({
 Template.pupitre.events({
   'click #chairs-start'() {
     audio.play()
+    sendAction('music-start')
   },
   'click #chairs-stop'() {
     audio.pause()

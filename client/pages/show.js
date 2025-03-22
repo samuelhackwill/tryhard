@@ -69,19 +69,47 @@ Template.show.onRendered(function () {
 function handlePupitreAction(message) {
   switch (message.content) {
     case 'squidGame':
-      const elements = document.querySelectorAll('.pasUnRobotWhiteBox.skipHighlight')
-      elements.forEach((element) => {
-        element.classList.remove('skipHighlight')
-      })
+      {
+        const elements = document.querySelectorAll('.pasUnRobotWhiteBox.skipHighlight')
+        elements.forEach((element) => {
+          element.classList.remove('skipHighlight')
+        })
+
+        const carousel = document.getElementById('carousel')
+        carousel.style.animationPlayState = 'paused'
+
+        const chairElements = document.querySelectorAll('.chair')
+        chairElements.forEach((chair) => {
+          chair.style.animationPlayState = 'paused'
+        })
+      }
+      break
+    case 'music-start':
+      {
+        const carousel = document.getElementById('carousel')
+        carousel.classList.add('carousel')
+        carousel.style.animationPlayState = 'running'
+
+        const chairElements = document.querySelectorAll('.chair')
+        chairElements.forEach((chair) => {
+          chair.classList.add('rotatingCaptcha')
+        })
+      }
       break
     case 'createChairs':
-      circleElements.length = 0
-      for (let index = 0; index < message.args.howMany; index++) {
-        Blaze.renderWithData(
-          Template.pasUnRobot,
-          message.args,
-          document.getElementsByClassName('milieuContainer')[0],
-        )
+      {
+        circleElements.length = 0
+        for (let index = 0; index < message.args.howMany; index++) {
+          Blaze.renderWithData(
+            Template.pasUnRobot,
+            message.args,
+            document.getElementById('carousel'),
+          )
+        }
+        const carousel = document.getElementById('carousel')
+
+        carousel.classList.remove('carousel')
+        void carousel.offsetWidth
       }
       break
     case 'clearPointers':
@@ -937,24 +965,28 @@ export const unchoosePlayer = function (player) {
 }
 
 function recalculateCirclePositions() {
-  const screenWidth = window.innerWidth
-  const screenHeight = window.innerHeight
-  const n = circleElements.length
+  const carousel = document.getElementById('carousel')
 
-  // Estimate max radius we can afford
+  // STEP 1 — Calculate carousel size BEFORE anything else
   const maxElementRadius = Math.max(...circleElements.map((e) => Math.max(e.width, e.height))) / 2
-  const usableRadius = Math.min(screenWidth, screenHeight) / 2 - maxElementRadius
+  const diameter = Math.min(window.innerWidth, window.innerHeight) - 2 * maxElementRadius
+  const radius = diameter / 2
+
+  // STEP 2 — Set carousel size
+  carousel.style.width = diameter + 'px'
+  carousel.style.height = diameter + 'px'
+
+  // STEP 3 — Now that size is correct, position elements *relative to the carousel center*
+  const centerX = diameter / 2
+  const centerY = diameter / 2
+  const n = circleElements.length
 
   for (let i = 0; i < n; i++) {
     const angle = (2 * Math.PI * i) / n
-    const centerX = screenWidth / 2
-    const centerY = screenHeight / 2
-
     const el = circleElements[i]
-    const x = centerX + usableRadius * Math.cos(angle) - el.width / 2
-    const y = centerY + usableRadius * Math.sin(angle) - el.height / 2
+    const x = centerX + radius * Math.cos(angle) - el.width / 2
+    const y = centerY + radius * Math.sin(angle) - el.height / 2
 
-    // console.log(circleElements)
     el.instance.circleX.set(x)
     el.instance.circleY.set(y)
   }

@@ -199,3 +199,29 @@
 .flashing-text {
   animation: flashText 1s infinite;
 }
+
+.carousel {
+  animation: rotateWithPositioning 20s linear infinite;
+}
+
+.rotatingCaptcha {
+  animation: rotate 20s linear infinite reverse;
+}
+
+@keyframes rotateWithPositioning {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
