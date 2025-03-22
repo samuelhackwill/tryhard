@@ -33,22 +33,26 @@ export const stepper = function (pointerCallbacks = []) {
 
 function stepEventQueue(queue) {
   //Whent the event queue is empty,
+
   if (queue.length == 0) {
     return
   }
+
+  // console.log([...queue])
+
   timestampStart = Date.now()
-  autoPlayCollector = []
   for (let i = queue.length - 1; i >= 0; i--) {
     // ok so maybe here we first get all clicker click farm events and merge them, or add them to a different queue, which is then iterated through to update all the pointers in batch
     if (queue[i].origin == 'autoplay') {
+      // console.log(queue[i])
       handleAutoPlay(queue[i].payload)
     }
     if (queue[i].origin == 'serverTick') {
       handleTickUpdate(queue[i].payload)
     }
 
-    // remove event from queue
     queue.splice(i, 1)
+    // remove event from queue
 
     if (i == 0) {
       let timestampEnd = Date.now()
@@ -196,12 +200,13 @@ function handleTickUpdate(message) {
 }
 
 function handleAutoPlay(message) {
-  _message = message
+  const _message = message
   const pointer = _message.pointer
+
   //Keep track of the elapsed time during this event (set it to 0 to start)
   if (!_message.elapsed) _message.elapsed = 0
   //Step it by a frame each frame (assuming constant 60fps)
-  _message.elapsed += 1000 / 64.0
+  _message.elapsed += 1000 / 60
 
   //Use t as a shorthand for the relative time elapsed in this event
   //t=0 at the start of the animation,
@@ -233,7 +238,7 @@ function handleAutoPlay(message) {
 
     case 'move':
       const DOMpointer = document.getElementById(pointer.id)
-      coords = readDomCoords(pointer.id)
+      const coords = readDomCoords(pointer.id)
       // console.log("message from ", _message.from, "message to ",  _message.to)
       //Use the current coordinates for `from` and `to` if they have not been specified
       if (_message.from == null) _message.from = { ...coords }
@@ -259,8 +264,10 @@ function handleAutoPlay(message) {
   }
 
   if (_message.elapsed < _message.duration ?? 0) {
-    clientEventQueue.unshift(_message)
+    const prout = { origin: 'autoplay', payload: _message }
+    clientEventQueue.push(prout)
   } else {
+    // console.log('dropping pointer ', message.pointer.id, message.elapsed)
     return
   }
 }
