@@ -110,6 +110,14 @@ function handlePupitreAction(message) {
 
         carousel.classList.remove('carousel')
         void carousel.offsetWidth
+        carousel.style.animationDuration = message.args.animationSpeed + 's'
+
+        setTimeout(() => {
+          const chairElements = document.querySelectorAll('.chair')
+          chairElements.forEach((chair) => {
+            chair.style.animationDuration = message.args.animationSpeed + 's'
+          })
+        }, 50)
       }
       break
     case 'clearPointers':

@@ -6,6 +6,21 @@ import { getRasp, getMouseBrand } from './show.js'
 
 const audio = new Audio('/spagnoleta_Maurizio_Machella.mp3')
 
+const explosionPath = './explosions/'
+const explosionSounds = [
+  '1.mp3',
+  '1.mp3',
+  '1.mp3',
+  '1.mp3',
+  '1.mp3',
+  '1.mp3',
+  '1.mp3',
+  '1.mp3',
+  '1.mp3',
+  '2.mp3',
+  '3.mp3',
+]
+
 Template.pupitre.onCreated(function () {
   this._handlePlanDeSalleMessage = (message) => {
     message.template = this
@@ -13,6 +28,7 @@ Template.pupitre.onCreated(function () {
   }
 
   streamer.on('planDeSalleMessage', this._handlePlanDeSalleMessage)
+  streamer.on('explosion', playExplosion)
 
   Meteor.call('resetConnectedDevices')
   this.text = new ReactiveVar('')
@@ -21,6 +37,7 @@ Template.pupitre.onCreated(function () {
   this.connectedDevices = new ReactiveVar('')
   this.selectedPlayer = new ReactiveVar('ffa')
   this.chairsNumber = new ReactiveVar(35)
+  this.danceSpeed = new ReactiveVar(20)
   Meteor.call('returnText', (err, res) => {
     if (err) {
       alert(err)
@@ -37,6 +54,9 @@ Template.pupitre.helpers({
   },
   getChairsNumber() {
     return Template.instance().chairsNumber.get()
+  },
+  getDanceSpeed() {
+    return Template.instance().danceSpeed.get()
   },
   getSomeIndex() {
     // switch (Template.instance().selectedHeader.get()) {
@@ -146,10 +166,14 @@ Template.pupitre.events({
       surpriseAmount: 1,
       howMany: Number(Template.instance().chairsNumber.get()),
       text: { value: 'je suis une chaise', emphasis: 'chaise' },
+      animationSpeed: Template.instance().danceSpeed.get(),
     })
   },
   'input #chairs-slider'(e) {
     Template.instance().chairsNumber.set(e.target.value)
+  },
+  'input #danceSpeed-slider'(e) {
+    Template.instance().danceSpeed.set(e.target.value)
   },
   'input #opacity-slider'(e) {
     // console.log('sliderChange', { id: sliderId, value: sliderValue })
@@ -420,4 +444,11 @@ const getCaptchaTextAndFailstate = function (string) {
       emphasis: 'un robot',
     }
   }
+}
+
+const playExplosion = function () {
+  const randomExplosionSound =
+    explosionPath + explosionSounds[Math.floor(Math.random() * explosionSounds.length)]
+  const explosionAudio = new Audio(randomExplosionSound)
+  explosionAudio.play()
 }

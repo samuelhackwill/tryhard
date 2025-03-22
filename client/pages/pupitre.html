@@ -22,6 +22,7 @@
           {{#if isItChairTime}}
             <div class="mt-4 pt-2 border-t-2">
               <h1>chaises musicales</h1>
+              <h1>nombre de chaises</h1>
               <div class="relative mb-4 text-gray-500">
                 <input
                   id="chairs-slider"
@@ -32,6 +33,18 @@
                   class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-300"
                 />
               </div>
+              <h1>vitesse</h1>
+              <div class="relative mb-4 text-gray-500">
+                <input
+                  id="danceSpeed-slider"
+                  type="range"
+                  value="{{getDanceSpeed}}"
+                  min="1"
+                  max="25"
+                  class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-300"
+                />
+              </div>
+
               <button
               class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
               id="chairs-send-jesuis"
