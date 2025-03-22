@@ -206,7 +206,7 @@ function handleAutoPlay(message) {
   //Keep track of the elapsed time during this event (set it to 0 to start)
   if (!_message.elapsed) _message.elapsed = 0
   //Step it by a frame each frame (assuming constant 60fps)
-  _message.elapsed += 1000 / 60
+  _message.elapsed += 1000 / 64
 
   //Use t as a shorthand for the relative time elapsed in this event
   //t=0 at the start of the animation,
@@ -264,8 +264,8 @@ function handleAutoPlay(message) {
   }
 
   if (_message.elapsed < _message.duration ?? 0) {
-    const prout = { origin: 'autoplay', payload: _message }
-    clientEventQueue.push(prout)
+    const restructuredMessage = { origin: 'autoplay', payload: _message }
+    clientEventQueue.push(restructuredMessage)
   } else {
     // console.log('dropping pointer ', message.pointer.id, message.elapsed)
     return

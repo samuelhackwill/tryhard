@@ -59,7 +59,7 @@ Template.show.onCreated(function () {
 
   setInterval(() => {
     stepper()
-  }, (1 / 60.0) * 1000)
+  }, (1 / 64.0) * 1000)
 })
 
 Template.show.onRendered(function () {
