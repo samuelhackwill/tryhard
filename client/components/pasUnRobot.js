@@ -163,6 +163,7 @@ Template.pasUnRobot.events({
       console.log('someone just clicked on a chair')
       checkAndDie(t, t.view, true)
       pointer.seated = true
+      pointer.hoveredElementId = 'feed'
       setTimeout(() => {
         pointer.bgColor = 'oklch(0.488 0.243 264.376)'
         instance.pointers.set(pointer.id, pointer)

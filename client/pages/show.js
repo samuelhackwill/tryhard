@@ -69,15 +69,10 @@ Template.show.onRendered(function () {
 function handlePupitreAction(message) {
   switch (message.content) {
     case 'squidGame':
-      const style = document.createElement('style')
-      style.type = 'text/css'
-      style.innerHTML = `
-      .pasUnRobotWhiteBox[hovered] {
-        box-shadow: 0 0 10pt 5pt cornflowerblue;
-      }
-    `
-      document.head.appendChild(style)
-
+      const elements = document.querySelectorAll('.pasUnRobotWhiteBox.skipHighlight')
+      elements.forEach((element) => {
+        element.classList.remove('skipHighlight')
+      })
       break
     case 'createChairs':
       circleElements.length = 0

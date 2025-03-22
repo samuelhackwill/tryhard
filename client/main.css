@@ -25,6 +25,10 @@
     box-shadow: 0 0 10pt 5pt cornflowerblue;
   }
 
+  .pasUnRobotWhiteBox[hovered]:not(.skipHighlight) {
+    box-shadow: 0 0 10pt 5pt cornflowerblue;
+  }
+
   button.clicked {
     background-color: #16a34a !important;
   }
