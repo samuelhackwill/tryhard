@@ -9,6 +9,7 @@ import {
   moveInFrontOfCaptcha,
   moveOffOfCaptcha,
   autoClickerMine,
+  alignPointersInTheBottom,
 } from '../bots.js'
 import { handleButtonClick } from '../components/btnDashboard.js'
 import { disabledMice, mouseOrder } from '../../both/api.js'
@@ -68,6 +69,9 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message) {
   switch (message.content) {
+    case 'alignPointersBot':
+      alignPointersInTheBottom(instance.pointers.all())
+      break
     case 'squidGame':
       {
         const elements = document.querySelectorAll('.pasUnRobotWhiteBox.skipHighlight')

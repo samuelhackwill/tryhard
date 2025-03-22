@@ -184,6 +184,7 @@ ils sont où les acteurs _un robot ouvert d'esprit_
 <!-- il y a un timer. chaque partie dure 10 secondes -->
 <!-- joueur / joueur -->
 
+`alignPointersBot`
 difficulté : très facile <!-- nothing -->
 difficulté : facile <!-- spin -->
 difficulté : facile avec variation <!-- spin-r -->

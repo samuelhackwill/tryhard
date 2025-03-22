@@ -4,6 +4,34 @@ import { pushToClientEventQueue } from '../client/stepper.js'
 
 autoclickerIntervals = []
 
+export const alignPointersInTheBottom = function (pointers) {
+  const pointerArray = Object.values(pointers).sort((a, b) => a.order - b.order)
+
+  const minX = 100
+  const maxX = window.innerWidth - 100
+  const y = window.innerHeight - 100
+
+  const spacing = pointerArray.length > 1 ? (maxX - minX) / (pointerArray.length - 1) : 0
+
+  pointerArray.forEach((pointer, index) => {
+    const x = minX + spacing * index
+
+    pushToClientEventQueue({
+      origin: 'autoplay',
+      payload: {
+        type: 'move',
+        from: null,
+        to: {
+          x: Math.floor(x),
+          y: Math.floor(y),
+        },
+        duration: 1000,
+        pointer: pointer,
+      },
+    })
+  })
+}
+
 export const moveOffOfCaptcha = function (pointer) {
   // // Randomly decide if we pick from the 1st or 4th quarter
   // const inFirstQuarter = Math.random() < 0.5
