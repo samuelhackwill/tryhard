@@ -4,6 +4,8 @@ import { streamer } from '../../both/streamer.js'
 
 import { getRasp, getMouseBrand } from './show.js'
 
+const audio = new Audio('/spagnoleta_Maurizio_Machella.mp3')
+
 Template.pupitre.onCreated(function () {
   this._handlePlanDeSalleMessage = (message) => {
     message.template = this
@@ -119,12 +121,20 @@ Template.pupitre.helpers({
 
 Template.pupitre.events({
   'click #chairs-start'() {
+    audio.play()
+  },
+  'click #chairs-stop'() {
+    audio.pause()
+    audio.currentTime = 0
     Template.instance().selectedHeader.set('chaises-squidGame')
     broadcastState('chaises-squidGame')
     sendAction('squidGame')
     // also play music
   },
   'click #chairs-killUnseated'() {
+    Template.instance().selectedHeader.set('chaises')
+    broadcastState('chaises')
+    sendAction('killCaptchas')
     sendAction('killUnseated')
   },
   'click #chairs-send-jesuis'(e) {
