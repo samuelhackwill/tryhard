@@ -182,6 +182,13 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 <!-- funny captchas -->
 <!-- il y a un timer pour chaque captcha et un message d'échec si les captchas ne sont pas validés -->
 
+## captchas-img
+
+`newCaptchaImg[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid]`
+`newCaptchaImg[Sélectionnez les images où l'auteur de la performance est content, samcontan, rotat]`
+`newCaptchaImg[Sélectionnez les images où l'auteur de la performance est content, samcontan, zoom]`
+`newCaptchaImg[Sélectionnez les images où l'auteur de la performance est content, samdocu]`
+
 ## captchas-1j-kinetic
 
 <!-- ces captchas sont en mode die & retry. -->

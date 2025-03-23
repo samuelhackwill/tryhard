@@ -15,6 +15,7 @@ import { handleButtonClick } from '../components/btnDashboard.js'
 import { disabledMice, mouseOrder } from '../../both/api.js'
 import { observe, observing } from '../observe.js'
 import { updateTopMouse } from '../components/feed.js'
+import { newCaptchaImage } from '../components/pasUnRobotImage.js'
 
 import '../components/main.js'
 import './show.html'
@@ -176,6 +177,9 @@ function handlePupitreAction(message) {
 
         moveInFrontOfCaptcha(pointer)
       }
+      break
+    case 'newCaptchaImg':
+      newCaptchaImage(message)
       break
     case 'newCaptcha-1j':
       console.log(message.args)
