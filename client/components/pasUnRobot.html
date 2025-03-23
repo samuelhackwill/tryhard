@@ -1,6 +1,6 @@
 <template name="pasUnRobot">
   <div
-    class="pasUnRobot m-2 absolute transition-opacity duration-200
+    class="pasUnRobot max-w-[60%] m-2 absolute transition-opacity duration-200
     {{#if isTetris}} 
       animate-fall 
     {{/if}}
@@ -35,7 +35,7 @@
         {{/if}}
         <div class="stops-events flex items-center justify-center rounded-lg pasUnRobotWhiteBox {{#if isChaisesMusicales}}skipHighlight{{/if}}" id="pasUnRobotWhiteBox-{{uuid}}">
 
-            <div class="relative flex w-max rounded-lg border bg-white p-6 px-10">
+            <div class="relative flex w-max rounded-lg border bg-white p-8 px-10">
               <div class="flex items-center justify-center text-sm text-gray-800">
 
                 {{#unless isClicker}}
@@ -63,7 +63,7 @@
                       <input id="checkbox-pasUnRobot-{{uuid}}"
                         type="checkbox"
                         value=""
-                        class="stops-events checkbox-pasUnRobot m-2 h-8 w-8 rounded border-gray-300 bg-gray-100 text-red-600 focus:ring-2 focus:ring-red-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-red-600"
+                        class="stops-events checkbox-pasUnRobot m-2 h-12 w-12 rounded border-gray-300 bg-gray-100 text-red-600 focus:ring-2 focus:ring-red-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-red-600"
                         {{isDisabled}}
                         style="{{#if isFailed}}pointer-events:none;{{/if}}"
                       />
@@ -71,7 +71,7 @@
                   </div>
                 {{/unless}}
 
-                <div class="inline-block text-2xl mr-6 {{#if isClicker}}ml-6{{else}}ml-9{{/if}}">{{ jeNeSuisPas }} 
+                <div class="inline-block text-3xl mr-6 {{#if isClicker}}ml-6{{else}}ml-9{{/if}}">{{ jeNeSuisPas }} 
 
                   {{#if isClicker}}
                     <span id="clickCounter" class="text-[blue] font-mono font-bold">0</span> 
@@ -104,7 +104,7 @@
 
             {{else}}
 
-              <div class="text-red-600 mt-2 transition-opacity {{isWarning}}" id="warning"> 
+              <div class="text-red-600 text-2xl mt-2 transition-opacity {{isWarning}}" id="warning"> 
                 {{#if isFailed}}
                 la personne n°{{this.chosenOne}} est probablement {{this.text.emphasis}}
                 {{else}}
