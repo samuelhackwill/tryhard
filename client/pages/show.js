@@ -360,7 +360,10 @@ Template.show.helpers({
           (this.hoveredElementId.startsWith('pasUnRobot') && this.seated == true) ||
           ((this.hoveredElementId.startsWith('checkbox') ||
             this.hoveredElementId.startsWith('pasUnRobot')) &&
-            instance.state.get() == 'chaises')
+            instance.state.get() == 'chaises') ||
+          (this.hoveredElementId.startsWith('pasUnRobot') &&
+            instance.state.get().startsWith('captchas') &&
+            !this.hoveredElementId.startsWith('checkbox'))
         ) {
           return true
         }
