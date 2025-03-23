@@ -787,6 +787,7 @@ export const createPointer = function (id, bot = false, _owner) {
     cornersTouched: {},
     captchaPlayCount: 0,
     seated: false,
+    score: { human: 0 },
     // deprecated
     bot: bot,
     killable: false,

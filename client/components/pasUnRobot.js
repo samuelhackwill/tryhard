@@ -153,7 +153,6 @@ Template.pasUnRobot.helpers({
 Template.pasUnRobot.events({
   'mousedown .pasUnRobot'(e, t, p) {
     const pointer = instance.pointers.get(p.pointer.id)
-    console.log(this)
     if (
       t.data.type == 'chair' &&
       pointer.seated == false &&
@@ -171,6 +170,10 @@ Template.pasUnRobot.events({
     }
   },
   'mousedown .checkbox-pasUnRobot'(event, t, obj) {
+    if (instance.state.get() == 'captchas-1j-text') {
+      const score = Number(obj.pointer.humanScore) + 1
+    }
+
     if (instance.state.get() == 'chaises' || obj.pointer.seated == true) {
       return
     }
@@ -225,6 +228,8 @@ const checkAndDie = function (t, handle, passed) {
   } else {
     t.failed.set(true)
   }
+
+  updateScore(t, passed)
 
   setTimeout(() => {
     // console.log('captcha completed!!')
@@ -526,4 +531,26 @@ function prepareAnimationWithCenteredStart({
       console.log(`>> Applied animation-delay: ${negativeDelay} to #${realId}`)
     }, 500)
   }, 50) // slight delay ensures layout is measurable
+}
+
+const updateScore = function (t, passed) {
+  if (instance.state.get() != 'captchas-1j-text') {
+    return
+  }
+
+  const pointer = Object.values(instance.pointers.all()).find((p) => p.order === t.data.chosenOne)
+
+  if (!pointer) {
+    return
+  }
+
+  if (passed) {
+    console.log('update score! captcha succeeded', t.data.text.loot)
+    pointer.score.human += t.data.text.loot
+  } else {
+    console.log('update score! captcha failed', t.data.text.notClicked)
+    pointer.score.human += t.data.text.notClicked
+  }
+
+  instance.pointers.set(pointer.id, pointer)
 }

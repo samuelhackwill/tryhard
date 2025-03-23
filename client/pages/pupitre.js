@@ -427,22 +427,22 @@ const getCaptchaTextAndFailstate = function (string) {
   // ie what challenge he failed.
   // "je ne suis pas un robot" > "j1 est un robot".
   const emphasisRegex = /_(.*?)_/
-  const match = string.match(emphasisRegex)
+  const metadataRegex = /\s*\[(-?\d+)\](?:\[\s*(-?\d+)\])?\s*$/
 
-  if (match) {
-    const emphasis = match[1]
-    const cleanedValue = string.replace(emphasisRegex, '').trim()
+  const emphasisMatch = string.match(emphasisRegex)
+  const metadataMatch = string.match(metadataRegex)
 
-    return {
-      value: cleanedValue,
-      emphasis: emphasis,
-    }
-  } else {
-    // default to "la souris n°2 est un robot"
-    return {
-      value: string,
-      emphasis: 'un robot',
-    }
+  const emphasis = emphasisMatch ? emphasisMatch[1] : 'un robot'
+  const cleanedValue = string.replace(emphasisRegex, '').replace(metadataRegex, '').trim()
+
+  const loot = metadataMatch ? parseInt(metadataMatch[1], 10) : null
+  const notClicked = metadataMatch && metadataMatch[2] ? parseInt(metadataMatch[2], 10) : null
+
+  return {
+    value: cleanedValue,
+    emphasis: emphasis,
+    loot: loot,
+    notClicked: notClicked,
   }
 }
 
