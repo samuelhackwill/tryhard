@@ -256,6 +256,60 @@ bravo!
 vous n'êtes pas des robots
 (annonce des scores etc).
 
+## nee en 1957
+
+bref,
+pour en revenir au pointeur de souris
+que vous êtes
+et que je suis.
+saviez-vous que le pointeur de souris a été inventé en 1968?
+on peut donc dire que la souris d'ordinateur est plus jeune que ma mère
+puisque ma mère est née en 1957.
+ma mère, Michèle Planche.
+Avant que Douglas Englebart,
+né en 1925
+n'invente la souris d'ordinateur
+il n'était pas possible de pointer
+il n'était pas possible de glisser-déposer
+il n'était pas possible de scroller
+il n'était pas possible de cliquer sur la roulette de sa souris
+il n'était pas possible de double-cliquer
+il n'était pas possible de simple-cliquer
+il n'était pas possible de passer ses nerfs sur la souris en cliquant plus fort que nécessaire ou plus vite que nécessaire.
+il était bien sûr possible d'insulter son ordinateur ou le jeter par la fenêtre
+de prendre le clavier et de taper sur l'écran avec violence
+de mettre un coup de pied dans l'ordinateur
+d'arracher les touches du clavier
+de mordre le cable d'alimentation
+de claquer le côté du moniteur cathodique
+de prendre une paire de ciseaux et de découper méticuleusement la disquette 3 pouces.
+d'un autre côté,
+Il était bien sûr possible de communiquer avec son ordinateur,
+mais il fallait pour ça utiliser un outil professionnel muni d'un trop grand nombre de touches,
+le clavier.
+ma grand-mère est née en 1929,
+donc après Douglas Englebart mais avant ma mère.
+les premiers ordinateurs sont nés dans les années 40
+donc après ma grand-mère mais avant ma mère.
+et après le début de la seconde guerre mondiale.
+née en 1939.
+la seconde guerre mondiale fut la cause principale du développement de l'informatique
+parce qu'il fallait casser les codes que les nazis utilisaient pour synchroniser leurs attaques sur les convois dans l'Atlantique
+notamment.
+s'il n'y avait pas eu l'informatique
+disent les conservateurs des musées sur l'informatique
+qui sont à la fois les personnes les mieux placées pour tenir ce genre de propos, mais qui sont également certainement les personnes qui ont le plus intérêt à éxagérer l'utilité des ordinateurs en général
+les ordinateurs ont raccourci la guerre de 1, 2 ou 4 ans, disent-ils.
+sans les ordinteurs, nous n'aurions pas gagné la guerre, ajouta Churchill.
+né en 1874.
+d'autres personnes prétendent que les ordinateurs n'ont servi à rien
+et ne serviront d'ailleurs jamais à rien.
+mais ces personnes exagèrent sans doute.
+s'il n'y avait pas eu la guerre ou s'il n'y avait pas eu ma grand-mère,
+je ne serais pas actuellement devant vous en train de parler de l'histoire de l'informatique.
+
+<!-- et ensuite parler synthétiquement du fait que peut être bientôt naîtra l'AGI, proposer des dates de naissance -->
+
 <!--
 nous arriverons à construire une simulation de cerveau humain
 disent les scientifiques
