@@ -153,7 +153,7 @@ Template.pasUnRobot.helpers({
 Template.pasUnRobot.events({
   'mousedown .pasUnRobot'(e, t, p) {
     const pointer = instance.pointers.get(p.pointer.id)
-
+    console.log(this)
     if (
       t.data.type == 'chair' &&
       pointer.seated == false &&
