@@ -7,15 +7,15 @@ Template.pasUnRobotImageInfinite.onCreated(function () {
   this.images = new ReactiveDict()
   this.imageKeys = []
 
-  const promptHeight = 128
+  const promptHeight = 110
   const padding = 32 // (margins 4 + 4)
-  const gap = 8 // gap-2 = 0.5rem = 8px
+  const gap = 4 // gap-2 = 0.5rem = 8px
 
   // max-w-[90vw] max-h-[80vh]
   const vw = window.innerWidth * 0.9
-  const vh = window.innerHeight * 0.8
+  const vh = window.innerHeight * 0.9
 
-  const imageSize = 80 // image size + margin/gap buffer
+  const imageSize = 70 // image size + margin/gap buffer
 
   const usableWidth = vw - padding
   const cols = Math.floor((usableWidth + gap) / (imageSize + gap))
@@ -90,6 +90,30 @@ Template.pasUnRobotImageInfinite.events({
         })
         console.log(imgEl)
         if (imgEl) imgEl.classList.remove('opacity-0')
+
+        // After replacing the clicked image
+        const allKeys = instance.imageKeys
+        const allImages = allKeys.map((k) => instance.images.get(k))
+        const hasArborio = allImages.some((img) => img.src.includes('/arborio/'))
+
+        if (!hasArborio) {
+          console.log('No more arborio left — regenerating grid')
+
+          const folders = ['basmati', 'arborio']
+          const imagesPerFolder = 1499
+
+          for (let i = 0; i < allKeys.length; i++) {
+            const key = allKeys[i]
+            const folder = folders[Math.floor(Math.random() * folders.length)]
+            const imgId = Math.floor(Math.random() * imagesPerFolder) + 1
+
+            instance.images.set(key, {
+              src: `/images/captchas/rice/${folder}/${imgId}.jpg?v=${Date.now()}`,
+              isSelected: false,
+              index: i,
+            })
+          }
+        }
       }, 300)
     }, 300)
   },

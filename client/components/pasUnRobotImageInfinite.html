@@ -1,11 +1,11 @@
 <template name="pasUnRobotImageInfinite">
-  <div class="fixed left-1/2 top-1/2 w-[90vw] max-h-[90vh] -translate-x-1/2 -translate-y-1/2 shadow-lg bg-white p-4 rounded-sm transition-opacity {{#if isRendered}}opacity-100{{else}}opacity-0 pointer-events-none{{/if}}">
-    <p class="bg-blue-500 p-4 text-white text-3xl mb-4 h-[140px]">
-        <span class="block max-w-[66%]">{{captchaPrompt}}</span>
+  <div class="fixed left-1/2 top-1/2 w-[90vw] -translate-x-1/2 -translate-y-1/2 shadow-lg bg-white p-4 rounded-sm transition-opacity {{#if isRendered}}opacity-100{{else}}opacity-0 pointer-events-none{{/if}}">
+    <p class="bg-blue-500 p-4 text-white text-3xl mb-4 h-[110px]">
+        <span class="block max-w-[80%]">{{captchaPrompt}}</span>
         </p>
 
-    <div class="grid gap-2 overflow-hidden"
-         style="grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); grid-auto-rows: 80px;">
+    <div class="grid gap-1 overflow-hidden"
+         style="grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); grid-auto-rows: 70px;">
       {{#each imageKeys}}
         {{#with getImage this}}
           <div id="captcha-image-{{index}}"
