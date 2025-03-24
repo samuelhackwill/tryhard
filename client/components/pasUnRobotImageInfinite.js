@@ -15,7 +15,7 @@ Template.pasUnRobotImageInfinite.onCreated(function () {
   const vw = window.innerWidth * 0.9
   const vh = window.innerHeight * 0.8
 
-  const imageSize = 140 // image size + margin/gap buffer
+  const imageSize = 80 // image size + margin/gap buffer
 
   const usableWidth = vw - padding
   const cols = Math.floor((usableWidth + gap) / (imageSize + gap))
@@ -56,6 +56,45 @@ Template.pasUnRobotImageInfinite.onRendered(function () {
   }, 50)
 })
 
+Template.pasUnRobotImageInfinite.events({
+  'mousedown .captcha-image'(event, instance) {
+    const index = Number(event.currentTarget.dataset.index)
+    const key = `img-${index}`
+    const image = instance.images.get(key)
+
+    if (!image || image._locked) return
+
+    // Lock the image to prevent double clicks
+    image._locked = true
+    image.isSelected = true
+    instance.images.set(key, { ...image })
+
+    const el = event.currentTarget
+
+    // Let selection animation play (~250ms)
+    setTimeout(() => {
+      const imgEl = el.querySelector('img')
+      if (imgEl) imgEl.classList.add('opacity-0')
+
+      // After fade, replace the image
+      setTimeout(() => {
+        const folders = ['basmati', 'arborio']
+        const imagesPerFolder = 1499
+        const folder = folders[Math.floor(Math.random() * folders.length)]
+        const imgId = Math.floor(Math.random() * imagesPerFolder) + 1
+
+        instance.images.set(key, {
+          src: `/images/captchas/rice/${folder}/${imgId}.jpg?v=${Date.now()}`,
+          isSelected: false,
+          index,
+        })
+        console.log(imgEl)
+        if (imgEl) imgEl.classList.remove('opacity-0')
+      }, 300)
+    }, 300)
+  },
+})
+
 export const ImgCapInfinite = function (message) {
   const prompt = message.args[0]
   const type = message.args[1]
@@ -94,31 +133,3 @@ Template.pasUnRobotImageInfinite.helpers({
     return Template.instance().gridRows.get()
   },
 })
-
-// if (type === 'ImgCapInfinite') {
-//   if (images[index]._locked) return // Prevent double trigger
-//   images[index]._locked = true
-//   const el = event.currentTarget
-
-//   // Let selection effect (scale + check) animate (~250ms)
-//   setTimeout(() => {
-//     const imgEl = el.querySelector('img')
-//     if (imgEl) imgEl.classList.add('opacity-0', 'transition-opacity', 'duration-300')
-
-//     // Replace image only after fade
-//     setTimeout(() => {
-//       const folders = ['basmati', 'arborio']
-//       const imagesPerFolder = 1499
-//       const folder = folders[Math.floor(Math.random() * folders.length)]
-//       const imgId = Math.floor(Math.random() * imagesPerFolder) + 1
-
-//       images[index] = {
-//         src: `/images/captchas/rice/${folder}/${imgId}.jpg?v=${Date.now()}`,
-//         isSelected: false,
-//         index,
-//       }
-
-//       instance.images.set([...images])
-//     }, 300) // Wait for fade
-//   }, 250) // Let check animation finish
-// }
