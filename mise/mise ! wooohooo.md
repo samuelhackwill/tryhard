@@ -1,4 +1,4 @@
-mise ! wooohooo
+<!-- mise ! wooohooo
 
 - brancher toutes les merdes
 - attendre que le réseau & les rasp bootent (5 minutes)
@@ -12,4 +12,8 @@ mise melies 5/12
 
 rafraichir TOUS les loggers, agrandir la fenetre, rafraichir, CONSOMMER LE CURSEUR <-- très important!
 bouger TOUTES les souris pour qu'elles soient à l'écran de base après le texte des philosophes
-cliquer une fois côté mac mini pour qu'on ait le son
+cliquer une fois côté mac mini pour qu'on ait le son -->
+
+Bug intéressant du 25/3
+si /plan n'est pas ouvert les reqPlayers failent silently.
+Donc il faut toujours avoir /show /pupitre et /plan ouverts sinon le show can't go on
