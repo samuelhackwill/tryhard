@@ -20,6 +20,7 @@ import {
   ImgCapOnlyOneSubmit,
   ImgCapNoSelect,
 } from '../components/pasUnRobotImage.js'
+import { ImgCapInfinite } from '../components/pasUnRobotImageInfinite.js'
 
 import '../components/main.js'
 import './show.html'
@@ -195,6 +196,11 @@ function handlePupitreAction(message) {
     case 'ImgCapNoSelect':
       // type : only one submit
       ImgCapNoSelect(message)
+      break
+
+    case 'ImgCapInfinite':
+      // type : only one submit
+      ImgCapInfinite(message)
       break
 
     case 'newCaptcha-1j':

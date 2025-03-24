@@ -188,7 +188,9 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, rot]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoom]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoomMAX]`
-`ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samdocu]`
+
+<!-- `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samdocu]` -->
+
 `ImgCapOnlyOneSubmit[Vous ne pouvez sauver qu’une seule personne. Choisissez qui mérite de vivre., duoGrid1, TUEZ LE]`
 `ImgCapOnlyOneSubmit[Vous devez débrancher un robot pour sauver 9 humains. Quel robot choisissez-vous?, duoGrid2, TUEZ LE]`
 `ImgCapGridSubmit[Et qui sont les 9 humains que vous décidez de sauver?, samcontan, randomGrid, onlySam]`
@@ -205,6 +207,8 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 `ImgCapNoSelect[Sélectionnez la pensée pensée par le yaourt, thingswithfaces, 5, AUCUNE (C'EST UN YAOURT), "JE NE VEUX PAS ÊTRE DIGÉRÉ", "TOUTE LA VIE D'UN YAOURT OSCILLE TEL UN PENDULE ENTRE L'ENNUI ET LA SOUFFRANCE"]`
 
 `ImgCapNoSelect[Sélectionnez la pensée pensée par la terrasse recouverte de neige, thingswithfaces, 6, AUCUNE (ELLE DORT PAISIBLEMENT), AUCUNE (C'EST UNE TERRASSE RECOUVERTE DE NEIGE), "ENFIN LE WEEK-END"]`
+
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds s'il vous plaît : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 1500 grains peut-être? j'ai une petite faim, rice, 500]`
 
 ## captchas-1j-kinetic
 

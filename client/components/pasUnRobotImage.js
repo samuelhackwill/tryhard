@@ -3,15 +3,9 @@ import './pasUnRobotImage.html'
 Template.pasUnRobotImage.onCreated(function () {
   // console.log(this.data)
   this.gridColumns = new ReactiveVar(this.data.gridColumns) // Example default
-  this.images = new ReactiveVar(this.data.images) // Array of {src, isSelected, index}
   this.isRendered = new ReactiveVar(false)
-  // Example init (replace with real data)
-  // const imgArray = Array.from({ length: 9 }).map((_, i) => ({
-  //   src: `/images/captcha/image${i + 1}.jpg`,
-  //   isSelected: false,
-  //   index: i,
-  // }))
-  // this.images.set(imgArray)
+  this.images = new ReactiveVar([])
+  this.images.set(this.data.images)
 })
 
 Template.pasUnRobotImage.onRendered(function () {
@@ -35,21 +29,21 @@ Template.pasUnRobotImage.helpers({
 Template.pasUnRobotImage.events({
   'mousedown .captcha-image'(event) {
     let index = event.currentTarget.dataset.index
+    const instance = Template.instance()
+    const images = instance.images.get()
+    const type = instance.data.type
 
     if (index === undefined) {
-      console.log("this image isn't selectable because it doens't have a index")
+      console.log("this image isn't selectable because it doesn't have an index")
       return
     }
 
     index = Number(index)
 
-    const instance = Template.instance()
-    const images = instance.images.get()
-
     images[index].isSelected = !images[index].isSelected
+    console.log(images[index].isSelected)
     instance.images.set([...images])
   },
-
   'mousedown #submitCaptchaButton'(event, instance) {
     // Do something with selected images
     const selected = instance.images.get().filter((img) => img.isSelected)
