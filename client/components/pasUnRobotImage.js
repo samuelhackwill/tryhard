@@ -34,11 +34,14 @@ Template.pasUnRobotImage.helpers({
 
 Template.pasUnRobotImage.events({
   'mousedown .captcha-image'(event) {
-    const index = Number(event.currentTarget.dataset.index)
-    if (index.length < 1) {
+    let index = event.currentTarget.dataset.index
+
+    if (index === undefined) {
       console.log("this image isn't selectable because it doens't have a index")
       return
     }
+
+    index = Number(index)
 
     const instance = Template.instance()
     const images = instance.images.get()
