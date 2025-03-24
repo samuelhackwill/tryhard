@@ -677,6 +677,7 @@ export const simulateMouseDown = function (pointer) {
       )
       return
     } else {
+      console.log('CLICK', element)
       $(element).trigger('mouseup', { pointer: pointer })
       $(element).trigger('mousedown', { pointer: pointer })
       element.classList.add('clicked')

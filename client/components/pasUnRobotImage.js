@@ -28,7 +28,8 @@ Template.pasUnRobotImage.helpers({
 })
 
 Template.pasUnRobotImage.events({
-  'mouseup .captcha-image'(event) {
+  'mousedown .captcha-image'(event) {
+    console.log('PROUTOS')
     const index = Number(event.currentTarget.dataset.index)
     const instance = Template.instance()
     const images = instance.images.get()
@@ -37,7 +38,7 @@ Template.pasUnRobotImage.events({
     instance.images.set([...images])
   },
 
-  'mouseup #submitCaptchaButton'(event, instance) {
+  'mousedown #submitCaptchaButton'(event, instance) {
     // Do something with selected images
     const selected = instance.images.get().filter((img) => img.isSelected)
     console.log('Selected images:', selected)
@@ -86,6 +87,6 @@ export const newCaptchaImage = function (message) {
       captchaPrompt: prompt,
       images: _images,
     },
-    document.body,
+    document.getElementsByClassName('milieuContainer')[0],
   )
 }
