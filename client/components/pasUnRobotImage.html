@@ -1,6 +1,6 @@
 <template name="pasUnRobotImage">
-  <div class="fixed left-1/2 w-1/4 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-500" style="{{#if isFadingOut}}opacity: 0; pointer-events: none;{{/if}}">
-    <div class="bg-white p-4 rounded-sm shadow-lg">
+  <div class="fixed left-1/2 w-1/4 top-1/2 -translate-x-1/2 -translate-y-1/2  shadow-lg flex items-center justify-center transition-opacity {{#if isRendered}} opacity-1 {{else}} opacity-0 pointer-events-none{{/if}}">
+    <div class="bg-white p-4 rounded-sm w-full">
       <p class="bg-blue-500 p-4 pb-14 text-white text-2xl mb-4">{{captchaPrompt}}</p>
 
       <div class="grid gap-2" style="grid-template-columns: repeat({{gridColumns}}, minmax(0, 1fr));">
@@ -21,9 +21,11 @@
         {{/each}}
       </div>
 
-      <div class="mt-6 text-right">
-        <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
-                id="submitCaptchaButton">Submit</button>
+      <div class="mt-6 flex flex-wrap justify-end gap-2">
+        {{#each buttons}}
+          <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+                  id="submitCaptchaButton">{{this}}</button>
+        {{/each}}
       </div>
     </div>
   </div>

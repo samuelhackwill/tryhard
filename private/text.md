@@ -184,10 +184,27 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 
 ## captchas-img
 
-`newCaptchaImg[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid]`
-`newCaptchaImg[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, rot]`
-`newCaptchaImg[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoom]`
-`newCaptchaImg[Sélectionnez les images où l'auteur de la performance est content, samdocu]`
+`ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid]`
+`ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, rot]`
+`ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoom]`
+`ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoomMAX]`
+`ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samdocu]`
+`ImgCapOnlyOneSubmit[Vous ne pouvez sauver qu’une seule personne. Choisissez qui mérite de vivre., duoGrid1, TUEZ LE]`
+`ImgCapOnlyOneSubmit[Vous devez débrancher un robot pour sauver 9 humains. Quel robot choisissez-vous?, duoGrid2, TUEZ LE]`
+`ImgCapGridSubmit[Et qui sont les 9 humains que vous décidez de sauver?, samcontan, randomGrid, onlySam]`
+`ImgCapNoSelect[Qui est trop sympa et marrant?, samcontan, 1, OK]`
+
+`ImgCapNoSelect[Sélectionnez l'émotion ressentie par la friteuse, thingswithfaces, 1, AUCUNE (C'EST UNE FRITEUSE), SURPRISE, NONNN IL NE FAUT PAS FRIRE UNE TOMATE]`
+
+`ImgCapNoSelect[Sélectionnez l'émotion ressentie par le caillou, thingswithfaces, 2, AUCUNE (C'EST UN CAILLOU), TRISTESSE, NOSTALGIE POUR LE JURASSIQUE]`
+
+`ImgCapNoSelect[Sélectionnez l'émotion ressentie par la valise à roulettes, thingswithfaces, 3, AUCUNE (C'EST UNE VALISE), FRUSTRATION, DÉSIR DE RESTER À LA MAISON, AVERSION POUR LES ESCALIERS]`
+
+`ImgCapNoSelect[Sélectionnez l'émotion ressentie par le champignon de paris, thingswithfaces, 4, TERREUR D'AVOIR ÉTÉ DÉCOUVERT EN TRAIN DE SE CACHER DANS LES HARICOTS VERTS, BONHEUR D'AVOIR ÉTÉ ACCEPTÉ DANS LA COMMUNAUTÉ DES HARICOTS VERTS]`
+
+`ImgCapNoSelect[Sélectionnez la pensée pensée par le yaourt, thingswithfaces, 5, AUCUNE (C'EST UN YAOURT), "JE NE VEUX PAS ÊTRE DIGÉRÉ", "TOUTE LA VIE D'UN YAOURT OSCILLE TEL UN PENDULE ENTRE L'ENNUI ET LA SOUFFRANCE"]`
+
+`ImgCapNoSelect[Sélectionnez la pensée pensée par la terrasse recouverte de neige, thingswithfaces, 6, AUCUNE (ELLE DORT PAISIBLEMENT), AUCUNE (C'EST UNE TERRASSE RECOUVERTE DE NEIGE), "ENFIN LE WEEK-END"]`
 
 ## captchas-1j-kinetic
 

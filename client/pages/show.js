@@ -15,7 +15,11 @@ import { handleButtonClick } from '../components/btnDashboard.js'
 import { disabledMice, mouseOrder } from '../../both/api.js'
 import { observe, observing } from '../observe.js'
 import { updateTopMouse } from '../components/feed.js'
-import { newCaptchaImage } from '../components/pasUnRobotImage.js'
+import {
+  ImgCapGridSubmit,
+  ImgCapOnlyOneSubmit,
+  ImgCapNoSelect,
+} from '../components/pasUnRobotImage.js'
 
 import '../components/main.js'
 import './show.html'
@@ -178,9 +182,21 @@ function handlePupitreAction(message) {
         moveInFrontOfCaptcha(pointer)
       }
       break
-    case 'newCaptchaImg':
-      newCaptchaImage(message)
+    case 'ImgCapGridSubmit':
+      // type : grid submit
+      ImgCapGridSubmit(message)
       break
+
+    case 'ImgCapOnlyOneSubmit':
+      // type : only one submit
+      ImgCapOnlyOneSubmit(message)
+      break
+
+    case 'ImgCapNoSelect':
+      // type : only one submit
+      ImgCapNoSelect(message)
+      break
+
     case 'newCaptcha-1j':
       console.log(message.args)
       Blaze.renderWithData(
@@ -677,7 +693,7 @@ export const simulateMouseDown = function (pointer) {
       )
       return
     } else {
-      console.log('CLICK', element)
+      // console.log('CLICK', element)
       $(element).trigger('mouseup', { pointer: pointer })
       $(element).trigger('mousedown', { pointer: pointer })
       element.classList.add('clicked')
