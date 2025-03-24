@@ -7,14 +7,16 @@
         {{#each images}}
           <div id="captcha-image-{{index}}" class="relative cursor-pointer captcha-image group transition-transform duration-200 ease-out {{#if isSelected}}scale-90{{/if}}"
                data-index="{{index}}">
-            <img src="{{src}}" class="w-full h-auto block object-cover rounded border {{#if isSelected}}border-blue-500{{else}}border-gray-300{{/if}}" />
-            {{#if isSelected}}
-              <div class="absolute inset-0 flex items-center justify-center bg-blue-500 bg-opacity-40">
-                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
+              <div class="w-full h-full overflow-hidden">
+                <img src="{{src}}" class="w-full h-auto block object-cover rounded border  {{#if isSelected}}border-blue-500{{else}}border-gray-300{{/if}}" style="{{customStyle}}" />
+                {{#if isSelected}}
+                  <div class="absolute inset-0 flex items-center justify-center bg-blue-500 bg-opacity-40">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                {{/if}}
               </div>
-            {{/if}}
           </div>
         {{/each}}
       </div>

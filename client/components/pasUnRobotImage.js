@@ -29,7 +29,6 @@ Template.pasUnRobotImage.helpers({
 
 Template.pasUnRobotImage.events({
   'mousedown .captcha-image'(event) {
-    console.log('PROUTOS')
     const index = Number(event.currentTarget.dataset.index)
     const instance = Template.instance()
     const images = instance.images.get()
@@ -60,10 +59,11 @@ export const newCaptchaImage = function (message) {
   // message[2] is optional modifier
   const prompt = message.args[0]
   const imageSetFolder = message.args[1]
-  const optionalModifier = message.args[2] || null
+  const gridType = message.args[2]
+  const optionalModifier = message.args[3] || null
   let _images = []
 
-  switch (optionalModifier) {
+  switch (gridType) {
     case 'randomGrid':
       for (let i = 0; i < 9; i++) {
         const rand = Math.random() < 0.5 ? 1 : 2
@@ -71,6 +71,15 @@ export const newCaptchaImage = function (message) {
         obj.src = `/images/captchas/${imageSetFolder}/${rand}.png`
         obj.isSelected = false
         obj.index = i
+        switch (optionalModifier) {
+          case 'rot':
+            obj.customStyle = randomRot()
+            break
+          case 'zoom':
+            obj.customStyle = randomZoom()
+            break
+        }
+
         _images.push(obj)
       }
 
@@ -89,4 +98,26 @@ export const newCaptchaImage = function (message) {
     },
     document.getElementsByClassName('milieuContainer')[0],
   )
+}
+
+const randomRot = function () {
+  const styles = [
+    'transform: rotate(90deg);',
+    'transform: rotate(180deg);',
+    'transform: rotate(270deg);',
+    'transform: rotate(360deg);',
+    'transform: scaleX(-1);', // mirror X
+    'transform: scaleY(-1);', // mirror Y
+    '', // no style
+  ]
+
+  const randomIndex = Math.floor(Math.random() * styles.length)
+  return styles[randomIndex]
+}
+
+const randomZoom = function () {
+  const originX = Math.floor(Math.random() * 101) // 0 to 100%
+  const originY = Math.floor(Math.random() * 101) // 0 to 100%
+
+  return `transform: scale(3); transform-origin: ${originX}% ${originY}%;`
 }
