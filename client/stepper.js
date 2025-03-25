@@ -14,6 +14,7 @@ const moveAuthorized = [
   'captchas-1j-manual',
   'chaises',
   'chaises-squidGame',
+  'captchas-img',
 ]
 
 const noise = new ValueNoise()
