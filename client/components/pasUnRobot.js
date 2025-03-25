@@ -54,7 +54,7 @@ Template.pasUnRobot.onRendered(function () {
 
   // Now call a global "recalculateCirclePositions()" that uses ALL sizes
   registerCircleElement(this, rect.width, rect.height, this.data.howMany)
-  // console.log(el)
+  console.log(el, rect.width)
 
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 

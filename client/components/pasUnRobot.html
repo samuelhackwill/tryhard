@@ -1,13 +1,13 @@
 <template name="pasUnRobot">
   <div
-    class="pasUnRobot max-w-[60%] m-2 absolute transition-opacity duration-200
+    class="pasUnRobot  m-2 absolute transition-opacity duration-200
     {{#if isTetris}} 
       animate-fall 
     {{/if}}
     {{#if isChaisesMusicales}}
-      chair
+      chair w-fit
     {{else}} 
-        -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 
+    max-w-[60%] -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 
     {{/if}}   
     
     {{#if isRendered}}
@@ -28,7 +28,7 @@
         {{else}}
           <div
             id="warningBorder"
-            class="pointer-events-none absolute inset-0 border-2  {{isWarning}}           {{#if isPassed}} border-blue-300 {{else}} border-red-600 {{/if}} transition-opacity"
+            class="pointer-events-none absolute inset-0 border-2 {{isWarning}} {{#if isPassed}} border-blue-300 {{else}} border-red-600 {{/if}} transition-opacity"
 
           >
           </div>
