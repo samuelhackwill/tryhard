@@ -50,6 +50,7 @@ Template.pasUnRobotImageInfinite.onCreated(function () {
       src: `/images/captchas/rice/${folder}/${imgId}.jpg`,
       isSelected: false,
       index: i,
+      cultivar: folder,
     })
 
     this.imageKeys.push(key)
@@ -79,6 +80,31 @@ Template.pasUnRobotImageInfinite.events({
 
     const el = event.currentTarget
 
+    let arborioCount = Number(document.querySelector('#score').firstElementChild.innerHTML)
+    let basmatiCount = Number(document.querySelector('#hiddenBasmati').firstElementChild.innerHTML)
+
+    if (el.dataset.cultivar == 'arborio') {
+      arborioCount = arborioCount + 1
+      document.querySelector('#score').firstElementChild.innerHTML = arborioCount
+    } else {
+      basmatiCount = basmatiCount + 1
+      document.querySelector('#hiddenBasmati').firstElementChild.innerHTML = basmatiCount
+    }
+
+    const totalGrain = arborioCount + basmatiCount
+    const precision = ((arborioCount / totalGrain) * 100).toFixed(0)
+    console.log(totalGrain, arborioCount)
+
+    document.querySelector('#precisionScore').innerHTML = precision
+    document.querySelector('#total').innerHTML = totalGrain
+
+    if (totalGrain === 100) {
+      document.querySelector('#score').classList.remove('opacity-0')
+      document.querySelector('#precision').classList.remove('opacity-0')
+    }
+
+    // update score
+
     // Let selection animation play (~250ms)
     setTimeout(() => {
       const imgEl = el.querySelector('img')
@@ -95,6 +121,7 @@ Template.pasUnRobotImageInfinite.events({
           src: `/images/captchas/rice/${folder}/${imgId}.jpg?v=${Date.now()}`,
           isSelected: false,
           index,
+          cultivar: folder,
         })
         console.log(imgEl)
         if (imgEl) imgEl.classList.remove('opacity-0')
@@ -114,11 +141,11 @@ Template.pasUnRobotImageInfinite.events({
             const key = allKeys[i]
             const folder = folders[Math.floor(Math.random() * folders.length)]
             const imgId = Math.floor(Math.random() * imagesPerFolder) + 1
-
             instance.images.set(key, {
               src: `/images/captchas/rice/${folder}/${imgId}.jpg?v=${Date.now()}`,
               isSelected: false,
               index: i,
+              cultivar: folder,
             })
           }
         }
