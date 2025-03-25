@@ -178,6 +178,7 @@ Template.pasUnRobot.events({
       return
     }
 
+    t.warning.set(false)
     removeTimeouts(t)
     // console.log(t)
     clickTimestamp = new Date()
@@ -220,12 +221,14 @@ Template.pasUnRobot.events({
 })
 
 const checkAndDie = function (t, handle, passed) {
+  let wait = 1000
   if (passed) {
     t.waiting.set(false)
     setTimeout(() => {
       document.getElementById(`checkbox-pasUnRobot-${t.uuid}`).checked = true
     }, 50)
   } else {
+    wait = wait + 2000
     t.failed.set(true)
   }
 
@@ -241,7 +244,7 @@ const checkAndDie = function (t, handle, passed) {
       checkAndDieOutro(t)
       Blaze.remove(handle)
     }, 300)
-  }, 1000)
+  }, wait)
 }
 
 const clickerDie = function (t, handle, passed) {

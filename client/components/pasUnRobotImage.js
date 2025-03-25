@@ -1,6 +1,14 @@
 import './pasUnRobotImage.html'
+import { streamer } from '../../both/streamer.js'
 
 Template.pasUnRobotImage.onCreated(function () {
+  this._pupitreHandler = (message) => {
+    message.context = this
+    handlePupitreAction(message)
+  }
+
+  streamer.on('pupitreAction', this._pupitreHandler)
+
   // console.log(this.data)
   this.gridColumns = new ReactiveVar(this.data.gridColumns) // Example default
   this.isRendered = new ReactiveVar(false)
@@ -44,7 +52,7 @@ Template.pasUnRobotImage.events({
     console.log(images[index].isSelected)
     instance.images.set([...images])
   },
-  'mousedown #submitCaptchaButton'(event, instance) {
+  'mousedown #button-submitCaptcha'(event, instance) {
     // Do something with selected images
     const selected = instance.images.get().filter((img) => img.isSelected)
     // console.log('Selected images:', selected)
@@ -218,4 +226,37 @@ const randomZoom = function (amount) {
   const originY = Math.floor(Math.random() * 101) // 0 to 100%
 
   return `transform: scale(${amount}); transform-origin: ${originX}% ${originY}%;`
+}
+
+const handlePupitreAction = function (message) {
+  // message.context contains the original template which was bound to the streamer. Hm i wonder what will happen when we have several templates of captcha in the same page.
+  switch (message.content) {
+    case 'killCaptchas':
+      console.log('kill catpcahs', message.context)
+      // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
+      // unchoosePlayer()
+
+      // removeTimeouts(message.context)
+      // well, now that we have a scenario where several captchas exist in the same
+      // screen, maybe we need a more graceful way of hiding
+      // everyone. We would need to access to each template's reactive data context
+      // and switch this.rendered.set(false).
+      const elements = document.getElementsByClassName('pasUnRobotImg')
+
+      if (elements) {
+        Array.from(elements).forEach((element) => {
+          element.style.opacity = 0
+        })
+      }
+
+      // well, this won't remove multiple layered img captcha if
+      // we missclick
+      const viewAtCall = message.context.view
+
+      Meteor.setTimeout(function () {
+        Blaze.remove(viewAtCall)
+      }, 1000)
+
+      break
+  }
 }

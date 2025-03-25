@@ -1,8 +1,16 @@
 import './pasUnRobotImageInfinite.html'
 
+import { streamer } from '../../both/streamer.js'
 import { ReactiveDict } from 'meteor/reactive-dict'
 
 Template.pasUnRobotImageInfinite.onCreated(function () {
+  this._pupitreHandler = (message) => {
+    message.context = this
+    handlePupitreAction(message)
+  }
+
+  streamer.on('pupitreAction', this._pupitreHandler)
+
   this.isRendered = new ReactiveVar(false)
   this.images = new ReactiveDict()
   this.imageKeys = []
@@ -157,3 +165,34 @@ Template.pasUnRobotImageInfinite.helpers({
     return Template.instance().gridRows.get()
   },
 })
+
+const handlePupitreAction = function (message) {
+  // message.context contains the original template which was bound to the streamer. Hm i wonder what will happen when we have several templates of captcha in the same page.
+  switch (message.content) {
+    case 'killCaptchas':
+      console.log('kill catpcahs', message.context)
+      // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
+      // unchoosePlayer()
+
+      // removeTimeouts(message.context)
+      // well, now that we have a scenario where several captchas exist in the same
+      // screen, maybe we need a more graceful way of hiding
+      // everyone. We would need to access to each template's reactive data context
+      // and switch this.rendered.set(false).
+      const element = document.getElementById('pasUnRobotInfinite')
+
+      if (element) {
+        element.style.opacity = 0
+      }
+
+      // well, this won't remove multiple layered img captcha if
+      // we missclick
+      const viewAtCall = message.context.view
+
+      Meteor.setTimeout(function () {
+        Blaze.remove(viewAtCall)
+      }, 1000)
+
+      break
+  }
+}
