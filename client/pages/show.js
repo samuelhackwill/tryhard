@@ -1040,7 +1040,8 @@ export const registerCircleElement = function (instance, width, height, howMany)
   // console.log('[circleElements] Length is', circleElements.length)
   // console.log('howMany is', howMany)
   // console.log('check is', circleElements.length === howMany)
-  console.log('width:', width, 'height:', height)
+
+  // console.log('width:', width, 'height:', height)
 
   if (circleElements.length === howMany) {
     recalculateCirclePositions()

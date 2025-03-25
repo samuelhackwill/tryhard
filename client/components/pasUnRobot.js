@@ -54,7 +54,7 @@ Template.pasUnRobot.onRendered(function () {
 
   // Now call a global "recalculateCirclePositions()" that uses ALL sizes
   registerCircleElement(this, rect.width, rect.height, this.data.howMany)
-  console.log(el, rect.width)
+  // console.log(el, rect.width)
 
   const timeToComplete = this.data.surpriseAmount + this.minReadingTime + this.data.hesitationAmount
 
@@ -234,31 +234,39 @@ const checkAndDie = function (t, handle, passed) {
 
   updateScore(t, passed)
 
-  setTimeout(() => {
-    // console.log('captcha completed!!')
-    // const element = document.getElementById('pasUnRobot')
-    // element.style.opacity = 0
-    t.rendered.set(false)
-
+  const _timeouts = t.timeouts.get()
+  _timeouts.push(
     setTimeout(() => {
-      checkAndDieOutro(t)
-      Blaze.remove(handle)
-    }, 300)
-  }, wait)
+      // console.log('captcha completed!!')
+      // const element = document.getElementById('pasUnRobot')
+      // element.style.opacity = 0
+      t.rendered.set(false)
+
+      setTimeout(() => {
+        checkAndDieOutro(t)
+        Blaze.remove(handle)
+      }, 300)
+    }, wait),
+  )
+  t.timeouts.set(_timeouts)
 }
 
 const clickerDie = function (t, handle, passed) {
-  setTimeout(() => {
-    // console.log('captcha completed!!')
-    // const element = document.getElementById('pasUnRobot')
-    // element.style.opacity = 0
-    t.rendered.set(false)
-
+  const _timeouts = t.timeouts.get()
+  _timeouts.push(
     setTimeout(() => {
-      checkAndDieOutro(t)
-      Blaze.remove(handle)
-    }, 300)
-  }, 1000)
+      // console.log('captcha completed!!')
+      // const element = document.getElementById('pasUnRobot')
+      // element.style.opacity = 0
+      t.rendered.set(false)
+
+      setTimeout(() => {
+        checkAndDieOutro(t)
+        Blaze.remove(handle)
+      }, 300)
+    }, 1000),
+  )
+  t.timeouts.set(_timeouts)
 }
 
 const checkAndDieOutro = function (t) {
@@ -371,6 +379,8 @@ const handlePupitreAction = function (message) {
       // check if bob hasn't clicked
       // THIS WONT WORK IF MULTIPLE CAPTCHAS!!!
       // the clicks in show don't know about uuid of this template so it's tricky.
+
+      // ok this is ONLY FOR THE CLICKER lulz
       showWarning(message.context)
       checkAndDie(message.context, message.context.view, false)
       const hasntClicked = Number(document.getElementById('clickCounter').innerHTML) === 0
