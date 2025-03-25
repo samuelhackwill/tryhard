@@ -245,7 +245,7 @@ const checkAndDie = function (t, handle, passed) {
       setTimeout(() => {
         checkAndDieOutro(t)
         Blaze.remove(handle)
-      }, 300)
+      }, 1000)
     }, wait),
   )
   t.timeouts.set(_timeouts)

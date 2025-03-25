@@ -207,7 +207,7 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 
 `ImgCapNoSelect[Sélectionnez la pensée pensée par la terrasse recouverte de neige, thingswithfaces, 6, AUCUNE (ELLE DORT PAISIBLEMENT), AUCUNE (C'EST UNE TERRASSE RECOUVERTE DE NEIGE), "ENFIN LE WEEK-END"]`
 
-`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds s'il vous plaît : je veux me faire un bon petit risotto. J'ai besoin de quoi.. allez 1500 grains peut-être?, rice, 1500]`
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds s'il vous plaît : je veux me faire un bon petit risotto, rice, 20]`
 
 ## captchas-1j-kinetic
 

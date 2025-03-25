@@ -14,6 +14,7 @@ Template.pasUnRobotImageInfinite.onCreated(function () {
   this.isRendered = new ReactiveVar(false)
   this.images = new ReactiveDict()
   this.imageKeys = []
+  this.target = this.data.winCondition
 
   const promptHeight = 110
   const padding = 32 // (margins 4 + 4)
@@ -80,12 +81,12 @@ Template.pasUnRobotImageInfinite.events({
 
     const el = event.currentTarget
 
-    let arborioCount = Number(document.querySelector('#score').firstElementChild.innerHTML)
+    let arborioCount = Number(document.querySelector('#hiddenArborio').firstElementChild.innerHTML)
     let basmatiCount = Number(document.querySelector('#hiddenBasmati').firstElementChild.innerHTML)
 
     if (el.dataset.cultivar == 'arborio') {
       arborioCount = arborioCount + 1
-      document.querySelector('#score').firstElementChild.innerHTML = arborioCount
+      document.querySelector('#hiddenArborio').firstElementChild.innerHTML = arborioCount
     } else {
       basmatiCount = basmatiCount + 1
       document.querySelector('#hiddenBasmati').firstElementChild.innerHTML = basmatiCount
@@ -98,9 +99,23 @@ Template.pasUnRobotImageInfinite.events({
     document.querySelector('#precisionScore').innerHTML = precision
     document.querySelector('#total').innerHTML = totalGrain
 
-    if (totalGrain === 100) {
+    if (totalGrain === Math.round(Template.instance().target / 15)) {
       document.querySelector('#score').classList.remove('opacity-0')
       document.querySelector('#precision').classList.remove('opacity-0')
+    }
+
+    if (totalGrain > Template.instance().target - 1) {
+      // boom the captcha was completed oh yeah.
+
+      // Start fade out
+      instance.isRendered.set(false)
+      pasUnRobotInfinite.classList.remove('duration-1000')
+      pasUnRobotInfinite.classList.add('duration-[10s]')
+
+      setTimeout(() => {
+        // Optionally trigger server validation or remove template
+        Blaze.remove(Blaze.getView(instance.firstNode))
+      }, 11000) // Match transition duration
     }
 
     // update score
@@ -157,7 +172,7 @@ Template.pasUnRobotImageInfinite.events({
 export const ImgCapInfinite = function (message) {
   const prompt = message.args[0]
   const type = message.args[1]
-  const number = message.args[2]
+  const target = Number(message.args[2])
 
   Blaze.renderWithData(
     Template.pasUnRobotImageInfinite,
@@ -165,13 +180,16 @@ export const ImgCapInfinite = function (message) {
       type: 'infinite',
       captchaPrompt: prompt,
       path: type,
-      winCondition: number,
+      winCondition: target,
     },
     document.getElementsByClassName('milieuContainer')[0],
   )
 }
 
 Template.pasUnRobotImageInfinite.helpers({
+  getTarget() {
+    return Template.instance().target
+  },
   isRendered() {
     return Template.instance().isRendered.get()
   },
