@@ -586,30 +586,8 @@ export const simulateMouseUp = function (pointer) {
 
   const domPointer = document.getElementById(pointer.id)
 
-  const transform = window.getComputedStyle(domPointer).transform
-
-  let translateX = 0,
-    translateY = 0
-
-  if (transform && transform !== 'none') {
-    const matrixValues = transform.match(/matrix\(([^)]+)\)/)
-
-    if (matrixValues) {
-      const values = matrixValues[1].split(',').map(parseFloat)
-
-      if (values.length === 6) {
-        // 2D matrix case: matrix(a, b, c, d, tx, ty)
-        translateX = values[4]
-        translateY = values[5]
-      }
-    }
-  }
-
-  // Add 4 pixels to the Y translation
-  translateY -= 2
-
-  // Apply the new transform
-  domPointer.style.transform = `translate(${translateX}px, ${translateY}px)`
+  const svg = domPointer.querySelector('#pointerSvg')
+  svg.style.transform = 'translateY(-2px)'
 
   const elements = getElementsUnder(pointer)
   if (elements.length == 0) return
@@ -660,33 +638,12 @@ export const simulateMouseDown = function (pointer) {
   // const audio = new Audio('mouseDown.mp3')
   // audio.play()
 
-  const elements = getElementsUnder(pointer)
   const domPointer = document.getElementById(pointer.id)
 
-  const transform = window.getComputedStyle(domPointer).transform
+  const svg = domPointer.querySelector('#pointerSvg')
+  svg.style.transform = 'translateY(2px)'
 
-  let translateX = 0,
-    translateY = 0
-
-  if (transform && transform !== 'none') {
-    const matrixValues = transform.match(/matrix\(([^)]+)\)/)
-
-    if (matrixValues) {
-      const values = matrixValues[1].split(',').map(parseFloat)
-
-      if (values.length === 6) {
-        // 2D matrix case: matrix(a, b, c, d, tx, ty)
-        translateX = values[4]
-        translateY = values[5]
-      }
-    }
-  }
-
-  // Add 4 pixels to the Y translation
-  translateY += 2
-
-  // Apply the new transform
-  domPointer.style.transform = `translate(${translateX}px, ${translateY}px)`
+  const elements = getElementsUnder(pointer)
 
   if (elements.length == 0) return
   for (element of elements) {
@@ -809,7 +766,13 @@ export const addToDataAttribute = function (element, attr, amount) {
 }
 
 export const createPointer = function (id, bot = false, _owner) {
-  const _order = findPointerByBrandAndRasp(getRasp(id, 1), getMouseBrand(id), 'mouseOrder')?.order
+  const _dbPointer = findPointerByBrandAndRasp(getRasp(id, 1), getMouseBrand(id), 'mouseOrder')
+  const _order = _dbPointer?.order
+  const _gradin = _dbPointer?.gradin
+
+  // this should obviously not be scoped to every mice but wtvr
+  const _dernierGradin = _dbPointer?.dernierGradin
+
   return {
     id: id,
     rasp: getRasp(id),
@@ -818,6 +781,8 @@ export const createPointer = function (id, bot = false, _owner) {
     outlineColor: '#FFFFFF',
     initializationCoords: { x: -50, y: -50 },
     order: _order,
+    gradin: _gradin,
+    dernierGradin: _dernierGradin,
     opacity: 1,
     hoveredElementId: 'feed',
     cornersTouched: {},
@@ -974,6 +939,7 @@ const findPointerByBrandAndRasp = function (targetRasp, targetBrand, target) {
       }
     }
   } else {
+    // if we're not looking in the instance.pointers() this means we're looking in the DB. fuuu
     const allEntries = mouseOrder.find().fetch()
 
     for (const entry of allEntries) {
