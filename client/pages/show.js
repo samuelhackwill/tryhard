@@ -62,6 +62,8 @@ Template.show.onCreated(function () {
 
   this.state = new ReactiveVar('repetition')
 
+  this.score = { gradins: {} }
+
   // make instance callable from everywhere
   instance = this
 
@@ -79,6 +81,13 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message) {
   switch (message.content) {
+    case 'revealMoney':
+      document.querySelectorAll('.pointer').forEach((pointer) => {
+        const money = pointer.querySelector('#money')
+        money.classList.remove('hidden', 'opacity-0')
+      })
+
+      break
     case 'alignPointersBot':
       alignPointersInTheBottom(instance.pointers.all())
       break
@@ -586,27 +595,50 @@ simulateRightMouseUp = function (pointer) {
 
 export const simulateMouseUp = function (pointer) {
   // observe('newClick', pointer.id)
+  // console.log(pointer)
+  const domPointer = document.getElementById(pointer.id)
+  const svg = domPointer.querySelector('#pointerSvg')
+  svg.style.transform = 'translateY(-2px)'
 
   // const audio = new Audio('mouseUp.mp3')
   // audio.play()
 
-  const domPointer = document.getElementById(pointer.id)
+  if (instance.state.get() != 'clicker-ffa') {
+    const elements = getElementsUnder(pointer)
+    if (elements.length == 0) return
 
-  const svg = domPointer.querySelector('#pointerSvg')
-  svg.style.transform = 'translateY(-2px)'
+    for (element of elements) {
+      $(element).trigger('mouseup', { pointer: pointer })
+    }
+    elements.forEach((e) => e.classList.remove('clicked'))
+  } else {
+    const gradin = pointer.gradin
+    const dernierGradin = pointer.dernierGradin
 
-  const elements = getElementsUnder(pointer)
-  if (elements.length == 0) return
+    const moneyEl = domPointer.querySelector('#money')
+    const current = Number(moneyEl.firstChild.nodeValue)
+    moneyEl.firstChild.nodeValue = current + 1
 
-  for (element of elements) {
-    $(element).trigger('mouseup', { pointer: pointer })
-  }
-  elements.forEach((e) => e.classList.remove('clicked'))
+    instance.score.gradins[gradin] = (instance.score.gradins[gradin] || 0) + 1
 
-  // this is dangerous : as soon as we get more than one clicker on the screen it won't play nice
-  const clickCounter = document.getElementById('clickCounter')
-  if (clickCounter) {
-    clickCounter.innerHTML = Number(clickCounter.innerHTML) + 1 || 1
+    if (gradin == dernierGradin) {
+      const gradinEl = document.querySelector('#clickCounter-gradinDuFond')
+      if (!gradinEl) return
+      const current = Number(gradinEl.firstChild.nodeValue)
+      gradinEl.firstChild.nodeValue = current + 1
+    }
+
+    if (gradin == 1) {
+      const gradinEl = document.querySelector('#clickCounter-gradinDuDevant')
+      if (!gradinEl) return
+      const current = Number(gradinEl.firstChild.nodeValue)
+      gradinEl.firstChild.nodeValue = current + 1
+    }
+
+    const collectiveMoneyEl = document.querySelector('#clickCounter-total')
+    if (!collectiveMoneyEl) return
+    const currentTot = Number(collectiveMoneyEl.firstChild.nodeValue)
+    collectiveMoneyEl.firstChild.nodeValue = currentTot + 1
   }
 
   // only add to money if we're in the appropriate moment of the show.

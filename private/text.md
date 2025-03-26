@@ -242,6 +242,7 @@ difficulté : impossible <!-- invisible -->
 ## clicker-ffa
 
 `newClickerGrid`
+`revealMoney`
 
 `clicker [total]`
 `clicker [gradinDuFond]`
