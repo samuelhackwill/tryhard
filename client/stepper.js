@@ -154,7 +154,7 @@ function handleTickUpdate(message) {
         DOMpointer.dataset.y = coords.y
 
         DOMpointer.style.transform = `translate(${coords.x}px, ${coords.y}px)`
-        writeDomCoords(pointer.id, coords)
+        writeDomCoords(DOMpointer, coords)
       }
 
       // check clicks
@@ -235,7 +235,7 @@ function handleAutoPlay(message) {
       if (DOMpointer) {
         DOMpointer.style.transform = transform
 
-        writeDomCoords(pointer.id, coords)
+        writeDomCoords(DOMpointer, coords)
       }
 
       break

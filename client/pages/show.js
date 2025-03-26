@@ -917,9 +917,7 @@ readDomCoords = function (DOMpointer) {
   }
 }
 
-writeDomCoords = function (id, coords) {
-  const DOMpointer = document.getElementById(id)
-
+writeDomCoords = function (DOMpointer, coords) {
   DOMpointer.setAttribute('data-x', coords.x)
   DOMpointer.setAttribute('data-y', coords.y)
 }
