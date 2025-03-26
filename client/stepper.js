@@ -112,20 +112,12 @@ function handleTickUpdate(message) {
     if (!pointer.locked) {
       //Move messages are relative (e.g. 1px right, 2px down)
       //Apply that change to the coords
-      switch (
-        isInWindowBoundaries(
-          'x',
-          coords.x,
-          element.x,
-          convertRemToPixels(instance.pointerWidth.get()),
-        )
-      ) {
+      switch (isInWindowBoundaries('x', coords.x, element.x, GlobalPointerWidth)) {
         case 'x-in-bounds':
           coords.x += element.x
           break
         case 'overflow-right':
-          coords.x =
-            instance.windowBoundaries.width - convertRemToPixels(instance.pointerWidth.get())
+          coords.x = instance.windowBoundaries.width - GlobalPointerWidth
           // observe('magellan', { p: pointer, corner: 'right' })
           break
         case 'overflow-left':
@@ -137,20 +129,12 @@ function handleTickUpdate(message) {
           break
       }
 
-      switch (
-        isInWindowBoundaries(
-          'y',
-          coords.y,
-          element.y,
-          convertRemToPixels(instance.pointerHeight.get()),
-        )
-      ) {
+      switch (isInWindowBoundaries('y', coords.y, element.y, GlobalPointerHeight)) {
         case 'y-in-bounds':
           coords.y += element.y
           break
         case 'overflow-bottom':
-          coords.y =
-            instance.windowBoundaries.height - convertRemToPixels(instance.pointerHeight.get())
+          coords.y = instance.windowBoundaries.height - GlobalPointerHeight
           // observe('magellan', { p: pointer, corner: 'bottom' })
           break
         case 'overflow-top':
@@ -164,19 +148,13 @@ function handleTickUpdate(message) {
 
       // observe('newMove', pointer.id)
 
-      // here we need to update the DOM en fonction du dataset
-
-      let transform = DOMpointer?.style.transform || ''
-
-      // Remove any existing translate (optional if you want to overwrite it every time)
-      transform = transform.replace(/translate\([^)]+\)/, '')
-
-      // Add the new translate
-      transform = `${transform} translate(${coords.x}px, ${coords.y}px)`.trim()
-
       // Apply the updated transform
       if (DOMpointer) {
-        DOMpointer.style.transform = transform
+        DOMpointer.dataset.x = coords.x
+        DOMpointer.dataset.y = coords.y
+
+        // Overwrite the transform entirely — no need to preserve or parse
+        DOMpointer.style.transform = `translate(${coords.x}px, ${coords.y}px)`
 
         // Also apply the updated data
         writeDomCoords(pointer.id, coords)
@@ -196,7 +174,11 @@ function handleTickUpdate(message) {
       // }
 
       // check hover
-      checkHover(pointer)
+      if (instance.state.get() == 'clicker-ffa') {
+        // do something else with the clicks
+      } else {
+        checkHover(pointer)
+      }
     }
   })
 }
