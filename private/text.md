@@ -302,18 +302,18 @@ mais il fallait pour ça utiliser un outil professionnel muni d'un trop grand no
 le clavier.
 ma grand-mère est née en 1929,
 donc après Douglas Englebart (1925) mais avant ma mère.
-née en? 1957.
+née en?
+en 1957.
 les premiers ordinateurs sont nés dans les années 40
 donc après ma grand-mère mais avant ma mère.
 et après le début de la seconde guerre mondiale.
 née en 1939.
 la seconde guerre mondiale fut la cause principale du développement de l'informatique
 parce qu'il fallait casser les codes que les nazis utilisaient pour synchroniser leurs attaques de sous-marins dans l'Atlantique.
-s'il n'y avait pas eu l'informatique
-disent les conservateurs des musées sur l'informatique
+les ordinateurs ont raccourci la guerre de 1, 2 ou 4 ans,
+disent les conservateurs des musées sur l'informatique.
 qui sont à la fois les personnes les mieux placées pour tenir ce genre de propos, mais qui sont également certainement parmi les personnes qui ont le plus intérêt à exagérer l'utilité des ordinateurs en général
-les ordinateurs ont raccourci la guerre de 1, 2 ou 4 ans, disent-ils.
-sans les ordinateurs, nous n'aurions pas gagné la guerre, ajoute Churchill.
+sans les ordinateurs, nous aurions perdu la guerre, ajoute Churchill.
 né en 1874.
 d'autres personnes prétendent que les ordinateurs n'ont servi à rien pendant la guerre
 et ne serviront d'ailleurs jamais à rien.
@@ -328,7 +328,7 @@ la dernière fois qu'un forme de vie avec des capacités techniques supérieures
 a rencontré d'autres formes de vie avec des capacités techniques inférieures
 comment cela s'est-il terminé pour ces dernières?
 comment traitons-nous les souris?
-nous serons les souris de l'intelligence surhumaine de synthèse, affirment les philosophes-alignementistes.
+nous serons les souris de l'intelligence surhumaine de synthèse, affirment ces philosophes.
 "ça n'a rien de personnel",
 "mais vous êtes constitués d'atomes que je pourrais mieux utiliser ailleurs", ajoute l'intelligence surhumaine de synthèse,
 née en 2026.
@@ -338,19 +338,17 @@ affirment quelques chercheurs courageux
 _très_ minoritaires
 ce qui ne veut pas dire qu'ils ont tort
 nous y parviendrons avant 2060 probablement!
-disent ~50% du panel de philosophes-chercheurs en sciences de l'informatique.1
+disent ~50% du panel de philosophes-chercheurs en sciences de l'informatique. _1_
 nous y parviendrons au plus tard en 2160!
 disent les autres ~50%.
-nous aurons tous grillé bien avant ça de toutes façons! répètent en vain les philosophes-chercheurs du GIEC.
+c'est bien mais nous aurons tous grillé bien avant 2160! répètent en vain les philosophes-chercheurs du GIEC.
+c'est bien mais à quoi nous sert une intelligence supérieure dans un monde sans Justice? objectent les philosophes-sociologues.
 et qu'est ce qu'on entend par "intelligence", au fait, s'interrogent d'autres philosophes, un peu en retard dans la conversation.
-de toutes façons toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, nous rappelle le yaourt.
-
-<!-- pause -->
-
-merci d'avoir joué! clame le champignon de paris
+quoi qu'il en soit, toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
+merci d'avoir joué! clament le champignon de paris et les haricots verts.
 et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
 
-<!-- Grace, K., Garfinkel, B., Cotra, A., Hazell, J., & Evans, O. (2022) AI Impacts -->
+<!-- 1. Grace, K., Garfinkel, B., Cotra, A., Hazell, J., & Evans, O. (2022) AI Impacts -->
 
 <!-- ou peut être que nous serons percutés par une météorite
 ou peut être que le champ magnétique de la terre s'inversera

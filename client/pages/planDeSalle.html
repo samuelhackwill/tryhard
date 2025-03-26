@@ -29,13 +29,17 @@
           <div class="grid grid-cols-4 gap-1 mt-2 text-center text-sm text-gray-600">
             {{#each (mouseSlotNumbers row col)}}
             <div class="border rounded p-1" data-mouse="{{this.mouseId}}" title="{{this.mouseId}}">
-              <input 
-                id="{{this.mouseId}}"
-                type="number" 
-                class="mouse-order-input w-12 text-center border-none outline-none bg-transparent"
-                value="{{getMouseOrder this.mouseId}}" 
-                data-mouseid="{{this.mouseId}}"
-              />
+              {{#if this.mouseId}}
+                <input 
+                  id="{{this.mouseId}}"
+                  type="number" 
+                  class="mouse-order-input w-12 text-center border-none outline-none bg-transparent"
+                  value="{{getMouseOrder this.mouseId}}" 
+                  data-mouseid="{{this.mouseId}}"
+                  data-maxrow="{{getMaxRows}}"
+                  data-row="{{../row}}"
+                />
+              {{/if}}
             </div>
             
             {{/each}}

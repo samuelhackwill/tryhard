@@ -178,8 +178,8 @@ function updateDevices(data) {
 }
 
 Meteor.methods({
-  updateMouseOrder({ device, order }) {
-    mouseOrder.upsert({ device }, { $set: { order } })
+  updateMouseOrder({ device, order, gradin, dernierGradin }) {
+    mouseOrder.upsert({ device }, { $set: { order, gradin, dernierGradin } })
   },
   eraseEveryDb() {
     console.log('flashing mouseOrder and disabledMice')

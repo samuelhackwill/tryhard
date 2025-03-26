@@ -170,6 +170,10 @@ Template.planDeSalle.onRendered(function () {
 })
 
 Template.planDeSalle.helpers({
+  getMaxRows() {
+    const currentLayout = SalleLayout.findOne()
+    return currentLayout.rows
+  },
   getMouseOrder(mouseId) {
     const entry = mouseOrder.findOne({ device: mouseId })
     return entry?.order || ''
@@ -332,14 +336,28 @@ Template.planDeSalle.events({
     const mouseId = event.target.dataset.mouseid
     const newOrder = parseInt(event.target.value, 10)
 
-    if (!isNaN(newOrder)) {
-      Meteor.call('updateMouseOrder', { device: mouseId, order: newOrder }, (err, res) => {
-        if (err) {
-          console.error('Failed to update mouse order:', err)
-        } else {
-          console.log(`Updated ${mouseId} to order ${newOrder}`)
-        }
-      })
+    const dataLastRow = event.target.dataset.maxrow
+    const lastRow = parseInt(dataLastRow, 10)
+
+    const dataCurrentRow = event.target.dataset.row
+    const row = parseInt(dataCurrentRow, 10) + 1 // coucou les amis on est obligé de faire un ti plus 1 ici parce que la data est structurée comme ça dans la db. on utilise length pour décider du nombr ede cols mais par contre col 0 est la première colone, etc. lulz
+
+    console.log(event.target)
+
+    if (!isNaN(newOrder) || !isNaN(lastRow) || !isNaN(row)) {
+      Meteor.call(
+        'updateMouseOrder',
+        { device: mouseId, order: newOrder, gradin: row, dernierGradin: lastRow },
+        (err, res) => {
+          if (err) {
+            console.error('Failed to update mouse order:', err)
+          } else {
+            console.log(
+              `Updated ${mouseId} to order ${newOrder}, row ${row} and last row ${lastRow}`,
+            )
+          }
+        },
+      )
     }
   },
 })
