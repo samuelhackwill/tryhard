@@ -1,7 +1,7 @@
 import { lerp, convertRemToPixels } from '../both/math-helpers.js'
 import { ValueNoise } from 'value-noise-js'
 import { streamer } from '../both/streamer.js'
-import { observe } from './observe.js'
+// import { observe } from './observe.js'
 import { createPointer, checkHover } from '../client/pages/show.js'
 
 let clientEventQueue = []
@@ -126,11 +126,11 @@ function handleTickUpdate(message) {
         case 'overflow-right':
           coords.x =
             instance.windowBoundaries.width - convertRemToPixels(instance.pointerWidth.get())
-          observe('magellan', { p: pointer, corner: 'right' })
+          // observe('magellan', { p: pointer, corner: 'right' })
           break
         case 'overflow-left':
           coords.x = 0
-          observe('magellan', { p: pointer, corner: 'left' })
+          // observe('magellan', { p: pointer, corner: 'left' })
           break
 
         default:
@@ -151,18 +151,18 @@ function handleTickUpdate(message) {
         case 'overflow-bottom':
           coords.y =
             instance.windowBoundaries.height - convertRemToPixels(instance.pointerHeight.get())
-          observe('magellan', { p: pointer, corner: 'bottom' })
+          // observe('magellan', { p: pointer, corner: 'bottom' })
           break
         case 'overflow-top':
           coords.y = 0
-          observe('magellan', { p: pointer, corner: 'top' })
+          // observe('magellan', { p: pointer, corner: 'top' })
           break
 
         default:
           break
       }
 
-      observe('newMove', pointer.id)
+      // observe('newMove', pointer.id)
 
       // here we need to update the DOM en fonction du dataset
 

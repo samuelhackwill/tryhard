@@ -13,7 +13,7 @@ import {
 } from '../bots.js'
 import { handleButtonClick } from '../components/btnDashboard.js'
 import { disabledMice, mouseOrder } from '../../both/api.js'
-import { observe, observing } from '../observe.js'
+// import { observe, observing } from '../observe.js'
 import { updateTopMouse } from '../components/feed.js'
 import {
   ImgCapGridSubmit,
@@ -579,7 +579,7 @@ simulateRightMouseUp = function (pointer) {
 }
 
 export const simulateMouseUp = function (pointer) {
-  observe('newClick', pointer.id)
+  // observe('newClick', pointer.id)
 
   // const audio = new Audio('mouseUp.mp3')
   // audio.play()
