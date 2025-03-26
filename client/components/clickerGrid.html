@@ -1,5 +1,5 @@
 <template name="clickerGrid">
-    <div class="w-[90vw] h-[90vh] m-[5vh_auto] flex justify-center items-center">
+    <div class="absolute w-[90vw] h-[90vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
         <div class="grid grid-cols-3 gap-4 w-full h-full">
         {{#each columns}}
             <div class="flex flex-col gap-4 justify-between h-full">
@@ -38,54 +38,54 @@
 
             {{#if (is "total")}}
               <span> les souris ont cliqué :</span>
-              <span id="clickCounter" class="text-blue-600 font-mono font-bold">0</span>
+              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> fois</span>
             {{/if}}
 
             {{#if (is "gradinDuFond")}}
               <span> le gradin du fond a cliqué :</span>
-              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> fois</span>
             {{/if}}
 
             {{#if (is "gradinDuDevant")}}
               <span> le gradin tout devant a cliqué :</span>
-              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> fois</span>
             {{/if}}
 
             {{#if (is "bestGradin")}}
               <span> le gradin le plus productif a cliqué :</span>
-              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> fois. C'est le xe gradin en partant de devant / du fond / de devant </span>
             {{/if}}
 
             {{#if (is "goldMouse")}}
               <span> la souris la plus productive a cliqué x fois :</span>
-              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> fois (C'est la souris n°x)</span>
             {{/if}}
 
             {{#if (is "silverMouse")}}
               <span> la deuxième souris la plus productive a cliqué x fois :</span>
-              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> fois (C'est la souris n°x)</span>
             {{/if}}
 
             {{#if (is "bronzeMouse")}}
               <span> la troisième souris la plus productive a cliqué x fois :</span>
-              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> fois (C'est la souris n°x)</span>
             {{/if}}
 
             {{#if (is "fourthMouse")}}
               <span> la quatrième souris la plus productive a cliqué x fois :</span>
-              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> fois (C'est la souris n°x)</span>
             {{/if}}
 
             {{#if (is "chomdu")}}
-              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> souris sont actuellement au chômage.</span>
             {{/if}}
 
