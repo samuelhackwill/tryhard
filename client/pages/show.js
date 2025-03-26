@@ -236,24 +236,6 @@ function handlePupitreAction(message) {
         document.getElementsByClassName('milieuContainer')[0],
       )
       break
-
-    case 'clicker':
-      console.log('mega proutos')
-      // find the first empty clicker container and fill it
-      const containers = document.getElementsByClassName('clickerContainer')
-      let targetContainer = null
-
-      for (let i = 0; i < containers.length; i++) {
-        if (containers[i].children.length === 0) {
-          targetContainer = containers[i]
-          break
-        }
-      }
-
-      if (targetContainer) {
-        Blaze.renderWithData(Template.clicker, message.args, targetContainer)
-      }
-      break
   }
   return
 }

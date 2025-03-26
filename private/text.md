@@ -242,11 +242,15 @@ difficulté : impossible <!-- invisible -->
 ## clicker
 
 `newClickerGrid`
-`clicker [tot]`
+
+`clicker [total]`
 `clicker [gradinDuFond]`
 `clicker [gradinDuDevant]`
 `clicker [bestGradin]`
-`clicker [podiumMice]`
+`clicker [goldMouse]`
+`clicker [silverMouse]`
+`clicker [bronzeMouse]`
+`clicker [fourthMouse]`
 `clicker [chomdu]`
 `clicker [insee]`
 `clicker [speed]`

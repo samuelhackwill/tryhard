@@ -2,9 +2,9 @@
     <div class="w-[90vw] h-[90vh] m-[5vh_auto] flex justify-center items-center">
         <div class="grid grid-cols-3 gap-4 w-full h-full">
         {{#each columns}}
-            <div class="flex flex-col justify-between h-full">
+            <div class="flex flex-col gap-4 justify-between h-full">
             {{#each rows}}
-                <div class="clickerContainer"></div>
+                <div class="clickerContainer h-full"></div>
             {{/each}}
             </div>
         {{/each}}
@@ -14,16 +14,109 @@
 
 <template name="clicker">
     <div
-      class="pasUnRobot m-2 w-full h-full transition-opacity duration-200
+      class="m-2 w-full h-full transition-opacity duration-200
         {{#if isRendered}} opacity-100 {{else}} opacity-0 {{/if}}"
       id="clicker-{{type}}"
     >
       <div class="stops-events flex items-center justify-center w-full h-full rounded-lg">
-        <div class="relative flex w-full h-full flex-col items-center justify-center rounded-lg border bg-white p-6">
+        <div class="relative flex w-full h-full flex-col items-center justify-center rounded-lg border p-6           bg-white
+          {{#if (is "goldMouse")}}
+            border-4
+            border-[#FFD700]
+          {{else if (is "silverMouse")}}
+            border-4
+            border-[#C7C7C7]
+          {{else if (is "bronzeMouse")}}
+            border-4
+            border-[#815924]
+          {{else if (is "climateChange")}}
+            bg-[red]
+          {{else}}
+          {{/if}}
+         ">
           <div class="text-3xl text-center">
-            {{text}} 
-            <span id="clickCounter" class="text-blue-600 font-mono font-bold">0</span>
-            <span> fois</span>
+
+            {{#if (is "total")}}
+              <span> les souris ont cliqué :</span>
+              <span id="clickCounter" class="text-blue-600 font-mono font-bold">0</span>
+              <span> fois</span>
+            {{/if}}
+
+            {{#if (is "gradinDuFond")}}
+              <span> le gradin du fond a cliqué :</span>
+              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span> fois</span>
+            {{/if}}
+
+            {{#if (is "gradinDuDevant")}}
+              <span> le gradin tout devant a cliqué :</span>
+              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span> fois</span>
+            {{/if}}
+
+            {{#if (is "bestGradin")}}
+              <span> le gradin le plus productif a cliqué :</span>
+              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span> fois. C'est le xe gradin en partant de devant / du fond / de devant </span>
+            {{/if}}
+
+            {{#if (is "goldMouse")}}
+              <span> la souris la plus productive a cliqué x fois :</span>
+              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span> fois (C'est la souris n°x)</span>
+            {{/if}}
+
+            {{#if (is "silverMouse")}}
+              <span> la deuxième souris la plus productive a cliqué x fois :</span>
+              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span> fois (C'est la souris n°x)</span>
+            {{/if}}
+
+            {{#if (is "bronzeMouse")}}
+              <span> la troisième souris la plus productive a cliqué x fois :</span>
+              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span> fois (C'est la souris n°x)</span>
+            {{/if}}
+
+            {{#if (is "fourthMouse")}}
+              <span> la quatrième souris la plus productive a cliqué x fois :</span>
+              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span> fois (C'est la souris n°x)</span>
+            {{/if}}
+
+            {{#if (is "chomdu")}}
+              <span id="clickCounter-{{type}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span> souris sont actuellement au chômage.</span>
+            {{/if}}
+
+            {{#if (is "insee")}}
+              <span> la médiane de production de clics de la salle est actuellement à </span> 
+              <span id="médiane" class="text-blue-600 font-mono font-bold">0</span> 
+              <span>, c'est à dire que 50% des souris ont produit plus et 50% ont produit moins. </span> 
+              <span>Quand aux inégalités de patrimoine, la souris la plus riche en clics actuellement (</span>
+              <span id="maxRiche" class="text-blue-600 font-mono font-bold">0</span> 
+              <span> clics) possède </span>
+              <span id="gini" class="text-blue-600 font-mono font-bold">0</span> 
+              <span> fois plus de clics que la souris active la plus pauvre (</span>
+              <span id="maxPauvre" class="text-blue-600 font-mono font-bold">0</span> 
+              <span> clics).</span>
+            {{/if}}
+
+            {{#if (is "speed")}}
+              <span> les souris cliquent actuellement à une vitesse de </span> 
+              <span id="speedCounter" class="text-blue-600 font-mono font-bold">0</span>
+              <span> clics par seconde.</span>
+            {{/if}}
+
+
+            {{#if (is "speedWorldRecord")}}
+              <span> le public qui a atteint la plus grande vitesse de clics était un public </span> 
+              <span id="speedCounter" class="text-blue-600 font-mono font-bold"> Lyonnais </span>
+              <span> avec une vitesse max de </span> 
+              <span id="speedCounter" class="text-blue-600 font-mono font-bold">0</span>
+              <span> clics par seconde. C'était le </span>
+              <span id="speedCounter" class="text-blue-600 font-mono font-bold">soir du 23 Mars 2025.</span>
+            {{/if}}
           </div>
         </div>
       </div>
