@@ -26,9 +26,14 @@
             {{/if}}
           </div>
     
-          <div class="grid grid-cols-4 gap-1 mt-2 text-center text-sm text-gray-600">
+          <div class="grid grid-cols-4 gap-1 mt-2 text-center text-sm  text-gray-600">
             {{#each (mouseSlotNumbers row col)}}
-            <div class="border rounded p-1" data-mouse="{{this.mouseId}}" title="{{this.mouseId}}">
+            <div class="border {{#if this.mouseId}} 
+                                {{#unless getMouseOrder this.mouseId}}
+                                    bg-red-300
+                                {{/unless}}
+                              {{/if}} rounded p-1" 
+                  data-mouse="{{this.mouseId}}" title="{{this.mouseId}}">
               {{#if this.mouseId}}
                 <input 
                   id="{{this.mouseId}}"
