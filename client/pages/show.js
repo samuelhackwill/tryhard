@@ -641,22 +641,25 @@ export const simulateMouseUp = function (pointer) {
 
     if (gradin == dernierGradin) {
       const gradinEl = document.querySelector('#clickCounter-gradinDuFond')
-      if (!gradinEl) return
-      const current = Number(gradinEl.firstChild.nodeValue)
-      gradinEl.firstChild.nodeValue = current + 1
+      if (gradinEl) {
+        const current = Number(gradinEl.firstChild.nodeValue)
+        gradinEl.firstChild.nodeValue = current + 1
+      }
     }
 
     if (gradin == 1) {
       const gradinEl = document.querySelector('#clickCounter-gradinDuDevant')
-      if (!gradinEl) return
-      const current = Number(gradinEl.firstChild.nodeValue)
-      gradinEl.firstChild.nodeValue = current + 1
+      if (gradinEl) {
+        const current = Number(gradinEl.firstChild.nodeValue)
+        gradinEl.firstChild.nodeValue = current + 1
+      }
     }
 
     const collectiveMoneyEl = document.querySelector('#clickCounter-total')
-    if (!collectiveMoneyEl) return
-    const currentTot = Number(collectiveMoneyEl.firstChild.nodeValue)
-    collectiveMoneyEl.firstChild.nodeValue = currentTot + 1
+    if (collectiveMoneyEl) {
+      const currentTot = Number(collectiveMoneyEl.firstChild.nodeValue)
+      collectiveMoneyEl.firstChild.nodeValue = currentTot + 1
+    }
   }
 
   // only add to money if we're in the appropriate moment of the show.

@@ -15,23 +15,16 @@ Template.clickerGrid.helpers({
 })
 
 Template.clicker.onCreated(function () {
-  this.isRendered = new ReactiveVar(false)
-  this.type = this.data[0]
+  this.type = this.data
 })
 
 Template.clicker.onRendered(function () {
   console.log(this)
-  setTimeout(() => {
-    this.isRendered.set(true)
-  }, 50)
 })
 
 Template.clicker.helpers({
   is(typeName) {
     return Template.instance().type === typeName
-  },
-  isRendered() {
-    return Template.instance().isRendered.get()
   },
 })
 
@@ -50,8 +43,12 @@ const handlePupitreAction = function (message) {
   switch (message.content) {
     case 'clicker':
       if (targetContainer) {
-        Blaze.renderWithData(Template.clicker, message.args, targetContainer)
+        Blaze.renderWithData(Template.clicker, message.args[0], targetContainer)
       }
+      break
+    case 'showClicker':
+      console.log('prout ', message.args, 'prout 2', message.args[0])
+      document.querySelector(`#clicker-${message.args[0]}`).classList.remove('opacity-0')
       break
   }
 }

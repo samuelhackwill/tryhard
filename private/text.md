@@ -257,6 +257,19 @@ difficulté : impossible <!-- invisible -->
 `clicker [speed]`
 `clicker [speedWorldRecord]`
 
+`showClicker [total]`
+`showClicker [gradinDuFond]`
+`showClicker [gradinDuDevant]`
+`showClicker [bestGradin]`
+`showClicker [goldMouse]`
+`showClicker [silverMouse]`
+`showClicker [bronzeMouse]`
+`showClicker [fourthMouse]`
+`showClicker [chomdu]`
+`showClicker [insee]`
+`showClicker [speed]`
+`showClicker [speedWorldRecord]`
+
 ## chaises
 
 <!-- je suis une chaise
