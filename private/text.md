@@ -63,7 +63,7 @@
 `hideFeed`
 `clearFeed`
 
-## captchas-1j-text
+## captchas-coche-1j
 
 <!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
 

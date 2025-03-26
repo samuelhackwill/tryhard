@@ -170,7 +170,7 @@ Template.pasUnRobot.events({
     }
   },
   'mousedown .checkbox-pasUnRobot'(event, t, obj) {
-    if (instance.state.get() == 'captchas-1j-text') {
+    if (instance.state.get() == 'captchas-coche-1j') {
       const score = Number(obj.pointer.humanScore) + 1
     }
 
@@ -547,7 +547,7 @@ function prepareAnimationWithCenteredStart({
 }
 
 const updateScore = function (t, passed) {
-  if (instance.state.get() != 'captchas-1j-text') {
+  if (instance.state.get() != 'captchas-coche-1j') {
     return
   }
 

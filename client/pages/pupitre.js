@@ -328,7 +328,7 @@ const checkBeforeEmit = function (context) {
       // here goes all non-standard behaviour. we don't need
       // to name every action keyword because they are being
       // pris en charge by the default block down down
-      case 'captchas-1j-text':
+      case 'captchas-coche-1j':
         sendAction('reqNextPlayer', context)
         break
       case 'captchas-1j-kinetic':
