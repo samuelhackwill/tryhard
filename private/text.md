@@ -181,7 +181,7 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 <!-- funny captchas -->
 <!-- il y a un timer pour chaque captcha et un message d'échec si les captchas ne sont pas validés -->
 
-## captchas-img
+## captchas-img-1j
 
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, rot]`
@@ -209,7 +209,7 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 
 `ImgCapNoSelect[Sélectionnez la pensée pensée par la terrasse recouverte de neige, thingswithfaces, 6, AUCUNE (ELLE DORT PAISIBLEMENT), AUCUNE (C'EST UNE TERRASSE RECOUVERTE DE NEIGE), "ENFIN LE WEEK-END"]`
 
-## captchas-1j-kinetic
+## captchas-kinetic-1j
 
 <!-- ces captchas sont en mode die & retry. -->
 <!-- il y a un timer. chaque partie dure 10 secondes -->
@@ -228,7 +228,7 @@ difficulté : impossible <!-- invisible -->
 
 <!-- actually, il y a un problème lié au fait que les plus difficiles sont pas forcément les plus rapides -->
 
-## captchas-1j-manual
+## recre-ffa
 
 <!-- `reqNextPlayer`
 `unchoosePlayer` -->
@@ -239,7 +239,7 @@ difficulté : impossible <!-- invisible -->
 
 `ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds s'il vous plaît : je veux me faire un bon petit risotto, rice, 20]`
 
-## clicker
+## clicker-ffa
 
 `newClickerGrid`
 
@@ -274,7 +274,7 @@ je suis un groupe social qui ne s'est pas encore déchiré
 
 je suis la dernière personne de la performance qui va cliquer -->
 
-## nee en 1957
+## conclusion
 
 pour en revenir au pointeur de souris
 que vous êtes

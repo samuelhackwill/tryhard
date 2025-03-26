@@ -9,12 +9,13 @@ let clientEventQueue = []
 // we need to know when it's authorized to MOVE, so it's hard-coded here. yep
 const moveAuthorized = [
   'repetition',
+  'captchas-img-1j',
+  'captchas-kinetic-1j',
   'captchas-ffa',
-  'captchas-1j-kinetic',
-  'captchas-1j-manual',
+  'recre-ffa',
   'chaises',
   'chaises-squidGame',
-  'captchas-img',
+  'clicker-ffa',
 ]
 
 const noise = new ValueNoise()

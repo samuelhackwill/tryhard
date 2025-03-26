@@ -396,7 +396,8 @@ Template.show.helpers({
             this.hoveredElementId.startsWith('pasUnRobot')) &&
             instance.state.get() == 'chaises') ||
           (this.hoveredElementId.startsWith('pasUnRobot') &&
-            instance.state.get().startsWith('captchas') &&
+            instance.state.get().startsWith('captchas')) ||
+          (instance.state.get().startsWith('recre') &&
             !this.hoveredElementId.startsWith('checkbox'))
         ) {
           return true
