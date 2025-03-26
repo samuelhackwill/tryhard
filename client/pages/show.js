@@ -21,6 +21,7 @@ import {
   ImgCapNoSelect,
 } from '../components/pasUnRobotImage.js'
 import { ImgCapInfinite } from '../components/pasUnRobotImageInfinite.js'
+import { lerp, convertRemToPixels } from '../../both/math-helpers.js'
 
 import '../components/main.js'
 import './show.html'
@@ -70,6 +71,9 @@ Template.show.onCreated(function () {
 })
 
 Template.show.onRendered(function () {
+  GlobalPointerWidth = convertRemToPixels(this.pointerWidth.get())
+  GlobalPointerHeight = convertRemToPixels(this.pointerHeight.get())
+
   streamer.emit('showInit', { width: window.innerWidth, height: window.innerHeight })
 })
 
@@ -547,10 +551,12 @@ Template.show.events({
 })
 
 simulateMouseEvent = function (button, status, pointer) {
-  if (button == 'BTN_LEFT' && status == 'pressed') {
+  const isclickerTime = instance.state.get() == 'clicker-ffa'
+
+  if ((button == 'BTN_LEFT' || isclickerTime) && status == 'pressed') {
     simulateMouseDown(pointer)
   }
-  if (button == 'BTN_LEFT' && status == 'released') {
+  if ((button == 'BTN_LEFT' || isclickerTime) && status == 'released') {
     simulateMouseUp(pointer)
   }
   // if (button == 'BTN_RIGHT' && status == 'released') {
