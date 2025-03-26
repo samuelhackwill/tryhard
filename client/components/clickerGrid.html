@@ -1,0 +1,32 @@
+<template name="clickerGrid">
+    <div class="w-[90vw] h-[90vh] m-[5vh_auto] flex justify-center items-center">
+        <div class="grid grid-cols-3 gap-4 w-full h-full">
+        {{#each columns}}
+            <div class="flex flex-col justify-between h-full">
+            {{#each rows}}
+                <div class="clickerContainer"></div>
+            {{/each}}
+            </div>
+        {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="clicker">
+    <div
+      class="pasUnRobot m-2 w-full h-full transition-opacity duration-200
+        {{#if isRendered}} opacity-100 {{else}} opacity-0 {{/if}}"
+      id="clicker-{{type}}"
+    >
+      <div class="stops-events flex items-center justify-center w-full h-full rounded-lg">
+        <div class="relative flex w-full h-full flex-col items-center justify-center rounded-lg border bg-white p-6">
+          <div class="text-3xl text-center">
+            {{text}} 
+            <span id="clickCounter" class="text-blue-600 font-mono font-bold">0</span>
+            <span> fois</span>
+          </div>
+        </div>
+      </div>
+    </div>
+</template>
+  

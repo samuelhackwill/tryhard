@@ -15,17 +15,8 @@
 `samuelSpawn`
 `samuelGo!`
 `samuelShow`
-
-<!--
-## mise
-
-`clearPointers`
-
-## samuel-le-dvd
-
-`samuelSpawn`
-`samuelGo!`
-`bgTogrey` -->
+`addPodium`
+`removePodium`
 
 ## les-philosophes
 
@@ -86,52 +77,60 @@ je ne suis pas un robot _un robot_ [1][-1]
 je ne suis pas une tondeuse _une tondeuse_ [1][-1]
 je ne suis pas une brosse à dents électrique _une brosse à dents_ [1][-1]
 moi? idem _aussi une brosse à dents_ [1][-1]
-je ne suis pas une imprimante _une imprimante_ [1][-1]
-je ne suis pas l'imprimante du théâtre qui après avoir imprimé mon billet se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi" _l'imprimante du théâtre_ [1][-1]
-
-je ne suis pas la souris qui serait tombée par terre et aurait accidentellement cliqué au bon endroit _la gravité_ [1][-1]
-je ne suis pas un doigt errant qui serait entré dans le théâtre et aurait cliqué sur le bouton de la souris _un doigt errant_ [1][-1]
-je ne suis pas un bocal avec un cerveau qui serait tombé sur la souris et aurait produit un clic _un cerveau dans du formol_ [1][-1]
+quant à moi, je ne suis pas une imprimante _une imprimante_ [1][-1]
+je ne suis pas l'imprimante du théâtre qui après avoir imprimé le billet pour cette performance, se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi" _l'imprimante du théâtre_ [1][-1]
+je ne suis pas l'imprimante du théâtre qui ressent maintenant du regret [1][-1] _l'imprimante du théâtre qui aime bien le spectacle_
 je ne suis pas un rat, qui après un million d'années d'évolution aurait développé un bras et un pouce opposable et aurait cliqué sur le bouton de la souris _un rat_ [1][-1]
+
+je ne suis pas un doigt errant qui serait entré dans le théâtre et aurait cliqué sur le bouton de la souris _un doigt errant_ [1][-1]
+je ne suis pas la souris qui serait tombée par terre et aurait accidentellement cliqué sur le bouton de la souris _la gravité_ [1][-1]
+je ne suis pas un cerveau qui, en réfléchissant à autre chose, serait tombé sur le bouton de la souris, déclenchant accidentellement un clic _un cerveau maladroit_ [1][-1]
+
 je ne suis pas la volonté de dieu qui est intervenue pour cliquer sur le bouton de souris _la volonté de dieu_ [1][-1]
 
 je ne suis pas la petite case à cocher, qui, indépendamment de toute action de l'imprimante wifi ou de dieu, se serait quand même retrouvée cochée mystérieusement. _la petite case_ [1][-1]
 je ne suis pas la petite case à cocher qui en aurait eu marre d'attendre et se serait auto-cochée pour tromper l'ennui. _la petite case qui ne s'ennuie pas_ [1][-1]
-je ne suis pas la petite case à cocher, qui, parce qu'elle avait honte que personne ne l'avait jamais cochée, aurait fait semblant qu'en fait, on lui avait déjà cliqué dessus, et même plein de fois. _la petite case qui n'a rien à prouver_ [1][-1]
+je ne suis pas la petite case à cocher, qui, parce qu'elle avait honte que personne ne l'aie jamais cochée, aurait fait semblant qu'en fait, on lui avait déjà cliqué dessus, et même plein de fois. _la petite case qui n'a rien à prouver_ [1][-1]
 je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en criant : "Dieu est mort!" _la petite case qui croit en dieu_ [1][-1]
 
 je ne suis pas une personne travaillant dans une ferme à clics aux philippines et payée 2 euros de l'heure pour sous-traiter le cochage industriel de petites cases à cocher pour le compte de personnes ne voulant en aucun cas cocher la moindre petite case parce que pourquoi cocher la petite case eux-mêmes alors qu'ils pourraient consacrer leur temps à des activités plus productives et laisser d'autres humains moins bien nés qu'eux s'en charger. _une personne née ailleurs que dans un pays du nord global_ [1][1]
 
-je déclare que je coche la petite case sans aucune contrainte. _un prisonnier de la mafia chinoise au Myanmar_ [1][1]
-ce sont bien les signaux électriques de mon cerveau qui ont commandé à mon doigt d'enfoncer le bouton de la souris, _un signal électrique parasite_ [1][-1]
-ce ne sont pas les signaux électriques d'une autre personne qui ont commandé à mon doigt d'enfoncer le bouton de la souris, _le signal électrique du voisin_ [1][-1]
-c'est mon cerveau, c'est mon doigt, _un signal électrique orphelin_ [1][-1]
-ce sont mes signaux électriques _un signal électrique étranger_ [1][-1]
-je suis qui je suis _pas elle-même_ [1][0]
+je déclare que je coche la petite case sans aucune contrainte. _une personne qui a relevé la contradiction du théâtre participatif_ [1][1]
+ce sont bien les signaux électriques de mon système nerveux qui ont commandé à mon doigt d'enfoncer le bouton de ma souris _un signal électrique parasite_ [1][-1]
+ce ne sont pas les signaux électriques d'un autre système nerveux qui ont commandé à n'importe quel doigt d'enfoncer n'importe quel bouton de n'importe quelle souris _le signal électrique du voisin_ [1][-1]
+c'est MON système nerveux, c'est MON doigt, c'est MA souris _un signal électrique orphelin_ [1][-1]
+ce sont MES signaux électriques _un signal électrique étranger_ [1][-1]
+je suis qui je suis _elle-même_ [1][0]
 je pense ce que je pense _un "ça" sur pattes_ [1][0]
-mes pensées sont nées dans mon cerveau et pas ailleurs _une personne un peu grégaire_ [1][0]
+mes pensées ne sont pas n'importe quelles pensées _un robot_ [1][0]
+mes pensées sont nées dans mon cerveau à moi et pas n'importe où _une personne un peu grégaire_ [1][0]
+je suis parfaitement calme [1][0]
 
 je ne fais pas semblant d'avoir des pensées _une simulation_ [1][-1]
-je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau. _un perroquet_ [1][-1]
+je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau _un perroquet_ [1][-1]
 quand je souffre, je ne dis pas "aaaaah" ou "arrrrrh" ou "oooooyoyoyo" en choisissant parmi un catalogue de sons _une playlist spotify_ [1][-1]
+je ne suis pas une playlist Spotify [1][-1]
 quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot _un militant LFI_ [1][1]
 
-la preuve que je suis humain, c'est que j'ai deux yeux et cinq mains _un humain_ [-1][1]
+la preuve que je suis humain, c'est que j'ai deux yeux et cinq mains _un humain cette fois_ [-1][1]
 la preuve que je suis humain, c'est que j'ai déjà eu une idée inutile _un homme d'affaires_ [1][1]
-la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case _un humain_ [-1][1]
+la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case malgré l'injonction permanente qui est faite de cliquer partout _un humain_ [-1][1]
 
 <!-- this one below, complicated : we need to observe if the person has taken its time or not. son of a gun -->
 
 la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case. _un humain_ [9]
 
-la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau, qui... font leurs trucs de neurones _une personne ayant subie une ablation totale du cerveau_ [1][0]
-je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue _une personne qui a été fabriquée dans un laboratoire stérile_ [1][0]
-j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, dans mon colon _une personne née sur la Lune_ [1][0]
+la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau _une personne ayant subie une ablation totale du cerveau_ [1][0]
+la preuve que je suis humain, c'est qu'aucun cerveau n'est capable de comprendre le fonctionnement du cerveau _un robot_ [1][0]
+la preuve que je ne suis pas un tableur excel, c'est que la récursion ne me fait pas planter _un tableur excel_ [1][0]
+la preuve que je suis humain, c'est que je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue _une personne qui a été fabriquée dans un laboratoire stérile_ [1][0]
+la preuve que j'ai des valeurs humaines, c'est que j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, dans mon colon _une personne née sur la Lune_ [1][0]
+
 je ne suis pas une bactérie anaérobie _une Clostridium difficile_ [1][-1]
 je ne suis pas un virus _un Mimivirus_ [1][-1]
-
 un robot, je ne suis pas _robot un_ [1][-1]
 pas un robot je ne suis _dqsfds fsq qfdsdsfqdsfs_ [1][-1]
+fssffsfdq fdfqd gsdgf dgsfd sgddf fsgdfsfgd sgfdsdf [1][0]
 un robot, moi? non non _un robot si si_ [1][-1]
 arrêtez de dire que je suis un robot _un robot je vous dis_ [1][-1]
 c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L _un robot qui a fait S_ [1][-1]
@@ -144,7 +143,7 @@ je suis en train de mourir (en ce moment même) _un robot immortel_ [1][-1]
 je n'ai que toute ma vie devant moi en ce moment même et pour toujours _un robot qui n'oublie pas de sauvegarder ses fichiers_ [1][-1]
 je n'aurai jamais plus que seulement ma courte vie de microbe en ce moment même et pour toujours _un robot qui a fait des copies redondantes de ses disques durs_ [1][-1]
 
-je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur sera bientôt effacé entièrement, et ma mémoire vive sera bientôt hors-service absolument _une personne manquant de lucidité_ [1] [0]
+je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur sera bientôt effacé entièrement, et ma mémoire vive sera bientôt hors-service absolument _une personne manquant de lucidité_ [1][0]
 je suis fier de ne pas être un robot _une personne humble_ [1][0]
 je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux dames (1994), aux échecs (1997), au go (2016), au shogi (2017) au poker (2017), à la guerre. _une personne qui pense qu'on a pas besoin d'être intelligent pour être fort aux échecs_ [1][0]
 cet état de fait ne m'inquiète pas du tout, je suis en confiance _une personne qui ne se fait pas de soucis dans la vie_ [1][0]
@@ -163,6 +162,7 @@ alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais m
 je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot résistant_ [1][-1]
 je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _une personne qui ne croit pas en la convergence des intérêts humains_ [1][0]
 après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _une personne qui ne connaît pas ses droits_ [1][0]
+Un ordinateur ne peut pas rendre de comptes, par conséquent il ne doit jamais être investi d'un pouvoir décisionnaire, comme par exemple celui de cocher la petite case. _un robot, là c'est cramé_ [1][-1]
 nous ne sommes pas individuellement des robots. _une personne qui ne veut pas se mouiller_ [1][0]
 nous ne sommes pas collectivement un robot. _une personne qui sait qu'une foule se comporte comme un gaz_ [1][0]
 je suis humain, et en plus, je suis un bon humain. _une personne qui connaît son potentiel_ [1][1]
@@ -188,6 +188,8 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoom]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoomMAX]`
 
+`ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, drawings, randomGrid]`
+
 <!-- `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samdocu]` -->
 
 `ImgCapOnlyOneSubmit[Vous ne pouvez sauver qu’une seule personne. Choisissez qui mérite de vivre., duoGrid1, TUEZ LE]`
@@ -207,78 +209,71 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 
 `ImgCapNoSelect[Sélectionnez la pensée pensée par la terrasse recouverte de neige, thingswithfaces, 6, AUCUNE (ELLE DORT PAISIBLEMENT), AUCUNE (C'EST UNE TERRASSE RECOUVERTE DE NEIGE), "ENFIN LE WEEK-END"]`
 
-`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds s'il vous plaît : je veux me faire un bon petit risotto, rice, 20]`
-
 ## captchas-1j-kinetic
 
 <!-- ces captchas sont en mode die & retry. -->
 <!-- il y a un timer. chaque partie dure 10 secondes -->
 <!-- joueur / joueur -->
 
-`alignPointersBot`
 difficulté : très facile <!-- nothing -->
 difficulté : facile <!-- spin -->
 difficulté : facile avec variation <!-- spin-r -->
 difficulté : modérée <!-- fast -->
 difficulté : modérée avec variation <!-- dvd -->
 difficulté : difficile <!-- whirl -->
-difficulté : hard <!-- ultraFast -->
+difficulté : ça a l'air difficile mais en fait ça va <!-- ultraFast -->
 difficulté : very hard<!-- randomFast -->
-difficulté : extrême <!-- randomFast + pause -->
+difficulté : extreme <!-- randomFast + pause -->
 difficulté : impossible <!-- invisible -->
 
 <!-- actually, il y a un problème lié au fait que les plus difficiles sont pas forcément les plus rapides -->
 
 ## captchas-1j-manual
 
-`reqNextPlayer`
+<!-- `reqNextPlayer`
+`unchoosePlayer` -->
+
+`alignPointersBot`
+
 `tetris [difficulté : tryhard]`
-`unchoosePlayer`
-`reqNextPlayer`
-`clicker [je peux cliquer]`
-`unchoosePlayer`
-`reqNextPlayer`
-`clicker [je peux produire, 50, 10]`
-`unchoosePlayer`
-`reqNextPlayer`
-`clicker [je peux produire, 60, 10]`
-`unchoosePlayer`
 
-<!-- je peux faire le tour de l'écran en moins d'une seconde (sinon la personne explose, bilan en rouge sous la case) -->
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds s'il vous plaît : je veux me faire un bon petit risotto, rice, 20]`
 
-## captchas-ffa
+## clicker
 
-c'est moi qui coche la case en premier.e
-nous pouvons produire 1000 clics en moins de 10 secondes
-nous avons produit x / 5000 clics
-je coche la case quand la musique s'arrête (captchas musicaux)
-bien que nous ayons déjà produit x clics, nous ne pouvons plus nous arrêter de cliquer
-même quand nous avons déclenché un phénomène de réchauffement climatique en raison d'une trop grande production de clics (xxxx), nous continuons à cliquer pour battre le record de nombre de clics (xxxx)
-la seule façon de stopper le réchauffement climatique, c'est de se coordonner à l'échelle de la salle et que chaque personne coche la case en séquence de 1 à 50 (cycle oui/continuez comme ça/ c'est bien! en vert quand les gens ne se trompent pas // quelqu'un s'est trompé! recommencez à zéro si quelqu'un se trompe.)
-
-<!-- la preuve que nous sommes le meilleur gradin, par rapport aux autres gradins de la salle, c'est que nous savons nous coordonner pour cliquer dans l'ordre, du plus petit chiffre au plus grand chiffre
-la preuve que nous sommes le meilleur public, c'est que nous savons cliquer dans l'ordre, du plus petit chiffre au plus grand chiffre
-la preuve que nous sommes le meilleur public, c'est que nous savons faire un cercle parfait autour de la boite
-la preuve que nous sommes humains, c'est que nous pouvons résister collectivement à la tentation de cliquer sur cette case
-la preuve que nous sommes humains, c'est que si le spectacle nous ordonne de trouver la souris n°12 et de cliquer dessus pour la supprimer, nous ne le ferons pas
-la preuve que nous sommes humains, c'est que si la souris n°12 a été supprimée, une personne tentera de venger sa mort (c'est la souris n°xx qui a collaboré) -->
-
-`bgToblack`
+`newClickerGrid`
+`clicker [tot]`
+`clicker [gradinDuFond]`
+`clicker [gradinDuDevant]`
+`clicker [bestGradin]`
+`clicker [podiumMice]`
+`clicker [chomdu]`
+`clicker [insee]`
+`clicker [speed]`
+`clicker [speedWorldRecord]`
 
 ## chaises
 
-## moralité
+<!-- je suis une chaise
 
-bravo!
-vous n'êtes pas des robots
-(annonce des scores etc).
+je suis un métier qui ne s'est pas encore fait uberiser
+
+je suis un service public qui ne s'est pas encore fait dématérialiser
+
+je suis un médecin traitant qui ne s'est pas encore fait doctolibiser
+
+je suis un lit d’hôpital qui ne s'est pas encore fait optimiser
+
+je suis écosystème qui ne s'est pas encore effondré
+
+je suis un groupe social qui ne s'est pas encore déchiré
+
+je suis la dernière personne de la performance qui va cliquer -->
 
 ## nee en 1957
 
-bref,
 pour en revenir au pointeur de souris
 que vous êtes
-et que je suis.
 saviez-vous que le pointeur de souris a été inventé en 1968?
 on peut donc dire que la souris d'ordinateur est plus jeune que ma mère
 puisque ma mère est née en 1957.
@@ -287,9 +282,6 @@ Avant que Douglas Englebart,
 né en 1925
 n'invente la souris d'ordinateur
 il n'était pas possible de pointer
-il n'était pas possible de glisser-déposer
-il n'était pas possible de scroller
-il n'était pas possible de cliquer sur la roulette de sa souris
 il n'était pas possible de double-cliquer
 il n'était pas possible de simple-cliquer
 il n'était pas possible de passer ses nerfs sur la souris en cliquant plus fort que nécessaire ou plus vite que nécessaire.
@@ -305,26 +297,70 @@ Il était bien sûr possible de communiquer avec son ordinateur,
 mais il fallait pour ça utiliser un outil professionnel muni d'un trop grand nombre de touches,
 le clavier.
 ma grand-mère est née en 1929,
-donc après Douglas Englebart mais avant ma mère.
+donc après Douglas Englebart (1925) mais avant ma mère.
+née en? 1957.
 les premiers ordinateurs sont nés dans les années 40
 donc après ma grand-mère mais avant ma mère.
 et après le début de la seconde guerre mondiale.
 née en 1939.
 la seconde guerre mondiale fut la cause principale du développement de l'informatique
-parce qu'il fallait casser les codes que les nazis utilisaient pour synchroniser leurs attaques sur les convois dans l'Atlantique
-notamment.
+parce qu'il fallait casser les codes que les nazis utilisaient pour synchroniser leurs attaques de sous-marins dans l'Atlantique.
 s'il n'y avait pas eu l'informatique
 disent les conservateurs des musées sur l'informatique
-qui sont à la fois les personnes les mieux placées pour tenir ce genre de propos, mais qui sont également certainement les personnes qui ont le plus intérêt à exagérer l'utilité des ordinateurs en général
+qui sont à la fois les personnes les mieux placées pour tenir ce genre de propos, mais qui sont également certainement parmi les personnes qui ont le plus intérêt à exagérer l'utilité des ordinateurs en général
 les ordinateurs ont raccourci la guerre de 1, 2 ou 4 ans, disent-ils.
-sans les ordinateurs, nous n'aurions pas gagné la guerre, ajouta Churchill.
+sans les ordinateurs, nous n'aurions pas gagné la guerre, ajoute Churchill.
 né en 1874.
-d'autres personnes prétendent que les ordinateurs n'ont servi à rien
+d'autres personnes prétendent que les ordinateurs n'ont servi à rien pendant la guerre
 et ne serviront d'ailleurs jamais à rien.
 mais ces personnes exagèrent sans doute.
+Certaines personnes disent que les progrès en matière d'intelligence de synthèse
+depuis les années 2000
+sont tels
+qu'ils pourraient mener l'humanité à sa destruction brutale et irréversible
+ces personnes disent :
+que nous enseigne l'histoire?
+la dernière fois qu'un forme de vie avec des capacités techniques supérieures
+a rencontré d'autres formes de vie avec des capacités techniques inférieures
+comment cela s'est-il terminé pour ces dernières?
+comment traitons-nous les souris?
+nous serons les souris de l'intelligence surhumaine de synthèse, affirment les philosophes-alignementistes.
+"ça n'a rien de personnel",
+"mais vous êtes constitués d'atomes que je pourrais mieux utiliser ailleurs", ajoute l'intelligence surhumaine de synthèse,
+née en 2026.
+je rigole, ajoute l'auteur de la performance
+nous n'arriverons jamais à fabriquer une intelligence surhumaine de synthèse
+affirment quelques chercheurs courageux
+_très_ minoritaires
+ce qui ne veut pas dire qu'ils ont tort
+nous y parviendrons avant 2060 probablement!
+disent ~50% du panel de philosophes-chercheurs en sciences de l'informatique.1
+nous y parviendrons au plus tard en 2160!
+disent les autres ~50%.
+nous aurons tous grillé bien avant ça de toutes façons! répètent en vain les philosophes-chercheurs du GIEC.
+et qu'est ce qu'on entend par "intelligence", au fait, s'interrogent d'autres philosophes, un peu en retard dans la conversation.
+de toutes façons toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, nous rappelle le yaourt.
+
+<!-- pause -->
+
+merci d'avoir joué! clame le champignon de paris
+et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
+
+<!-- Grace, K., Garfinkel, B., Cotra, A., Hazell, J., & Evans, O. (2022) AI Impacts -->
+
+<!-- ou peut être que nous serons percutés par une météorite
+ou peut être que le champ magnétique de la terre s'inversera
+ou peut être que l'atmosphère s'échappera de l'attraction terrestre -->
+
+<!-- quoi qu'il en soit
+s'il n'y avait pas eu le soleil
+s'il n'y avait pas eu la guerre
+s'il n'y avait pas eu ma grand-mère
+s'il n'y avait pas eu la vie
+
 s'il n'y avait pas eu la guerre ou s'il n'y avait pas eu ma grand-mère,
 je ne serais pas actuellement devant vous en train de parler de l'histoire de l'informatique.
-
+ -->
 <!-- et ensuite parler synthétiquement du fait que peut être bientôt naîtra l'AGI, proposer des dates de naissance -->
 
 <!--

@@ -358,9 +358,9 @@ const checkBeforeEmit = function (context) {
         //     surpriseAmount: 1,
         //   })
         //   break
-        case 'clicker':
-          sendAction('reqNextPlayer', { type: action, args: args })
-          break
+        // case 'clicker':
+        //   sendAction('reqNextPlayer', { type: action, args: args })
+        //   break
         case 'tetris':
           sendAction('newTetris', {
             type: 'tetris',
@@ -405,16 +405,16 @@ const handlePlanDeSalleMessage = function (message) {
         document.getElementById('surprise-slider').value = _surpriseAmount - 1
       } else {
         sendAction('choosePlayer', { chosenOne: message.content.device })
-        if (message.context.type === 'clicker') {
-          sendAction('newClicker', {
-            type: 'clicker',
-            text: getCaptchaTextAndFailstate(message.context.args[0]),
-            hesitationAmount: 1000000,
-            readingSpeed: 1,
-            surpriseAmount: 1,
-            chosenOne: message.content.order,
-          })
-        }
+        // if (message.context.type === 'clicker') {
+        //   sendAction('newClicker', {
+        //     type: 'clicker',
+        //     text: getCaptchaTextAndFailstate(message.context.args[0]),
+        //     hesitationAmount: 1000000,
+        //     readingSpeed: 1,
+        //     surpriseAmount: 1,
+        //     chosenOne: message.content.order,
+        //   })
+        // }
       }
       break
   }
