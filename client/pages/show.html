@@ -24,6 +24,8 @@
         id="{{ this.id }}"
         data-x="0"
         data-y="0"
+        data-gradin="{{this.gradin}}"
+        data-maxgradin="{{this.dernierGradin}}"  
       >
         {{#if pointerType "isCursor"}}
         <svg
@@ -175,13 +177,11 @@
     </div>
   </div>
 
-  <!-- below is only for admin pointer! -->
-  <div class="foregroundContainer">
-    <!-- here i'm rendering the windowAdmin with current show state because the admin window needs the context of his parent! hhu -->
+  <!-- <div class="foregroundContainer"> -->
     <!-- {{#each showState}}
     {{>windowAdmin currentState=showState}}
     {{/each}} -->
-    {{#each allPointers
+    <!-- {{#each allPointers
     getAdmin=true}}
     <div
       class="bg-cursor bg-contain pointer w-[30px] h-[50px] bg-no-repeat"
@@ -191,7 +191,7 @@
       pointer-id="{{ this.id }}"
       id="{{ this.id }}"
     >
-      <span class="pl-8">{{ this.id }}</span>
+      <span class="pl-8">{{ this.id }}</span> -->
       <!-- {{#if tree}}
       <span class="tree" style="position: absolute; left: -25px; top: -50px; font-size: 250%">{{
         tree
@@ -200,7 +200,8 @@
       <span class="accessory" style="position: absolute; left: 10px; top: 10px; font-size: 250%">{{
         this.accessory
       }}</span> -->
-    </div>
-    {{/each}}
-  </div>
+    <!-- </div>
+    {{/each}} -->
+  <!-- </div> -->
+
 </template>

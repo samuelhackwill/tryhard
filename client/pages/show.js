@@ -14,7 +14,6 @@ import {
 import { handleButtonClick } from '../components/btnDashboard.js'
 import { disabledMice, mouseOrder } from '../../both/api.js'
 // import { observe, observing } from '../observe.js'
-import { updateTopMouse } from '../components/feed.js'
 import {
   ImgCapGridSubmit,
   ImgCapOnlyOneSubmit,
@@ -43,6 +42,7 @@ Template.show.onCreated(function () {
   this.GoldMouseScore = new ReactiveVar(0)
   this.SilverMouseScore = new ReactiveVar(0)
   this.CopperMouseScore = new ReactiveVar(0)
+  this.FourthMouseScore = new ReactiveVar(0)
 
   this.bgColor = new ReactiveVar('#1C1917')
   this.feedToggle = new ReactiveVar(true)
@@ -152,17 +152,9 @@ function handlePupitreAction(message) {
 
       instance.arePointersHidden.set(_hidden)
       break
-
-    case 'startCheckingTopMouse':
-      pollingTopMouse = setInterval(function () {
-        updateTopMouse()
-        // updateTopGradins()
-        // updateTopHalf()
-      }, 16)
-      break
-    case 'startObserving':
-      observing.push('newClick', 'newMove', 'magellan')
-      break
+    // case 'startObserving':
+    //   observing.push('newClick', 'newMove', 'magellan')
+    //   break
     case 'showNicks':
       instance.areNamesHidden.set(false)
       break

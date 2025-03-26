@@ -257,6 +257,8 @@ difficulté : impossible <!-- invisible -->
 `clicker [speed]`
 `clicker [speedWorldRecord]`
 
+`startUpdatingStonks`
+
 `showClicker [total]`
 `showClicker [gradinDuFond]`
 `showClicker [gradinDuDevant]`
@@ -269,6 +271,8 @@ difficulté : impossible <!-- invisible -->
 `showClicker [insee]`
 `showClicker [speed]`
 `showClicker [speedWorldRecord]`
+
+`stopUpdatingStonks`
 
 ## chaises
 
