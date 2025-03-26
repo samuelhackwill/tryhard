@@ -616,8 +616,26 @@ export const simulateMouseUp = function (pointer) {
     const dernierGradin = pointer.dernierGradin
 
     const moneyEl = domPointer.querySelector('#money')
-    const current = Number(moneyEl.firstChild.nodeValue)
-    moneyEl.firstChild.nodeValue = current + 1
+    const newVal = Number(moneyEl.firstChild.nodeValue) + 1
+
+    if (
+      newVal == 50 ||
+      newVal == 100 ||
+      newVal == 250 ||
+      newVal == 500 ||
+      newVal == 800 ||
+      newVal == 1250 ||
+      newVal == 1800 ||
+      newVal == 2500 ||
+      newVal == 3500
+    ) {
+      moneyEl.classList.add('scale-[2]')
+      setTimeout(() => {
+        moneyEl.classList.remove('scale-[2]')
+      }, 200)
+    }
+
+    moneyEl.firstChild.nodeValue = newVal
 
     instance.score.gradins[gradin] = (instance.score.gradins[gradin] || 0) + 1
 
