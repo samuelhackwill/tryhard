@@ -86,18 +86,18 @@ Template.pasUnRobotImageInfinite.events({
 
     if (el.dataset.cultivar == 'arborio') {
       arborioCount = arborioCount + 1
-      document.querySelector('#hiddenArborio').firstElementChild.innerHTML = arborioCount
+      document.querySelector('#hiddenArborio').firstElementChild.firstChild.nodeValue = arborioCount
     } else {
       basmatiCount = basmatiCount + 1
-      document.querySelector('#hiddenBasmati').firstElementChild.innerHTML = basmatiCount
+      document.querySelector('#hiddenBasmati').firstElementChild.firstChild.nodeValue = basmatiCount
     }
 
     const totalGrain = arborioCount + basmatiCount
     const precision = ((arborioCount / totalGrain) * 100).toFixed(0)
     console.log(totalGrain, arborioCount)
 
-    document.querySelector('#precisionScore').innerHTML = precision
-    document.querySelector('#total').innerHTML = totalGrain
+    document.querySelector('#precisionScore').firstChild.nodeValue = precision
+    document.querySelector('#total').firstChild.nodeValue = totalGrain
 
     if (totalGrain === Math.round(Template.instance().target / 15)) {
       document.querySelector('#score').classList.remove('opacity-0')
