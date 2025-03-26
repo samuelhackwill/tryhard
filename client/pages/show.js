@@ -694,7 +694,7 @@ export const simulateMouseDown = function (pointer) {
 function getElementsUnder(pointer) {
   const DOMpointer = document.getElementById(pointer.id)
   if (DOMpointer != null) {
-    const coords = readDomCoords(pointer.id)
+    const coords = readDomCoords(DOMpointer)
 
     let elements = document.elementsFromPoint(coords.x, coords.y)
 
@@ -906,8 +906,7 @@ pay = function (author, amount) {
   }
 }
 
-readDomCoords = function (id) {
-  const DOMpointer = document.getElementById(id)
+readDomCoords = function (DOMpointer) {
   if (DOMpointer) {
     return {
       x: Number(DOMpointer.getAttribute('data-x')),

@@ -107,7 +107,7 @@ function handleTickUpdate(message) {
 
     const DOMpointer = document.getElementById(pointer.id) || null
 
-    coords = readDomCoords(pointer.id)
+    coords = readDomCoords(DOMpointer)
 
     if (!pointer.locked) {
       //Move messages are relative (e.g. 1px right, 2px down)
@@ -153,10 +153,7 @@ function handleTickUpdate(message) {
         DOMpointer.dataset.x = coords.x
         DOMpointer.dataset.y = coords.y
 
-        // Overwrite the transform entirely — no need to preserve or parse
         DOMpointer.style.transform = `translate(${coords.x}px, ${coords.y}px)`
-
-        // Also apply the updated data
         writeDomCoords(pointer.id, coords)
       }
 
@@ -175,7 +172,7 @@ function handleTickUpdate(message) {
 
       // check hover
       if (instance.state.get() == 'clicker-ffa') {
-        // do something else with the clicks
+        // let's skip this guy, we're not checking hover during clicker sequence
       } else {
         checkHover(pointer)
       }
@@ -222,7 +219,7 @@ function handleAutoPlay(message) {
 
     case 'move':
       const DOMpointer = document.getElementById(pointer.id)
-      const coords = readDomCoords(pointer.id)
+      const coords = readDomCoords(DOMpointer)
       // console.log("message from ", _message.from, "message to ",  _message.to)
       //Use the current coordinates for `from` and `to` if they have not been specified
       if (_message.from == null) _message.from = { ...coords }
