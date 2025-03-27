@@ -1,5 +1,6 @@
 import './pasUnRobotImage.html'
 import { streamer } from '../../both/streamer.js'
+import { unchoosePlayer } from '../pages/show.js'
 
 Template.pasUnRobotImage.onCreated(function () {
   this._pupitreHandler = (message) => {
@@ -40,6 +41,7 @@ Template.pasUnRobotImage.events({
     const instance = Template.instance()
     const images = instance.images.get()
     const type = instance.data.type
+    console.log(type)
 
     if (index === undefined) {
       console.log("this image isn't selectable because it doesn't have an index")
@@ -52,7 +54,7 @@ Template.pasUnRobotImage.events({
     console.log(images[index].isSelected)
     instance.images.set([...images])
   },
-  'mousedown #button-submitCaptcha'(event, instance) {
+  'mousedown .button-submitCaptcha'(event, instance) {
     // Do something with selected images
     const selected = instance.images.get().filter((img) => img.isSelected)
     // console.log('Selected images:', selected)
@@ -68,6 +70,8 @@ Template.pasUnRobotImage.events({
     instance.isRendered.set(false)
 
     setTimeout(() => {
+      unchoosePlayer()
+
       // Optionally trigger server validation or remove template
       Blaze.remove(Blaze.getView(instance.firstNode))
     }, 500) // Match transition duration
