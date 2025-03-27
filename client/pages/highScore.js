@@ -19,6 +19,7 @@ Template.highScore.helpers({
       'gentillé',
       'date',
       'heure',
+      'totalClics',
       'topSpeed',
       'topPlayer',
       'topGradin',

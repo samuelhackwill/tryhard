@@ -1,15 +1,34 @@
 import './clickerGrid.html'
 import { streamer } from '../../both/streamer.js'
 
+import { HighScore } from '../../both/api.js'
+import { speed } from 'jquery'
+
 let inactiveThreshold = 10 * 1000
 // this is to update speed/second
 let tick = 1
-let speed = 0
+let maxSpeed = 0
+let maxChomdu = 0
+let lowestGini = 1000
 let clicksInThePastSecond = 0
 let pastClicksTotal = 0
+let targetDBItem
 
 Template.clickerGrid.onCreated(function () {
-  streamer.on('pupitreAction', handlePupitreAction)
+  this._pupitreHandler = (message) => {
+    message.context = this
+    handlePupitreAction(message)
+  }
+  streamer.on('pupitreAction', this._pupitreHandler)
+
+  this.autorun(() => {
+    const sub = this.subscribe('highScore')
+
+    if (sub.ready()) {
+      targetDBItem = HighScore.findOne({}, { sort: { topSpeed: -1 } })
+      console.log('🏁 Subscription ready, top speed:', targetDBItem)
+    }
+  })
 })
 
 Template.clickerGrid.helpers({
@@ -30,6 +49,9 @@ Template.clicker.onRendered(function () {
 })
 
 Template.clicker.helpers({
+  recordGet(arg) {
+    return targetDBItem[arg]
+  },
   is(typeName) {
     return Template.instance().type === typeName
   },
@@ -59,24 +81,62 @@ const handlePupitreAction = function (message) {
       break
     case 'startUpdatingStonks':
       stonksStepper = setInterval(() => {
-        updateTopMouse()
+        updateTopMouse(message.context)
       }, 100)
       break
     case 'stopUpdatingStonks':
       console.log('stop stonks stepper now!')
       clearInterval(stonksStepper)
       break
+    case 'save':
+      HighScore.insert({
+        gentillé: 'prout',
+        date: new Date().toLocaleDateString('fr-FR', {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        }),
+        heure: 'la soirée',
+        totalClics: Number(document.querySelector('#clickCounter-total').firstChild.nodeValue),
+        topSpeed: maxSpeed,
+        topPlayer: Number(document.querySelector('#clickCounter-goldMouse').firstChild.nodeValue),
+        topGradin: Number(document.querySelector('#clickCounter-bestGradin').firstChild.nodeValue),
+        topChomeurs: maxChomdu,
+        bestGini: lowestGini,
+      })
+
+      break
   }
 }
 
-const updateTopMouse = function () {
+const updateTopMouse = function (context) {
   // calculating speed/s here
   if (tick > 9) {
     // update speed
     document.querySelector('#speedCounter').firstChild.nodeValue = clicksInThePastSecond
+    if (clicksInThePastSecond > maxSpeed) {
+      // update top speed if applicable
+      maxSpeed = clicksInThePastSecond
+      if (maxSpeed > targetDBItem.topSpeed) {
+        // context.recordBeaten.set(true)
+        const speedHTML = `
+        <div>
+          <span> Vous venez de battre le record du monde de cette performance du point de vue de votre production de clics/seconde, </span> 
+          <span> avec une vitesse max de </span> 
+          <span id="speedCounter" class="text-blue-600 font-mono font-bold"> ${maxSpeed} </span>
+          <span> clics par seconde. </span>
+          <span class="text-blue-600 font-bold"> Félicitations. </span>
+        </div>
+      `
+
+        document.getElementById('speedWorldRecord').innerHTML = speedHTML
+      }
+    }
     tick = 0
     clicksInThePastSecond = 0
     pastClicksTotal = Number(document.querySelector('#clickCounter-total').firstChild.nodeValue)
+    // also check if you beat the high score!
   } else {
     clicksInThePastSecond =
       Number(document.querySelector('#clickCounter-total').firstChild.nodeValue) - pastClicksTotal
@@ -108,6 +168,9 @@ const updateTopMouse = function () {
     return now - lastUpdate > inactiveThreshold
   })
 
+  if (inactiveDomPointers.length > maxChomdu) {
+    maxChomdu = inactiveDomPointers.length
+  }
   document.querySelector('#clickCounter-chomdu').firstChild.nodeValue = inactiveDomPointers.length
 
   let richestGradin = null
@@ -161,6 +224,10 @@ const updateTopMouse = function () {
 
   const decileRatio = Math.round((avgTop10 / avgBottom10) * 100) / 100 // rounded to 2 decimals
   document.querySelector('#gini').firstChild.nodeValue = decileRatio
+
+  if (decileRatio < lowestGini) {
+    lowestGini = decileRatio
+  }
 
   if (decileRatio < 150) {
     document.querySelector('#france').firstChild.nodeValue =

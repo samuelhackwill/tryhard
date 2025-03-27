@@ -288,6 +288,8 @@ Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 
 `stopUpdatingStonks`
 
+`save`
+
 ## chaises
 
 <!-- je suis une chaise

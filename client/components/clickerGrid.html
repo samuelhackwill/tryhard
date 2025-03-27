@@ -1,5 +1,6 @@
 <template name="clickerGrid">
     <div class="absolute w-[90vw] h-[90vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
+      {{prout}}
         <div class="grid grid-cols-3 gap-4 w-full h-full">
         {{#each columns}}
             <div class="flex flex-col gap-4 justify-between h-full">
@@ -116,14 +117,17 @@
             {{/if}}
 
 
-            {{#if (is "speedWorldRecord")}}
-              <span> le public qui a atteint la plus grande vitesse de clics était un public </span> 
-              <span id="speedCounter" class="text-blue-600 font-mono font-bold"> Lyonnais </span>
-              <span> avec une vitesse max de </span> 
-              <span id="speedCounter" class="text-blue-600 font-mono font-bold">0</span>
-              <span> clics par seconde. C'était le </span>
-              <span id="speedCounter" class="text-blue-600 font-mono font-bold">soir du 23 Mars 2025.</span>
-            {{/if}}
+            {{#if (is "speedWorldRecord")}}              
+              <div id="speedWorldRecord">
+                  <span> le public qui a atteint la plus grande vitesse de clics était un public </span> 
+                  <span class="text-blue-600 font-mono font-bold"> {{recordGet "gentillé"}} </span>
+                  <span> avec une vitesse max de </span> 
+                  <span class="text-blue-600 font-mono font-bold"> {{recordGet "topSpeed"}} </span>
+                  <span> clics par seconde. C'était </span>
+                  <span class="text-blue-600 font-mono font-bold"> {{recordGet "heure"}} du  {{recordGet "date"}}.
+                  </span>
+              </div>
+          {{/if}}
           </div>
         </div>
       </div>

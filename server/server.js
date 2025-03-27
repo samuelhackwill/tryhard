@@ -40,13 +40,14 @@ Meteor.startup(() => {
     const sampleData = [
       {
         gentillé: 'Lillois',
-        date: '1991-02-25',
-        heure: 'soirée',
-        topSpeed: 100,
+        date: '25 Février 2025',
+        heure: 'la soirée',
+        topSpeed: 1,
         topPlayer: 600,
         topGradin: 1000,
         topChomeurs: 15,
-        topGini: 4.2,
+        bestGini: 4.2,
+        totalClics: 1001,
       },
     ]
 
