@@ -381,6 +381,11 @@ const checkBeforeEmit = function (context) {
       const args = match[2].split(',').map((arg) => arg.trim())
       console.log(action, args)
       switch (action) {
+        case 'ImgCapGridSubmit':
+        case 'ImgCapOnlyOneSubmit':
+        case 'ImgCapNoSelect':
+          sendAction('reqNextPlayer', { type: action, args: args })
+          break
         // case 'chaises':
         //   sendAction('chaises', {
         //     type: 'chair',
@@ -421,34 +426,34 @@ const handlePlanDeSalleMessage = function (message) {
   console.log(state)
   switch (message.type) {
     case 'nextPlayerIs':
-      if (!state.endsWith('manual')) {
-        // console.log('recieved nextPlayerIs from planDeSalle', message)
-        _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
-        _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
-        _surpriseAmount = document.getElementById('surprise-slider').value
-        sendAction('choosePlayer', { chosenOne: message.content.device })
-        sendAction('newCaptcha-1j', {
-          text: getCaptchaTextAndFailstate(String(message.context.value)),
-          hesitationAmount: _hesitationAmount,
-          readingSpeed: _readingSpeed,
-          surpriseAmount: Number(_surpriseAmount) * 1000,
-          chosenOne: message.content.order,
-        })
-        document.getElementById('surprise-slider').value = _surpriseAmount - 1
-      } else {
-        sendAction('choosePlayer', { chosenOne: message.content.device })
-        // if (message.context.type === 'clicker') {
-        //   sendAction('newClicker', {
-        //     type: 'clicker',
-        //     text: getCaptchaTextAndFailstate(message.context.args[0]),
-        //     hesitationAmount: 1000000,
-        //     readingSpeed: 1,
-        //     surpriseAmount: 1,
-        //     chosenOne: message.content.order,
-        //   })
-        // }
+      console.log(message.context)
+      switch (message.context.type) {
+        case 'ImgCapGridSubmit':
+        case 'ImgCapOnlyOneSubmit':
+        case 'ImgCapNoSelect':
+          sendAction('choosePlayer', { chosenOne: message.content.device })
+          sendAction(message.context.type, message.context.args)
+          break
+        case 'text':
+          _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
+          _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
+          _surpriseAmount = document.getElementById('surprise-slider').value
+          sendAction('choosePlayer', { chosenOne: message.content.device })
+          sendAction('newCaptcha-1j', {
+            text: getCaptchaTextAndFailstate(String(message.context.value)),
+            hesitationAmount: _hesitationAmount,
+            readingSpeed: _readingSpeed,
+            surpriseAmount: Number(_surpriseAmount) * 1000,
+            chosenOne: message.content.order,
+          })
+          document.getElementById('surprise-slider').value = _surpriseAmount - 1
+          break
+
+          break
+
+        default:
+          break
       }
-      break
   }
 }
 
