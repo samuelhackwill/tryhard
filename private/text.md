@@ -272,6 +272,24 @@ difficulté : impossible <!-- invisible -->
 `showClicker [speed]`
 `showClicker [speedWorldRecord]`
 
+`clickerMsg [fois, c'est beaucoup]`
+`clickerMsg [fois, c'est trop]`
+`clickerMsg [fois, car elles aiment cliquer]`
+
+`save`
+
+`clickerAlert [en raison de la production d'un trop grand nombre de clics]`
+`clickerAlert [les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique]`
+`clickerAlert [le monde va malheureusement exploser]`
+`clickerAlert [et tout le monde va mourir]`
+`clickerAlert [enfin]`
+`clickerAlert [enfin]`
+`clickerAlert [sauf les souris]`
+`clickerAlert [qui sont assez bien adaptées au changement climatique.]`
+
+`stopUpdatingStonks`
+`killClickerGrid`
+
 <!--
 les souris ont cliqué x fois, c'est beaucoup
 les souris ont cliqué x fois, c'est trop
@@ -285,10 +303,6 @@ Le monde va malheureusement exploser
 et tout le monde va mourir.
 Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 -->
-
-`stopUpdatingStonks`
-
-`save`
 
 ## chaises
 

@@ -31,6 +31,10 @@ Template.clickerGrid.onCreated(function () {
   })
 })
 
+Template.pasUnRobot.onDestroyed(function () {
+  streamer.removeListener('pupitreAction', this._pupitreHandler)
+})
+
 Template.clickerGrid.helpers({
   columns() {
     return [0, 1, 2].map((val, i) => ({ index: i, value: val }))
@@ -87,6 +91,19 @@ const handlePupitreAction = function (message) {
     case 'stopUpdatingStonks':
       console.log('stop stonks stepper now!')
       clearInterval(stonksStepper)
+      break
+    case 'clickerMsg':
+      document.querySelector('#clickCounterWarn').firstChild.nodeValue =
+        message.args[0] + ', ' + message.args[1]
+      break
+    case 'clickerAlert':
+      document.querySelector('#clickCounter-total-container').innerHTML = message.args[0]
+      break
+    case 'killClickerGrid':
+      document.querySelector('#clickerGrid').classList.add('opacity-0')
+      setTimeout(() => {
+        Blaze.remove(message.context.view)
+      }, 5000)
       break
     case 'save':
       HighScore.insert({

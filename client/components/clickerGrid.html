@@ -1,5 +1,5 @@
 <template name="clickerGrid">
-    <div class="absolute w-[90vw] h-[90vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
+    <div id="clickerGrid" class="absolute w-[90vw] h-[90vh] transition-opacity duration-[5s] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
       {{prout}}
         <div class="grid grid-cols-3 gap-4 w-full h-full">
         {{#each columns}}
@@ -38,11 +38,13 @@
           <div class="text-3xl text-center">
 
             {{#if (is "total")}}
+            <div id="clickCounter-total-container">
               <span> les souris ont cliqué </span>
               <div>
                 <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-                <span> fois</span>
+                <span id="clickCounterWarn"> fois</span>
               </div>
+            </div>
             {{/if}}
 
             {{#if (is "gradinDuFond")}}
