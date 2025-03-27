@@ -1,8 +1,56 @@
 import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math-helpers.js'
-
+import { convertRemToPixels } from '../both/math-helpers.js'
 import { pushToClientEventQueue } from '../client/stepper.js'
 
 autoclickerIntervals = []
+const loopSpeed = 700 // pixels/second
+let corners = []
+
+loopPointerAroundCorners = function (pointer, cornerIndex = 0) {
+  const from = corners[cornerIndex]
+  const nextCornerIndex = (cornerIndex + 1) % corners.length
+  const to = corners[nextCornerIndex]
+
+  const dx = Math.abs(to.x - from.x)
+  const dy = Math.abs(to.y - from.y)
+  const distance = dx + dy
+  const duration = (distance / loopSpeed) * 1000
+
+  pushToClientEventQueue({
+    origin: 'autoplay',
+    payload: {
+      type: 'moveLoop',
+      pointer,
+      from,
+      to,
+      duration,
+      cornerIndex: nextCornerIndex, // pass this forward!
+    },
+  })
+}
+
+export const initRonde = function (pointers, instance) {
+  corners = [
+    { x: 0, y: 0 },
+    { x: window.innerWidth - convertRemToPixels(instance.pointerWidth.get() + 1.3), y: 0 },
+    {
+      x: window.innerWidth - convertRemToPixels(instance.pointerWidth.get() + 1.3),
+      y: window.innerHeight - convertRemToPixels(instance.pointerHeight.get() + 2.5),
+    },
+    { x: 0, y: window.innerHeight - convertRemToPixels(instance.pointerHeight.get() + 2.5) },
+  ]
+  let i = 0
+
+  function loopNext() {
+    if (i >= pointers.length) return
+    // const pointerId = pointers[i].id || pointers[i] // support array of strings or objects
+    loopPointerAroundCorners(pointers[i])
+    i++
+    setTimeout(loopNext, 114)
+  }
+
+  loopNext()
+}
 
 export const alignPointersInTheBottom = function (pointers) {
   const pointerArray = Object.values(pointers).sort((a, b) => a.order - b.order)
