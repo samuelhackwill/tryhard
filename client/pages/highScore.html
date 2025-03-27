@@ -1,0 +1,37 @@
+<template name="highScore">
+    <div class="space-y-2 p-4">
+        {{#each highScores}}
+          <div class="flex flex-wrap gap-4 items-center bg-gray-100 rounded px-3 py-2">
+            {{#each eachField}}
+            <span class="text-sm">{{field}}</span>
+              <span
+                class="editable text-sm px-2 py-1 rounded bg-white border border-gray-300 hover:bg-blue-100 cursor-pointer"
+                data-field="{{field}}"
+                data-id="{{_id}}"
+                contenteditable="false"
+              >
+                {{value}}
+              </span>
+            {{/each}}
+    
+            <button
+              class="ml-auto text-red-600 hover:underline text-sm"
+              data-id="{{_id}}"
+              data-action="delete"
+            >
+              Supprimer
+            </button>
+          </div>
+        {{/each}}
+    
+        <div class="flex gap-4 mt-6">
+            <button class="bg-gray-200 text-black px-4 py-2 rounded hover:bg-green-600 hover:text-white" id="add-highscore">
+            Ajouter une ligne
+            </button>
+            <button class="bg-gray-200 text-black px-4 py-2 rounded hover:bg-red-600 hover:text-white" id="flush-db">
+            Flash db
+            </button>
+        </div>
+    </div>
+
+</template>

@@ -1,5 +1,5 @@
 import { streamer } from '../both/streamer.js'
-import { disabledMice, mouseOrder, SalleLayout } from '../both/api.js'
+import { disabledMice, mouseOrder, SalleLayout, HighScore } from '../both/api.js'
 
 // Import the WebSocket library
 const WebSocket = require('ws')
@@ -23,6 +23,10 @@ Meteor.publish('mouseOrder', function () {
   return mouseOrder.find({})
 })
 
+Meteor.publish('highScore', function () {
+  return HighScore.find({})
+})
+
 Meteor.startup(() => {
   // fixtures
   if (SalleLayout.find().count() === 0) {
@@ -32,8 +36,23 @@ Meteor.startup(() => {
       cells: [], // Will hold {row, col, deviceId}
     })
   }
-})
+  if (HighScore.find().count() === 0) {
+    const sampleData = [
+      {
+        gentillé: 'Lillois',
+        date: '1991-02-25',
+        heure: 'soirée',
+        topSpeed: 100,
+        topPlayer: 600,
+        topGradin: 1000,
+        topChomeurs: 15,
+        topGini: 4.2,
+      },
+    ]
 
+    sampleData.forEach((entry) => HighScore.insert(entry))
+  }
+})
 console.log(
   'Hi! this is Samuel from Tryhard. Just so that you know, the WebSocket server for the raspberrys is running on ws://<this machine>:8080. Please tell the mouse-grabr.py to talk to that adress. see ya',
 )
