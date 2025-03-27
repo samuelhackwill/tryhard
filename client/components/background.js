@@ -11,7 +11,7 @@ Template.flamesBg.onRendered(function () {
   flamesBgView = Template.instance().view
   setTimeout(() => {
     document.getElementById('flamesContainer').style.opacity = '1'
-    fadeAudio(document.getElementById('bg-audio'), 'in', 5000)
+    // fadeAudio(document.getElementById('bg-audio'), 'in', 5000)
   }, 100)
 })
 
@@ -45,7 +45,7 @@ const handlePupitreAction = function (message) {
       break
     case 'removeFlames':
       document.getElementById('flamesContainer').style.opacity = '0'
-      fadeAudio(document.getElementById('bg-audio'), 'out', 5000)
+      // fadeAudio(document.getElementById('bg-audio'), 'out', 5000)
 
       setTimeout(() => {
         Blaze.remove(flamesBgView)
@@ -65,37 +65,6 @@ const handlePupitreAction = function (message) {
     case 'samuelSpawn':
       Blaze.render(Template.samuel, bg)
       break
-  }
-}
-
-function fadeAudio(audioElement, fadeType = 'in', duration = 10000) {
-  let stepTime = 100 // Adjust volume every 100ms
-  let volumeStep = 1 / (duration / stepTime) // Volume step per interval
-
-  if (fadeType === 'in') {
-    audioElement.volume = 0 // Start silent
-    let currentVolume = 0
-    const fadeInterval = setInterval(() => {
-      currentVolume += volumeStep
-      if (currentVolume >= 1) {
-        currentVolume = 1
-        clearInterval(fadeInterval)
-      }
-      audioElement.volume = currentVolume
-    }, stepTime)
-  } else if (fadeType === 'out') {
-    let currentVolume = audioElement.volume // Start at current volume
-    const fadeInterval = setInterval(() => {
-      currentVolume -= volumeStep
-      if (currentVolume <= 0) {
-        currentVolume = 0
-        audioElement.volume = 0
-        clearInterval(fadeInterval)
-        audioElement.pause() // Optional: stop playback when faded out
-      } else {
-        audioElement.volume = currentVolume
-      }
-    }, stepTime)
   }
 }
 
@@ -399,6 +368,10 @@ const killUnseated = function () {
   pointers.forEach((pointer, index) => {
     const isSeated = instance.pointers.get(pointer.id).seated
 
+    setTimeout(() => {
+      unseatEveryone()
+    }, 3000)
+
     if (isSeated) {
       return
     }
@@ -440,7 +413,7 @@ const killUnseated = function () {
           left: `${rect.left + window.scrollX + randomOffset}px`,
           zIndex: 9999,
           pointerEvents: 'none',
-          animationDuration: `${Math.random() * 3 + 3}s`,
+          animationDuration: `2s`,
         })
 
         document.body.appendChild(skull)
@@ -458,18 +431,15 @@ const killUnseated = function () {
         explosion.remove()
       }, 1000)
     }, index * explosionDelay) // Delay each explosion by index * 50ms
-
-    setTimeout(() => {
-      unseatEveryone()
-    }, 3000)
   })
 }
 
 const unseatEveryone = function () {
   Object.entries(instance.pointers.all()).forEach(([key, pointer]) => {
-    pointer.seated = false
-    pointer.bgColor = '#000000'
-    pointer.hoveredElementId = 'feed'
-    instance.pointers.set(key, pointer)
+    const _pointer = pointer
+    _pointer.seated = false
+    _pointer.bgColor = '#000000'
+    _pointer.hoveredElementId = 'feed'
+    instance.pointers.set(key, _pointer)
   })
 }

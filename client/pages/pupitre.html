@@ -22,7 +22,34 @@
           {{#if isItChairTime}}
             <div class="mt-4 pt-2 border-t-2">
               <h1>chaises musicales</h1>
-              <h1>nombre de chaises</h1>
+
+              <div class="mb-4">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="praetorius"
+                >
+                  load praetorius
+                </button>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="fox"
+                >
+                  load toby fox
+                </button>
+                </div>
+                <h1>vitesse rotation carrousel</h1> <span>un tour en {{getDanceSpeed}}0 ms</span>
+                <div class="relative mb-4 text-gray-500">
+                  <input
+                    id="danceSpeed-slider"
+                    type="range"
+                    value="{{getDanceSpeed}}"
+                    min="1"
+                    max="250"
+                    class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-300 rotate-180"
+                  />
+                </div>
+
+              <h1>nombre de chaises</h1><span>{{getChairsNumber}}</span>
               <div class="relative mb-4 text-gray-500">
                 <input
                   id="chairs-slider"
@@ -33,55 +60,82 @@
                   class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-300"
                 />
               </div>
-              <h1>vitesse</h1>
-              <div class="relative mb-4 text-gray-500">
-                <input
-                  id="danceSpeed-slider"
-                  type="range"
-                  value="{{getDanceSpeed}}"
-                  min="1"
-                  max="25"
-                  class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-300"
-                />
-              </div>
 
-              <button
-              class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-              id="chairs-send-jesuis"
-              >
-                on envoie <span class="font-mono"> {{getChairsNumber}} [je suis une chaise]</span>
-              </button>
-
-              <button
-              class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-              id="chairs-send-x"
-              >
-                on envoie <span class="font-mono"> {{getChairsNumber}} [je suis x]</span>
-              </button>
-
-              <div>
+              <div class="p-4 border-2">
                 <button
                 class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-                id="chairs-start"
+                id="chairs-send-jesuis"
                 >
-                  start
+                <span class="text-xl"> init chaises :  {{getChairsNumber}}</span>
                 </button>
 
-                <button
-                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-                id="chairs-stop"
-                >
-                  stop!
-
-                </button>
 
                 <button
-                class="bg-slate-200 hover:bg-red-600 hover:text-white text-xs px-2 py-1 rounded"
+                class="bg-slate-200  hover:bg-orange-300 text-xl px-2 py-1 rounded"
                 id="chairs-killUnseated"
                 >
                 kill unseated 
+                </button>
+              </div>
+
+
+              <div class="p-4 border-2">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-initRonde"
+                >
+                  init ronde
+                </button>
+  
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-stop-ronde"
+                >
+                  stop ronde
+  
+                </button>
+
+                <button
+                class="bg-slate-200 hover:bg-orange-300 hover:text-black text-xs px-2 py-1 rounded"
+                id="chairs-squidGame"
+                >
+                enable click and hover 
+                </button>
+
+
+              </div>
+
+              <div class="p-4 border-2">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-start-music"
+                >
+                  start music
+                </button>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-stop-music"
+                >
+                  stop music
 
                 </button>
+
+
+              </div>
+              <div class="p-4 border-2">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-start-carousel"
+                >
+                  start carousel
+                </button>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-stop-everythingCarousel"
+                >
+                  stop carousel and captcha rotation
+                </button>
+
 
               </div>
 

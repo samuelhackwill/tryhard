@@ -4,7 +4,7 @@ import { streamer } from '../../both/streamer.js'
 
 import { getRasp, getMouseBrand } from './show.js'
 
-const audio = new Audio('/spagnoleta_Maurizio_Machella.mp3')
+const musick = new Audio('/music/stronger_monsters_toby_fox.mp3')
 
 const explosionPath = './explosions/'
 const explosionSounds = [
@@ -145,6 +145,12 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
+  'click #fox'() {
+    musick.src = '/music/stronger_monsters_toby_fox.mp3'
+  },
+  'click #praetorius'() {
+    musick.src = '/music/spagnoleta_m_praetorius_maurizio_machella.mp3'
+  },
   'click #override-timeout'(event) {
     const button = event.currentTarget
     const currentState = button.getAttribute('aria-pressed') === 'true'
@@ -156,19 +162,32 @@ Template.pupitre.events({
     button.setAttribute('aria-pressed', newState)
     console.log('Override timeout toggled:', newState)
   },
-  'click #chairs-start'() {
-    audio.play()
-    sendAction('music-start')
+  'click #chairs-start-music'() {
+    musick.play()
   },
-  'click #chairs-stop'() {
-    audio.pause()
-    audio.currentTime = 0
+  'click #chairs-start-carousel'() {
+    sendAction('startCarousel')
+  },
+
+  'click #chairs-stop-everythingCarousel'() {
+    sendAction('stopEverythingCarousel')
+  },
+  'click #chairs-stop-music'() {
+    fadeAudio(musick, 'out', 300)
+  },
+  'click #chairs-squidGame'() {
     Template.instance().selectedHeader.set('chaises-squidGame')
     broadcastState('chaises-squidGame')
     sendAction('squidGame')
-    // also play music
+  },
+  'click #chairs-initRonde'() {
+    sendAction('initRonde')
+  },
+  'click #chairs-stop-ronde'() {
+    sendAction('nukeEventQueue')
   },
   'click #chairs-killUnseated'() {
+    fadeAudio(musick, 'out', 300)
     Template.instance().selectedHeader.set('chaises')
     broadcastState('chaises')
     sendAction('killCaptchas')
@@ -181,8 +200,8 @@ Template.pupitre.events({
       readingSpeed: 1,
       surpriseAmount: 1,
       howMany: Number(Template.instance().chairsNumber.get()),
-      text: { value: 'je suis une chaise', emphasis: 'chaise' },
-      animationSpeed: Template.instance().danceSpeed.get(),
+      text: { value: 'je ne suis pas un robot', emphasis: 'robot' },
+      animationSpeed: Template.instance().danceSpeed.get() / 10,
     })
   },
   'input #chairs-slider'(e) {
@@ -547,4 +566,36 @@ const addShortcutListeners = function () {
       }
     }
   })
+}
+
+const fadeAudio = function (audioElement, fadeType = 'in', duration = 10000) {
+  let stepTime = 10 // Adjust volume every 100ms
+  let volumeStep = 1 / (duration / stepTime) // Volume step per interval
+
+  if (fadeType === 'in') {
+    audioElement.volume = 0 // Start silent
+    let currentVolume = 0
+    const fadeInterval = setInterval(() => {
+      currentVolume += volumeStep
+      if (currentVolume >= 1) {
+        currentVolume = 1
+        clearInterval(fadeInterval)
+      }
+      audioElement.volume = currentVolume
+    }, stepTime)
+  } else if (fadeType === 'out') {
+    let currentVolume = audioElement.volume // Start at current volume
+    const fadeInterval = setInterval(() => {
+      currentVolume -= volumeStep
+      if (currentVolume <= 0) {
+        currentVolume = 0
+        clearInterval(fadeInterval)
+        audioElement.pause() // Optional: stop playback when faded out
+        audioElement.currentTime = 0
+        audioElement.volume = 1
+      } else {
+        audioElement.volume = currentVolume
+      }
+    }, stepTime)
+  }
 }

@@ -10,6 +10,7 @@ import {
   moveOffOfCaptcha,
   autoClickerMine,
   alignPointersInTheBottom,
+  initRonde,
 } from '../bots.js'
 import { handleButtonClick } from '../components/btnDashboard.js'
 import { disabledMice, mouseOrder } from '../../both/api.js'
@@ -94,26 +95,29 @@ function handlePupitreAction(message) {
       })
 
       break
+    case 'initRonde':
+      const allPointers = Object.values(instance.pointers.all())
+        .filter((p) => typeof p.order === 'number') // optional: filter out pointers without an order
+        .sort((a, b) => a.order - b.order)
+
+      initRonde(allPointers, instance)
+      break
+    case 'nukeEventQueue':
+      nukeEventQueue()
+      break
     case 'alignPointersBot':
       alignPointersInTheBottom(instance.pointers.all())
       break
     case 'squidGame':
       {
+        nukeEventQueue()
         const elements = document.querySelectorAll('.pasUnRobotWhiteBox.skipHighlight')
         elements.forEach((element) => {
           element.classList.remove('skipHighlight')
         })
-
-        const carousel = document.getElementById('carousel')
-        carousel.style.animationPlayState = 'paused'
-
-        const chairElements = document.querySelectorAll('.chair')
-        chairElements.forEach((chair) => {
-          chair.style.animationPlayState = 'paused'
-        })
       }
       break
-    case 'music-start':
+    case 'startCarousel':
       {
         const carousel = document.getElementById('carousel')
         carousel.classList.add('carousel')
@@ -122,6 +126,17 @@ function handlePupitreAction(message) {
         const chairElements = document.querySelectorAll('.chair')
         chairElements.forEach((chair) => {
           chair.classList.add('rotatingCaptcha')
+        })
+      }
+      break
+    case 'stopEverythingCarousel':
+      {
+        const carousel = document.getElementById('carousel')
+        carousel.style.animationPlayState = 'paused'
+
+        const chairElements = document.querySelectorAll('.chair')
+        chairElements.forEach((chair) => {
+          chair.style.animationPlayState = 'paused'
         })
       }
       break

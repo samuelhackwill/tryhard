@@ -218,6 +218,7 @@ function handleAutoPlay(message) {
     //   break
 
     case 'move':
+    case 'moveLoop':
       const DOMpointer = document.getElementById(pointer.id)
       const coords = readDomCoords(DOMpointer)
       // console.log("message from ", _message.from, "message to ",  _message.to)
@@ -248,6 +249,9 @@ function handleAutoPlay(message) {
     const restructuredMessage = { origin: 'autoplay', payload: _message }
     clientEventQueue.push(restructuredMessage)
   } else {
+    if (_message.type == 'moveLoop') {
+      loopPointerAroundCorners(_message.pointer, _message.cornerIndex)
+    }
     // console.log('dropping pointer ', message.pointer.id, message.elapsed)
     return
   }
@@ -287,4 +291,8 @@ isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
       return 'y-in-bounds'
     }
   }
+}
+
+nukeEventQueue = function () {
+  clientEventQueue.length = 0
 }
