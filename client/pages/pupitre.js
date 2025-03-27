@@ -49,86 +49,7 @@ Template.pupitre.onCreated(function () {
 })
 
 Template.pupitre.onRendered(function () {
-  document.addEventListener('keydown', function (event) {
-    if (event.key === '&') {
-      const button = document.getElementById('hurry')
-      if (button && button.getAttribute('aria-pressed') !== 'true') {
-        button.setAttribute('aria-pressed', 'true')
-        button.dispatchEvent(new Event('mousedown'))
-      }
-    }
-  })
-
-  document.addEventListener('keyup', function (event) {
-    if (event.key === '&') {
-      const button = document.getElementById('hurry')
-      if (button && button.getAttribute('aria-pressed') === 'true') {
-        button.setAttribute('aria-pressed', 'false')
-        button.dispatchEvent(new Event('mouseup'))
-        button.click()
-      }
-    }
-  })
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'é') {
-      const button = document.getElementById('fail')
-      if (button && button.getAttribute('aria-pressed') !== 'true') {
-        button.setAttribute('aria-pressed', 'true')
-        button.dispatchEvent(new Event('mousedown'))
-      }
-    }
-  })
-
-  document.addEventListener('keyup', function (event) {
-    if (event.key === 'é') {
-      const button = document.getElementById('fail')
-      if (button && button.getAttribute('aria-pressed') === 'true') {
-        button.setAttribute('aria-pressed', 'false')
-        button.dispatchEvent(new Event('mouseup'))
-        button.click()
-      }
-    }
-  })
-  document.addEventListener('keydown', function (event) {
-    if (event.key === '"') {
-      const button = document.getElementById('pass')
-      if (button && button.getAttribute('aria-pressed') !== 'true') {
-        button.setAttribute('aria-pressed', 'true')
-        button.dispatchEvent(new Event('mousedown'))
-      }
-    }
-  })
-
-  document.addEventListener('keyup', function (event) {
-    if (event.key === '"') {
-      const button = document.getElementById('pass')
-      if (button && button.getAttribute('aria-pressed') === 'true') {
-        button.setAttribute('aria-pressed', 'false')
-        button.dispatchEvent(new Event('mouseup'))
-        button.click()
-      }
-    }
-  })
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'à') {
-      const button = document.getElementById('kill')
-      if (button && button.getAttribute('aria-pressed') !== 'true') {
-        button.setAttribute('aria-pressed', 'true')
-        button.dispatchEvent(new Event('mousedown'))
-      }
-    }
-  })
-
-  document.addEventListener('keyup', function (event) {
-    if (event.key === 'à') {
-      const button = document.getElementById('kill')
-      if (button && button.getAttribute('aria-pressed') === 'true') {
-        button.setAttribute('aria-pressed', 'false')
-        button.dispatchEvent(new Event('mouseup'))
-        button.click()
-      }
-    }
-  })
+  addShortcutListeners()
 })
 
 Template.pupitre.helpers({
@@ -534,4 +455,87 @@ const playExplosion = function () {
     explosionPath + explosionSounds[Math.floor(Math.random() * explosionSounds.length)]
   const explosionAudio = new Audio(randomExplosionSound)
   explosionAudio.play()
+}
+
+const addShortcutListeners = function () {
+  document.addEventListener('keydown', function (event) {
+    if (event.key === '&') {
+      const button = document.getElementById('hurry')
+      if (button && button.getAttribute('aria-pressed') !== 'true') {
+        button.setAttribute('aria-pressed', 'true')
+        button.dispatchEvent(new Event('mousedown'))
+      }
+    }
+  })
+
+  document.addEventListener('keyup', function (event) {
+    if (event.key === '&') {
+      const button = document.getElementById('hurry')
+      if (button && button.getAttribute('aria-pressed') === 'true') {
+        button.setAttribute('aria-pressed', 'false')
+        button.dispatchEvent(new Event('mouseup'))
+        button.click()
+      }
+    }
+  })
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'é') {
+      const button = document.getElementById('fail')
+      if (button && button.getAttribute('aria-pressed') !== 'true') {
+        button.setAttribute('aria-pressed', 'true')
+        button.dispatchEvent(new Event('mousedown'))
+      }
+    }
+  })
+
+  document.addEventListener('keyup', function (event) {
+    if (event.key === 'é') {
+      const button = document.getElementById('fail')
+      if (button && button.getAttribute('aria-pressed') === 'true') {
+        button.setAttribute('aria-pressed', 'false')
+        button.dispatchEvent(new Event('mouseup'))
+        button.click()
+      }
+    }
+  })
+  document.addEventListener('keydown', function (event) {
+    if (event.key === '"') {
+      const button = document.getElementById('pass')
+      if (button && button.getAttribute('aria-pressed') !== 'true') {
+        button.setAttribute('aria-pressed', 'true')
+        button.dispatchEvent(new Event('mousedown'))
+      }
+    }
+  })
+
+  document.addEventListener('keyup', function (event) {
+    if (event.key === '"') {
+      const button = document.getElementById('pass')
+      if (button && button.getAttribute('aria-pressed') === 'true') {
+        button.setAttribute('aria-pressed', 'false')
+        button.dispatchEvent(new Event('mouseup'))
+        button.click()
+      }
+    }
+  })
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'à') {
+      const button = document.getElementById('kill')
+      if (button && button.getAttribute('aria-pressed') !== 'true') {
+        button.setAttribute('aria-pressed', 'true')
+        button.dispatchEvent(new Event('mousedown'))
+      }
+    }
+  })
+
+  document.addEventListener('keyup', function (event) {
+    if (event.key === 'à') {
+      const button = document.getElementById('kill')
+      if (button && button.getAttribute('aria-pressed') === 'true') {
+        button.setAttribute('aria-pressed', 'false')
+        button.dispatchEvent(new Event('mouseup'))
+        button.click()
+      }
+    }
+  })
 }
