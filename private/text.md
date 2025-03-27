@@ -188,7 +188,7 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoom]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoomMAX]`
 
-`ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, drawings, randomGrid]`
+`ImgCapGridSubmit[Sélectionnez les images où le dessin est content, drawings, randomGrid23]`
 
 <!-- `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samdocu]` -->
 

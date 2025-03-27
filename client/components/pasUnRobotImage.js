@@ -162,6 +162,16 @@ export const ImgCapGridSubmit = function (message) {
   const _gridColumns = 3
 
   switch (gridType) {
+    case 'randomGrid23':
+      for (let i = 0; i < 9; i++) {
+        const rand = Math.floor(Math.random() * 23) + 1
+        const obj = {}
+        obj.src = `/images/captchas/${imageSetFolder}/${rand}.png`
+        obj.isSelected = false
+        obj.index = i
+        _images.push(obj)
+      }
+      break
     case 'randomGrid':
       for (let i = 0; i < 9; i++) {
         const rand = Math.random() < 0.5 ? 1 : 2
