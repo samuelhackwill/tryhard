@@ -64,6 +64,8 @@ Template.show.onCreated(function () {
 
   this.score = { gradins: {} }
 
+  this.autoTimeout = false
+
   // make instance callable from everywhere
   instance = this
 
@@ -81,6 +83,10 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message) {
   switch (message.content) {
+    case 'toggleAutoTimeout':
+      // console.log(message.args)
+      instance.autoTimeout = message.args
+      break
     case 'revealMoney':
       document.querySelectorAll('.pointer').forEach((pointer) => {
         const money = pointer.querySelector('#money')

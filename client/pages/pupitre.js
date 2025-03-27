@@ -50,6 +50,7 @@ Template.pupitre.onCreated(function () {
 
 Template.pupitre.onRendered(function () {
   addShortcutListeners()
+  sendAction('toggleAutoTimeout', false)
 })
 
 Template.pupitre.helpers({
@@ -144,6 +145,17 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
+  'click #override-timeout'(event) {
+    const button = event.currentTarget
+    const currentState = button.getAttribute('aria-pressed') === 'true'
+
+    const newState = !currentState
+
+    sendAction('toggleAutoTimeout', newState)
+
+    button.setAttribute('aria-pressed', newState)
+    console.log('Override timeout toggled:', newState)
+  },
   'click #chairs-start'() {
     audio.play()
     sendAction('music-start')
@@ -182,9 +194,6 @@ Template.pupitre.events({
   'input #opacity-slider'(e) {
     // console.log('sliderChange', { id: sliderId, value: sliderValue })
     sendAction('changeOpacity', e.target.value)
-  },
-  'click #override-timeout'() {
-    sendAction('cancelCaptchaTimeouts')
   },
   'click #hurry'() {
     sendAction('cancelCaptchaTimeouts')

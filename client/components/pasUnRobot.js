@@ -75,16 +75,18 @@ Template.pasUnRobot.onRendered(function () {
   }, 50)
 
   const timeouts = []
-  // timeouts.push(
-  //   setTimeout(() => {
-  //     console.log('warn player that time almost over')
-  //     showWarning(this)
-  //   }, timeToComplete * 0.5),
-  //   setTimeout(() => {
-  //     console.log('player failed to complete captcha')
-  //     checkAndDie(this, this.view, false)
-  //   }, timeToComplete),
-  // )
+  if (instance.autoTimeout === true) {
+    timeouts.push(
+      setTimeout(() => {
+        console.log('warn player that time almost over')
+        showWarning(this)
+      }, timeToComplete * 0.5),
+      setTimeout(() => {
+        console.log('player failed to complete captcha')
+        checkAndDie(this, this.view, false)
+      }, timeToComplete),
+    )
+  }
 
   this.timeouts.set(timeouts)
 })
@@ -378,16 +380,16 @@ const handlePupitreAction = function (message) {
       // ok this is ONLY FOR THE CLICKER lulz
       showWarning(message.context)
       checkAndDie(message.context, message.context.view, false)
-      const hasntClicked = Number(document.getElementById('clickCounter').innerHTML) === 0
-      if (hasntClicked) {
-        document.getElementById(
-          'warning',
-        ).innerHTML = `la personne ${message.context.data.chosenOne} a résisté à l'impératif productiviste.`
-      } else {
-        document.getElementById(
-          'warning',
-        ).innerHTML = `la personne ${message.context.data.chosenOne} a cliqué à son rythme.`
-      }
+      // const hasntClicked = Number(document.getElementById('clickCounter').innerHTML) === 0
+      // if (hasntClicked) {
+      //   document.getElementById(
+      //     'warning',
+      //   ).innerHTML = `la personne ${message.context.data.chosenOne} a résisté à l'impératif productiviste.`
+      // } else {
+      //   document.getElementById(
+      //     'warning',
+      //   ).innerHTML = `la personne ${message.context.data.chosenOne} a cliqué à son rythme.`
+      // }
       break
     case 'pass':
       message.context.passed.set(true)
