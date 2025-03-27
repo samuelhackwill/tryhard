@@ -63,27 +63,35 @@
             {{/if}}
 
             {{#if (is "goldMouse")}}
-              <span> la souris la plus productive a cliqué x fois :</span>
+              <span> la souris la plus productive a cliqué x fois</span>
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois (C'est la souris n°x)</span>
+              <span> fois (C'est la souris n°</span>
+              <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span>)</span>
             {{/if}}
 
             {{#if (is "silverMouse")}}
-              <span> la deuxième souris la plus productive a cliqué x fois :</span>
+              <span> la deuxième souris la plus productive a cliqué x fois</span>
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois (C'est la souris n°x)</span>
+              <span> fois (C'est la souris n°</span>
+              <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span>)</span>
             {{/if}}
 
             {{#if (is "bronzeMouse")}}
-              <span> la troisième souris la plus productive a cliqué x fois :</span>
+              <span> la troisième souris la plus productive a cliqué x fois</span>
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois (C'est la souris n°x)</span>
+              <span> fois (C'est la souris n°</span>
+              <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span>)</span>
             {{/if}}
 
             {{#if (is "fourthMouse")}}
-              <span> la quatrième souris la plus productive a cliqué x fois :</span>
+              <span> la quatrième souris, presque sur le podium, a cliqué x fois :</span>
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois (C'est la souris n°x)</span>
+              <span> fois (C'est la souris n°</span>
+              <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+              <span>)</span>
             {{/if}}
 
             {{#if (is "chomdu")}}
@@ -92,16 +100,13 @@
             {{/if}}
 
             {{#if (is "insee")}}
-              <span> la médiane de production de clics de la salle est actuellement à </span> 
+              <!-- <span> la médiane de production de clics de la salle est actuellement à </span> 
               <span id="médiane" class="text-blue-600 font-mono font-bold">0</span> 
-              <span>, c'est à dire que 50% des souris ont produit plus et 50% ont produit moins. </span> 
-              <span>Quand aux inégalités de patrimoine, la souris la plus riche en clics actuellement (</span>
-              <span id="maxRiche" class="text-blue-600 font-mono font-bold">0</span> 
-              <span> clics) possède </span>
+              <span>, c'est à dire que 50% des souris ont produit plus et 50% ont produit moins. </span>  -->
+              <span>Et maintenant un coup d'oeil sur les inégalités de patrimoine dans la salle. Les 10% de souris les plus riches en clics possèdent </span>
               <span id="gini" class="text-blue-600 font-mono font-bold">0</span> 
-              <span> fois plus de clics que la souris active la plus pauvre (</span>
-              <span id="maxPauvre" class="text-blue-600 font-mono font-bold">0</span> 
-              <span> clics).</span>
+              <span> fois plus de clics que les 10% de souris les plus pauvres en clics. </span>
+              <span id="france"> </span>
             {{/if}}
 
             {{#if (is "speed")}}

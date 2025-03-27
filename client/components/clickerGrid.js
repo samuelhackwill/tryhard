@@ -1,6 +1,13 @@
 import './clickerGrid.html'
 import { streamer } from '../../both/streamer.js'
 
+let inactiveThreshold = 10 * 1000
+// this is to update speed/second
+let tick = 1
+let speed = 0
+let clicksInThePastSecond = 0
+let pastClicksTotal = 0
+
 Template.clickerGrid.onCreated(function () {
   streamer.on('pupitreAction', handlePupitreAction)
 })
@@ -63,14 +70,29 @@ const handlePupitreAction = function (message) {
 }
 
 const updateTopMouse = function () {
+  // calculating speed/s here
+  if (tick > 9) {
+    // update speed
+    document.querySelector('#speedCounter').firstChild.nodeValue = clicksInThePastSecond
+    tick = 0
+    clicksInThePastSecond = 0
+    pastClicksTotal = Number(document.querySelector('#clickCounter-total').firstChild.nodeValue)
+  } else {
+    clicksInThePastSecond =
+      Number(document.querySelector('#clickCounter-total').firstChild.nodeValue) - pastClicksTotal
+  }
+
+  tick++
+
   const allDomPointers = Array.from(document.getElementsByClassName('pointer'))
+
   const lastGradin = allDomPointers[0].dataset.maxgradin || 'unknown'
   const gradinSums = {}
+  const now = Date.now()
 
   // Sum money values by pointer.gradin
   allDomPointers.forEach((domPointer) => {
     const money = Number(domPointer.querySelector('#money')?.innerHTML.replace(/\s/g, '')) || 0
-
     const gradin = domPointer?.dataset.gradin || 'unknown'
 
     if (!gradinSums[gradin]) {
@@ -79,6 +101,14 @@ const updateTopMouse = function () {
 
     gradinSums[gradin] += money
   })
+
+  const inactiveDomPointers = allDomPointers.filter((domPointer) => {
+    const moneySpan = domPointer.querySelector('#money')
+    const lastUpdate = Number(moneySpan?.dataset.lastupdate || 0)
+    return now - lastUpdate > inactiveThreshold
+  })
+
+  document.querySelector('#clickCounter-chomdu').firstChild.nodeValue = inactiveDomPointers.length
 
   let richestGradin = null
   let richestScore = -Infinity
@@ -94,9 +124,9 @@ const updateTopMouse = function () {
   let descriptor = ''
 
   if (richestGradin == 1) {
-    descriptor = "fois. C'est le gradin tout devant! Premiers de la classe!"
+    descriptor = "fois. C'est le gradin tout devant! C'est à l'avant qu'on clique le plus fort."
   } else if (richestGradin == lastGradin) {
-    descriptor = "fois. Et c'est le gradin du fond! c'est à l'arrière qu'on clique le plus fort."
+    descriptor = "fois. Et c'est le gradin du fond! Premiers de la classe!"
   } else {
     descriptor = `fois. c'est le ${richestGradin}e gradin en partant de devant!`
   }
@@ -110,6 +140,35 @@ const updateTopMouse = function () {
       return Number(cleanValue) || 0
     })
     .sort((a, b) => b - a)
+
+  // const mid = Math.floor(moneyElements.length / 2)
+  // const median =
+  //   moneyElements.length % 2 === 0
+  //     ? (moneyElements[mid - 1] + moneyElements[mid]) / 2
+  //     : moneyElements[mid]
+
+  // // Store or display the median
+  // document.querySelector('#médiane').firstChild.nodeValue = median
+
+  const totalMice = moneyElements.length
+  const decileCount = Math.max(1, Math.floor(totalMice * 0.1))
+
+  const top10 = moneyElements.slice(0, decileCount)
+  const bottom10 = moneyElements.slice(-decileCount)
+
+  const avgTop10 = top10.reduce((a, b) => a + b, 0) / top10.length
+  const avgBottom10 = bottom10.reduce((a, b) => a + b, 0) / bottom10.length || 1 // prevent divide-by-zero
+
+  const decileRatio = Math.round((avgTop10 / avgBottom10) * 100) / 100 // rounded to 2 decimals
+  document.querySelector('#gini').firstChild.nodeValue = decileRatio
+
+  if (decileRatio < 150) {
+    document.querySelector('#france').firstChild.nodeValue =
+      'La société des souris est donc plus égalitaire que celle des français (rapport inter-décile du patrimoine en France = 150)'
+  } else {
+    document.querySelector('#france').firstChild.nodeValue =
+      'La société des souris est donc moins égalitaire que celle des français (rapport inter-décile du patrimoine en France = 150)'
+  }
 
   // If no one has clicked, prevent assigning colors randomly
   if (moneyElements[0] === 0) return []
@@ -127,7 +186,7 @@ const updateTopMouse = function () {
     if (!ranking.has(money)) {
       ranking.set(money, currentRank)
       currentRank++
-      if (ranking.size >= 3) break // Stop when we have at least 4 ranks
+      if (ranking.size >= 4) break // Stop when we have at least 4 ranks
     }
   }
 
@@ -166,12 +225,27 @@ const updateTopMouse = function () {
     if (rank === 1) {
       _pointer.bgColor = '#FFD700' // Gold
       _pointer.outlineColor = '#000000'
+
+      document.querySelector('#clickCounter-goldMouse').firstChild.nodeValue = moneyElements[0]
+      document.querySelector('#whois-goldMouse').firstChild.nodeValue = _pointer.order
     } else if (rank === 2) {
       _pointer.bgColor = '#C7C7C7' // Silver
       _pointer.outlineColor = '#000000'
+
+      document.querySelector('#clickCounter-silverMouse').firstChild.nodeValue = moneyElements[1]
+      document.querySelector('#whois-silverMouse').firstChild.nodeValue = _pointer.order
     } else if (rank === 3) {
       _pointer.bgColor = '#815924' // Copper
       _pointer.outlineColor = '#000000'
+
+      document.querySelector('#clickCounter-bronzeMouse').firstChild.nodeValue = moneyElements[2]
+      document.querySelector('#whois-bronzeMouse').firstChild.nodeValue = _pointer.order
+    } else if (rank === 4) {
+      _pointer.bgColor = '#000000' // no special color for you
+      _pointer.outlineColor = '#FFFFFF' // no special color for you
+
+      document.querySelector('#clickCounter-fourthMouse').firstChild.nodeValue = moneyElements[3]
+      document.querySelector('#whois-fourthMouse').firstChild.nodeValue = _pointer.order
     }
 
     instance.pointers.set(pointer.id, _pointer)

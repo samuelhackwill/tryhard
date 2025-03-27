@@ -608,7 +608,16 @@ export const simulateMouseUp = function (pointer) {
     const dernierGradin = pointer.dernierGradin
 
     const moneyEl = domPointer.querySelector('#money')
-    const newVal = Number(moneyEl.firstChild.nodeValue) + 1
+    const currentValue = Number(moneyEl.firstChild.nodeValue)
+    const previousValue = Number(moneyEl.dataset.lastvalue || 0)
+
+    if (currentValue !== previousValue) {
+      // Update the timestamp and value
+      moneyEl.dataset.lastupdate = Date.now()
+      moneyEl.dataset.lastvalue = currentValue
+    }
+
+    const newVal = currentValue + 1
 
     if (
       newVal == 50 ||
