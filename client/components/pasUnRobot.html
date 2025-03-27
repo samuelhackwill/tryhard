@@ -28,7 +28,7 @@
         {{else}}
           <div
             id="warningBorder"
-            class="pointer-events-none absolute inset-0 border-2 {{isWarning}} {{#if isPassed}} border-blue-300 {{else}} border-red-600 {{/if}} transition-opacity"
+            class="pointer-events-none absolute inset-0 border-2 {{isWarning}}  border-red-600 transition-opacity"
 
           >
           </div>
@@ -88,7 +88,14 @@
 
           {{#if isChaisesMusicales}}
             {{else}}
-    
+            <div class="text-red-600 text-2xl mt-2 transition-opacity {{isWarning}}" id="warning"> 
+              {{#if isFailed}}
+              la personne n°{{this.chosenOne}} est probablement {{this.text.emphasis}}
+              {{else}}
+              merci de cocher la petite case
+              {{/if}}
+            </div>
+<!-- 
             {{#if isClicker}}
 
             {{#unless isPassed}}
@@ -104,15 +111,8 @@
 
             {{else}}
 
-              <div class="text-red-600 text-2xl mt-2 transition-opacity {{isWarning}}" id="warning"> 
-                {{#if isFailed}}
-                la personne n°{{this.chosenOne}} est probablement {{this.text.emphasis}}
-                {{else}}
-                merci de cocher la petite case
-                {{/if}}
-              </div>
 
-            {{/if}}
+            {{/if}} -->
           {{/if}}
         </div>
     </div>

@@ -75,16 +75,16 @@ Template.pasUnRobot.onRendered(function () {
   }, 50)
 
   const timeouts = []
-  timeouts.push(
-    setTimeout(() => {
-      console.log('warn player that time almost over')
-      showWarning(this)
-    }, timeToComplete * 0.5),
-    setTimeout(() => {
-      console.log('player failed to complete captcha')
-      checkAndDie(this, this.view, false)
-    }, timeToComplete),
-  )
+  // timeouts.push(
+  //   setTimeout(() => {
+  //     console.log('warn player that time almost over')
+  //     showWarning(this)
+  //   }, timeToComplete * 0.5),
+  //   setTimeout(() => {
+  //     console.log('player failed to complete captcha')
+  //     checkAndDie(this, this.view, false)
+  //   }, timeToComplete),
+  // )
 
   this.timeouts.set(timeouts)
 })
@@ -251,23 +251,23 @@ const checkAndDie = function (t, handle, passed) {
   t.timeouts.set(_timeouts)
 }
 
-const clickerDie = function (t, handle, passed) {
-  const _timeouts = t.timeouts.get()
-  _timeouts.push(
-    setTimeout(() => {
-      // console.log('captcha completed!!')
-      // const element = document.getElementById('pasUnRobot')
-      // element.style.opacity = 0
-      t.rendered.set(false)
+// const clickerDie = function (t, handle, passed) {
+//   const _timeouts = t.timeouts.get()
+//   _timeouts.push(
+//     setTimeout(() => {
+//       console.log('captcha completed!!')
+//       // const element = document.getElementById('pasUnRobot')
+//       // element.style.opacity = 0
+//       t.rendered.set(false)
 
-      setTimeout(() => {
-        checkAndDieOutro(t)
-        Blaze.remove(handle)
-      }, 300)
-    }, 1000),
-  )
-  t.timeouts.set(_timeouts)
-}
+//       setTimeout(() => {
+//         checkAndDieOutro(t)
+//         Blaze.remove(handle)
+//       }, 300)
+//     }, 1000),
+//   )
+//   t.timeouts.set(_timeouts)
+// }
 
 const checkAndDieOutro = function (t) {
   if (t.data && t.data.type) {
@@ -308,11 +308,6 @@ const handlePupitreAction = function (message) {
   // message.context contains the original template which was bound to the streamer. Hm i wonder what will happen when we have several templates of captcha in the same page.
   const captcha = document.getElementById(`pasUnRobot-${message.context.uuid}`)
   switch (message.content) {
-    case 'pass':
-      message.context.passed.set(true)
-      showWarning(message.context)
-      clickerDie(message.context, message.context.view, false)
-      break
     case 'changeOpacity':
       document.getElementById(`pasUnRobotWhiteBox-${message.context.uuid}`).style.opacity =
         message.args / 10
@@ -393,6 +388,12 @@ const handlePupitreAction = function (message) {
           'warning',
         ).innerHTML = `la personne ${message.context.data.chosenOne} a cliqué à son rythme.`
       }
+      break
+    case 'pass':
+      message.context.passed.set(true)
+      message.context.warning.set(false)
+
+      checkAndDie(message.context, message.context.view, true)
       break
     case 'killCaptchas':
       console.log('kill catpcahs', message.context.uuid)
