@@ -3,14 +3,10 @@
 `clearPointers`
 `hideFeed`
 `clearFeed`
-`killCaptchas`
 `bgTogrey`
 `showNicks`
 `togglePointers`
-`bgTogrey`
 `textToBlack`
-`startObserving`
-`startCheckingTopMouse`
 `textToWhite`
 `samuelSpawn`
 `samuelGo!`
@@ -233,11 +229,12 @@ difficulté : impossible <!-- invisible -->
 <!-- `reqNextPlayer`
 `unchoosePlayer` -->
 
+`toggleFFA`
 `alignPointersBot`
 
 `tetris [difficulté : tryhard]`
 
-`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds s'il vous plaît : je veux me faire un bon petit risotto, rice, 20]`
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds s'il vous plaît : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 1500 grains peut-être? j'ai une petite faim, rice, 1500]`
 
 ## clicker-ffa
 
@@ -272,8 +269,6 @@ difficulté : impossible <!-- invisible -->
 `showClicker [speed]`
 `showClicker [speedWorldRecord]`
 
-`clickerMsg [fois, c'est beaucoup]`
-`clickerMsg [fois, c'est trop]`
 `clickerMsg [fois, car elles aiment cliquer]`
 
 `save`
@@ -283,12 +278,15 @@ difficulté : impossible <!-- invisible -->
 `clickerAlert [le monde va malheureusement exploser]`
 `clickerAlert [et tout le monde va mourir]`
 `clickerAlert [enfin]`
-`clickerAlert [enfin]`
 `clickerAlert [sauf les souris]`
 `clickerAlert [qui sont assez bien adaptées au changement climatique.]`
 
 `stopUpdatingStonks`
 `killClickerGrid`
+`hideMoney`
+
+`addPodium`
+`removePodium`
 
 <!--
 les souris ont cliqué x fois, c'est beaucoup

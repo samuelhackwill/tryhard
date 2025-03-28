@@ -84,6 +84,12 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message) {
   switch (message.content) {
+    case 'toggleFFA':
+      Object.values(instance.pointers.all()).forEach((obj) => {
+        obj.chosen = undefined
+        instance.pointers.set(obj.id, obj)
+      })
+      break
     case 'toggleAutoTimeout':
       // console.log(message.args)
       instance.autoTimeout = message.args
@@ -93,7 +99,16 @@ function handlePupitreAction(message) {
         const money = pointer.querySelector('#money')
         money.classList.remove('hidden', 'opacity-0')
       })
+      break
 
+    case 'hideMoney':
+      document.querySelectorAll('.pointer').forEach((pointer) => {
+        const money = pointer.querySelector('#money')
+        money.classList.add('opacity-0')
+        setTimeout(() => {
+          money.classList.add('hidden')
+        }, 300)
+      })
       break
     case 'initRonde':
       const allPointers = Object.values(instance.pointers.all())
