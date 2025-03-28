@@ -53,6 +53,22 @@ Template.pasUnRobotImage.events({
     images[index].isSelected = !images[index].isSelected
     console.log(images[index].isSelected)
     instance.images.set([...images])
+
+    if (type === 'ImgCapOnlyOneSubmit') {
+      const selectedCount = images.filter((img) => img.isSelected).length
+
+      if (selectedCount === 2) {
+        const button = document.querySelector('.button-submitCaptcha')
+        if (button?.firstChild) {
+          button.firstChild.nodeValue = 'TUEZ LES'
+        }
+      } else {
+        const button = document.querySelector('.button-submitCaptcha')
+        if (button?.firstChild) {
+          button.firstChild.nodeValue = 'TUEZ LE'
+        }
+      }
+    }
   },
   'mousedown .button-submitCaptcha'(event, instance) {
     // Do something with selected images
