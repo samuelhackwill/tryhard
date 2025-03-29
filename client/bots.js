@@ -80,6 +80,34 @@ export const alignPointersInTheBottom = function (pointers) {
   })
 }
 
+export const alignPointersOnTheLeft = function (pointers) {
+  const pointerArray = Object.values(pointers).sort((a, b) => a.order - b.order)
+
+  const x = 100
+  const minY = 100
+  const maxY = window.innerHeight - 100
+
+  const spacing = pointerArray.length > 1 ? (maxY - minY) / (pointerArray.length - 1) : 0
+
+  pointerArray.forEach((pointer, index) => {
+    const y = minY + spacing * index
+
+    pushToClientEventQueue({
+      origin: 'autoplay',
+      payload: {
+        type: 'move',
+        from: null,
+        to: {
+          x: Math.floor(x),
+          y: Math.floor(y),
+        },
+        duration: 1000,
+        pointer: pointer,
+      },
+    })
+  })
+}
+
 export const moveOffOfCaptcha = function (pointer) {
   // // Randomly decide if we pick from the 1st or 4th quarter
   // const inFirstQuarter = Math.random() < 0.5

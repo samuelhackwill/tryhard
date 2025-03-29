@@ -10,6 +10,7 @@ import {
   moveOffOfCaptcha,
   autoClickerMine,
   alignPointersInTheBottom,
+  alignPointersOnTheLeft,
   initRonde,
 } from '../bots.js'
 import { handleButtonClick } from '../components/btnDashboard.js'
@@ -122,6 +123,9 @@ function handlePupitreAction(message) {
       break
     case 'alignPointersBot':
       alignPointersInTheBottom(instance.pointers.all())
+      break
+    case 'alignPointersLeft':
+      alignPointersOnTheLeft(instance.pointers.all())
       break
     case 'squidGame':
       {

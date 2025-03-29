@@ -1,5 +1,6 @@
 ## repetition
 
+`alignPointersLeft`
 `clearPointers`
 `hideFeed`
 `clearFeed`
@@ -322,6 +323,7 @@ je suis la dernière personne de la performance qui va cliquer -->
 
 ## conclusion
 
+`showFeed`
 pour en revenir au pointeur de souris
 que vous êtes
 saviez-vous que le pointeur de souris a été inventé en 1968?
@@ -381,8 +383,6 @@ née en 2026.
 je rigole, ajoute l'auteur de la performance
 nous n'arriverons jamais à fabriquer une intelligence surhumaine de synthèse
 affirment quelques chercheurs courageux
-_très_ minoritaires
-ce qui ne veut pas dire qu'ils ont tort
 nous y parviendrons avant 2060 probablement!
 disent ~50% du panel de philosophes-chercheurs en sciences de l'informatique. _1_
 nous y parviendrons au plus tard en 2160!
@@ -390,7 +390,7 @@ disent les autres ~50%.
 c'est bien mais nous aurons tous grillé bien avant 2160! répètent en vain les philosophes-chercheurs du GIEC.
 c'est bien mais à quoi nous sert une intelligence supérieure dans un monde sans Justice? objectent les philosophes-sociologues.
 et qu'est ce qu'on entend par "intelligence", au fait, s'interrogent d'autres philosophes, un peu en retard dans la conversation.
-quoi qu'il en soit, toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
+ou mais toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
 merci d'avoir joué! clament le champignon de paris et les haricots verts.
 et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
 
