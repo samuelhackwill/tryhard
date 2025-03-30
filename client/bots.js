@@ -84,7 +84,7 @@ export const alignPointersOnTheLeft = function (pointers) {
   const pointerArray = Object.values(pointers).sort((a, b) => a.order - b.order)
 
   const x = 100
-  const minY = 100
+  const minY = 25
   const maxY = window.innerHeight - 100
 
   const spacing = pointerArray.length > 1 ? (maxY - minY) / (pointerArray.length - 1) : 0
@@ -100,6 +100,29 @@ export const alignPointersOnTheLeft = function (pointers) {
         to: {
           x: Math.floor(x),
           y: Math.floor(y),
+        },
+        duration: 1000,
+        pointer: pointer,
+      },
+    })
+  })
+}
+
+export const moveAllPointersOffScreen = function () {
+  const offscreenX = Math.floor(window.innerWidth * -0.2) // well off to the left
+  const offscreenY = Math.floor(window.innerHeight * 0.95) // near the bottom
+
+  const pointers = Object.values(instance.pointers.all())
+
+  pointers.forEach((pointer) => {
+    pushToClientEventQueue({
+      origin: 'autoplay',
+      payload: {
+        type: 'move',
+        from: null,
+        to: {
+          x: offscreenX,
+          y: offscreenY,
         },
         duration: 1000,
         pointer: pointer,

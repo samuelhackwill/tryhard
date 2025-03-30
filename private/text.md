@@ -17,6 +17,8 @@
 
 ## les-philosophes
 
+`moveAllPointersOffScreen`
+
 - La vie contemplative n'est utile que si elle éclaire la vie _active_, dit le philosophe.
 
 - "Toute la dignité de l’homme est en la pensée. Mais agir bien, c'est savoir penser en action.", dit le philosophe.

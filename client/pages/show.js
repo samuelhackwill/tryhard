@@ -8,6 +8,7 @@ import {
   autoclickerSpawn,
   moveInFrontOfCaptcha,
   moveOffOfCaptcha,
+  moveAllPointersOffScreen,
   autoClickerMine,
   alignPointersInTheBottom,
   alignPointersOnTheLeft,
@@ -111,6 +112,9 @@ function handlePupitreAction(message) {
         }, 300)
       })
       break
+    case 'forceRefresh':
+      location.reload()
+      break
     case 'initRonde':
       const allPointers = Object.values(instance.pointers.all())
         .filter((p) => typeof p.order === 'number' && !p.bot)
@@ -123,6 +127,9 @@ function handlePupitreAction(message) {
       break
     case 'alignPointersBot':
       alignPointersInTheBottom(instance.pointers.all())
+      break
+    case 'moveAllPointersOffScreen':
+      moveAllPointersOffScreen(instance.pointers.all())
       break
     case 'alignPointersLeft':
       alignPointersOnTheLeft(instance.pointers.all())
@@ -160,6 +167,8 @@ function handlePupitreAction(message) {
       }
       break
     case 'createChairs':
+      document.documentElement.style.fontSize = '12px'
+
       {
         circleElements.length = 0
         for (let index = 0; index < message.args.howMany; index++) {
@@ -249,6 +258,7 @@ function handlePupitreAction(message) {
       break
 
     case 'newCaptcha-1j':
+      document.documentElement.style.fontSize = '18px'
       console.log(message.args)
       Blaze.renderWithData(
         Template.pasUnRobot,
@@ -417,12 +427,8 @@ Template.show.helpers({
     switch (value) {
       case 'isPointingHand':
         if (
-          (this.hoveredElementId.startsWith('checkbox') == true &&
-            instance.state.get() != 'chaises') ||
-          this.hoveredElementId.startsWith('button') == true ||
-          (this.hoveredElementId.startsWith('pasUnRobot') &&
-            instance.state.get() == 'chaises-squidGame' &&
-            this.seated == false)
+          this.hoveredElementId.startsWith('checkbox') == true ||
+          this.hoveredElementId.startsWith('button') == true
         ) {
           return true
         }
@@ -434,16 +440,8 @@ Template.show.helpers({
         if (
           (this.hoveredElementId.startsWith('th') != true &&
             this.hoveredElementId.startsWith('button') != true &&
-            this.hoveredElementId.startsWith('checkbox') != true &&
-            this.hoveredElementId.startsWith('pasUnRobot') != true) ||
-          (this.hoveredElementId.startsWith('pasUnRobot') && this.seated == true) ||
-          ((this.hoveredElementId.startsWith('checkbox') ||
-            this.hoveredElementId.startsWith('pasUnRobot')) &&
-            instance.state.get() == 'chaises') ||
-          (this.hoveredElementId.startsWith('pasUnRobot') &&
-            instance.state.get().startsWith('captchas')) ||
-          (instance.state.get().startsWith('recre') &&
-            !this.hoveredElementId.startsWith('checkbox'))
+            this.hoveredElementId.startsWith('checkbox') != true) ||
+          (this.hoveredElementId.startsWith('checkbox') && this.seated == true)
         ) {
           return true
         }
