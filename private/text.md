@@ -25,7 +25,7 @@
 
 - "Le but de la sagesse est la contemplation, celui de la prudence est l'action." dit le philosophe.
 
-- _agiter sa souris_, c'est penser avec son curseur, dit le philosophe informaticien.
+- agiter sa souris, c'est penser avec son curseur, dit le philosophe informaticien.
 
 - cliquer ne fera pas mal à la souris, car la souris n'a pas de conscience, dit le philosophe spéciste.
 
@@ -35,11 +35,11 @@
 
 - cliquer ne fera pas vraiment mal à la souris, parce qu'elle a l'habitude, dit le philosophe traditionaliste.
 
-- il y existe un contrat tacite entre les souris et les humains, ajoute le philosophe-éleveur de souris, les souris permettent volontairement aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris.
+- il y existe un contrat tacite entre les souris et les humains : les souris permettent aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris, ajoute le philosophe-éleveur de souris.
 
 - Dieu a donné non pas un, mais deux boutons et une roulette aux souris, c'est bien la preuve que les hommes doivent cliquer dessus, dit le philosophe créationniste.
 
-- Oui, les souris peuvent souffrir quand on leur clique dessus. Les souris sont emprisonnées dans cette existence en raison des causes et conditions de leur karma passé. Mais chaque être sensible, quelle que soit sa forme, mérite la compassion et le respect, car tous aspirent à être libérés de la souffrance, nous explique le philosophe bouddhiste.
+- Oui, les souris peuvent souffrir quand on leur clique dessus. Les souris sont emprisonnées dans cette existence en raison de leur karma passé, nous explique le philosophe bouddhiste.
 
 - Oui, cliquer fera mal à la souris ; mais la douleur n'est qu'une information transmise au cerveau, dit le philosophe ascétique.
 
