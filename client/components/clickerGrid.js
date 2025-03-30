@@ -204,9 +204,9 @@ const updateTopMouse = function (context) {
   let descriptor = ''
 
   if (richestGradin == 1) {
-    descriptor = "fois. C'est le gradin tout devant! C'est à l'avant qu'on clique le plus fort."
+    descriptor = "fois. C'est le gradin tout devant! Premiers de la classe!."
   } else if (richestGradin == lastGradin) {
-    descriptor = "fois. Et c'est le gradin du fond! Premiers de la classe!"
+    descriptor = "fois. Et c'est le gradin du fond! C'est à l'arrière qu'on clique le plus fort."
   } else {
     descriptor = `fois. c'est le ${richestGradin}e gradin en partant de devant!`
   }

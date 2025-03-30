@@ -175,6 +175,9 @@ Template.pupitre.events({
   'click #chairs-stop-music'() {
     fadeAudio(musick, 'out', 300)
   },
+  'click #forceRefresh'() {
+    sendAction('forceRefresh')
+  },
   'click #chairs-squidGame'() {
     Template.instance().selectedHeader.set('chaises-squidGame')
     broadcastState('chaises-squidGame')
