@@ -1,47 +1,31 @@
----
-- name: Launch mouse-grabr.py with sudo on thRasps (fully detached)
+- name: Launch mouse-grabr script (simulation or normal mode)
   hosts: thRasps
   user: sam
   become: true
   become_method: sudo
   gather_facts: no
-
   vars_files:
     - secrets.yml
 
   vars:
+    simulate_mode: false # Override with --extra-vars "simulate_mode=false"
     ansible_become_password: '{{ secrets.raspRootPwd }}'
 
   tasks:
-    - name: Ensure the script exists before running
-      stat:
-        path: /home/sam/Desktop/mouse-grabr.py
-      register: script_stat
+    - name: Ping all devices
+      ping:
+      register: ping_result
+      failed_when: ping_result is undefined
 
-    - name: Fail if script is missing
-      fail:
-        msg: 'mouse-grabr.py is missing on {{ inventory_hostname }}!'
-      when: not script_stat.stat.exists
+    - name: Define simulation argument
+      set_fact:
+        simulation_arg: "{{ 'simulate' if simulate_mode | bool else '' }}"
 
-    - name: Launch mouse-grabr.py in background (proper detachment)
-      shell: |
-        nohup python3 /home/sam/Desktop/mouse-grabr.py > /tmp/mouse-grabr.log 2>&1 < /dev/null &
+    - name: Running script on devices
+      shell: python3 /home/sam/Desktop/mouse-grabr.py {{ simulation_arg }}
       args:
         executable: /bin/bash
       become: true
       become_user: root
-      async: 1
-      poll: 0
-
-    - name: Wait a moment to ensure process starts
-      pause:
-        seconds: 2
-
-    - name: Verify mouse-grabr process is running
-      shell: pgrep -fa "python3 /home/sam/Desktop/mouse-grabr.py" || echo "Not running"
-      register: process_status
-      changed_when: false
-
-    - name: Show process status
-      debug:
-        msg: '{{ inventory_hostname }} -> {{ process_status.stdout }}'
+      register: test_script_output
+      failed_when: false

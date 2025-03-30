@@ -3,7 +3,7 @@ import { convertRemToPixels } from '../both/math-helpers.js'
 import { pushToClientEventQueue } from '../client/stepper.js'
 
 autoclickerIntervals = []
-const loopSpeed = 700 // pixels/second
+const loopSpeed = 270 // pixels/second
 let corners = []
 
 loopPointerAroundCorners = function (pointer, cornerIndex = 0) {

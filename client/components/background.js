@@ -366,7 +366,8 @@ const killUnseated = function () {
   const explosionDelay = 50 // 50ms between each explosion
 
   pointers.forEach((pointer, index) => {
-    const isSeated = instance.pointers.get(pointer.id).seated
+    const pointerData = instance.pointers.get(pointer.id)
+    const isSeated = pointerData.seated
 
     setTimeout(() => {
       unseatEveryone()
@@ -419,7 +420,10 @@ const killUnseated = function () {
         document.body.appendChild(skull)
       }, 150)
 
-      pointer.remove()
+      pointerData.chosen = false
+      pointerData.bot = true // bots don't get a nick
+      instance.pointers.set(pointerData.id, pointerData)
+      // pointer.remove()
 
       // Remove explosion gif after animation ends
       explosion.addEventListener('animationend', () => {
