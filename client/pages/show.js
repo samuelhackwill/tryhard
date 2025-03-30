@@ -51,8 +51,8 @@ Template.show.onCreated(function () {
   this.feedToggle = new ReactiveVar(true)
   this.textColor = new ReactiveVar('white')
 
-  this.pointerWidth = new ReactiveVar(1.5)
-  this.pointerHeight = new ReactiveVar(2.3)
+  this.pointerWidth = new ReactiveVar(2)
+  this.pointerHeight = new ReactiveVar(3)
 
   this.areNamesHidden = new ReactiveVar(false)
   this.areClocksHidden = new ReactiveVar(true)
@@ -167,8 +167,6 @@ function handlePupitreAction(message) {
       }
       break
     case 'createChairs':
-      document.documentElement.style.fontSize = '12px'
-
       {
         circleElements.length = 0
         for (let index = 0; index < message.args.howMany; index++) {
@@ -258,7 +256,6 @@ function handlePupitreAction(message) {
       break
 
     case 'newCaptcha-1j':
-      document.documentElement.style.fontSize = '18px'
       console.log(message.args)
       Blaze.renderWithData(
         Template.pasUnRobot,
