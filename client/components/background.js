@@ -363,17 +363,18 @@ function createPodium() {
 const killUnseated = function () {
   const pointers = document.querySelectorAll('.pointer')
 
-  const explosionDelay = 50 // 50ms between each explosion
+  const explosionDelay = 1 // 50ms between each explosion
 
   pointers.forEach((pointer, index) => {
     const pointerData = instance.pointers.get(pointer.id)
     const isSeated = pointerData.seated
+    const isDead = pointerData.bot
 
     setTimeout(() => {
       unseatEveryone()
     }, 3000)
 
-    if (isSeated) {
+    if (isSeated || isDead) {
       return
     }
 

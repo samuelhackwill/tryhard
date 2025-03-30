@@ -113,7 +113,7 @@ function handlePupitreAction(message) {
       break
     case 'initRonde':
       const allPointers = Object.values(instance.pointers.all())
-        .filter((p) => typeof p.order === 'number') // optional: filter out pointers without an order
+        .filter((p) => typeof p.order === 'number' && !p.bot)
         .sort((a, b) => a.order - b.order)
 
       initRonde(allPointers, instance)
