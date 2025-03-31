@@ -98,7 +98,39 @@ const handlePupitreAction = function (message) {
       break
     case 'clickerAlert':
       document.querySelector('#clickCounter-total-container').innerHTML = message.args[0]
+      const elements = Array.from(document.getElementsByClassName('clicker'))
+      elements[0].classList.remove('bg-white')
+      elements[0].classList.add('bg-[red]')
+      setTimeout(() => {
+        elements[0].classList.remove('bg-[red]')
+        elements[0].classList.add('bg-white')
+      }, 500)
       break
+    // case 'blinkEveryone':
+    //   const elements = Array.from(document.getElementsByClassName('clicker'))
+
+    //   // Shuffle
+    //   for (let i = elements.length - 1; i > 0; i--) {
+    //     const j = Math.floor(Math.random() * (i + 1))
+    //     ;[elements[i], elements[j]] = [elements[j], elements[i]]
+    //   }
+
+    //   // Apply class with delay, only if not already blinking
+    //   let i = 0
+    //   function next() {
+    //     if (i >= elements.length) return
+
+    //     const el = elements[i]
+    //     if (!el.classList.contains('blink-red-gentle')) {
+    //       el.classList.add('blink-red-gentle')
+    //     }
+
+    //     i++
+    //     setTimeout(next, 500)
+    //   }
+
+    //   next()
+    //   break
     case 'killClickerGrid':
       document.querySelector('#clickerGrid').classList.add('opacity-0')
       setTimeout(() => {

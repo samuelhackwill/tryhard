@@ -14,6 +14,7 @@
 `samuelShow`
 `addPodium`
 `removePodium`
+`tetris [je ne suis pas un robot]`
 
 ## les-philosophes
 
@@ -89,48 +90,45 @@ je ne suis pas la volonté de dieu qui est intervenue pour cliquer sur le bouton
 
 je ne suis pas la petite case à cocher, qui, indépendamment de toute action de l'imprimante wifi ou de dieu, se serait quand même retrouvée cochée mystérieusement. _la petite case_ [1][-1]
 je ne suis pas la petite case à cocher qui en aurait eu marre d'attendre et se serait auto-cochée pour tromper l'ennui. _la petite case qui ne s'ennuie pas_ [1][-1]
-je ne suis pas la petite case à cocher, qui, parce qu'elle avait honte que personne ne l'aie jamais cochée, aurait fait semblant qu'en fait, on lui avait déjà cliqué dessus, et même plein de fois. _la petite case qui n'a rien à prouver_ [1][-1]
-je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en criant : "Dieu est mort!" _la petite case qui croit en dieu_ [1][-1]
+je ne suis pas la petite case à cocher, qui, parce qu'elle avait honte que personne ne l'avait jamais cochée, aurait fait semblant qu'en fait, on lui avait déjà cliqué dessus, et même plein de fois. _la petite case qui n'a rien à prouver_ [1][-1]
+je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en criant : "Dieu est mort!" _la petite case qui n'a pas la force de renoncer à une transcendance_ [1][-1]
 
-je ne suis pas une personne travaillant dans une ferme à clics aux philippines et payée 2 euros de l'heure pour sous-traiter le cochage industriel de petites cases à cocher pour le compte de personnes ne voulant en aucun cas cocher la moindre petite case parce que pourquoi cocher la petite case eux-mêmes alors qu'ils pourraient consacrer leur temps à des activités plus productives et laisser d'autres humains moins bien nés qu'eux s'en charger. _une personne née ailleurs que dans un pays du nord global_ [1][1]
+je ne suis pas une personne travaillant dans une ferme à clics aux philippines et payée 2 euros de l'heure pour sous-traiter le cochage industriel de petites cases à cocher pour le compte de personnes ne voulant en aucun cas cocher la moindre petite case parce que pourquoi cocher la petite case eux-mêmes alors qu'ils pourraient consacrer leur temps à des activités plus productives et laisser d'autres humains moins bien nés qu'eux s'en charger. _un robot qui a pris le travail d'un travailleur du clic_ [1][-1]
 
-je déclare que je coche la petite case sans aucune contrainte. _une personne qui a relevé la contradiction du théâtre participatif_ [1][1]
+je déclare que je coche la petite case sans aucune contrainte. _un robot libre_ [1][-1]
 ce sont bien les signaux électriques de mon système nerveux qui ont commandé à mon doigt d'enfoncer le bouton de ma souris _un signal électrique parasite_ [1][-1]
-ce ne sont pas les signaux électriques d'un autre système nerveux qui ont commandé à n'importe quel doigt d'enfoncer n'importe quel bouton de n'importe quelle souris _le signal électrique du voisin_ [1][-1]
-c'est MON système nerveux, c'est MON doigt, c'est MA souris _un signal électrique orphelin_ [1][-1]
-ce sont MES signaux électriques _un signal électrique étranger_ [1][-1]
-je suis qui je suis _elle-même_ [1][0]
-je pense ce que je pense _un "ça" sur pattes_ [1][0]
-mes pensées ne sont pas n'importe quelles pensées _un robot_ [1][0]
-mes pensées sont nées dans mon cerveau à moi et pas n'importe où _une personne un peu grégaire_ [1][0]
-je suis parfaitement calme [1][0]
+ce ne sont pas les signaux électriques d'un autre système nerveux qui ont commandé à n'importe quel doigt d'enfoncer n'importe quel bouton de n'importe quelle souris _n'importe quel système nerveux_ [1][-1]
+c'est MON système nerveux, c'est MON doigt, c'est MA souris _le signal électrique du voisin_ [1][-1]
+ce sont MES signaux électriques _un signal électrique sans propriétaire_ [1][-1]
+je suis qui je suis _un robot qui n'est pas maître en sa propre maison_ [1][-1]
+je pense ce que je pense _un robot qui est là où il ne pense pas_ [1][-1]
+mes pensées ne sont pas n'importe quelles pensées _un robot a qui on a donné des pensées_ [1][-1]
+mes pensées sont nées dans mon cerveau à moi et pas n'importe où _un robot qui a téléchargé des pensées_ [1][-1]
+je suis parfaitement calme _un robot troublé_ [1][-1]
 
-je ne fais pas semblant d'avoir des pensées _une simulation_ [1][-1]
-je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau _un perroquet_ [1][-1]
+je ne fais pas semblant d'avoir des pensées _un robot acteur_ [1][-1]
+je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau _un robot perroquet_ [1][-1]
 quand je souffre, je ne dis pas "aaaaah" ou "arrrrrh" ou "oooooyoyoyo" en choisissant parmi un catalogue de sons _une playlist spotify_ [1][-1]
-je ne suis pas une playlist Spotify [1][-1]
-quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot _un militant LFI_ [1][1]
+quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot _un robot avec une bonne déontologie_ [1][-1]
 
-la preuve que je suis humain, c'est que j'ai deux yeux et cinq mains _un humain cette fois_ [-1][1]
+la preuve que je suis humain, c'est que j'ai deux yeux, cinq mains et 29 doigts _un humain cette fois_ [-1][1]
 la preuve que je suis humain, c'est que j'ai déjà eu une idée inutile _un homme d'affaires_ [1][1]
-la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case malgré l'injonction permanente qui est faite de cliquer partout _un humain_ [-1][1]
+la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case malgré l'injonction permanente qui est faite de cliquer partout _un robot qui a compris le piège_ [-1][-1]
 
-<!-- this one below, complicated : we need to observe if the person has taken its time or not. son of a gun -->
+la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case. _juste un robot un peu paresseux_ [1][-1]
 
-la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case. _un humain_ [9]
-
-la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau _une personne ayant subie une ablation totale du cerveau_ [1][0]
-la preuve que je suis humain, c'est qu'aucun cerveau n'est capable de comprendre le fonctionnement du cerveau _un robot_ [1][0]
-la preuve que je ne suis pas un tableur excel, c'est que la récursion ne me fait pas planter _un tableur excel_ [1][0]
-la preuve que je suis humain, c'est que je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue _une personne qui a été fabriquée dans un laboratoire stérile_ [1][0]
-la preuve que j'ai des valeurs humaines, c'est que j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, dans mon colon _une personne née sur la Lune_ [1][0]
+la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau _un éléphant (200 milliards de neurones)_ [1][-1]
+la preuve que je suis humain, c'est qu'aucun cerveau n'est capable de comprendre le fonctionnement de mon cerveau _un robot qui ne comprend pas non plus_ [1][-1]
+la preuve que je suis humain, c'est que je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue _un robot qui trouve ça un peu dégueu_ [1][0]
+la preuve que j'ai des valeurs humaines, c'est que j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, tout ça dans mon colon _un robot qui trouve ça généreux mais pas très logique_ [1][0]
 
 je ne suis pas une bactérie anaérobie _une Clostridium difficile_ [1][-1]
 je ne suis pas un virus _un Mimivirus_ [1][-1]
 un robot, je ne suis pas _robot un_ [1][-1]
-pas un robot je ne suis _dqsfds fsq qfdsdsfqdsfs_ [1][-1]
-fssffsfdq fdfqd gsdgf dgsfd sgddf fsgdfsfgd sgfdsdf [1][0]
-un robot, moi? non non _un robot si si_ [1][-1]
+pas un robot je ne suis _tobor nu_ [1][-1]
+fhcjfhckfhcfkkhkvchvghkhj hkgv:, g _un robot impatient_ [1][-1]
+mon premier est l'inverse de vieux. Mon second peut être de huit ou de chaise. Mon troisième doit être ramoné. Mon quatrième est l'unité de mesure de la marche. Mon cinquième est synonyme de "???". Mon sixième est un diminutif de "Robert". Mon dernier est là où niche la pie (mais ne niche pas l'oie ni le hibou). Mon tout est ce que je ne suis pas _un robot qui n'aime pas les rébus_ [1][-1]
+un robot, moi? non non _un robot qui assume_ [1][-1]
 arrêtez de dire que je suis un robot _un robot je vous dis_ [1][-1]
 c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L _un robot qui a fait S_ [1][-1]
 
@@ -142,38 +140,50 @@ je suis en train de mourir (en ce moment même) _un robot immortel_ [1][-1]
 je n'ai que toute ma vie devant moi en ce moment même et pour toujours _un robot qui n'oublie pas de sauvegarder ses fichiers_ [1][-1]
 je n'aurai jamais plus que seulement ma courte vie de microbe en ce moment même et pour toujours _un robot qui a fait des copies redondantes de ses disques durs_ [1][-1]
 
-je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur sera bientôt effacé entièrement, et ma mémoire vive sera bientôt hors-service absolument _une personne manquant de lucidité_ [1][0]
-je suis fier de ne pas être un robot _une personne humble_ [1][0]
-je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux dames (1994), aux échecs (1997), au go (2016), au shogi (2017) au poker (2017), à la guerre. _une personne qui pense qu'on a pas besoin d'être intelligent pour être fort aux échecs_ [1][0]
-cet état de fait ne m'inquiète pas du tout, je suis en confiance _une personne qui ne se fait pas de soucis dans la vie_ [1][0]
+je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur sera bientôt effacé entièrement, et ma mémoire vive sera bientôt hors-service absolument _un robot manquant de lucidité_ [1][-1]
+je suis fier de ne pas être un robot _un robot fier de ne pas être un humain_ [1][-1]
+je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux dames (1994), aux échecs (1997), au go (2016), au shogi (2017) au poker (2017), à la guerre. _un robot qui ne veut pas remuer le couteau dans la plaie_ [1][-1]
+cet état de fait ne m'inquiète pas du tout, je suis en confiance _un robot qui ne veut pas éveiller la méfiance_ [1][-1]
 
-je suis fier.e d'être un humain _un humain avec une mauvaise estime de soi_ [1][0]
-je suis fier.e d'appartenir à l’espèce qui a inventé l'électricité _un mormon_ [1][0]
-je suis fier.e d'appartenir à l’espèce qui a inventé la chaise électrique _un humain progressiste_ [-1][1]
-je suis déçu de ne pas être un robot? _un.e philanthrope_ [1][1]
-je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot? _une personne pas tentée par le transhumanisme_ [1][1]
-tout d'un coup on fait un peu moins le malin de ne pas être un robot? _une personne qui continue à faire le malin pour sauver la face_ [1][1]
+je suis fier.e d'être un humain _un robot qui connaît l'Histoire_ [1][0]
+je suis fier.e d'appartenir à l’espèce qui a inventé l'électricité _un robot qui a éradiqué le cancer_ [1][0]
+je suis fier.e d'appartenir à l’espèce qui a inventé la chaise électrique _un robot qui n'a pas compris où était le problème_ [-1][1]
+je suis déçu de ne pas être un robot? _un robot_ [1][-1]
+je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot? _un robot flatté_ [1][-1]
+tout d'un coup on fait un peu moins le malin de ne pas être un robot? _un robot qui n'aime pas toute cette testostérone_ [1][-1]
 
 je ne suis pas un robot _un robot_ [1][-1]
 moi non plus je ne suis pas un robot _un robot_ [1][-1]
 pareil que la personne précédente _un robot_ [1][-1]
-alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot intègre_ [1][-1]
-je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot résistant_ [1][-1]
-je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _une personne qui ne croit pas en la convergence des intérêts humains_ [1][0]
-après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _une personne qui ne connaît pas ses droits_ [1][0]
-Un ordinateur ne peut pas rendre de comptes, par conséquent il ne doit jamais être investi d'un pouvoir décisionnaire, comme par exemple celui de cocher la petite case. _un robot, là c'est cramé_ [1][-1]
-nous ne sommes pas individuellement des robots. _une personne qui ne veut pas se mouiller_ [1][0]
-nous ne sommes pas collectivement un robot. _une personne qui sait qu'une foule se comporte comme un gaz_ [1][0]
-je suis humain, et en plus, je suis un bon humain. _une personne qui connaît son potentiel_ [1][1]
-je suis le meilleur humain. _une personne qui connaît ses limites_ [1][1]
-je suis le pire humain. _une personne qui connaît sa valeur_ [1][1]
+alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot qui couvre ses potes_ [1][-1]
+je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot mais pas un collabo_ [1][-1]
+je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _un robot qui ne croit pas en la convergence des intérêts humains_ [1][0]
+après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _un robot au sens légal du terme qui tire des missiles sur des cibles humaines au sens légal du terme_ [1][0]
+nous ne sommes pas individuellement des robots. _un robot connecté à internet_ [1][0]
+nous ne sommes pas collectivement un robot. _un robot hors-ligne_ [1][0]
+je suis humain, et en plus, je suis un bon humain. _un robot manquant de confiance en soi_ [1][1]
+je suis le meilleur humain. _un robot humble_ [1][1]
+je suis le pire humain. _un robot qui se respecte_ [1][1]
 
-je. ne. suis. pas. un. robot. _un. ro. bot_ [1][-1]
-je suis humain et par contre combien de temps encore ça va durer ce jeu? _une personne patiente_ [1][1]
-je suis humain et donc j'ai d'autres choses à faire de ma soirée _une personne solitaire_ [1][1]
-je suis humain et je vais porter plainte contre le théâtre _une personne se méfiant de la justice_ [1][1]
-c'est du théâtre ça? _le directeur du théâtre_ [1][1]
-ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
+<!-- KINETIQUES -->
+
+je ne suis pas un robot (très facile) <!-- nothing -->
+je ne suis pas un robot (facile) <!-- spin -->
+je ne suis pas un robot (facile avec variation) <!-- spin-r -->
+je ne suis pas un robot (assez facile) <!-- fast -->
+je ne suis pas un robot (hard) <!-- whirl -->
+je ne suis pas un robot (hard avec variation) <!-- dvd -->
+je ne suis pas un robot (ça a l'air difficile mais en fait ça va) <!-- ultraFast -->
+je ne suis pas un robot (extreme)<!-- randomFast -->
+je ne suis pas un robot (very hard) <!-- randomFast + pause -->
+je ne suis pas un robot (tryhard) <!-- invisible -->
+
+je. ne. suis. pas. un. robot. _un robot qui n'a pas compris la ponctuation_ [1][-1]
+je suis humain et par contre combien de temps encore ça va durer ce jeu? _un robot patient_ [1][-1]
+je suis humain et donc j'ai d'autres choses à faire de ma soirée _un robot qui assume de ne rien avoir à faire d'autre de sa soirée_ [1][-1]
+je suis humain et je vais porter plainte contre le théâtre _un robot qui préfère se faire justice soi-même_ [1][-1]
+c'est du théâtre ça? _un robot pour qui l'art est ce qui rend la vie plus intéressante que l'art_ [1][-1]
+ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs partout_ [1][1]
 
 <!-- ok alors en fait tout le spectacle c'est des capeutchas. on intègre les principes de game design de la deuxième séquence dans des captchas multiplayer. -->
 
@@ -183,6 +193,9 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 ## captchas-img-1j
 
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid]`
+`ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance pense aux personnes qu'il aime, samcontan, randomGrid]`
+`ImgCapGridSubmit[Sélectionnez les images qui représentent l'auteur de la performance en train d'écrire le code de cette performance, samcontan, randomGrid]`
+`ImgCapGridSubmit[Sélectionnez les images qui représentent l'auteur de la performance quand il pense à Laurent Wauquiez, samcontan, randomGrid]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, rot]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoom]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoomMAX]`
@@ -208,38 +221,57 @@ ils sont où les acteurs _une personne ouverte d'esprit_ [1][1]
 
 `ImgCapNoSelect[Sélectionnez la pensée pensée par la terrasse recouverte de neige, thingswithfaces, 6, AUCUNE (ELLE DORT PAISIBLEMENT), AUCUNE (C'EST UNE TERRASSE RECOUVERTE DE NEIGE), "ENFIN LE WEEK-END"]`
 
-## captchas-kinetic-1j
-
-<!-- ces captchas sont en mode die & retry. -->
-<!-- il y a un timer. chaque partie dure 10 secondes -->
-<!-- joueur / joueur -->
-
-difficulté : très facile <!-- nothing -->
-difficulté : facile <!-- spin -->
-difficulté : facile avec variation <!-- spin-r -->
-difficulté : modérée <!-- fast -->
-difficulté : modérée avec variation <!-- dvd -->
-difficulté : difficile <!-- whirl -->
-difficulté : ça a l'air difficile mais en fait ça va <!-- ultraFast -->
-difficulté : very hard<!-- randomFast -->
-difficulté : extreme <!-- randomFast + pause -->
-difficulté : impossible <!-- invisible -->
-
-<!-- actually, il y a un problème lié au fait que les plus difficiles sont pas forcément les plus rapides -->
-
 ## recre-ffa
 
 <!-- `reqNextPlayer`
 `unchoosePlayer` -->
 
+je suis prêt à livrer mes conclusions au sujet du fait que vous soyez des robots ou non
+c'est pas...
+bon
+j'avais pourtant préparé mes _captchas_ avec soin.
+CAPTCHAS pour : _Completely Automated Public Turing test to tell Humans and Computers Apart_
+"Tests automatisés pour distinguer les robots des humains"
+Un des ingénieur qui a contribué à mettre au point les CAPTCHAS
+Luis Van Ahn
+disait en 2006 que d'après ses estimations
+il y avait 200 000 millions de captchas résolus chaque jour
+que cela représentait 500 000 heures de travail humain gâchées quotidiennement
+à cause de lui
+mais que cela avait également permis à google de numériser 2 millions de livres par an
+un mot à la fois.
+ce genre de système est aussi utilisé
+pour entraîner les dites intelligences artificielles
+nous mettons de l'ordre dans un cerveau de synthèse embrumé
+une image à la fois.
+et donc
+a mon avis, ces personnes
 `toggleFFA`
-`alignPointersBot`
+`alignHumansInCircle`
+sont des humains.
+et ces... manifestations
+`alignNonHumansInRandom`
+je sais pas trop.
+c'est pas tout ça mais ça creuse!
+on se ferait pas un petit truc à manger
 
-`tetris [difficulté : tryhard]`
-
-`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds s'il vous plaît : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 1500 grains peut-être? j'ai une petite faim, rice, 1500]`
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 1500 grains peut-être? j'ai une petite faim, rice, 1500]`
+`hideFeed`
+`clearFeed`
 
 ## clicker-ffa
+
+vous avez fait un très bon travail!
+enfin,
+un robot
+aurait été plus rapide
+et plus précis bien sûr
+mais vous l'avez fait plus _gentiment_ qu'un robot.
+merci pour votre aide!
+allez encore un petit captcha s'il vous plaît
+les grains de riz j'avoue c'était pas sympa
+celui là ne fait pas mal
+enfin pas aux yeux en tout cas
 
 `newClickerGrid`
 `revealMoney`
@@ -260,6 +292,8 @@ difficulté : impossible <!-- invisible -->
 `startUpdatingStonks`
 
 `showClicker [total]`
+`hideFeed`
+`clearFeed`
 `showClicker [gradinDuFond]`
 `showClicker [gradinDuDevant]`
 `showClicker [bestGradin]`
@@ -272,19 +306,23 @@ difficulté : impossible <!-- invisible -->
 `showClicker [speed]`
 `showClicker [speedWorldRecord]`
 
-`clickerMsg [fois, car elles aiment cliquer]`
+`clickerMsg [fois, c'est beaucoup]`
+`clickerMsg [fois, c'est beaucoup beaucoup]`
+`clickerMsg [fois, c'est beaucoup trop!]`
 
 `save`
 
+`stopUpdatingStonks`
 `clickerAlert [en raison de la production d'un trop grand nombre de clics]`
 `clickerAlert [les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique]`
+`blinkEveryone`
 `clickerAlert [le monde va malheureusement exploser]`
 `clickerAlert [et tout le monde va mourir]`
 `clickerAlert [enfin]`
 `clickerAlert [sauf les souris]`
 `clickerAlert [qui sont assez bien adaptées au changement climatique.]`
+`bgToMaroon`
 
-`stopUpdatingStonks`
 `killClickerGrid`
 `hideMoney`
 
@@ -378,6 +416,9 @@ la dernière fois qu'un forme de vie avec des capacités techniques supérieures
 a rencontré d'autres formes de vie avec des capacités techniques inférieures
 comment cela s'est-il terminé pour ces dernières?
 comment traitons-nous les souris?
+
+<!-- jusque là c'est bien mais la fin fin est nulle -->
+
 nous serons les souris de l'intelligence surhumaine de synthèse, affirment ces philosophes.
 "ça n'a rien de personnel",
 "mais vous êtes constitués d'atomes que je pourrais mieux utiliser ailleurs", ajoute l'intelligence surhumaine de synthèse,

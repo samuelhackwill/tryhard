@@ -635,6 +635,75 @@ export const moveInFrontOfCaptcha = function (pointer) {
 //   }, 16)
 // }
 
+export const positionPointersOnCircle = function (pointers, radius) {
+  const center = {
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+  }
+
+  const count = pointers.length
+  const _radius = radius || window.innerHeight / 2 - 150
+
+  pointers.forEach((pointer, index) => {
+    const angle = (2 * Math.PI * index) / count
+
+    pushToClientEventQueue({
+      origin: 'autoplay',
+      payload: {
+        type: 'move',
+        duration: 1000,
+        from: null,
+        to: positionOnCircle(center, _radius, angle),
+        pointer: pointer,
+      },
+    })
+  })
+}
+
+export const positionPointersOutsideCircle = function (pointers, radius) {
+  const paddingX = 20
+  const paddingBottom = 80
+
+  const center = {
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+  }
+
+  const maxX = window.innerWidth - paddingX
+  const maxY = window.innerHeight - paddingBottom
+  const minX = paddingX
+  const minY = paddingX // use same padding for top
+
+  const forbiddenRadius = radius || window.innerHeight / 2 - 150
+  const forbiddenRadiusSquared = forbiddenRadius ** 2
+
+  pointers.forEach((pointer) => {
+    let position
+
+    do {
+      position = {
+        x: Math.floor(Math.random() * (maxX - minX) + minX),
+        y: Math.floor(Math.random() * (maxY - minY) + minY),
+      }
+
+      const dx = position.x - center.x
+      const dy = position.y - center.y
+      var distanceSquared = dx * dx + dy * dy
+    } while (distanceSquared < forbiddenRadiusSquared)
+
+    pushToClientEventQueue({
+      origin: 'autoplay',
+      payload: {
+        type: 'move',
+        duration: 1000,
+        from: null,
+        to: position,
+        pointer: pointer,
+      },
+    })
+  })
+}
+
 export const graphRoutine = function (pointer, graphData) {
   pointer.events = []
 

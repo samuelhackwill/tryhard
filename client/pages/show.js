@@ -13,6 +13,8 @@ import {
   alignPointersInTheBottom,
   alignPointersOnTheLeft,
   initRonde,
+  positionPointersOnCircle,
+  positionPointersOutsideCircle,
 } from '../bots.js'
 import { handleButtonClick } from '../components/btnDashboard.js'
 import { disabledMice, mouseOrder } from '../../both/api.js'
@@ -133,6 +135,18 @@ function handlePupitreAction(message) {
       break
     case 'alignPointersLeft':
       alignPointersOnTheLeft(instance.pointers.all())
+      break
+    case 'alignHumansInCircle':
+      {
+        const allPointers = Object.values(instance.pointers.all()).filter((p) => p.score?.human > 0)
+        positionPointersOnCircle(allPointers)
+      }
+      break
+    case 'alignNonHumansInRandom':
+      {
+        const allPointers = Object.values(instance.pointers.all()).filter((p) => p.score?.human < 1)
+        positionPointersOutsideCircle(allPointers)
+      }
       break
     case 'squidGame':
       {

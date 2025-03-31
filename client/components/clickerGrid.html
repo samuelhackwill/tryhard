@@ -16,11 +16,11 @@
 <template name="clicker">
     <div
       class="m-2 w-full h-full transition-opacity duration-200
-        opacity-0"
+        opacity-0 "
       id="clicker-{{this}}"
     >
       <div class="stops-events flex items-center justify-center w-full h-full rounded-lg">
-        <div class="relative flex w-full h-full flex-col items-center justify-center rounded-lg border p-6 bg-white
+        <div class="relative flex w-full h-full flex-col items-center justify-center rounded-lg border p-6 clicker transition-all bg-white
           {{#if (is "goldMouse")}}
             border-4
             border-[#FFD700]

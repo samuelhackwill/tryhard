@@ -20,8 +20,8 @@
   --logo-h: 272;
   --speed: 300; /* pixels per second */
 
-  --duration-x: calc((var(--container-w) - var(--logo-w)) / var(--speed) * 1s);
-  --duration-y: calc((var(--container-h) - var(--logo-h)) / var(--speed) * 1s);
+  --duration-x: calc((var(--container-w) - var(--logo-w)) / var(--speed) * 0.5s);
+  --duration-y: calc((var(--container-h) - var(--logo-h)) / var(--speed) * 0.5s);
 }
 
 #saveme {

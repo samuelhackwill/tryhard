@@ -37,6 +37,9 @@ const handlePupitreAction = function (message) {
     case 'bgTogrey':
       instance.bgColor.set('oklch(0.869 0.022 252.894)')
       break
+    case 'bgToMaroon':
+      instance.bgColor.set('#8d4343')
+      break
     case 'burnPointers':
       addFlames()
       break
