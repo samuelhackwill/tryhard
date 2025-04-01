@@ -246,7 +246,7 @@ const checkAndDie = function (t, handle, passed) {
       document.getElementById(`checkbox-pasUnRobot-${t.uuid}`).checked = true
     }, 50)
   } else {
-    wait = wait + 2000
+    wait = wait + 4000
     t.failed.set(true)
   }
 
