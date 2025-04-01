@@ -78,11 +78,11 @@ Template.pasUnRobot.onRendered(function () {
   if (instance.autoTimeout === true) {
     timeouts.push(
       setTimeout(() => {
-        console.log('warn player that time almost over')
+        // console.log('warn player that time almost over')
         showWarning(this)
       }, timeToComplete * 0.5),
       setTimeout(() => {
-        console.log('player failed to complete captcha')
+        // console.log('player failed to complete captcha')
         checkAndDie(this, this.view, false)
       }, timeToComplete),
     )
@@ -178,7 +178,7 @@ Template.pasUnRobot.events({
       !event.target.classList.contains('clicked') &&
       instance.state.get() == 'chaises-squidGame'
     ) {
-      console.log('someone just clicked on a chair')
+      // console.log('someone just clicked on a chair')
       checkAndDie(t, t.view, true)
       obj.pointer.seated = true
       obj.pointer.hoveredElementId = 'feed'
@@ -419,7 +419,7 @@ const handlePupitreAction = function (message) {
       checkAndDie(message.context, message.context.view, true)
       break
     case 'killCaptchas':
-      console.log('kill catpcahs', message.context.uuid)
+      // console.log('kill catpcahs', message.context.uuid)
       // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
       unchoosePlayer()
 
@@ -437,7 +437,7 @@ const handlePupitreAction = function (message) {
       const viewAtCall = message.context.view
 
       Meteor.setTimeout(function () {
-        console.log('removing captcha', uuidAtCall)
+        // console.log('removing captcha', uuidAtCall)
         Blaze.remove(viewAtCall)
       }, 1000)
 
@@ -564,8 +564,8 @@ function prepareAnimationWithCenteredStart({
       // Clean up shadow
       shadowEl.remove()
       realEl.classList.remove('-translate-x-1/2', '-translate-y-1/2', 'left-1/2', 'top-1/2')
-      console.log(`>> Closest center time ≈ ${closestTime}ms`)
-      console.log(`>> Applied animation-delay: ${negativeDelay} to #${realId}`)
+      // console.log(`>> Closest center time ≈ ${closestTime}ms`)
+      // console.log(`>> Applied animation-delay: ${negativeDelay} to #${realId}`)
     }, 500)
   }, 50) // slight delay ensures layout is measurable
 }
@@ -582,10 +582,10 @@ const updateScore = function (t, passed) {
   }
 
   if (passed) {
-    console.log('update score! captcha succeeded', t.data.text.loot)
+    // console.log('update score! captcha succeeded', t.data.text.loot)
     pointer.score.human += t.data.text.loot
   } else {
-    console.log('update score! captcha failed', t.data.text.notClicked)
+    // console.log('update score! captcha failed', t.data.text.notClicked)
     pointer.score.human += t.data.text.notClicked
   }
 

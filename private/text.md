@@ -338,7 +338,7 @@ les souris ont cliqué x fois, c'est beaucoup
 les souris ont cliqué x fois, c'est trop
 les souris ont cliqué x fois, c'est beaucoup trop
 les souris ont cliqué x fois, car elles aiment cliquer
-les souris ont cliqué x fois, malgré mes avertissements
+les souris ont cliqué   x fois, malgré mes avertissements
 (clignement rouge)
 en raison de la production d'un trop grand nombre de clics
 les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique

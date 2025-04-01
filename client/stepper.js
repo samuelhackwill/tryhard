@@ -9,8 +9,6 @@ let clientEventQueue = []
 // we need to know when it's authorized to MOVE, so it's hard-coded here. yep
 const moveAuthorized = [
   'repetition',
-  'captchas-img-1j',
-  'captchas-kinetic-1j',
   'captchas-ffa',
   'recre-ffa',
   'chaises',
@@ -96,12 +94,12 @@ function handleTickUpdate(message) {
     const moveForbiden = !moveAuthorized.includes(instance.state.get())
 
     if (moveForbiden && (pointer.chosen == undefined || pointer.chosen == false)) {
-      console.log(
-        'move forbidden during sequence ',
-        instance.state.get(),
-        '. Move is only possible during sequences : ',
-        moveAuthorized.join(', '),
-      )
+      // console.log(
+      //   'move forbidden during sequence ',
+      //   instance.state.get(),
+      //   '. Move is only possible during sequences : ',
+      //   moveAuthorized.join(', '),
+      // )
       return
     }
 

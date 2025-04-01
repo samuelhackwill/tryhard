@@ -236,12 +236,12 @@ function handlePupitreAction(message) {
       )
 
       if (!pointer) {
-        console.log(
-          'while looking for pointer ',
-          getRasp(message.args.chosenOne),
-          getMouseBrand(message.args.chosenOne),
-          " could not find that guy. He's probably toggled in /plan but didn't trigger a createPointer yet on /show",
-        )
+        // console.log(
+        //   'while looking for pointer ',
+        //   getRasp(message.args.chosenOne),
+        //   getMouseBrand(message.args.chosenOne),
+        //   " could not find that guy. He's probably toggled in /plan but didn't trigger a createPointer yet on /show",
+        // )
       } else {
         pointer.chosen = true
         instance.pointers.set(pointer.id, pointer)
@@ -270,7 +270,7 @@ function handlePupitreAction(message) {
       break
 
     case 'newCaptcha-1j':
-      console.log(message.args)
+      // console.log(message.args)
       Blaze.renderWithData(
         Template.pasUnRobot,
         message.args,
@@ -432,7 +432,7 @@ Template.show.helpers({
   pointerType(value) {
     // console.log(this)
     if (this.hoveredElementId == undefined) {
-      console.log('there might be a problem with the pointerType helper mate!')
+      // console.log('there might be a problem with the pointerType helper mate!')
       return
     }
     switch (value) {
@@ -537,7 +537,7 @@ Template.show.events({
     }
   },
   'mouseup .bonjourSamuel'(e, template, p) {
-    console.log('BNOJOUR!')
+    // console.log('BNOJOUR!')
     if (instance.arePointersHidden.get()) return
 
     // ok so here we're using JSON parsing & stringifying because we can't store js objects directly in the html-data attributes.
@@ -764,14 +764,14 @@ export const simulateMouseDown = function (pointer) {
     const pointerZindex = parseInt(getComputedStyle(domPointer).zIndex, 10) || 0
 
     if (elementZindex > pointerZindex) {
-      console.log(
-        'click not registered because element has a highter zindex than pointie',
-        element.id,
-        'with zindex :',
-        elementZindex,
-        '. pointer zindex :',
-        pointerZindex,
-      )
+      // console.log(
+      //   'click not registered because element has a highter zindex than pointie',
+      //   element.id,
+      //   'with zindex :',
+      //   elementZindex,
+      //   '. pointer zindex :',
+      //   pointerZindex,
+      // )
       return
     } else {
       // console.log('CLICK', element)
@@ -963,14 +963,14 @@ export const getRasp = function (id, regexGroupOveride) {
 
 disableMouse = function (mouse) {
   instance.disabledMice.get().push(mouse.rasp + '_' + mouse.brand)
-  console.log(disabledMice.get())
+  // console.log(disabledMice.get())
 }
 
 enableMouse = function (mouse) {
   disabledMice = instance.disabledMice
     .get()
     .filter((item) => item !== mouse.rasp + '_' + mouse.brand)
-  console.log('disables mice :', disabledMice.get())
+  // console.log('disables mice :', disabledMice.get())
 }
 
 isMouseDisabled = function (mouse) {
@@ -999,7 +999,7 @@ pay = function (author, amount) {
   money = Number(cleanValue)
 
   if (money < amount) {
-    console.log('insufficient funds mate')
+    // console.log('insufficient funds mate')
     return false
   } else {
     money = money - amount
