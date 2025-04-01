@@ -32,9 +32,9 @@ Template.pasUnRobotImageInfinite.onCreated(function () {
   const rows = Math.floor((usableHeight + gap) / (imageSize + gap))
   const totalImages = cols * rows
 
-  console.log(`ok, available space is ${usableHeight} = ${vh}vh - ${promptHeight} - ${padding}`)
-  console.log(`ok we should be able to fit ${cols} cols and ${rows} rows in here`)
-  console.log(`the total of images is ${totalImages}`)
+  // console.log(`ok, available space is ${usableHeight} = ${vh}vh - ${promptHeight} - ${padding}`)
+  // console.log(`ok we should be able to fit ${cols} cols and ${rows} rows in here`)
+  // console.log(`the total of images is ${totalImages}`)
 
   this.gridColumns = new ReactiveVar(cols)
   this.gridRows = new ReactiveVar(rows)
@@ -58,10 +58,10 @@ Template.pasUnRobotImageInfinite.onCreated(function () {
   }
 })
 Template.pasUnRobotImageInfinite.onRendered(function () {
-  console.log('hoho')
-  console.log(this.imageKeys)
+  // console.log('hoho')
+  // console.log(this.imageKeys)
   setTimeout(() => {
-    console.log(this.isRendered.get())
+    // console.log(this.isRendered.get())
     this.isRendered.set(true)
   }, 50)
 })
@@ -94,7 +94,7 @@ Template.pasUnRobotImageInfinite.events({
 
     const totalGrain = arborioCount + basmatiCount
     const precision = ((arborioCount / totalGrain) * 100).toFixed(0)
-    console.log(totalGrain, arborioCount)
+    // console.log(totalGrain, arborioCount)
 
     document.querySelector('#precisionScore').firstChild.nodeValue = precision
     document.querySelector('#total').firstChild.nodeValue = totalGrain
@@ -138,7 +138,7 @@ Template.pasUnRobotImageInfinite.events({
           index,
           cultivar: folder,
         })
-        console.log(imgEl)
+        // console.log(imgEl)
         if (imgEl) imgEl.classList.remove('opacity-0')
 
         // After replacing the clicked image
@@ -147,7 +147,7 @@ Template.pasUnRobotImageInfinite.events({
         const hasArborio = allImages.some((img) => img.src.includes('/arborio/'))
 
         if (!hasArborio) {
-          console.log('No more arborio left — regenerating grid')
+          // console.log('No more arborio left — regenerating grid')
 
           const folders = ['basmati', 'arborio']
           const imagesPerFolder = 1499
@@ -215,7 +215,7 @@ const handlePupitreAction = function (message) {
   // message.context contains the original template which was bound to the streamer. Hm i wonder what will happen when we have several templates of captcha in the same page.
   switch (message.content) {
     case 'killCaptchas':
-      console.log('kill catpcahs', message.context)
+      // console.log('kill catpcahs', message.context)
       // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
       // unchoosePlayer()
 
