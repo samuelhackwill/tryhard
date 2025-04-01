@@ -91,6 +91,7 @@ function handlePupitreAction(message) {
     case 'toggleFFA':
       Object.values(instance.pointers.all()).forEach((obj) => {
         obj.chosen = undefined
+        obj.bot = false
         instance.pointers.set(obj.id, obj)
       })
       break
@@ -138,16 +139,17 @@ function handlePupitreAction(message) {
       break
     case 'alignHumansInCircle':
       {
-        const allPointers = Object.values(instance.pointers.all()).filter((p) => p.score?.human > 0)
+        // const allPointers = Object.values(instance.pointers.all()).filter((p) => p.score?.human > 0)
+        const allPointers = Object.values(instance.pointers.all())
         positionPointersOnCircle(allPointers)
       }
       break
-    case 'alignNonHumansInRandom':
-      {
-        const allPointers = Object.values(instance.pointers.all()).filter((p) => p.score?.human < 1)
-        positionPointersOutsideCircle(allPointers)
-      }
-      break
+    // case 'alignNonHumansInRandom':
+    //   {
+    //     const allPointers = Object.values(instance.pointers.all()).filter((p) => p.score?.human < 1)
+    //     positionPointersOutsideCircle(allPointers)
+    //   }
+    //   break
     case 'squidGame':
       {
         nukeEventQueue()

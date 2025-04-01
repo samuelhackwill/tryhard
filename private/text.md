@@ -119,7 +119,7 @@ quand je souffre, je ne dis pas "aaaaah" ou "arrrrrh" ou "oooooyoyoyo" en choisi
 quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot _un robot avec une bonne déontologie_ [1][-1]
 
 la preuve que je suis humain, c'est que j'ai deux yeux, cinq mains et 29 doigts _un humain cette fois_ [-1][1]
-la preuve que je suis humain, c'est que j'ai déjà eu une idée inutile _un homme d'affaires_ [1][1]
+la preuve que je suis humain, c'est que je me suis déjà dit "ah tiens il est 11:11 quelqu'un pense à moi" _un homme d'affaires_ [1][1]
 la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case malgré l'injonction permanente qui est faite de cliquer partout _un robot qui a compris le piège_ [-1][-1]
 
 la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case. _juste un robot un peu paresseux_ [1][-1]
@@ -367,9 +367,15 @@ je suis la dernière personne de la performance qui va cliquer -->
 
 ## conclusion
 
+`addPodium`
+`removePodium`
+
 `bgToblack`
 `clearFeed`
 `showFeed`
+
+`moveAllPointersOffScreen`
+
 pour en revenir au pointeur de souris
 que vous êtes
 saviez-vous que le pointeur de souris a été inventé en 1968?
@@ -448,7 +454,12 @@ merci d'avoir joué! clament le champignon de paris et les haricots verts.
 merci d'avoir _tryhard_, ajoute la valise à roulettes.
 et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
 
-`clearFeed`
+`hideFeed`
+`toggleFFA`
+
+`togglePointers`
+
+<!-- `alignHumansInCircle` -->
 
 <!-- 1. Grace, K., Garfinkel, B., Cotra, A., Hazell, J., & Evans, O. (2022) AI Impacts -->
 
