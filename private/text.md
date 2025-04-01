@@ -50,7 +50,7 @@
 
 - la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche.
 
-<!-- - il n'est pas certain que la souris ait mal, mais c'est une possibilité. et en raison du nombre astronomique de souris qu'il y a sur terre, il est raisonnable de renoncer à cliquer sur la souris au cas où, dit le philosophe sentio-centriste.
+<!-- - il n'est pas certain que la souris ait mal, mais c'est une possibilité. et en raison du nombre important de souris qu'il y a au théâtre de l'Elysée, il est raisonnable de renoncer à cliquer sur la souris au cas où, dit le philosophe sentio-centriste.
 
 - dans l'hypothèse où la souris souffre, pondérons tout de même sa souffrance au nombre de boutons qu'elle possède, afin de hiérarchiser nos priorités morales, par exemple vis à vis des claviers AZERTY 105 touches, nuance son collègue gradualiste.
 
@@ -62,7 +62,15 @@
 
 - toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer.
 
-- "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote.
+<!-- - "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote. -->
+
+- il n'est pas certain que la souris ait mal, mais c'est une possibilité. et en raison du nombre important de souris qu'il y a dans le théâtre de l'Elysée, il est raisonnable de renoncer à cliquer sur la souris au cas où, dit le philosophe sentio-centriste.
+
+- dans l'hypothèse où la souris souffre, pondérons tout de même sa souffrance au nombre de boutons qu'elle possède, afin de hiérarchiser nos priorités morales, par exemple vis à vis des claviers AZERTY 105 touches, nuance son collègue gradualiste.
+
+- la souris aura mal, certes, mais ce qui compte ce n'est pas sa souffrance prise individuellement. Si une souris souffre pour que tous les humains dans la salle soient contents, alors il faut cliquer, car le total de plaisir _x_ est supérieur au total de souffrance _y_, dit le philosophe axiologue des populations.
+
+- dans ce cas, non seulement il faut cliquer sur la souris, mais il faut cliquer le plus possible, ajoute son collègue utilitariste-totaliste.
 
 `hideFeed`
 `clearFeed`
@@ -169,7 +177,8 @@ nous ne sommes pas individuellement des robots. _un robot connecté à internet_
 nous ne sommes pas collectivement un robot. _un robot hors-ligne_ [1][0]
 je suis humain, et en plus, je suis un bon humain. _un robot manquant de confiance en soi_ [1][1]
 je suis le meilleur humain. _un robot humble_ [1][1]
-je suis le pire humain, mais moi au moins je suis humble. _un robot qui se respecte_ [1][1]
+
+<!-- je suis le pire humain, mais moi au moins je suis humble. _un robot qui se respecte_ [1][1] -->
 
 <!-- KINETIQUES -->
 
@@ -180,8 +189,8 @@ je ne suis pas un robot (assez facile) <!-- fast -->
 je ne suis pas un robot (hard) <!-- whirl -->
 je ne suis pas un robot (hard avec variation) <!-- dvd -->
 je ne suis pas un robot (ça a l'air difficile mais en fait ça va) <!-- ultraFast -->
-je ne suis pas un robot (extreme)<!-- randomFast -->
 je ne suis pas un robot (very hard) <!-- randomFast + pause -->
+je ne suis pas un robot (extreme)<!-- randomFast -->
 je ne suis pas un robot (impossible) <!-- rotation + invisible -->
 
 `toggleFFA`
@@ -239,6 +248,8 @@ ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs 
 <!-- `reqNextPlayer`
 `unchoosePlayer` -->
 
+`clearFeed`
+`showFeed`
 bravo, vous n'êtes pas des robots!
 bon
 je m'en doutais un peu
@@ -270,7 +281,6 @@ on se ferait pas un petit truc à manger
 
 ## clicker-ffa
 
-`clearFeed`
 `showFeed`
 vous avez fait un très bon travail!
 enfin,
@@ -322,9 +332,9 @@ les grains de riz j'avoue c'était pas sympa
 `save`
 
 `stopUpdatingStonks`
+
 `clickerAlert [en raison de la production d'un trop grand nombre de clics]`
 `clickerAlert [les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique]`
-`blinkEveryone`
 `clickerAlert [le monde va malheureusement exploser]`
 `clickerAlert [et tout le monde va mourir]`
 `clickerAlert [enfin]`
