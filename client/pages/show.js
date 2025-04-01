@@ -982,9 +982,9 @@ isMouseDisabled = function (mouse) {
   const _rasp = getRasp(mouse.client)
 
   if (disabledMice.find({ rasp: _rasp, brand: _brand }).fetch().length > 0) {
-    console.log(
-      `une souris de marque ${_brand} vient de bouger à ${_rasp}. Cette place a été définie comme vide, la souris sera donc ignorée.`,
-    )
+    // console.log(
+    //   `une souris de marque ${_brand} vient de bouger à ${_rasp}. Cette place a été définie comme vide, la souris sera donc ignorée.`,
+    // )
     return true
   } else {
     return false

@@ -230,9 +230,13 @@ Template.pasUnRobot.events({
         Template.instance().minReadingTime +
         t.data.surpriseAmount -
         (clickTimestamp.getTime() - Template.instance().timestamp.getTime())
-      setTimeout(() => {
-        checkAndDie(t, t.view, true)
-      }, wait)
+
+      const _timeouts = t.timeouts.get()
+      _timeouts.push(
+        setTimeout(() => {
+          checkAndDie(t, t.view, true)
+        }, wait),
+      )
       Template.instance().waiting.set(true)
     }
   },
@@ -410,6 +414,7 @@ const handlePupitreAction = function (message) {
     case 'pass':
       message.context.passed.set(true)
       message.context.warning.set(false)
+      removeTimeouts(message.context)
 
       checkAndDie(message.context, message.context.view, true)
       break

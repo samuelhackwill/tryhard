@@ -1,20 +1,24 @@
 ## repetition
 
 `alignPointersLeft`
-`clearPointers`
+`moveAllPointersOffScreen`
+
 `hideFeed`
 `clearFeed`
-`bgTogrey`
-`showNicks`
+
 `togglePointers`
-`textToBlack`
-`textToWhite`
-`samuelSpawn`
-`samuelGo!`
-`samuelShow`
+`clearPointers`
+
 `addPodium`
 `removePodium`
-`tetris [je ne suis pas un robot]`
+
+<!-- `samuelSpawn`
+`samuelGo!`
+`samuelShow`
+`textToBlack`
+`textToWhite`
+`bgTogrey`
+`showNicks` -->
 
 ## les-philosophes
 
@@ -270,6 +274,8 @@ merci pour votre aide!
 allez encore un petit captcha s'il vous plaît
 les grains de riz j'avoue c'était pas sympa
 
+`tetris [je ne suis pas un robot]`
+
 `newClickerGrid`
 `revealMoney`
 
@@ -288,9 +294,10 @@ les grains de riz j'avoue c'était pas sympa
 
 `startUpdatingStonks`
 
-`showClicker [total]`
 `hideFeed`
 `clearFeed`
+
+`showClicker [total]`
 `showClicker [gradinDuFond]`
 `showClicker [gradinDuDevant]`
 `showClicker [bestGradin]`
