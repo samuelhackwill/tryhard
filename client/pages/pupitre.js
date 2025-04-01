@@ -37,7 +37,7 @@ Template.pupitre.onCreated(function () {
   this.connectedDevices = new ReactiveVar('')
   this.selectedPlayer = new ReactiveVar('ffa')
   this.chairsNumber = new ReactiveVar(35)
-  this.danceSpeed = new ReactiveVar(20)
+  this.danceSpeed = new ReactiveVar(100)
   Meteor.call('returnText', (err, res) => {
     if (err) {
       alert(err)
