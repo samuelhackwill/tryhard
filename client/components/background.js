@@ -300,32 +300,59 @@ const handlePupitreAction = function (message) {
 
 //   startFlamingSequence()
 // }
-
 function createPodium() {
   // Create the podium container
   const podium = document.createElement('div')
   podium.classList.add('podium')
   podium.id = 'podium'
 
-  // Create podium columns
-  const second = document.createElement('div')
-  second.classList.add('box', 'second')
-  second.textContent = '2'
+  // Create a helper to make each box
+  function createBox(place, height, medal) {
+    const box = document.createElement('div')
+    box.classList.add('box', place)
 
-  const first = document.createElement('div')
-  first.classList.add('box', 'first')
-  first.textContent = '1'
+    // Create the number element
+    const number = document.createElement('div')
+    number.textContent = place === 'first' ? '1' : place === 'second' ? '2' : '3'
 
-  const third = document.createElement('div')
-  third.classList.add('box', 'third')
-  third.textContent = '3'
+    // Create the medal element
+    const emoji = document.createElement('div')
+    emoji.textContent = medal
+    emoji.style.marginTop = '-8px'
+
+    // Style container as column
+    box.style.display = 'flex'
+    box.style.flexDirection = 'column'
+    box.style.alignItems = 'center'
+
+    // Apply styles
+    Object.assign(box.style, {
+      width: '160px',
+      height: height,
+      backgroundColor: 'white',
+      border: '3px solid black',
+      justifyContent: 'center',
+      fontSize: '36px',
+      fontWeight: 'bold',
+      textAlign: 'center',
+    })
+
+    box.appendChild(number)
+    box.appendChild(emoji)
+    return box
+  }
+
+  // Create the boxes
+  const second = createBox('second', '120px', '🥈')
+  const first = createBox('first', '150px', '🥇')
+  const third = createBox('third', '100px', '🥉')
 
   // Append boxes to podium
   podium.appendChild(second)
   podium.appendChild(first)
   podium.appendChild(third)
 
-  // Apply initial styles
+  // Apply initial styles to podium
   Object.assign(podium.style, {
     position: 'fixed',
     top: '50%',
@@ -336,23 +363,6 @@ function createPodium() {
     opacity: '0', // Start hidden
     transition: 'opacity 1s ease-in-out', // Fade-in animation
   })
-
-  // Apply styles to boxes
-  const boxStyles = {
-    width: '160px',
-    backgroundColor: 'white',
-    border: '3px solid black',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: '36px',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  }
-
-  Object.assign(second.style, boxStyles, { height: '100px' }) // 2nd place (medium height)
-  Object.assign(first.style, boxStyles, { height: '130px' }) // 1st place (tallest)
-  Object.assign(third.style, boxStyles, { height: '80px' }) // 3rd place (shortest)
 
   // Append to the body
   document.body.appendChild(podium)

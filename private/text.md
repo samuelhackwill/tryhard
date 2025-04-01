@@ -182,7 +182,14 @@ je ne suis pas un robot (hard avec variation) <!-- dvd -->
 je ne suis pas un robot (ça a l'air difficile mais en fait ça va) <!-- ultraFast -->
 je ne suis pas un robot (extreme)<!-- randomFast -->
 je ne suis pas un robot (very hard) <!-- randomFast + pause -->
-je ne suis pas un robot (tryhard) <!-- invisible -->
+je ne suis pas un robot (impossible) <!-- rotation + invisible -->
+
+`toggleFFA`
+`alignHumansInCircle`
+
+`tetris [je ne suis pas un robot (tryhard)]`
+
+`moveAllPointersOffScreen`
 
 je. ne. suis. pas. un. robot. _un robot qui n'a pas compris la ponctuation_ [1][-1]
 je suis humain et par contre combien de temps encore ça va durer ce jeu? _un robot patient_ [1][-1]
@@ -273,8 +280,6 @@ mais vous l'avez fait plus _gentiment_ qu'un robot.
 merci pour votre aide!
 allez encore un petit captcha s'il vous plaît
 les grains de riz j'avoue c'était pas sympa
-
-`tetris [je ne suis pas un robot]`
 
 `newClickerGrid`
 `revealMoney`
