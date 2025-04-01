@@ -207,6 +207,17 @@ Template.pupitre.events({
       animationSpeed: Template.instance().danceSpeed.get() / 10,
     })
   },
+  'click #chairs-send-lastChair'(e) {
+    sendAction('createChairs', {
+      type: 'chair',
+      hesitationAmount: 1000000,
+      readingSpeed: 1,
+      surpriseAmount: 1,
+      howMany: Number(Template.instance().chairsNumber.get()),
+      text: { value: 'mettre fin à la performance', emphasis: 'performance' },
+      animationSpeed: Template.instance().danceSpeed.get() / 10,
+    })
+  },
   'input #chairs-slider'(e) {
     Template.instance().chairsNumber.set(e.target.value)
   },
