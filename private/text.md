@@ -74,17 +74,19 @@
 `togglePointers`
 
 je ne suis pas un robot _un robot_ [1][-1]
+je ne suis pas un robot _un robot_ [1][-1]
+je ne suis pas un robot _un robot_ [1][-1]
+je ne suis pas un robot _un robot_ [1][-1]
 je ne suis pas une tondeuse _une tondeuse_ [1][-1]
 je ne suis pas une brosse à dents électrique _une brosse à dents_ [1][-1]
-moi? idem _aussi une brosse à dents_ [1][-1]
-quant à moi, je ne suis pas une imprimante _une imprimante_ [1][-1]
-je ne suis pas l'imprimante du théâtre qui après avoir imprimé le billet pour cette performance, se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi" _l'imprimante du théâtre_ [1][-1]
+je ne suis pas une imprimante _une imprimante_ [1][-1]
+je ne suis pas l'imprimante du théâtre qui, après avoir imprimé le billet pour cette performance, se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi" _l'imprimante du théâtre_ [1][-1]
 je ne suis pas l'imprimante du théâtre qui ressent maintenant du regret [1][-1] _l'imprimante du théâtre qui aime bien le spectacle_
-je ne suis pas un rat, qui après un million d'années d'évolution aurait développé un bras et un pouce opposable et aurait cliqué sur le bouton de la souris _un rat_ [1][-1]
+je ne suis pas un rat, qui après un million d'années d'évolution, aurait développé un bras et un pouce opposable et aurait cliqué sur le bouton de la souris _un rat_ [1][-1]
 
 je ne suis pas un doigt errant qui serait entré dans le théâtre et aurait cliqué sur le bouton de la souris _un doigt errant_ [1][-1]
 je ne suis pas la souris qui serait tombée par terre et aurait accidentellement cliqué sur le bouton de la souris _la gravité_ [1][-1]
-je ne suis pas un cerveau qui, en réfléchissant à autre chose, serait tombé sur le bouton de la souris, déclenchant accidentellement un clic _un cerveau maladroit_ [1][-1]
+je ne suis pas un cerveau qui, en réfléchissant à autre chose, serait tombé sur le bouton de la souris _un cerveau maladroit_ [1][-1]
 
 je ne suis pas la volonté de dieu qui est intervenue pour cliquer sur le bouton de souris _la volonté de dieu_ [1][-1]
 
@@ -104,7 +106,8 @@ je suis qui je suis _un robot qui n'est pas maître en sa propre maison_ [1][-1]
 je pense ce que je pense _un robot qui est là où il ne pense pas_ [1][-1]
 mes pensées ne sont pas n'importe quelles pensées _un robot a qui on a donné des pensées_ [1][-1]
 mes pensées sont nées dans mon cerveau à moi et pas n'importe où _un robot qui a téléchargé des pensées_ [1][-1]
-je suis parfaitement calme _un robot troublé_ [1][-1]
+
+<!-- je suis parfaitement calme _un robot troublé_ [1][-1] -->
 
 je ne fais pas semblant d'avoir des pensées _un robot acteur_ [1][-1]
 je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau _un robot perroquet_ [1][-1]
@@ -120,9 +123,9 @@ la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris 
 la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau _un éléphant (200 milliards de neurones)_ [1][-1]
 la preuve que je suis humain, c'est qu'aucun cerveau n'est capable de comprendre le fonctionnement de mon cerveau _un robot qui ne comprend pas non plus_ [1][-1]
 la preuve que je suis humain, c'est que je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue _un robot qui trouve ça un peu dégueu_ [1][0]
-la preuve que j'ai des valeurs humaines, c'est que j'héberge cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, tout ça dans mon colon _un robot qui trouve ça généreux mais pas très logique_ [1][0]
+la preuve que j'ai des valeurs humaines, c'est que j'héberge bénévolement cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, tout ça dans mon colon _un robot qui trouve ça généreux mais pas très logique_ [1][0]
 
-je ne suis pas une bactérie anaérobie _une Clostridium difficile_ [1][-1]
+d'ailleurs je ne suis pas une bactérie anaérobie _une Clostridium difficile_ [1][-1]
 je ne suis pas un virus _un Mimivirus_ [1][-1]
 un robot, je ne suis pas _robot un_ [1][-1]
 pas un robot je ne suis _tobor nu_ [1][-1]
@@ -132,20 +135,19 @@ un robot, moi? non non _un robot qui assume_ [1][-1]
 arrêtez de dire que je suis un robot _un robot je vous dis_ [1][-1]
 c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L _un robot qui a fait S_ [1][-1]
 
-je saigne (quand mes veines ne sont plus étanches) _un robot sans sang_ [1][-1]
+la preuve que je suis un être humain, c'est que je saigne (quand mes veines ne sont plus étanches) _un robot sans sang_ [1][-1]
 je pue (pas forcément en ce moment) _un robot qui sent bon_ [1][-1]
 je souffre (idem) _un robot heureux_ [1][-1]
 je respire (en ce moment même) _un robot sous-marin_ [1][-1]
 je suis en train de mourir (en ce moment même) _un robot immortel_ [1][-1]
 je n'ai que toute ma vie devant moi en ce moment même et pour toujours _un robot qui n'oublie pas de sauvegarder ses fichiers_ [1][-1]
-je n'aurai jamais plus que seulement ma courte vie de microbe en ce moment même et pour toujours _un robot qui a fait des copies redondantes de ses disques durs_ [1][-1]
 
-je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur sera bientôt effacé entièrement, et ma mémoire vive sera bientôt hors-service absolument _un robot manquant de lucidité_ [1][-1]
+je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur (corps) sera bientôt effacé entièrement (mort), et ma mémoire vive (âme) sera bientôt hors-service absolument (néant) _un robot manquant de lucidité_ [1][-1]
 je suis fier de ne pas être un robot _un robot fier de ne pas être un humain_ [1][-1]
 je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux dames (1994), aux échecs (1997), au go (2016), au shogi (2017) au poker (2017), à la guerre. _un robot qui ne veut pas remuer le couteau dans la plaie_ [1][-1]
 cet état de fait ne m'inquiète pas du tout, je suis en confiance _un robot qui ne veut pas éveiller la méfiance_ [1][-1]
 
-je suis fier.e d'être un humain _un robot qui connaît l'Histoire_ [1][0]
+je suis fier d'être un humain _un robot qui connaît l'Histoire_ [1][0]
 je suis fier.e d'appartenir à l’espèce qui a inventé l'électricité _un robot qui a éradiqué le cancer_ [1][0]
 je suis fier.e d'appartenir à l’espèce qui a inventé la chaise électrique _un robot qui n'a pas compris où était le problème_ [-1][1]
 je suis déçu de ne pas être un robot? _un robot_ [1][-1]
@@ -163,7 +165,7 @@ nous ne sommes pas individuellement des robots. _un robot connecté à internet_
 nous ne sommes pas collectivement un robot. _un robot hors-ligne_ [1][0]
 je suis humain, et en plus, je suis un bon humain. _un robot manquant de confiance en soi_ [1][1]
 je suis le meilleur humain. _un robot humble_ [1][1]
-je suis le pire humain. _un robot qui se respecte_ [1][1]
+je suis le pire humain, mais moi au moins je suis humble. _un robot qui se respecte_ [1][1]
 
 <!-- KINETIQUES -->
 
@@ -226,13 +228,16 @@ ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs 
 <!-- `reqNextPlayer`
 `unchoosePlayer` -->
 
-je suis prêt à livrer mes conclusions au sujet du fait que vous soyez des robots ou non
-c'est pas...
+bravo, vous n'êtes pas des robots!
 bon
-j'avais pourtant préparé mes _captchas_ avec soin.
+je m'en doutais un peu
+mais vous savez de nos jours...
+on est jamais trop prudent...
+...on est jamais trop prudent.
+c'est pour ça que les CAPTCHAS on été inventés
 CAPTCHAS pour : _Completely Automated Public Turing test to tell Humans and Computers Apart_
 "Tests automatisés pour distinguer les robots des humains"
-Un des ingénieur qui a contribué à mettre au point les CAPTCHAS
+Un des ingénieurs qui a contribué à mettre au point les CAPTCHAS
 Luis Van Ahn
 disait en 2006 que d'après ses estimations
 il y avait 200 000 millions de captchas résolus chaque jour
@@ -244,34 +249,26 @@ ce genre de système est aussi utilisé
 pour entraîner les dites intelligences artificielles
 nous mettons de l'ordre dans un cerveau de synthèse embrumé
 une image à la fois.
-et donc
-a mon avis, ces personnes
 `toggleFFA`
 `alignHumansInCircle`
-sont des humains.
-et ces... manifestations
-`alignNonHumansInRandom`
-je sais pas trop.
 c'est pas tout ça mais ça creuse!
 on se ferait pas un petit truc à manger
 
-`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 1500 grains peut-être? j'ai une petite faim, rice, 1500]`
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 2000 grains peut-être? j'ai une petite faim, rice, 2000]`
 `hideFeed`
-`clearFeed`
 
 ## clicker-ffa
 
+`clearFeed`
+`showFeed`
 vous avez fait un très bon travail!
 enfin,
-un robot
-aurait été plus rapide
+un robot aurait été plus rapide
 et plus précis bien sûr
 mais vous l'avez fait plus _gentiment_ qu'un robot.
 merci pour votre aide!
 allez encore un petit captcha s'il vous plaît
 les grains de riz j'avoue c'était pas sympa
-celui là ne fait pas mal
-enfin pas aux yeux en tout cas
 
 `newClickerGrid`
 `revealMoney`
@@ -363,14 +360,17 @@ je suis la dernière personne de la performance qui va cliquer -->
 
 ## conclusion
 
+`bgToblack`
+`clearFeed`
 `showFeed`
 pour en revenir au pointeur de souris
 que vous êtes
 saviez-vous que le pointeur de souris a été inventé en 1968?
+il aura 57 ans en décembre de cette année.
 on peut donc dire que la souris d'ordinateur est plus jeune que ma mère
 puisque ma mère est née en 1957.
 ma mère, Michèle Planche.
-Avant que Douglas Englebart,
+Avant que Douglas Englebart
 né en 1925
 n'invente la souris d'ordinateur
 il n'était pas possible de pointer
@@ -381,14 +381,15 @@ il était bien sûr possible d'insulter son ordinateur ou le jeter par la fenêt
 de prendre le clavier et de taper sur l'écran avec violence
 de mettre un coup de pied dans l'ordinateur
 d'arracher les touches du clavier
-de mordre le cable d'alimentation
+de mordre le câble d'alimentation
 de claquer le côté du moniteur cathodique
 de prendre une paire de ciseaux et de découper méticuleusement la disquette 3 pouces.
-d'un autre côté,
-Il était bien sûr possible de communiquer avec son ordinateur,
-mais il fallait pour ça utiliser un outil professionnel muni d'un trop grand nombre de touches,
+D'un autre côté,
+il était bien sûr possible de communiquer avec son ordinateur
+mais il fallait pour ça utiliser un outil professionnel muni d'un trop grand nombre de touches
 le clavier.
-ma grand-mère est née en 1929,
+
+ma grand-mère est née en 1929
 donc après Douglas Englebart (1925) mais avant ma mère.
 née en?
 en 1957.
@@ -415,27 +416,32 @@ que nous enseigne l'histoire?
 la dernière fois qu'un forme de vie avec des capacités techniques supérieures
 a rencontré d'autres formes de vie avec des capacités techniques inférieures
 comment cela s'est-il terminé pour ces dernières?
+
 comment traitons-nous les souris?
-
-<!-- jusque là c'est bien mais la fin fin est nulle -->
-
-nous serons les souris de l'intelligence surhumaine de synthèse, affirment ces philosophes.
-"ça n'a rien de personnel",
-"mais vous êtes constitués d'atomes que je pourrais mieux utiliser ailleurs", ajoute l'intelligence surhumaine de synthèse,
+nous serons comme des souris pour une intelligence surhumaine de synthèse, affirment ces philosophes.
+"c'est pas contre vous",
+"mais vous êtes constitués d'atomes que je pourrais mieux utiliser ailleurs", ajoute l'intelligence surhumaine de synthèse
 née en 2026.
-je rigole, ajoute l'auteur de la performance
-nous n'arriverons jamais à fabriquer une intelligence surhumaine de synthèse
-affirment quelques chercheurs courageux
-nous y parviendrons avant 2060 probablement!
-disent ~50% du panel de philosophes-chercheurs en sciences de l'informatique. _1_
-nous y parviendrons au plus tard en 2160!
-disent les autres ~50%.
-c'est bien mais nous aurons tous grillé bien avant 2160! répètent en vain les philosophes-chercheurs du GIEC.
-c'est bien mais à quoi nous sert une intelligence supérieure dans un monde sans Justice? objectent les philosophes-sociologues.
-et qu'est ce qu'on entend par "intelligence", au fait, s'interrogent d'autres philosophes, un peu en retard dans la conversation.
-ou mais toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
+je rigole, ajoute l'auteur de la performance.
+"nous parviendrons à créer un cerveau de synthèse en 2060 au plus tard!"
+disent certains chercheurs
+"bon au pire en 2160 ça devrait être une affaire réglée"
+disent d'autres
+"nous n'arriverons jamais à fabriquer une intelligence surhumaine de synthèse."
+affirment d'autres
+_très_ minoritaires
+ce qui ne veut pas dire qu'ils n'ont pas raison.
+
+c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse sur un planète où on ne peut plus faire pousser du blé? répètent en vain les philosophes-chercheurs du GIEC.
+c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse dans un monde sans justice? objectent les philosophes-sociologues.
+et qu'est-ce qu'on entend par "intelligence", au fait, s'interrogent d'autres philosophes, un peu en retard dans la conversation.
+
+ça ne change rien au fait que toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
 merci d'avoir joué! clament le champignon de paris et les haricots verts.
+merci d'avoir _tryhard_, ajoute la valise à roulettes.
 et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
+
+`clearFeed`
 
 <!-- 1. Grace, K., Garfinkel, B., Cotra, A., Hazell, J., & Evans, O. (2022) AI Impacts -->
 
