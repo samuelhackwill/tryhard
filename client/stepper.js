@@ -10,11 +10,11 @@ let clientEventQueue = []
 const moveAuthorized = [
   'repetition',
   'captchas-ffa',
+  'captchas-tetris-ffa',
   'recre-ffa',
   'chaises',
   'chaises-squidGame',
   'clicker-ffa',
-  'conclusion',
 ]
 
 const noise = new ValueNoise()
