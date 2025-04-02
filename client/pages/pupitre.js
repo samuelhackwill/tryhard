@@ -380,6 +380,9 @@ const checkBeforeEmit = function (context) {
       case 'captchas-kinetic-1j':
         sendAction('reqNextPlayer', context)
         break
+      case 'captchas-coche-conclusion':
+        sendAction('reqNextPlayer', context)
+        break
 
       default:
         sendLine(String(context.value))
