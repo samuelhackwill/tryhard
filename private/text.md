@@ -1,7 +1,10 @@
 ## repetition
 
-`alignPointersLeft`
 `moveAllPointersOffScreen`
+
+`alignPointersLeft`
+`alignPointersBot`
+`alignHumansInCircle`
 
 `hideFeed`
 `clearFeed`
@@ -193,10 +196,14 @@ je ne suis pas un robot (very hard) <!-- randomFast + pause -->
 je ne suis pas un robot (extreme)<!-- randomFast -->
 je ne suis pas un robot (impossible) <!-- rotation + invisible -->
 
+## captchas-tetris-ffa
+
 `toggleFFA`
-`alignHumansInCircle`
+`alignPointersBot`
 
 `tetris [je ne suis pas un robot (tryhard)]`
+
+## captchas-coche-conclusion
 
 `moveAllPointersOffScreen`
 
@@ -243,10 +250,8 @@ ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs 
 
 `ImgCapNoSelect[Sélectionnez la pensée pensée par la terrasse recouverte de neige, thingswithfaces, 6, AUCUNE (ELLE DORT PAISIBLEMENT), AUCUNE (C'EST UNE TERRASSE RECOUVERTE DE NEIGE), "ENFIN LE WEEK-END"]`
 
-## recre-ffa
-
-<!-- `reqNextPlayer`
-`unchoosePlayer` -->
+`unchoosePlayers`
+`moveAllPointersOffScreen`
 
 `clearFeed`
 `showFeed`
@@ -271,46 +276,56 @@ ce genre de système est aussi utilisé
 pour entraîner les dites intelligences artificielles
 nous mettons de l'ordre dans un cerveau de synthèse embrumé
 une image à la fois.
-`toggleFFA`
-`alignHumansInCircle`
 c'est pas tout ça mais ça creuse!
 on se ferait pas un petit truc à manger
 
-`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 2000 grains peut-être? j'ai une petite faim, rice, 2000]`
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 1500 grains peut-être? j'ai une petite faim, rice, 1500]`
+
+## recre-ffa
+
+<!-- `reqNextPlayer`
+`unchoosePlayer` -->
+
 `hideFeed`
+`toggleFFA`
+`alignPointersBot`
 
-## clicker-ffa
+## recre-outro
 
+`moveAllPointersOffScreen`
+`clearFeed`
 `showFeed`
 vous avez fait un très bon travail!
-enfin,
-un robot aurait été plus rapide
-et plus précis bien sûr
-mais vous l'avez fait plus _gentiment_ qu'un robot.
-merci pour votre aide!
-allez encore un petit captcha s'il vous plaît
-les grains de riz j'avoue c'était pas sympa
-
 `newClickerGrid`
-`revealMoney`
-
+enfin,
 `clicker [total]`
+un robot aurait été plus rapide
 `clicker [gradinDuFond]`
 `clicker [gradinDuDevant]`
 `clicker [bestGradin]`
+et plus précis bien sûr
 `clicker [goldMouse]`
 `clicker [silverMouse]`
+mais vous l'avez fait plus _gentiment_ qu'un robot.
 `clicker [bronzeMouse]`
 `clicker [fourthMouse]`
+merci pour votre aide!
 `clicker [chomdu]`
 `clicker [insee]`
+allez encore un petit captcha s'il vous plaît
 `clicker [speed]`
 `clicker [speedWorldRecord]`
+les grains de riz j'avoue c'était pas sympa
 
-`startUpdatingStonks`
+## clicker-ffa
 
 `hideFeed`
 `clearFeed`
+
+`startUpdatingStonks`
+
+`alignPointersBot`
+`revealMoney`
 
 `showClicker [total]`
 `showClicker [gradinDuFond]`
@@ -381,9 +396,6 @@ je suis un groupe social qui ne s'est pas encore déchiré
 je suis la dernière personne de la performance qui va cliquer -->
 
 ## conclusion
-
-`addPodium`
-`removePodium`
 
 `bgToblack`
 `clearFeed`
@@ -471,6 +483,7 @@ et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
 
 `hideFeed`
 `toggleFFA`
+`alignHumansInCircle`
 
 `togglePointers`
 
