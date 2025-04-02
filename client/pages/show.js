@@ -229,6 +229,15 @@ function handlePupitreAction(message) {
       // instance.pointers.set(obj.id, _pointer)
       // })
       break
+    case 'unchoosePlayers':
+      {
+        Object.values(instance.pointers.all()).forEach((obj) => {
+          let _pointer = instance.pointers.get(obj.id)
+          _pointer.chosen = undefined
+          instance.pointers.set(obj.id, _pointer)
+        })
+      }
+      break
     case 'choosePlayer':
       // Extract rasp and brand from pointer ID
       const pointer = findPointerByBrandAndRasp(
