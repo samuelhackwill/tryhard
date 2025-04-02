@@ -25,8 +25,16 @@ Template.clickerGrid.onCreated(function () {
     const sub = this.subscribe('highScore')
 
     if (sub.ready()) {
-      targetDBItem = HighScore.findOne({}, { sort: { topSpeed: -1 } })
-      console.log('🏁 Subscription ready, top speed:', targetDBItem)
+      // targetDBItem = HighScore.findOne({}, { sort: { topSpeed: 1 } })
+      // console.log('🏁 Subscription ready, top speed:', targetDBItem)
+      targetDBItem = HighScore.find({})
+        .fetch()
+        .map((doc) => ({
+          ...doc,
+          topSpeedNum: parseFloat(doc.topSpeed),
+        }))
+        .filter((doc) => !isNaN(doc.topSpeedNum))
+        .sort((a, b) => b.topSpeedNum - a.topSpeedNum)[0]
     }
   })
 })
