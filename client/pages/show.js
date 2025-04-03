@@ -8,6 +8,7 @@ import {
   autoclickerSpawn,
   moveInFrontOfCaptcha,
   moveOffOfCaptcha,
+  moveInFrontOfCaptchaImg,
   moveAllPointersOffScreen,
   autoClickerMine,
   alignPointersInTheBottom,
@@ -257,7 +258,11 @@ function handlePupitreAction(message) {
         pointer.chosen = true
         instance.pointers.set(pointer.id, pointer)
 
-        moveInFrontOfCaptcha(pointer)
+        if (instance.state.get() == 'captchas-img-1j') {
+          moveInFrontOfCaptchaImg(pointer)
+        } else {
+          moveInFrontOfCaptcha(pointer)
+        }
       }
       break
     case 'ImgCapGridSubmit':

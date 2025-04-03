@@ -182,6 +182,19 @@ export const moveInFrontOfCaptcha = function (pointer) {
   })
 }
 
+export const moveInFrontOfCaptchaImg = function (pointer) {
+  pushToClientEventQueue({
+    origin: 'autoplay',
+    payload: {
+      type: 'move',
+      from: null,
+      to: { x: window.innerWidth / 2, y: (window.innerHeight / 4) * 3.6 },
+      duration: 1000,
+      pointer: pointer,
+    },
+  })
+}
+
 // //A proof of concept "choreography" to test the bot AI logic
 // export const circleRoutine = function (pointer, numberOfPointers, indexOfPointer, radius) {
 //   pointer.events = []
