@@ -8,7 +8,7 @@ import './planDeSalle.html'
 Template.planDeSalle.onCreated(function () {
   this.connectedDevices = new ReactiveVar([]) // Initialisation
   this.index = new ReactiveVar(0)
-
+  this.lastRow = new ReactiveVar(5)
   const self = this
 
   streamer.on('pupitreAction', function (message) {
@@ -170,10 +170,13 @@ Template.planDeSalle.onRendered(function () {
 })
 
 Template.planDeSalle.helpers({
-  getMaxRows() {
-    const currentLayout = SalleLayout.findOne()
-    return currentLayout.rows
+  getLastRow() {
+    return Template.instance().lastRow.get()
   },
+  // getMaxRows() {
+  //   const currentLayout = SalleLayout.findOne()
+  //   return currentLayout.rows
+  // },
   getMouseOrder(mouseId) {
     const entry = mouseOrder.findOne({ device: mouseId })
     return entry?.order || ''
@@ -331,6 +334,9 @@ Template.planDeSalle.events({
         $set: { columns: removedCol, cells: updatedCells },
       })
     }
+  },
+  'input #lastRow'(event) {
+    Template.instance.lastRow.set(parseInt(event.target.value, 10))
   },
   'input .mouse-order-input'(event) {
     const mouseId = event.target.dataset.mouseid

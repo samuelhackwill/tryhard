@@ -2,6 +2,14 @@
 
   <div class="p-4 h-full w-full overflow-y-scroll">
     <div class="flex gap-2 mb-4">
+      <input 
+      id="lastRow"
+      type="number" 
+      class="w-12 text-center border-none outline-none bg-transparent"
+      value={{getLastRow}} 
+    />      <span>gradin du fond</span>
+
+
       <button id="flash" class="px-3 py-1 bg-slate-200 rounded hover:bg-red-600 hover:text-white">flash dbs</button>
       <button id="add-row" class="px-3 py-1 bg-slate-200 rounded">+ Row</button>
       <button id="remove-row" class="px-3 py-1 bg-slate-200 rounded">− Row</button>
@@ -41,7 +49,7 @@
                   class="mouse-order-input w-12 text-center border-none outline-none bg-transparent"
                   value="{{getMouseOrder this.mouseId}}" 
                   data-mouseid="{{this.mouseId}}"
-                  data-maxrow="{{getMaxRows}}"
+                  data-maxrow="{{getLastRow}}"
                   data-row="{{../row}}"
                 />
               {{/if}}
