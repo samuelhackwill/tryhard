@@ -278,7 +278,8 @@ une image à la fois.
 c'est pas tout ça mais ça creuse!
 on se ferait pas un petit truc à manger
 
-`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 1500 grains peut-être? j'ai une petite faim, rice, 1500]`
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz ronds : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 2000 grains peut-être? j'ai une petite faim, rice, 2000]`
+`alignPointersBot`
 
 ## recre-ffa
 
@@ -287,7 +288,6 @@ on se ferait pas un petit truc à manger
 
 `hideFeed`
 `toggleFFA`
-`alignPointersBot`
 
 ## recre-outro
 

@@ -49,52 +49,70 @@
 
             {{#if (is "gradinDuFond")}}
               <span> le gradin du fond a cliqué </span>
-              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois</span>
+              <div>
+                <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+                <span> fois</span>
+              </div>
             {{/if}}
 
             {{#if (is "gradinDuDevant")}}
               <span> le gradin tout devant a cliqué </span>
-              <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois</span>
+              <div>
+                <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+                <span> fois</span>
+              </div>
             {{/if}}
 
             {{#if (is "bestGradin")}}
+            <div>
               <span> le gradin le plus productif a cliqué </span>
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span id="clickDescriptor-{{this}}"> fois. c'est le 0e gradin en partant de devant / du fond / de devant </span>
+            </div>
             {{/if}}
 
             {{#if (is "goldMouse")}}
               <span> la souris la plus productive a cliqué</span>
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois (C'est la souris n°</span>
-              <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span>)</span>
+              <span> fois </span> 
+              <div>
+                <span>(C'est la souris n°</span>
+                <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+                <span>)</span>
+              </div>
             {{/if}}
 
             {{#if (is "silverMouse")}}
               <span> la deuxième souris la plus productive a cliqué</span>
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois (C'est la souris n°</span>
-              <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span>)</span>
+              <span> fois </span> 
+              <div>
+                <span>(C'est la souris n°</span>
+                <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+                <span>)</span>
+              </div>
             {{/if}}
 
             {{#if (is "bronzeMouse")}}
               <span> la troisième souris la plus productive a cliqué</span>
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois (C'est la souris n°</span>
-              <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span>)</span>
+              <span> fois </span> 
+              <div>
+                <span>(C'est la souris n°</span>
+                <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+                <span>)</span>
+              </div>
             {{/if}}
 
             {{#if (is "fourthMouse")}}
-              <span> la quatrième souris, presque sur le podium, a cliqué x fois :</span>
+              <span> la quatrième souris, presque sur le podium, a cliqué </span>
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span> fois (C'est la souris n°</span>
-              <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-              <span>)</span>
+              <span> fois </span> 
+              <div>
+                <span>(C'est la souris n°</span>
+                <span id="whois-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+                <span>)</span>
+              </div>
             {{/if}}
 
             {{#if (is "chomdu")}}
@@ -107,9 +125,11 @@
               <span id="médiane" class="text-blue-600 font-mono font-bold">0</span> 
               <span>, c'est à dire que 50% des souris ont produit plus et 50% ont produit moins. </span>  -->
               <span>Et maintenant un coup d'oeil sur les inégalités de patrimoine dans la salle. Les 10% de souris les plus riches en clics possèdent </span>
-              <span id="gini" class="text-blue-600 font-mono font-bold">0</span> 
-              <span> fois plus de clics que les 10% de souris les plus pauvres en clics. </span>
-              <span id="france"> </span>
+              <div>
+                <span id="gini" class="text-blue-600 font-mono font-bold">0</span> 
+                <span> fois plus de clics que les 10% de souris les plus pauvres en clics. </span>
+                <span id="france"> </span>
+              </div>
             {{/if}}
 
             {{#if (is "speed")}}
@@ -121,10 +141,10 @@
 
             {{#if (is "speedWorldRecord")}}              
               <div id="speedWorldRecord">
-                  <span> le public qui a atteint la plus grande vitesse de clics était un public </span> 
+                  <span>le public qui a atteint la plus grande vitesse de clics était un public </span> 
                   <span class="text-blue-600 font-mono font-bold"> {{recordGet "gentillé"}} </span>
-                  <span> avec une vitesse max de </span> 
-                  <span class="text-blue-600 font-mono font-bold"> {{recordGet "topSpeed"}} </span>
+                  <span>avec une vitesse max de </span> 
+                  <span class="text-blue-600 font-mono font-bold"> {{recordGet "topSpeed"}}</span>
                   <span>clics par seconde. C'était </span>
                   <span class="text-blue-600 font-mono font-bold"> {{recordGet "heure"}} du  {{recordGet "date"}}.
                   </span>
