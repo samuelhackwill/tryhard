@@ -407,7 +407,7 @@ que vous êtes
 saviez-vous que le pointeur de souris a été inventé en 1968?
 il aura 57 ans en décembre de cette année.
 on peut donc dire que la souris d'ordinateur est plus jeune que ma mère
-puisque ma mère est née en 1957.
+puisque ma mère est née en 1958.
 ma mère, Michèle Planche.
 Avant que Douglas Englebart
 né en 1925
@@ -428,10 +428,10 @@ il était bien sûr possible de communiquer avec son ordinateur
 mais il fallait pour ça utiliser un outil professionnel muni d'un trop grand nombre de touches
 le clavier.
 
-ma grand-mère est née en 1929
+ma grand-mère est née en 1927
 donc après Douglas Englebart (1925) mais avant ma mère.
 née en?
-en 1957.
+en 1958.
 les premiers ordinateurs sont nés dans les années 40
 donc après ma grand-mère mais avant ma mère.
 et après le début de la seconde guerre mondiale.
@@ -452,7 +452,7 @@ sont tels
 qu'ils pourraient mener l'humanité à sa destruction brutale et irréversible
 ces personnes disent :
 que nous enseigne l'histoire?
-la dernière fois qu'un forme de vie avec des capacités techniques supérieures
+la dernière fois qu'une forme de vie avec des capacités techniques supérieures
 a rencontré d'autres formes de vie avec des capacités techniques inférieures
 comment cela s'est-il terminé pour ces dernières?
 
@@ -472,7 +472,7 @@ _très_ minoritaires
 ce qui ne veut pas dire qu'ils n'ont pas raison.
 
 c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse sur un planète où on ne peut plus faire pousser du blé? répètent en vain les philosophes-chercheurs du GIEC.
-c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse dans un monde sans justice? objectent les philosophes-sociologues.
+c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse dans une société sans justice? objectent les philosophes-sociologues.
 et qu'est-ce qu'on entend par "intelligence", au fait, s'interrogent d'autres philosophes, un peu en retard dans la conversation.
 
 ça ne change rien au fait que toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
