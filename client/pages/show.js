@@ -66,7 +66,7 @@ Template.show.onCreated(function () {
 
   this.whichBackground = new ReactiveVar('slate.png')
 
-  this.state = new ReactiveVar('repetition')
+  this.state = new ReactiveVar('init')
 
   this.score = { gradins: {} }
 
