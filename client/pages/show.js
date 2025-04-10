@@ -315,7 +315,7 @@ function handlePupitreAction(message) {
       Blaze.renderWithData(
         Template.clickerGrid,
         message.args,
-        document.getElementsByClassName('milieuContainer')[0],
+        document.getElementsByClassName('foregroundContainer')[0],
       )
       break
   }
