@@ -130,7 +130,7 @@ quand je souffre, je ne dis pas "aaaaah" ou "arrrrrh" ou "oooooyoyoyo" en choisi
 quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot _un robot avec une bonne déontologie_ [1][-1]
 
 la preuve que je suis humain, c'est que j'ai deux yeux, cinq mains et 29 doigts _un humain cette fois_ [-1][1]
-la preuve que je suis humain, c'est que je me suis déjà dit "ah tiens il est 11:11 quelqu'un pense à moi" _un homme d'affaires_ [1][1]
+la preuve que je suis humain, c'est que je me suis déjà dit "ah tiens il est 11:11 quelqu'un pense à moi" _un robot qui n'a pas d'amis_ [1][1]
 la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case malgré l'injonction permanente qui est faite de cliquer partout _un robot qui a compris le piège_ [-1][-1]
 
 la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case. _juste un robot un peu paresseux_ [1][-1]
