@@ -260,7 +260,7 @@ je m'en doutais un peu
 mais vous savez de nos jours...
 on est jamais trop prudent...
 ...on est jamais trop prudent.
-c'est pour ça que les CAPTCHAS on été inventés
+c'est pour ça que les CAPTCHAS ont été inventés
 CAPTCHAS pour : _Completely Automated Public Turing test to tell Humans and Computers Apart_
 "Tests automatisés pour distinguer les robots des humains"
 Un des ingénieurs qui a contribué à mettre au point les CAPTCHAS
