@@ -225,3 +225,17 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes scareAndFade {
+  0% {
+    background-size: 0.1%;
+  }
+  100% {
+    background-size: 500%;
+    opacity: 0;
+  }
+}
+
+.flash1 {
+  animation: scareAndFade 1.5s forwards ease-in;
+}

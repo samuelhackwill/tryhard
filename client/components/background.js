@@ -462,3 +462,27 @@ const unseatEveryone = function () {
     instance.pointers.set(key, _pointer)
   })
 }
+
+flash = function (path) {
+  const overlay = document.createElement('div')
+  Object.assign(overlay.style, {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    width: '100vw',
+    height: '100vh',
+    backgroundImage: 'url(images/captchas/' + path + ')',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    zIndex: 99999,
+    opacity: 0.8,
+  })
+
+  overlay.addEventListener('animationend', () => {
+    overlay.remove()
+  })
+
+  overlay.classList.add('flash1')
+
+  document.body.appendChild(overlay)
+}
