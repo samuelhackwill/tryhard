@@ -288,7 +288,13 @@ je ne suis pas un robot (hard) <!-- whirl -->
 je ne suis pas un robot (hard avec variation) <!-- dvd -->
 je ne suis pas un robot (ça a l'air difficile mais en fait ça va) <!-- ultraFast -->
 je ne suis pas un robot (very hard) <!-- randomFast + pause -->
+
+<!-- celui-ci commence invisible. check l'array startHiddenList dans pasUnRobot.js -->
+
 je ne suis pas un robot (extreme)<!-- randomFast -->
+
+<!-- celui-ci commence invisible. check l'array startHiddenList dans pasUnRobot.js -->
+
 je ne suis pas un robot (impossible) <!-- rotation + invisible -->
 
 ## captchas-tetris-ffa
