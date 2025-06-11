@@ -6,6 +6,7 @@ import { streamer } from '../../both/streamer.js'
 import {
   killAnimation,
   autoclickerSpawn,
+  move,
   moveInFrontOfCaptcha,
   moveOffOfCaptcha,
   moveInFrontOfCaptchaImg,
@@ -253,10 +254,19 @@ function handlePupitreAction(message) {
         pointer.chosen = true
         instance.pointers.set(pointer.id, pointer)
 
-        if (instance.state.get() == 'captchas-img-1j') {
-          moveInFrontOfCaptchaImg(pointer)
-        } else {
-          moveInFrontOfCaptcha(pointer)
+        switch (instance.state.get()) {
+          case 'captchas-img-1j':
+            moveInFrontOfCaptchaImg(pointer)
+
+            break
+          case 'captchas-coche-multiplayer':
+            console.log(message)
+            move(pointer, message.args.customMoveTo)
+            break
+          default:
+            moveInFrontOfCaptcha(pointer)
+
+            break
         }
       }
       break

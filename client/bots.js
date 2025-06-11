@@ -169,13 +169,13 @@ export const moveOffOfCaptcha = function (pointer) {
   })
 }
 
-export const move = function (pointer, _x, _y) {
+export const move = function (pointer, xfraction) {
   pushToClientEventQueue({
     origin: 'autoplay',
     payload: {
       type: 'move',
       from: null,
-      to: { x: _x, y: _y },
+      to: { x: window.innerWidth * xfraction, y: (window.innerHeight / 4) * 3 },
       duration: 1000,
       pointer: pointer,
     },

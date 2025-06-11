@@ -424,7 +424,7 @@ const handlePupitreAction = function (message) {
       // what would be nice is to just loop through this with a short delay and send new players on the battlefiled.
       // ACTUALY the loop needs to be
       let howManyPlayers = message.args.players || 1
-      let _loopindex = 0
+      let _loopindex = 1
 
       const getNextPlayer = function () {
         let _index = message.planInstance.index.get()
@@ -446,19 +446,19 @@ const handlePupitreAction = function (message) {
           type: 'nextPlayerIs',
           content: chosenOne,
           context: message.args,
-          moveto: _index,
+          moveTo: _loopindex / (howManyPlayers + 1),
         })
       }
 
       let proutos = Meteor.setInterval(function () {
         _loopindex++
-        if (_loopindex >= howManyPlayers) {
+        if (_loopindex > howManyPlayers) {
           clearInterval(proutos)
           return
         } else {
           getNextPlayer()
         }
-      }, 1000)
+      }, 30)
 
       getNextPlayer()
       break

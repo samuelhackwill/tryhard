@@ -483,8 +483,11 @@ const handlePlanDeSalleMessage = function (message) {
           _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
           _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
           _surpriseAmount = document.getElementById('surprise-slider').value
-
-          sendAction('choosePlayer', { chosenOne: message.content.device })
+          console.log(message)
+          sendAction('choosePlayer', {
+            chosenOne: message.content.device,
+            customMoveTo: message.moveTo,
+          })
 
           sendAction('newCaptcha-1j', {
             text: getCaptchaTextAndFailstate(String(message.context.value)),
