@@ -451,6 +451,9 @@ Template.show.helpers({
   //   }
   // },
   isChosen() {
+    if (this.crouching) {
+      return false
+    }
     if (this.chosen == undefined) {
       return true
     } else {
@@ -925,6 +928,7 @@ export const createPointer = function (id, bot = false, _owner) {
     cornersTouched: {},
     captchaPlayCount: 0,
     seated: false,
+    crouching: false,
     score: { human: 0 },
     // deprecated
     bot: bot,

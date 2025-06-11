@@ -383,6 +383,10 @@ const killUnseated = function () {
     const isSeated = pointerData.seated
     const isDead = pointerData.bot
 
+    _coords = document.getElementById(pointerData.id).dataset
+    pointerData.initializationCoords = { x: _coords.x, y: _coords.y }
+    instance.pointers.set(pointerData.id, pointerData)
+
     setTimeout(() => {
       unseatEveryone()
     }, 3000)
@@ -436,6 +440,7 @@ const killUnseated = function () {
 
       pointerData.chosen = false
       pointerData.bot = true // bots don't get a nick
+
       instance.pointers.set(pointerData.id, pointerData)
       // pointer.remove()
 
@@ -454,8 +459,13 @@ const killUnseated = function () {
 
 const unseatEveryone = function () {
   Object.entries(instance.pointers.all()).forEach(([key, pointer]) => {
+    _coords = document.getElementById(pointer.id).dataset
+    pointer.initializationCoords = { x: _coords.x, y: _coords.y }
+    instance.pointers.set(pointer.id, pointer)
+
     const _pointer = pointer
     _pointer.seated = false
+    _pointer.crouching = false
     _pointer.bgColor = '#000000'
     _pointer.outlineColor = '#FFFFFF'
     _pointer.hoveredElementId = 'feed'

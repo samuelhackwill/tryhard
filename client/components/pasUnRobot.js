@@ -193,6 +193,13 @@ Template.pasUnRobot.events({
       setTimeout(() => {
         obj.pointer.bgColor = 'oklch(0.488 0.243 264.376)'
         instance.pointers.set(obj.pointer.id, obj.pointer)
+        setTimeout(() => {
+          obj.pointer.crouching = true
+          _coords = document.getElementById(obj.pointer.id).dataset
+          console.log('reseting initialisation coords ', _coords)
+          obj.pointer.initializationCoords = { x: _coords.x, y: _coords.y }
+          instance.pointers.set(obj.pointer.id, obj.pointer)
+        }, 1000)
       }, 0)
     }
 
