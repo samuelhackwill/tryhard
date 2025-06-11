@@ -17,7 +17,7 @@ newX = 1
 newY = 1
 
 Template.pasUnRobot.onCreated(function () {
-  // console.log('new pasUnRobot ', this)
+  console.log('new pasUnRobot ', this)
   this._pupitreHandler = (message) => {
     message.context = this
     handlePupitreAction(message)

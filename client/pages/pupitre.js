@@ -495,6 +495,7 @@ const handlePlanDeSalleMessage = function (message) {
             readingSpeed: _readingSpeed,
             surpriseAmount: Number(_surpriseAmount) * 1000,
             chosenOne: message.content.order,
+            checkBoxAmount: message.checkBoxAmount,
           })
           document.getElementById('surprise-slider').value = _surpriseAmount - 1
           break

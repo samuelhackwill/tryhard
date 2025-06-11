@@ -447,6 +447,7 @@ const handlePupitreAction = function (message) {
           content: chosenOne,
           context: message.args,
           moveTo: _loopindex / (howManyPlayers + 1),
+          checkBoxAmount: message.args.coches,
         })
       }
 

@@ -309,10 +309,8 @@ je ne suis pas un robot (impossible) <!-- rotation + invisible -->
 
 ## captchas-coche-multiplayer
 
-<!-- prouti prouta -->
-
-je ne suis pas un prouti
-je ne suis pas un prouta
+je ne suis pas un robot
+je suis un robot
 
 ## captchas-coche-conclusion
 
