@@ -240,6 +240,7 @@ function handlePupitreAction(message) {
       }
       break
     case 'choosePlayer':
+      console.log('choose player ', message)
       // Extract rasp and brand from pointer ID
       const pointer = findPointerByBrandAndRasp(
         getRasp(message.args.chosenOne),
@@ -248,12 +249,12 @@ function handlePupitreAction(message) {
       )
 
       if (!pointer) {
-        // console.log(
-        //   'while looking for pointer ',
-        //   getRasp(message.args.chosenOne),
-        //   getMouseBrand(message.args.chosenOne),
-        //   " could not find that guy. He's probably toggled in /plan but didn't trigger a createPointer yet on /show",
-        // )
+        console.log(
+          'while looking for pointer ',
+          getRasp(message.args.chosenOne),
+          getMouseBrand(message.args.chosenOne),
+          " could not find that guy. He's probably toggled in /plan but didn't trigger a createPointer yet on /show",
+        )
       } else {
         pointer.chosen = true
         instance.pointers.set(pointer.id, pointer)

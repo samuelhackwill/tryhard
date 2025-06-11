@@ -286,23 +286,33 @@ je ne suis pas un robot (facile avec variation) <!-- spin-r -->
 je ne suis pas un robot (assez facile) <!-- fast -->
 je ne suis pas un robot (hard) <!-- whirl -->
 je ne suis pas un robot (hard avec variation) <!-- dvd -->
-je ne suis pas un robot (ça a l'air difficile mais en fait ça va) <!-- ultraFast -->
+
 je ne suis pas un robot (very hard) <!-- randomFast + pause -->
+
+je ne suis pas un robot (hurt me plenty) <!-- randomFast + pause plus courte -->
 
 <!-- celui-ci commence invisible. check l'array startHiddenList dans pasUnRobot.js -->
 
-je ne suis pas un robot (extreme)<!-- randomFast -->
+je ne suis pas un robot (extreme) <!-- spin + opacity -->
 
 <!-- celui-ci commence invisible. check l'array startHiddenList dans pasUnRobot.js -->
 
 je ne suis pas un robot (impossible) <!-- rotation + invisible -->
 
-## captchas-tetris-ffa
+<!-- ## captchas-tetris-ffa
 
 `toggleFFA`
 `alignPointersBot`
 
 `tetris [je ne suis pas un robot (tryhard)]`
+ -->
+
+## captchas-coche-multiplayer
+
+<!-- prouti prouta -->
+
+je ne suis pas un prouti
+je ne suis pas un prouta
 
 ## captchas-coche-conclusion
 

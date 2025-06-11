@@ -13,7 +13,7 @@ Template.planDeSalle.onCreated(function () {
 
   streamer.on('pupitreAction', function (message) {
     const _message = message
-    _message.context = self
+    _message.planInstance = self
     handlePupitreAction(_message)
   })
 
@@ -395,26 +395,70 @@ Template.deviceBlock.events({
 const handlePupitreAction = function (message) {
   switch (message.content) {
     case 'reqNextPlayer':
-      console.log('recieved reqNextPlayer from pupitre', message)
-      let _index = message.context.index.get()
-      const highest = mouseOrder.findOne({}, { sort: { order: -1 } })
-      const maxIndex = highest?.order || 0
+      {
+        console.log('recieved reqNextPlayer from pupitre', message)
+        let _index = message.planInstance.index.get()
+        const highest = mouseOrder.findOne({}, { sort: { order: -1 } })
+        const maxIndex = highest?.order || 0
 
-      // if index WAS >= the max number of collection, go back to one
-      if (_index >= maxIndex) {
-        _index = 1
-      } else {
-        _index = _index + 1
+        // if index WAS >= the max number of collection, go back to one
+        if (_index >= maxIndex) {
+          _index = 1
+        } else {
+          _index = _index + 1
+        }
+
+        const chosenOne = mouseOrder.findOne({ order: _index })
+
+        message.planInstance.index.set(_index)
+        streamer.emit('planDeSalleMessage', {
+          type: 'nextPlayerIs',
+          content: chosenOne,
+          context: message.args,
+        })
+      }
+      break
+    case 'reqNextMultiplePlayers':
+      console.log('recieved reqNextMultiplePlayers from pupitre', message)
+
+      // what would be nice is to just loop through this with a short delay and send new players on the battlefiled.
+      let howManyPlayers = message.args.players || 1
+      let _loopindex = 0
+
+      const getNextPlayer = function () {
+        let _index = message.planInstance.index.get()
+        const highest = mouseOrder.findOne({}, { sort: { order: -1 } })
+        const maxIndex = highest?.order || 0
+
+        // if index WAS >= the max number of collection, go back to one
+        if (_index >= maxIndex) {
+          _index = 1
+        } else {
+          _index = _index + 1
+        }
+
+        const chosenOne = mouseOrder.findOne({ order: _index })
+
+        message.planInstance.index.set(_index)
+
+        streamer.emit('planDeSalleMessage', {
+          type: 'nextPlayerIs',
+          content: chosenOne,
+          context: message.args,
+        })
       }
 
-      const chosenOne = mouseOrder.findOne({ order: _index })
+      let proutos = Meteor.setInterval(function () {
+        _loopindex++
+        if (_loopindex >= howManyPlayers) {
+          clearInterval(proutos)
+          return
+        } else {
+          getNextPlayer()
+        }
+      }, 1000)
 
-      message.context.index.set(_index)
-      streamer.emit('planDeSalleMessage', {
-        type: 'nextPlayerIs',
-        content: chosenOne,
-        context: message.args,
-      })
+      getNextPlayer()
       break
   }
 }

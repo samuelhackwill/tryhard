@@ -37,6 +37,8 @@ Template.pupitre.onCreated(function () {
   this.connectedDevices = new ReactiveVar('')
   this.selectedPlayer = new ReactiveVar('ffa')
   this.chairsNumber = new ReactiveVar(35)
+  this.cochesNumber = new ReactiveVar(1)
+  this.playersNumber = new ReactiveVar(1)
   this.danceSpeed = new ReactiveVar(100)
   Meteor.call('returnText', (err, res) => {
     if (err) {
@@ -54,8 +56,17 @@ Template.pupitre.onRendered(function () {
 })
 
 Template.pupitre.helpers({
+  isItMultiplayerCaptchaTime() {
+    return Template.instance().selectedHeader.get().startsWith('captchas-coche-multi')
+  },
   isItChairTime() {
     return Template.instance().selectedHeader.get().startsWith('chaises')
+  },
+  getCochesNumber() {
+    return Template.instance().cochesNumber.get()
+  },
+  getPlayersNumber() {
+    return Template.instance().playersNumber.get()
   },
   getChairsNumber() {
     return Template.instance().chairsNumber.get()
@@ -221,6 +232,12 @@ Template.pupitre.events({
   'input #chairs-slider'(e) {
     Template.instance().chairsNumber.set(e.target.value)
   },
+  'input #coches-slider'(e) {
+    Template.instance().cochesNumber.set(e.target.value)
+  },
+  'input #players-slider'(e) {
+    Template.instance().playersNumber.set(e.target.value)
+  },
   'input #danceSpeed-slider'(e) {
     Template.instance().danceSpeed.set(e.target.value)
   },
@@ -341,6 +358,7 @@ Template.pupitre.events({
 
   'click .line'(e) {
     e.target.classList.add('line-through')
+    console.log('click ', this)
     checkBeforeEmit(this)
   },
 
@@ -375,6 +393,7 @@ const checkBeforeEmit = function (context) {
       // to name every action keyword because they are being
       // pris en charge by the default block down down
       case 'captchas-coche-1j':
+        console.log('check before emit ', context)
         sendAction('reqNextPlayer', context)
         break
       case 'captchas-kinetic-1j':
@@ -382,6 +401,15 @@ const checkBeforeEmit = function (context) {
         break
       case 'captchas-coche-conclusion':
         sendAction('reqNextPlayer', context)
+        break
+      case 'captchas-coche-multiplayer':
+        // Add extra info to context for multiplayer
+        const multiplayerContext = {
+          ...context,
+          players: Number(Template.instance().playersNumber.get()),
+          coches: Number(Template.instance().cochesNumber.get()),
+        }
+        sendAction('reqNextMultiplePlayers', multiplayerContext)
         break
 
       default:

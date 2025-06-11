@@ -147,7 +147,43 @@
 
               
             </div>
-            {{else}}
+          {{else if isItMultiplayerCaptchaTime}}
+              <div class="relative mb-4 text-gray-500">
+                <h1>checkbox amount</h1>
+                <span>{{getCochesNumber}}</span>
+                <input
+                  id="coches-slider"
+                  type="range"
+                  value={{getCochesNumber}}
+                  min="1"
+                  max="56"
+                  class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-slate-300"
+                />
+              </div>
+
+              <div class="relative mb-4 text-gray-500">
+                <h1>player amount</h1>
+                <span>{{getPlayersNumber}}</span>
+                <input
+                  id="players-slider"
+                  type="range"
+                  value={{getPlayersNumber}}
+                  min="1"
+                  max="56"
+                  class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-slate-300"
+                />
+              </div>
+
+            {{#each getContent}}
+              <div class="mb-2">
+                <span class="text-xs text-slate-300">{{@index}}</span>
+                <a class="focus:bg-blue-50 cursor-pointer select-none hover:text-blue-600 line {{ styleActions }}" tabindex="0">
+                  {{ this.value }}
+                </a>
+              </div>
+            {{/each}}
+
+          {{else}}
             {{#each getContent}}
               <div class="mb-2">
                 <span class="text-xs text-slate-300">{{@index}}</span>
@@ -286,11 +322,6 @@
                 class="bg-slate-200 hover:bg-slate-400 text-xs px-2 py-1 rounded"
                 id="captcha-whirl"
                 >whirl</button>
-    
-                <button
-                class="bg-slate-200 hover:bg-slate-400 text-xs px-2 py-1 rounded"
-                id="captcha-ultraFast"
-                >ultraFast</button>
     
                 <button
                 class="bg-slate-200 hover:bg-slate-400 text-xs px-2 py-1 rounded"
