@@ -433,7 +433,11 @@ const handlePupitreAction = function (message) {
     case 'killCaptchas':
       // console.log('kill catpcahs', message.context.uuid)
       // hum that's an edge case, but if we launch a captcha by mistake, kill it immediately, and then launch another one, then that captcha will be eliminated by the old one's settimeout. So yeah we need to clear these timeouts. nice!
-      unchoosePlayer()
+      if (instance.state.get() == 'captchas-coche-multiplayer') {
+        unchoosePlayers()
+      } else {
+        unchoosePlayer()
+      }
 
       removeTimeouts(message.context)
       // well, now that we have a scenario where several captchas exist in the same
