@@ -422,6 +422,7 @@ const handlePupitreAction = function (message) {
       console.log('recieved reqNextMultiplePlayers from pupitre', message)
 
       // what would be nice is to just loop through this with a short delay and send new players on the battlefiled.
+      // ACTUALY the loop needs to be
       let howManyPlayers = message.args.players || 1
       let _loopindex = 0
 
@@ -445,6 +446,7 @@ const handlePupitreAction = function (message) {
           type: 'nextPlayerIs',
           content: chosenOne,
           context: message.args,
+          moveto: _index,
         })
       }
 

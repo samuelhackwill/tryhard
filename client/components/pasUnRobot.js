@@ -1,7 +1,7 @@
 import './pasUnRobot.html'
 import { moveOffOfCaptcha } from '../bots.js'
 import { streamer } from '../../both/streamer.js'
-import { unchoosePlayer, registerCircleElement } from '../pages/show.js'
+import { unchoosePlayer, unchoosePlayers, registerCircleElement } from '../pages/show.js'
 
 const interestingSpeeds = [
   235, 33, 40, 49, 42, 50, 52, 56, 131, 129, 61, 67, 94, 87, 109, 186, 217, 243, 275, 282, 284, 291,
@@ -300,6 +300,10 @@ const checkAndDie = function (t, handle, passed) {
 // }
 
 const checkAndDieOutro = function (t) {
+  if (instance.state.get() == 'captchas-coche-multiplayer') {
+    unchoosePlayers()
+  }
+
   if (t.data && t.data.type) {
     // console.log(`Type exists: ${t.data.type}`);
     if (t.data.type === 'tetris' || t.data.type === 'clicker') {

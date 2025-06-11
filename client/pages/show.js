@@ -231,13 +231,7 @@ function handlePupitreAction(message) {
       // })
       break
     case 'unchoosePlayers':
-      {
-        Object.values(instance.pointers.all()).forEach((obj) => {
-          let _pointer = instance.pointers.get(obj.id)
-          _pointer.chosen = undefined
-          instance.pointers.set(obj.id, _pointer)
-        })
-      }
+      unchoosePlayers()
       break
     case 'choosePlayer':
       console.log('choose player ', message)
@@ -288,11 +282,18 @@ function handlePupitreAction(message) {
 
     case 'newCaptcha-1j':
       // console.log(message.args)
-      Blaze.renderWithData(
-        Template.pasUnRobot,
-        message.args,
-        document.getElementsByClassName('milieuContainer')[0],
-      )
+      // grrmbllll if there's already a captcha don't render any additonnal captcha ok?
+      // this is because we're calling newcaptcha multiple times when we're getting several
+      // players in the multiplayer section. This is hacky as hell but i can't be arsed
+      if (document.querySelector('.pasUnRobot')) {
+        return
+      } else {
+        Blaze.renderWithData(
+          Template.pasUnRobot,
+          message.args,
+          document.getElementsByClassName('milieuContainer')[0],
+        )
+      }
       break
     case 'newTetris':
       // console.log(message.args)
@@ -1083,6 +1084,19 @@ const findPointerByBrandAndRasp = function (targetRasp, targetBrand, target) {
     // console.log('[DEBUG] ❌ No match found in mouseOrder')
     return null
   }
+}
+
+export const unchoosePlayers = function () {
+  const allPointers = Object.values(instance.pointers.all())
+
+  allPointers.forEach((pointer) => {
+    if (pointer.chosen) {
+      pointer.chosen = false
+      pointer.captchaPlayCount++
+      moveOffOfCaptcha(pointer)
+      instance.pointers.set(pointer.id, pointer)
+    }
+  })
 }
 
 export const unchoosePlayer = function (player) {

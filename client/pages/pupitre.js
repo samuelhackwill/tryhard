@@ -468,7 +468,7 @@ const checkBeforeEmit = function (context) {
 
 const handlePlanDeSalleMessage = function (message) {
   const state = message.template.selectedHeader.get()
-  console.log(state)
+  // console.log(state)
   switch (message.type) {
     case 'nextPlayerIs':
       console.log(message.context)
@@ -483,7 +483,9 @@ const handlePlanDeSalleMessage = function (message) {
           _hesitationAmount = Number(document.getElementById('hesitation-slider').value) * 1000
           _readingSpeed = Number(document.getElementById('reading-speed-slider').value)
           _surpriseAmount = document.getElementById('surprise-slider').value
+
           sendAction('choosePlayer', { chosenOne: message.content.device })
+
           sendAction('newCaptcha-1j', {
             text: getCaptchaTextAndFailstate(String(message.context.value)),
             hesitationAmount: _hesitationAmount,
@@ -493,9 +495,6 @@ const handlePlanDeSalleMessage = function (message) {
           })
           document.getElementById('surprise-slider').value = _surpriseAmount - 1
           break
-
-          break
-
         default:
           break
       }
