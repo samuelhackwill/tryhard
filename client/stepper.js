@@ -15,6 +15,8 @@ const moveAuthorized = [
   'chaises',
   'chaises-squidGame',
   'clicker-ffa',
+  'die-and-retry',
+  'die-and-retry-squidGame',
 ]
 
 const noise = new ValueNoise()

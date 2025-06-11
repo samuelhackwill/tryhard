@@ -40,9 +40,16 @@ Template.pasUnRobot.onCreated(function () {
   this.timeouts = new ReactiveVar([])
   this.uuid = crypto.randomUUID()
 
-  this.rotation = Math.floor(Math.random() * 360)
   this.top = '-45%'
-  this.left = `${Math.floor(Math.random() * 81)}%`
+
+  console.log(this.data.xfraction != undefined)
+  if (this.data.xfraction) {
+    this.left = `${window.innerWidth * this.data.xfraction - 300}px`
+    // this.rotation = 30
+  } else {
+    this.left = `${Math.floor(Math.random() * 81)}%`
+  }
+  this.rotation = Math.floor(Math.random() * 360)
 
   const speedRatio = 0.9 - -this.data.readingSpeed * 0.05
   this.minReadingTime = estimateReadingTime(this.data.text.value) * speedRatio
@@ -181,10 +188,10 @@ Template.pasUnRobot.events({
   // },
   'mousedown .checkbox-pasUnRobot'(event, t, obj) {
     if (
-      t.data.type == 'chair' &&
+      (t.data.type == 'chair' || t.data.type == 'tetris') &&
       obj.pointer.seated == false &&
       !event.target.classList.contains('clicked') &&
-      instance.state.get() == 'chaises-squidGame'
+      instance.state.get().endsWith('squidGame')
     ) {
       // console.log('someone just clicked on a chair')
       checkAndDie(t, t.view, true)

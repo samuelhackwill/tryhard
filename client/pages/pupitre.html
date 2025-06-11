@@ -21,32 +21,14 @@
         <div class="col-span-6 pr-4 overflow-y-auto" id="textLinesColumn">
           {{#if isItChairTime}}
             <div class="mt-4 pt-2 border-t-2">
-              <h1>chaises musicales</h1>
+              <h1>chaises musicales ROUND 1</h1>
 
               <div class="mb-4">
                 <button
                 class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-                id="praetorius"
-                >
-                  load praetorius
-                </button>
-                <button
-                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
                 id="fox1"
                 >
-                  load stronger monsters
-                </button>
-                <button
-                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-                id="fox2"
-                >
-                  load bonetrousle
-                </button>
-                <button
-                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
-                id="fox3"
-                >
-                  load nyeh heh heh
+                  load audio : stronger monsters
                 </button>
                 </div>
                 <h1>vitesse rotation carrousel</h1> <span>un tour en {{getDanceSpeed}}0 ms</span>
@@ -116,6 +98,148 @@
                 <button
                 class="bg-slate-200 hover:bg-orange-300 hover:text-black text-xs px-2 py-1 rounded"
                 id="chairs-squidGame"
+                >
+                squid game 
+                </button>
+
+
+              </div>
+
+              <div class="p-4 border-2">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-start-music"
+                >
+                  start music
+                </button>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-stop-music"
+                >
+                  stop music
+
+                </button>
+
+
+              </div>
+              <div class="p-4 border-2">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-start-carousel"
+                >
+                  start carousel
+                </button>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-stop-everythingCarousel"
+                >
+                  stop carousel and captcha rotation
+                </button>
+
+
+              </div>
+
+              
+            </div>
+          {{else if isItChairTimeRound2}}
+            <div class="mt-4 pt-2 border-t-2">
+              <h1>chaises musicales ROUND 2</h1>
+
+              <div class="mb-4">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="fox2"
+                >
+                  load audio : bonetrousle
+                </button>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="fox3"
+                >
+                  load audio : nyeh heh heh
+                </button>
+                </div>
+                <h1>vitesse rotation carrousel</h1> <span>un tour en {{getDanceSpeed}}0 ms</span>
+                <div class="relative mb-4 text-gray-500">
+                  <input
+                    id="danceSpeed-slider"
+                    type="range"
+                    value="{{getDanceSpeed}}"
+                    min="1"
+                    max="250"
+                    class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-300 rotate-180"
+                  />
+                </div>
+
+              <h1>nombre de chaises</h1><span>{{getChairsNumber}}</span>
+              <div class="relative mb-4 text-gray-500">
+                <input
+                  id="chairs-slider"
+                  type="range"
+                  value="{{getChairsNumber}}"
+                  min="1"
+                  max="50"
+                  class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-300"
+                />
+              </div>
+
+              <div class="p-4 border-2">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-send-jesuis"
+                >
+                <span class="text-xl"> init chaises :  {{getChairsNumber}}</span>
+                </button>
+
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="tetris-orderly-send-jesuis"
+                >
+                <span class="text-xl"> init tetris orderly :  {{getChairsNumber}}</span>
+                </button>
+
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="tetris-send-jesuis"
+                >
+                <span class="text-xl"> init tetris :  {{getChairsNumber}}</span>
+                </button>
+
+
+                <button
+                class="bg-slate-200  hover:bg-red-500 hover:text-white text-xl px-2 py-1 rounded"
+                id="chairs-killUnseated-r2"
+                >
+                kill unseated 
+                </button>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-send-lastChair"
+                >
+                <span class="text-xs"> init last chair !! {{getChairsNumber}}</span>
+                </button>
+              </div>
+
+
+              <div class="p-4 border-2">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-initRonde"
+                >
+                  init ronde
+                </button>
+  
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-stop-ronde"
+                >
+                  stop ronde
+  
+                </button>
+
+                <button
+                class="bg-slate-200 hover:bg-orange-300 hover:text-black text-xs px-2 py-1 rounded"
+                id="chairs-squidGame-r2"
                 >
                 squid game 
                 </button>

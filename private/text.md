@@ -596,6 +596,8 @@ et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
 
 `togglePointers`
 
+## die-and-retry
+
 <!-- `alignHumansInCircle` -->
 
 <!-- 1. Grace, K., Garfinkel, B., Cotra, A., Hazell, J., & Evans, O. (2022) AI Impacts -->

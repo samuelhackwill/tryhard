@@ -62,6 +62,9 @@ Template.pupitre.helpers({
   isItChairTime() {
     return Template.instance().selectedHeader.get().startsWith('chaises')
   },
+  isItChairTimeRound2() {
+    return Template.instance().selectedHeader.get().startsWith('die-and-retry')
+  },
   getCochesNumber() {
     return Template.instance().cochesNumber.get()
   },
@@ -200,6 +203,11 @@ Template.pupitre.events({
     broadcastState('chaises-squidGame')
     sendAction('squidGame')
   },
+  'click #chairs-squidGame-r2'() {
+    Template.instance().selectedHeader.set('die-and-retry-squidGame')
+    broadcastState('die-and-retry-squidGame')
+    sendAction('squidGame')
+  },
   'click #chairs-initRonde'() {
     sendAction('initRonde')
   },
@@ -212,6 +220,60 @@ Template.pupitre.events({
     broadcastState('chaises')
     sendAction('killCaptchas')
     sendAction('killUnseated')
+  },
+  'click #chairs-killUnseated-r2'() {
+    fadeAudio(musick, 'out', 300)
+    Template.instance().selectedHeader.set('die-and-retry')
+    broadcastState('die-and-retry')
+    sendAction('killCaptchas')
+    sendAction('killUnseated')
+  },
+
+  'click #tetris-orderly-send-jesuis'(e) {
+    let _index = 0
+    let _maxIndex = Number(Template.instance().chairsNumber.get())
+    let tetrisInterval = Meteor.setInterval(function () {
+      if (_index < _maxIndex) {
+        _index++
+        sendAction('newTetris', {
+          type: 'tetris',
+          // we're not getting text from the same place, look at how checkBeforeEmit
+          // is parsing the args from action lines. We need to do this because we're
+          // going to pack a hell of a lot more pseudo code in the captchas of acte II
+          text: { value: 'je ne suis pas un robot', emphasis: 'robot' },
+          hesitationAmount: 1000,
+          readingSpeed: 0,
+          surpriseAmount: -1000,
+          xfraction: _index / (_maxIndex + 1),
+        })
+      } else {
+        clearInterval(tetrisInterval)
+        return
+      }
+    }, 200)
+  },
+
+  'click #tetris-send-jesuis'(e) {
+    let _index = 0
+    let _maxIndex = Number(Template.instance().chairsNumber.get())
+    let tetrisInterval = Meteor.setInterval(function () {
+      if (_index < _maxIndex) {
+        _index++
+        sendAction('newTetris', {
+          type: 'tetris',
+          // we're not getting text from the same place, look at how checkBeforeEmit
+          // is parsing the args from action lines. We need to do this because we're
+          // going to pack a hell of a lot more pseudo code in the captchas of acte II
+          text: { value: 'je ne suis pas un robot', emphasis: 'robot' },
+          hesitationAmount: 1000,
+          readingSpeed: 0,
+          surpriseAmount: -1000,
+        })
+      } else {
+        clearInterval(tetrisInterval)
+        return
+      }
+    }, 200)
   },
   'click #chairs-send-jesuis'(e) {
     sendAction('createChairs', {
