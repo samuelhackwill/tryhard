@@ -156,8 +156,14 @@ Template.pupitre.helpers({
 })
 
 Template.pupitre.events({
-  'click #fox'() {
+  'click #fox1'() {
     musick.src = '/music/stronger_monsters_toby_fox.mp3'
+  },
+  'click #fox2'() {
+    musick.src = '/music/bonetrousle_toby_fox.mp3'
+  },
+  'click #fox3'() {
+    musick.src = '/music/nyeh_heh_heh!_toby_fox.mp3'
   },
   'click #praetorius'() {
     musick.src = '/music/spagnoleta_m_praetorius_maurizio_machella.mp3'
