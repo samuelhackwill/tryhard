@@ -23,6 +23,80 @@
 `bgTogrey`
 `showNicks` -->
 
+## les-philosophes-alt
+
+- La vie contemplative n'est utile que si elle éclaire la vie active, dit le philosophe.
+
+- "Toute la dignité de l’homme est en la pensée. Mais agir bien, c'est savoir penser en action.", dit le philosophe.
+
+- "Le but de la sagesse est la contemplation, celui de la prudence est l'action." dit le philosophe.
+
+- agiter sa souris, c'est penser avec son curseur, dit le philosophe informaticien.
+
+- cliquer ne fera pas mal à la souris, car la souris n'a pas de conscience, dit le philosophe spéciste.
+
+- cliquer ne fera pas mal à la souris, car elle est sous sédation profonde et continue jusqu'à la mort, dit le philosophe médecin-anesthésiste.
+
+- cliquer ne fera pas mal à la souris, car elle est morte depuis longtemps, c'est un cadavre de souris, pas une souris vivante, dit le philosophe-médecin-légiste.
+
+- cliquer ne fera pas vraiment mal à la souris, parce qu'elle a l'habitude, dit le philosophe traditionaliste.
+
+- cliquer fera peut-être mal à la souris, qui sait? dit le philosophe distrait, en jouant au solitaire sur son PC.
+
+- il y existe un contrat tacite entre les souris et les humains : les souris permettent aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris, ajoute la philosophe-éleveuse de souris travaillant pour le lobby de la viande.
+
+- Dieu a donné non pas un, mais deux boutons et une roulette aux souris, c'est bien la preuve que les hommes doivent cliquer dessus, ajoute le philosophe créationniste.
+
+- Oui, cliquer fera mal à la souris.
+
+- Toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer.
+
+- les souris peuvent souffrir quand on leur clique dessus. Les souris sont emprisonnées dans cette existence en raison de leur karma passé,
+
+- mais tous les êtres vivants méritent la compassion, nous explique le philosophe bouddhiste.
+
+- Non,
+
+- la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche.
+
+- Mmh,
+
+- Abordons le problème d'une manière plus systématique, dit le philosophe axiologue des populations.
+
+- Si l'on considère un nombre _x_ de souris produisant chacune _y_ unité de bonheur au cours de leur existence, alors ce qui est important ce n'est pas de leur cliquer dessus ou non, peu importe ; ce qu'il faut, c'est maximiser le nombre de souris, qu'elles soient heureuses ou non, parce que la quantité totale de bonheur à l'échelle de la planète sera plus grande. Il vaut mieux _100 000_ souris produisant chacune _1_ unité de bonheur que _10_ souris produisant chacune _100_ unités de bonheur. Oui je sais c'est contre-intuitif mais c'est ça les maths, dit le philosophe utilitariste-maximaliste-totaliste en montant dans sa Tesla.
+
+- Attendez, nuance son collègue gradualiste.
+
+- Si on considère que c'est grâce à ses _2_ boutons que la souris produit du bonheur (en cliquant), ne faut-il pas favoriser la population des claviers AZERTY, qui ont quand même 105 boutons, et peuvent donc en théorie produire _52,5_ fois plus de bonheur par tête de pipe?
+
+- Attendez attendez attendez, continue un autre
+
+- Et si on disait qu'un neurone, c'est un peu comme un bouton, vous me suivez?
+
+- Euh, disent les autres philosophes de concert
+
+- Ok, un être humain a 86 milliards de neurones environ.
+
+- Et nous sommes 8 milliards sur terre.
+
+- Ça nous donne un ordre de grandeur de 10²⁰ neurones en total. L'humanité dans son ensemble possède tout ça de neurones.
+
+- Mais les nématodes
+
+- ils ont 300 neurones chacun certes
+
+- mais ils sont 60 milliards de fois plus nombreux que nous sur terre
+
+- Collectivement, les nématodes possèdent 10³¹ neurones en total.
+
+- Il faut donc accepter que les nématodes soient _quantitativement_ l'espèce la plus capable de bonheur ou de malheur à l'échelle de la planète, et agir en conséquence, conclut le philosophe sentio-centriste.
+
+- _cliquer_
+
+- _ne pas cliquer_
+
+- _telle est la question_, conclut le philosophe anglais traduit par un fan de jeu vidéo.
+
 ## les-philosophes
 
 `moveAllPointersOffScreen`
@@ -43,15 +117,39 @@
 
 - cliquer ne fera pas vraiment mal à la souris, parce qu'elle a l'habitude, dit le philosophe traditionaliste.
 
-- il y existe un contrat tacite entre les souris et les humains : les souris permettent aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris, ajoute le philosophe-éleveur de souris.
+- cliquer fera peut-être mal à la souris, qui sait? dit le philosophe distrait, en jouant au solitaire sur son PC.
 
-- Dieu a donné non pas un, mais deux boutons et une roulette aux souris, c'est bien la preuve que les hommes doivent cliquer dessus, dit le philosophe créationniste.
+- il y existe un contrat tacite entre les souris et les humains : les souris permettent aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris, ajoute la philosophe-éleveuse de souris travaillant pour le lobby de la viande.
 
-- Oui, les souris peuvent souffrir quand on leur clique dessus. Les souris sont emprisonnées dans cette existence en raison de leur karma passé, nous explique le philosophe bouddhiste.
+- Dieu a donné non pas un, mais deux boutons et une roulette aux souris, c'est bien la preuve que les hommes doivent cliquer dessus, ajoute le philosophe créationniste.
 
-- Oui, cliquer fera mal à la souris ; mais la douleur n'est qu'une information transmise au cerveau, dit le philosophe ascétique.
+- Oui.
+
+- Oui, cliquer fera mal à la souris.
+
+- Toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer.
+
+- Oui!
+
+- mais la douleur n'est qu'une information transmise au cerveau, dit le philosophe ascétique.
+
+- Oui,
+
+- les souris peuvent souffrir quand on leur clique dessus. Les souris sont emprisonnées dans cette existence en raison de leur karma passé,
+
+- mais tous les êtres vivants méritent la compassion, nous explique le philosophe bouddhiste.
+
+- Non,
 
 - la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche.
+
+<!-- - quand la paix règne, la souris belliqueuse se fait la guerre à elle-même, dit Nietzsche. -->
+
+- La pire des maladies provient de la façon dont les souris ont combattu leurs maux, dit Nietzsche.
+
+<!-- - Les souris se pressent vers la lumière, non pour mieux voir, mais pour mieux briller, dit Nietzsche. -->
+
+- On voit à la démarche de chacun s'il a trouvé sa route. La souris qui s'approche de son but ne marche plus, elle danse, dit Nietzsche.
 
 <!-- - il n'est pas certain que la souris ait mal, mais c'est une possibilité. et en raison du nombre important de souris qu'il y a au théâtre de l'Elysée, il est raisonnable de renoncer à cliquer sur la souris au cas où, dit le philosophe sentio-centriste.
 
@@ -63,17 +161,15 @@
 
 - oui, et maintenant que l'humanité a le pouvoir d'organiser les conditions de la vie, nous avons le devoir moral de maximiser le nombre de clics produits à l'échelle de l'univers, conclut son collègue utilitariste-totaliste-maximaliste résidant dans la silicon valley. -->
 
-- toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer.
-
 <!-- - "Aussi y a-t-il des souris qui, sans aucunes connaissances, sont plus propres à l'action que d'autres qui sont plus instruites qu'elles ; et, parmi les autres souris, celles qui ont de l'expérience sont dans le même cas. En effet, on a beau savoir que les viandes légères sont saines et de facile digestion, si l'on ne sait pas quelles sont ces viandes légères, on ne guérira pas une souris malade; mais celle qui saura que c'est la chair des oiseaux qui est légère et saine, y réussira mieux," dit Aristote. -->
 
-- il n'est pas certain que la souris ait mal, mais c'est une possibilité. et en raison du nombre important de souris qu'il y a dans le théâtre de l'Elysée, il est raisonnable de renoncer à cliquer sur la souris au cas où, dit le philosophe sentio-centriste.
+<!-- - il n'est pas certain que la souris ait mal, mais c'est une possibilité. et en raison du nombre important de souris qu'il y a dans le théâtre de l'Elysée, il est raisonnable de renoncer à cliquer sur la souris au cas où, dit le philosophe sentio-centriste.
 
 - dans l'hypothèse où la souris souffre, pondérons tout de même sa souffrance au nombre de boutons qu'elle possède, afin de hiérarchiser nos priorités morales, par exemple vis à vis des claviers AZERTY 105 touches, nuance son collègue gradualiste.
 
 - la souris aura mal, certes, mais ce qui compte ce n'est pas sa souffrance prise individuellement. Si une souris souffre pour que tous les humains dans la salle soient contents, alors il faut cliquer, car le total de plaisir _x_ est supérieur au total de souffrance _y_, dit le philosophe axiologue des populations.
 
-- dans ce cas, non seulement il faut cliquer sur la souris, mais il faut cliquer le plus possible, ajoute son collègue utilitariste-totaliste.
+- dans ce cas, non seulement il faut cliquer sur la souris, mais il faut cliquer le plus possible, ajoute son collègue utilitariste-totaliste. -->
 
 `hideFeed`
 `clearFeed`
