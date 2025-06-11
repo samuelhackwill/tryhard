@@ -278,7 +278,12 @@ je suis le meilleur humain. _un robot humble_ [1][1]
 
 <!-- je suis le pire humain, mais moi au moins je suis humble. _un robot qui se respecte_ [1][1] -->
 
-<!-- KINETIQUES -->
+## captchas-coche-multiplayer
+
+je ne suis pas un robot
+je suis un robot
+
+## captchas-kinetic-1j
 
 je ne suis pas un robot (très facile) <!-- nothing -->
 je ne suis pas un robot (facile) <!-- spin -->
@@ -306,11 +311,6 @@ je ne suis pas un robot (impossible) <!-- rotation + invisible -->
 
 `tetris [je ne suis pas un robot (tryhard)]`
  -->
-
-## captchas-coche-multiplayer
-
-je ne suis pas un robot
-je suis un robot
 
 ## captchas-coche-conclusion
 
