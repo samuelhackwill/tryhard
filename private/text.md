@@ -275,24 +275,26 @@ je suis humain, et en plus, je suis un bon humain. _un robot manquant de confian
 
 <!-- EDGE CASE : i need to modify the captcha fail code to account for the fact that there's several mice -->
 
-je suis le meilleur humain. _des personnes humbles_
-je suis le plus humble humain. _des personnes qui ont compris le piège_
-je suis le plus rapide humain. _des personnes qui n'avaient pas envie de courir_
-je suis le plus sage humain. _des personnes sobres_
-je suis le plus artiste humain. _des personnes qui pensent que tout le monde est un peu artiste_
+je suis le meilleur humain. _ces souris sont probablement des robots humbles_
+je suis le plus humble humain. _ces souris sont probablement des robots qui ont compris le piège_
+je suis le plus rapide humain. _ces souris sont probablement des robots qui n'avaient pas envie de courir_
+je suis le plus sage humain. _ces souris sont probablement des robots sobres_
+je suis le plus artiste humain. _ces souris sont probablement des robots qui pensent que tout le monde est un peu artiste_
 
-je suis un humain qui ne perdra pas son travail à cause d'un robot. _deux personnes qui connaissent un peu l'Histoire_
-je suis un humain qui ne perdra pas son appartement à cause d'un bug informatique dans le logiciel de la CAF. _deux personnes qui savent que ce genre de chose a déjà lieu_
-je suis un humain qui ne subira pas la discrimination invisible d'un algorithme. _deux personnes qui savent que ce genre de chose a déjà lieu_
-je suis un humain qui pourra boire de l'eau potable en 2050. _deux personnes inquiètes et lucides_
-je suis un humain qui pourra recevoir des soins palliatifs en 2050. _deux personnes inquiètes et lucides_
-je suis un humain qui pourra manger des abricots en 2050. _deux personnes inquiètes et lucides_
+je suis un humain qui ne perdra pas son travail à cause d'un robot. _ces souris sont probablement des robots qui connaissent un peu l'Histoire_
+je suis un humain qui ne perdra pas son appartement à cause d'un bug informatique dans le logiciel de la CAF. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
+je suis un humain qui ne subira pas la discrimination invisible d'un algorithme. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
+je suis un humain qui pourra boire de l'eau potable en 2050. _ces souris sont probablement des robots inquiets et lucides_
+je suis un humain qui pourra recevoir des soins palliatifs en 2050. _ces souris sont probablement des robots inquiets et lucides_
+je suis un humain qui pourra manger des abricots en 2050. _ces souris sont probablement des robots inquiets et lucides_
 
-je suis un humain qui pense que cette situation a été causée par le capitalisme _deux personnes qui se méfient des explications séduisantes_
-je suis un humain qui pense que cette situation a été causée par la bêtise et la brutalité humaine _deux personnes qui ont encore envie d'aimer l'humanité_
-je suis un humain qui pense que cette situation a été causée par le hasard _deux personnes qui ont encore envie de croire en quelque chose_
-je suis un humain qui pense que cette situation a été causée par l'auteur de la performance, Samuel _deux personnes qui n'ont pas compris que c'est Samuel qui avait écrit cette performance_
-je suis un humain qui pense pouvoir battre Samuel à son propre jeu _normalement on ne devrait jamais voir ce texte parce que Samuel a trop envie de gagner_
+je suis un humain qui pense que cette situation a été causée par le capitalisme _ces souris sont probablement des robots qui se méfient des slogans_
+je suis un humain qui pense que cette situation a été causée par la bêtise et la brutalité humaine _ces souris sont probablement des robots qui ont encore envie d'aimer l'humanité_
+je suis un humain qui pense que cette situation a été causée par le hasard _ces souris sont probablement des robots qui ont encore envie de croire en quelque chose_
+je suis un humain qui pense que cette situation a été causée par l'auteur de la performance, Samuel _ces souris sont probablement des robots qui n'ont pas compris que c'est Samuel qui avait écrit cette performance_
+`duelSamuel`
+
+<!-- je suis un humain qui pense pouvoir battre Samuel à son propre jeu _normalement on ne devrait jamais voir ce texte parce que Samuel a trop envie de gagner_ -->
 
 ## captchas-kinetic-1j
 
@@ -323,7 +325,7 @@ je ne suis pas un robot (impossible) <!-- rotation + invisible -->
 `tetris [je ne suis pas un robot (tryhard)]`
  -->
 
-## captchas-coche-conclusion
+## captchas-coche-conclusion-1j
 
 `moveAllPointersOffScreen`
 
@@ -331,7 +333,7 @@ je. ne. suis. pas. un. robot. _un robot qui n'a pas compris la ponctuation_ [1][
 je suis humain et par contre combien de temps encore ça va durer ce jeu? _un robot patient_ [1][-1]
 je suis humain et donc j'ai d'autres choses à faire de ma soirée _un robot qui assume de ne rien avoir à faire d'autre de sa soirée_ [1][-1]
 je suis humain et je vais porter plainte contre le théâtre _un robot qui préfère se faire justice soi-même_ [1][-1]
-c'est du théâtre ça? _un robot pour qui l'art est ce qui rend la vie plus intéressante que l'art_ [1][-1]
+c'est du théâtre ça? _un robot qui respecte la création contemporaine_ [1][-1]
 ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs partout_ [1][1]
 
 <!-- ok alors en fait tout le spectacle c'est des capeutchas. on intègre les principes de game design de la deuxième séquence dans des captchas multiplayer. -->

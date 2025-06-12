@@ -418,50 +418,70 @@ const handlePupitreAction = function (message) {
         })
       }
       break
-    case 'reqNextMultiplePlayers':
-      console.log('recieved reqNextMultiplePlayers from pupitre', message)
-
-      // what would be nice is to just loop through this with a short delay and send new players on the battlefiled.
-      // ACTUALY the loop needs to be
-      let howManyPlayers = message.args.players || 1
-      let _loopindex = 1
-
-      const getNextPlayer = function () {
-        let _index = message.planInstance.index.get()
-        const highest = mouseOrder.findOne({}, { sort: { order: -1 } })
-        const maxIndex = highest?.order || 0
-
-        // if index WAS >= the max number of collection, go back to one
-        if (_index >= maxIndex) {
-          _index = 1
-        } else {
-          _index = _index + 1
-        }
-
-        const chosenOne = mouseOrder.findOne({ order: _index })
-
-        message.planInstance.index.set(_index)
-
-        streamer.emit('planDeSalleMessage', {
-          type: 'nextPlayerIs',
-          content: chosenOne,
-          context: message.args,
-          moveTo: _loopindex / (howManyPlayers + 1),
-          checkBoxAmount: message.args.coches,
-        })
+    case 'duelSamuel':
+      const obj = {
+        type: 'text',
+        value:
+          "je suis un humain qui pense que cette situation a été causée par l'auteur de la performance, Samuel _ces souris sont probablement des robots qui n'ont pas compris que c'est Samuel qui avait écrit cette performance_",
+        players: 2,
+        duelSamuel: true,
       }
+      const _message = { ...message, args: obj }
+      reqNextMultiplePlayers(_message)
+      break
+    case 'reqNextMultiplePlayers':
+      console.log('fefefe!!!!!', message)
 
-      let proutos = Meteor.setInterval(function () {
-        _loopindex++
-        if (_loopindex > howManyPlayers) {
-          clearInterval(proutos)
-          return
-        } else {
-          getNextPlayer()
-        }
-      }, 30)
-
-      getNextPlayer()
+      reqNextMultiplePlayers(message)
       break
   }
+}
+const reqNextMultiplePlayers = function (message) {
+  console.log('received reqNextMultiplePlayers from pupitre', message)
+
+  let howManyPlayers = message.args.players || 1
+  let _loopindex = 1
+
+  const getNextPlayer = function () {
+    let chosenOne
+
+    if (message.content === 'duelSamuel' && _loopindex === 1) {
+      // special case: first player forced to order -1
+      chosenOne = mouseOrder.findOne({ order: -1 })
+      console.log('IS THIS SAMUEL? ', chosenOne)
+    } else {
+      let _index = message.planInstance.index.get()
+      const highest = mouseOrder.findOne({}, { sort: { order: -1 } })
+      const maxIndex = highest?.order || 0
+
+      if (_index >= maxIndex) {
+        _index = 1
+      } else {
+        _index = _index + 1
+      }
+
+      chosenOne = mouseOrder.findOne({ order: _index })
+      message.planInstance.index.set(_index)
+    }
+
+    streamer.emit('planDeSalleMessage', {
+      type: 'nextPlayerIs',
+      content: chosenOne,
+      context: message.args,
+      moveTo: _loopindex / (howManyPlayers + 1),
+      checkBoxAmount: message.args.coches,
+    })
+  }
+
+  const proutos = Meteor.setInterval(function () {
+    _loopindex++
+    if (_loopindex > howManyPlayers) {
+      clearInterval(proutos)
+      return
+    } else {
+      getNextPlayer()
+    }
+  }, 30)
+
+  getNextPlayer()
 }

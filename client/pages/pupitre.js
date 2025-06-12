@@ -38,7 +38,7 @@ Template.pupitre.onCreated(function () {
   this.selectedPlayer = new ReactiveVar('ffa')
   this.chairsNumber = new ReactiveVar(35)
   this.cochesNumber = new ReactiveVar(1)
-  this.playersNumber = new ReactiveVar(1)
+  this.playersNumber = new ReactiveVar(2)
   this.danceSpeed = new ReactiveVar(100)
   Meteor.call('returnText', (err, res) => {
     if (err) {
@@ -466,11 +466,12 @@ const checkBeforeEmit = function (context) {
       case 'captchas-kinetic-1j':
         sendAction('reqNextPlayer', context)
         break
-      case 'captchas-coche-conclusion':
+      case 'captchas-coche-conclusion-1j':
         sendAction('reqNextPlayer', context)
         break
       case 'captchas-coche-multiplayer':
         // Add extra info to context for multiplayer
+        console.log(context)
         const multiplayerContext = {
           ...context,
           players: Number(Template.instance().playersNumber.get()),
