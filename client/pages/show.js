@@ -93,6 +93,10 @@ function handlePupitreAction(message) {
   switch (message.content) {
     case 'toggleFFA':
       Object.values(instance.pointers.all()).forEach((obj) => {
+        _coords = document.getElementById(obj.id).dataset
+        console.log('reseting initialisation coords ', _coords)
+        obj.initializationCoords = { x: _coords.x, y: _coords.y }
+
         obj.chosen = undefined
         obj.bot = false
         instance.pointers.set(obj.id, obj)
