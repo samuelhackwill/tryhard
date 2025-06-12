@@ -15,6 +15,16 @@
 `addPodium`
 `removePodium`
 
+`killCaptchas`
+
+`bgTogrey`
+`showNicks`
+`togglePointers`
+
+`unchoosePlayers`
+`mutePointers`
+`toggleFFA`
+
 <!-- `samuelSpawn`
 `samuelGo!`
 `samuelShow`
@@ -95,9 +105,10 @@
 
 - _telle est la question_, conclut le philosophe anglais traduit par un fan de jeu vidéo.
 
-## les-philosophes
+`hideFeed`
+`clearFeed`
 
-`moveAllPointersOffScreen`
+## les-philosophes
 
 - La vie contemplative n'est utile que si elle éclaire la vie _active_, dit le philosophe.
 
@@ -171,12 +182,6 @@
 ## captchas-coche-1j
 
 <!-- attention "captchas-single-player" est utilisé comme trigger dans le pupitre, ne pas changer le titre svp -->
-
-`killCaptchas`
-
-`bgTogrey`
-`showNicks`
-`togglePointers`
 
 je ne suis pas un robot _un robot_ [1][-1]
 je ne suis pas un robot _un robot_ [1][-1]
@@ -292,6 +297,7 @@ je suis un humain qui pense que cette situation a été causée par le capitalis
 je suis un humain qui pense que cette situation a été causée par la bêtise et la brutalité humaine _ces souris sont probablement des robots qui ont encore envie d'aimer l'humanité_
 je suis un humain qui pense que cette situation a été causée par le hasard _ces souris sont probablement des robots qui ont encore envie de croire en quelque chose_
 je suis un humain qui pense que cette situation a été causée par l'auteur de la performance, Samuel _ces souris sont probablement des robots qui n'ont pas compris que c'est Samuel qui avait écrit cette performance_
+
 `duelSamuel`
 
 <!-- je suis un humain qui pense pouvoir battre Samuel à son propre jeu _normalement on ne devrait jamais voir ce texte parce que Samuel a trop envie de gagner_ -->
@@ -326,8 +332,6 @@ je ne suis pas un robot (impossible) <!-- rotation + invisible -->
  -->
 
 ## captchas-coche-conclusion-1j
-
-`moveAllPointersOffScreen`
 
 je. ne. suis. pas. un. robot. _un robot qui n'a pas compris la ponctuation_ [1][-1]
 je suis humain et par contre combien de temps encore ça va durer ce jeu? _un robot patient_ [1][-1]
@@ -371,9 +375,6 @@ ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs 
 `ImgCapNoSelect[Sélectionnez la pensée pensée par le yaourt, thingswithfaces, 5, AUCUNE (C'EST UN YAOURT), "JE NE VEUX PAS ÊTRE DIGÉRÉ", "TOUTE LA VIE D'UN YAOURT OSCILLE TEL UN PENDULE ENTRE L'ENNUI ET LA SOUFFRANCE"]`
 
 `ImgCapNoSelect[Sélectionnez la pensée pensée par la terrasse recouverte de neige, thingswithfaces, 6, AUCUNE (ELLE DORT PAISIBLEMENT), AUCUNE (C'EST UNE TERRASSE RECOUVERTE DE NEIGE), "ENFIN LE WEEK-END"]`
-
-`unchoosePlayers`
-`moveAllPointersOffScreen`
 
 `clearFeed`
 `showFeed`
@@ -540,9 +541,6 @@ pendant que je mange, je vous propose un interlude.
 
 `killClickerGrid`
 `hideMoney`
-
-`addPodium`
-`removePodium`
 
 <!--
 les souris ont cliqué x fois, c'est beaucoup

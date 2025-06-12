@@ -430,8 +430,6 @@ const handlePupitreAction = function (message) {
       reqNextMultiplePlayers(_message)
       break
     case 'reqNextMultiplePlayers':
-      console.log('fefefe!!!!!', message)
-
       reqNextMultiplePlayers(message)
       break
   }
@@ -448,7 +446,6 @@ const reqNextMultiplePlayers = function (message) {
     if (message.content === 'duelSamuel' && _loopindex === 1) {
       // special case: first player forced to order -1
       chosenOne = mouseOrder.findOne({ order: -1 })
-      console.log('IS THIS SAMUEL? ', chosenOne)
     } else {
       let _index = message.planInstance.index.get()
       const highest = mouseOrder.findOne({}, { sort: { order: -1 } })
