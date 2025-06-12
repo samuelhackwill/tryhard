@@ -33,6 +33,7 @@ import '../components/main.js'
 import './show.html'
 
 const circleElements = []
+let stop = undefined
 
 Template.show.onCreated(function () {
   streamer.on('pupitreStateChange', function (message) {
@@ -160,6 +161,18 @@ function handlePupitreAction(message) {
           element.classList.remove('skipHighlight')
         })
       }
+      break
+    case 'startColor':
+      const boxes = document.querySelectorAll('.pasUnRobotWhiteBox')
+
+      // Start "single red" animation
+      stop = animatePasUnRobotWhiteBox(boxes, 'single')
+
+      break
+    case 'stopColor':
+    case 'killUnseated':
+      if (stop != undefined) stop()
+      // console.log('stopping', stop != undefined)
       break
     case 'startCarousel':
       {
@@ -1172,4 +1185,35 @@ export const registerCircleElement = function (instance, width, height, howMany)
   if (circleElements.length === howMany) {
     recalculateCirclePositions()
   }
+}
+function animatePasUnRobotWhiteBox(divs, mode = 'single') {
+  let index = 0
+  const total = divs.length
+  let interval
+
+  const updateColors = () => {
+    console.log('animating opacity')
+    divs.forEach((div, i) => {
+      if (mode === 'single') {
+        div.style.opacity = i === index ? '1' : '0'
+      } else if (mode === 'odd') {
+        const isOdd = i % 2 === 1
+        const active = index % 2 === 0 ? isOdd : !isOdd
+        div.style.opacity = active ? '1' : '0'
+      }
+    })
+
+    if (mode === 'single') {
+      index = (index + 1) % total
+    } else if (mode === 'odd') {
+      index = (index + 1) % 2 // toggle between odd/even mode
+    }
+  }
+
+  // Start the loop
+  updateColors()
+  interval = setInterval(updateColors, 300)
+
+  // Return handle to stop it later if needed
+  return () => clearInterval(interval)
 }

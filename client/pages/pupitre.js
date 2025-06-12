@@ -188,6 +188,12 @@ Template.pupitre.events({
   'click #chairs-start-carousel'() {
     sendAction('startCarousel')
   },
+  'click #chairs-start-color'() {
+    sendAction('startColor')
+  },
+  'click #chairs-stop-color'() {
+    sendAction('stopColor')
+  },
 
   'click #chairs-stop-everythingCarousel'() {
     sendAction('stopEverythingCarousel')
@@ -229,28 +235,12 @@ Template.pupitre.events({
     sendAction('killUnseated')
   },
 
-  'click #tetris-orderly-send-jesuis'(e) {
-    let _index = 0
-    let _maxIndex = Number(Template.instance().chairsNumber.get())
-    let tetrisInterval = Meteor.setInterval(function () {
-      if (_index < _maxIndex) {
-        _index++
-        sendAction('newTetris', {
-          type: 'tetris',
-          // we're not getting text from the same place, look at how checkBeforeEmit
-          // is parsing the args from action lines. We need to do this because we're
-          // going to pack a hell of a lot more pseudo code in the captchas of acte II
-          text: { value: 'je ne suis pas un robot', emphasis: 'robot' },
-          hesitationAmount: 1000,
-          readingSpeed: 0,
-          surpriseAmount: -1000,
-          xfraction: _index / (_maxIndex + 1),
-        })
-      } else {
-        clearInterval(tetrisInterval)
-        return
-      }
-    }, 200)
+  'click #tetris-lr-send'(e) {
+    sendTetris(false)
+  },
+
+  'click #tetris-rl-send'(e) {
+    sendTetris(true)
   },
 
   'click #tetris-send-jesuis'(e) {
@@ -719,4 +709,32 @@ const fadeAudio = function (audioElement, fadeType = 'in', duration = 10000) {
       }
     }, stepTime)
   }
+}
+
+const sendTetris = function (invertDirection) {
+  let _index = 0
+  let _maxIndex = Number(Template.instance().chairsNumber.get())
+  let tetrisInterval = Meteor.setInterval(function () {
+    if (_index < _maxIndex) {
+      _index++
+
+      // Compute xfraction with possible inversion
+      let xfraction = _index / (_maxIndex + 1)
+      if (invertDirection) {
+        xfraction = 1 - xfraction
+      }
+
+      sendAction('newTetris', {
+        type: 'tetris',
+        text: { value: 'je ne suis pas un robot', emphasis: 'robot' },
+        hesitationAmount: 1000,
+        readingSpeed: 0,
+        surpriseAmount: -1000,
+        xfraction: xfraction,
+      })
+    } else {
+      clearInterval(tetrisInterval)
+      return
+    }
+  }, 200)
 }
