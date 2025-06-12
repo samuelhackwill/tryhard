@@ -476,8 +476,7 @@ const unseatEveryone = function () {
     const _pointer = pointer
     _pointer.seated = false
     _pointer.crouching = false
-    _pointer.bgColor = '#000000'
-    _pointer.outlineColor = '#FFFFFF'
+    _pointer.bgColor = _pointer.formerColor
     _pointer.hoveredElementId = 'feed'
     instance.pointers.set(key, _pointer)
   })

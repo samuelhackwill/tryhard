@@ -198,6 +198,7 @@ Template.pasUnRobot.events({
       obj.pointer.seated = true
       obj.pointer.hoveredElementId = 'feed'
       setTimeout(() => {
+        obj.pointer.formerColor = obj.pointer.bgColor
         obj.pointer.bgColor = 'oklch(0.488 0.243 264.376)'
         instance.pointers.set(obj.pointer.id, obj.pointer)
         setTimeout(() => {

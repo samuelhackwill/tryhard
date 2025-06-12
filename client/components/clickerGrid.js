@@ -336,7 +336,7 @@ const updateTopMouse = function (context) {
   allPointers.forEach((p) => {
     if (!podiumPointerIds.includes(p.id)) {
       p.bgColor = '#000000' // Default (black)
-      p.outlineColor = '#FFFFFF' // Default (white)
+      // p.outlineColor = '#FFFFFF' // Default (white)
       instance.pointers.set(p.id, p)
     }
   })
@@ -348,25 +348,25 @@ const updateTopMouse = function (context) {
 
     if (rank === 1) {
       _pointer.bgColor = '#FFD700' // Gold
-      _pointer.outlineColor = '#000000'
+      // _pointer.outlineColor = '#000000'
 
       document.querySelector('#clickCounter-goldMouse').firstChild.nodeValue = moneyElements[0]
       document.querySelector('#whois-goldMouse').firstChild.nodeValue = _pointer.order
     } else if (rank === 2) {
       _pointer.bgColor = '#C7C7C7' // Silver
-      _pointer.outlineColor = '#000000'
+      // _pointer.outlineColor = '#000000'
 
       document.querySelector('#clickCounter-silverMouse').firstChild.nodeValue = moneyElements[1]
       document.querySelector('#whois-silverMouse').firstChild.nodeValue = _pointer.order
     } else if (rank === 3) {
       _pointer.bgColor = '#815924' // Copper
-      _pointer.outlineColor = '#000000'
+      // _pointer.outlineColor = '#000000'
 
       document.querySelector('#clickCounter-bronzeMouse').firstChild.nodeValue = moneyElements[2]
       document.querySelector('#whois-bronzeMouse').firstChild.nodeValue = _pointer.order
     } else if (rank === 4) {
       _pointer.bgColor = '#000000' // no special color for you
-      _pointer.outlineColor = '#FFFFFF' // no special color for you
+      // _pointer.outlineColor = '#FFFFFF' // no special color for you
 
       document.querySelector('#clickCounter-fourthMouse').firstChild.nodeValue = moneyElements[3]
       document.querySelector('#whois-fourthMouse').firstChild.nodeValue = _pointer.order

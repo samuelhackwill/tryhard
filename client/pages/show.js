@@ -463,6 +463,9 @@ Template.show.helpers({
   //     return false
   //   }
   // },
+  isMinusOne() {
+    return this.order == -1
+  },
   isChosen() {
     if (this.crouching) {
       return false
