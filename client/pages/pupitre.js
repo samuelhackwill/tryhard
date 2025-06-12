@@ -194,6 +194,15 @@ Template.pupitre.events({
   'click #chairs-stop-color'() {
     sendAction('stopColor')
   },
+  'click #flash-hapy'() {
+    sendAction('flash-hapy')
+  },
+  'click #flash-angry'() {
+    sendAction('flash-angry')
+  },
+  'click #flash-parodelia'() {
+    sendAction('flash-parodelia')
+  },
 
   'click #chairs-stop-everythingCarousel'() {
     sendAction('stopEverythingCarousel')

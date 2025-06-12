@@ -40,6 +40,16 @@ const handlePupitreAction = function (message) {
     case 'bgToMaroon':
       instance.bgColor.set('#8d4343')
       break
+    case 'flash-hapy':
+      flash('/samcontan/1.png')
+      break
+    case 'flash-angry':
+      flash('/samcontan/2.png')
+      break
+    case 'flash-parodelia':
+      const randomNum = Math.floor(Math.random() * 6) + 1
+      flash(`/thingswithfaces/${randomNum}.png`)
+      break
     case 'burnPointers':
       addFlames()
       break
