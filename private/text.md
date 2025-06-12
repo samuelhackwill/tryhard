@@ -407,21 +407,20 @@ je suis sûr que vous pouvez m'aider.
 `ImgCapInfinite[Sélectionnez uniquement les grains de riz RONDS : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 2000 grains peut-être? j'ai une petite faim, rice, 2000]`
 `alignPointersBot`
 
-## recre-ffa
+<!-- ## recre-ffa -->
 
 <!-- `reqNextPlayer`
 `unchoosePlayer` -->
-
-`toggleFFA`
 
 ## recre-outro-bad
 
 <!-- `moveAllPointersOffScreen` -->
 
+`mutePointers`
 `clearFeed`
+`showFeed`
 ok mais
 vous savez pas ce que c'est un risotto en fait
-`showFeed`
 `newClickerGrid`
 pardon je suis peut-être un peu trop négatif (c'est la faim)
 `clicker [total]`
@@ -444,10 +443,10 @@ pendant que je mange mon... risotto.
 
 ## recre-outro-ok
 
-merci pour votre aide!
-`moveAllPointersOffScreen`
+`mutePointers`
 `clearFeed`
 `showFeed`
+merci pour votre aide!
 vous avez fait un très bon travail!
 `newClickerGrid`
 enfin
@@ -470,12 +469,12 @@ pendant que je mange je vous propose un interlude.
 
 ## recre-outro-outstanding
 
-wow
-honnêtement, personne n'avait jamais fait un aussi bon score
-`moveAllPointersOffScreen`
-mon risotto va être magnifique!
+`mutePointers`
 `clearFeed`
 `showFeed`
+wow
+honnêtement, personne n'avait jamais fait un aussi bon score
+mon risotto va être magnifique!
 enfin
 `newClickerGrid`
 notre risotto
@@ -580,8 +579,9 @@ je suis la dernière personne de la performance qui va cliquer -->
 `bgToblack`
 `clearFeed`
 `showFeed`
+`mutePointers`
 
-`moveAllPointersOffScreen`
+<!-- `togglePointers` -->
 
 pour en revenir au pointeur de souris
 que vous êtes
@@ -663,9 +663,6 @@ et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
 
 `hideFeed`
 `toggleFFA`
-`alignHumansInCircle`
-
-`togglePointers`
 
 ## die-and-retry
 
