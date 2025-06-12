@@ -18,7 +18,6 @@
 `killCaptchas`
 
 `bgTogrey`
-`showNicks`
 `togglePointers`
 
 `unchoosePlayers`
