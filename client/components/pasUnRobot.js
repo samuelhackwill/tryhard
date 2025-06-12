@@ -136,6 +136,9 @@ Template.pasUnRobot.helpers({
   isFailed() {
     return Template.instance().failed.get()
   },
+  isSinglePlayer() {
+    return instance.state.get().endsWith('1j')
+  },
   isPassed() {
     return Template.instance().passed.get()
   },

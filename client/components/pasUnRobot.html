@@ -84,7 +84,7 @@
             {{else}}
             <div class="text-red-600 text-[1.8em] mt-[0.5em] transition-opacity {{isWarning}}" id="warning"> 
               {{#if isFailed}}
-              la personne n°{{this.chosenOne}} est probablement {{this.text.emphasis}}
+              {{#if isSinglePlayer}}la personne n°{{this.chosenOne}} est probablement {{/if}}{{this.text.emphasis}}
               {{else}}
               merci de cocher la petite case
               {{/if}}
