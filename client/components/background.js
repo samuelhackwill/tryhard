@@ -390,6 +390,11 @@ const killUnseated = function () {
 
   pointers.forEach((pointer, index) => {
     const pointerData = instance.pointers.get(pointer.id)
+
+    if (pointerData.order === -1) {
+      return
+    }
+
     const isSeated = pointerData.seated
     const isDead = pointerData.bot
 
