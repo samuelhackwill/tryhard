@@ -3,6 +3,7 @@ import { ValueNoise } from 'value-noise-js'
 import { streamer } from '../both/streamer.js'
 // import { observe } from './observe.js'
 import { createPointer, checkHover } from '../client/pages/show.js'
+import { isArray } from 'jquery'
 
 let clientEventQueue = []
 
@@ -97,8 +98,9 @@ function handleTickUpdate(message) {
 
     // let's check if we can move
     const moveForbiden = !moveAuthorized.includes(instance.state.get())
+    const isItAdmin = pointer.order == -1
 
-    if (moveForbiden && (pointer.chosen == undefined || pointer.chosen == false)) {
+    if (moveForbiden && (pointer.chosen == undefined || pointer.chosen == false) && !isItAdmin) {
       // console.log(
       //   'move forbidden during sequence ',
       //   instance.state.get(),

@@ -32,7 +32,7 @@
 `bgTogrey`
 `showNicks` -->
 
-## les-philosophes-alt
+## les-philosophes
 
 - La vie contemplative n'est utile que si elle éclaire la vie active, dit le philosophe.
 
@@ -107,6 +107,7 @@
 `hideFeed`
 `clearFeed`
 
+<!--
 ## les-philosophes
 
 - La vie contemplative n'est utile que si elle éclaire la vie _active_, dit le philosophe.
@@ -176,7 +177,7 @@
 - dans ce cas, non seulement il faut cliquer sur la souris, mais il faut cliquer le plus possible, ajoute son collègue utilitariste-totaliste. -->
 
 `hideFeed`
-`clearFeed`
+`clearFeed` -->
 
 ## captchas-coche-1j
 
@@ -421,91 +422,7 @@ je suis sûr que vous pouvez m'aider.
 <!-- `reqNextPlayer`
 `unchoosePlayer` -->
 
-## recre-outro-bad
-
-<!-- `moveAllPointersOffScreen` -->
-
-`mutePointers`
-`clearFeed`
-`showFeed`
-ok mais
-vous savez pas non plus ce que c'est un risotto en fait
-`newClickerGrid`
-pardon je suis peut-être un peu trop négatif (c'est sans doute parce que j'ai faim)
-`clicker [total]`
-`clicker [gradinDuFond]`
-et puis c'est probablement la première fois que vous êtes aussi nombreux.se.s en cuisine
-`clicker [gradinDuDevant]`
-`clicker [bestGradin]`
-`clicker [goldMouse]`
-`clicker [silverMouse]`
-`clicker [bronzeMouse]`
-`clicker [fourthMouse]`
-`clicker [chomdu]`
-mais j'ai compris la leçon
-`clicker [insee]`
-je vais vous proposer une activité plus
-`clicker [speed]`
-intuitive
-`clicker [speedWorldRecord]`
-pendant que je mange mon "risotto".
-
-## recre-outro-ok
-
-`mutePointers`
-`clearFeed`
-`showFeed`
-merci pour votre aide!
-vous avez fait un très bon travail!
-`newClickerGrid`
-enfin
-`clicker [total]`
-un robot aurait été plus rapide
-`clicker [gradinDuFond]`
-`clicker [gradinDuDevant]`
-`clicker [bestGradin]`
-et plus précis bien sûr
-`clicker [goldMouse]`
-`clicker [silverMouse]`
-mais vous l'avez fait plus _gentiment_ qu'un robot.
-`clicker [bronzeMouse]`
-`clicker [fourthMouse]`
-`clicker [chomdu]`
-`clicker [insee]`
-pendant que je mange je vous propose un interlude.
-`clicker [speed]`
-`clicker [speedWorldRecord]`
-
-## recre-outro-outstanding
-
-`mutePointers`
-`clearFeed`
-`showFeed`
-wow
-honnêtement, personne n'avait jamais fait un aussi bon score
-mon risotto va être magnifique!
-enfin
-`newClickerGrid`
-notre risotto
-`clicker [total]`
-`clicker [gradinDuFond]`
-vous avez travaillé aussi bien qu'un robot
-`clicker [gradinDuDevant]`
-`clicker [bestGradin]`
-voir même mieux.
-`clicker [goldMouse]`
-`clicker [silverMouse]`
-je me permets de transmettre un enregistrement de votre session à mon robot trieur de riz pour qu'il en prenne de la graine.
-`clicker [bronzeMouse]`
-`clicker [fourthMouse]`
-ça vous dérange pas j'imagine.
-`clicker [chomdu]`
-`clicker [insee]`
-pendant que je mange, je vous propose un interlude.
-`clicker [speed]`
-`clicker [speedWorldRecord]`
-
-## clicker-ffa
+## rice-ffa
 
 `hideFeed`
 `clearFeed`
@@ -561,6 +478,90 @@ Le monde va malheureusement exploser
 et tout le monde va mourir.
 Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 -->
+
+## rice-outro-bad
+
+<!-- `moveAllPointersOffScreen` -->
+
+`mutePointers`
+`clearFeed`
+`showFeed`
+ok mais
+vous savez pas non plus ce que c'est un risotto en fait
+`newClickerGrid`
+pardon je suis peut-être un peu trop négatif (c'est sans doute parce que j'ai faim)
+`clicker [total]`
+`clicker [gradinDuFond]`
+et puis c'est probablement la première fois que vous êtes aussi nombreux.se.s en cuisine
+`clicker [gradinDuDevant]`
+`clicker [bestGradin]`
+`clicker [goldMouse]`
+`clicker [silverMouse]`
+`clicker [bronzeMouse]`
+`clicker [fourthMouse]`
+`clicker [chomdu]`
+mais j'ai compris la leçon
+`clicker [insee]`
+je vais vous proposer une activité plus
+`clicker [speed]`
+intuitive
+`clicker [speedWorldRecord]`
+pendant que je mange mon "risotto".
+
+## rice-outro-ok
+
+`mutePointers`
+`clearFeed`
+`showFeed`
+merci pour votre aide!
+vous avez fait un très bon travail!
+`newClickerGrid`
+enfin
+`clicker [total]`
+un robot aurait été plus rapide
+`clicker [gradinDuFond]`
+`clicker [gradinDuDevant]`
+`clicker [bestGradin]`
+et plus précis bien sûr
+`clicker [goldMouse]`
+`clicker [silverMouse]`
+mais vous l'avez fait plus _gentiment_ qu'un robot.
+`clicker [bronzeMouse]`
+`clicker [fourthMouse]`
+`clicker [chomdu]`
+`clicker [insee]`
+pendant que je mange je vous propose un interlude.
+`clicker [speed]`
+`clicker [speedWorldRecord]`
+
+## rice-outro-outstanding
+
+`mutePointers`
+`clearFeed`
+`showFeed`
+wow
+honnêtement, personne n'avait jamais fait un aussi bon score
+mon risotto va être magnifique!
+enfin
+`newClickerGrid`
+notre risotto
+`clicker [total]`
+`clicker [gradinDuFond]`
+vous avez travaillé aussi bien qu'un robot
+`clicker [gradinDuDevant]`
+`clicker [bestGradin]`
+voir même mieux.
+`clicker [goldMouse]`
+`clicker [silverMouse]`
+je me permets de transmettre un enregistrement de votre session à mon robot trieur de riz pour qu'il en prenne de la graine.
+`clicker [bronzeMouse]`
+`clicker [fourthMouse]`
+ça vous dérange pas j'imagine.
+`clicker [chomdu]`
+`clicker [insee]`
+pendant que je mange, je vous propose un interlude.
+`clicker [speed]`
+`clicker [speedWorldRecord]`
 
 ## chaises
 

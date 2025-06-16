@@ -422,7 +422,7 @@ const handlePupitreAction = function (message) {
       const obj = {
         type: 'text',
         value:
-          "je suis un humain qui pense que cette situation a été causée par l'auteur de la performance, Samuel _ces souris sont probablement des robots qui n'ont pas compris que c'est Samuel qui avait écrit cette performance_",
+          "je suis un humain qui pense qu'il peut battre Samuel a son propre jeu _on ne verra jamais ce texte parce que Samuel a trop envie de gagner_",
         players: 2,
         duelSamuel: true,
       }
