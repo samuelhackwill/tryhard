@@ -380,15 +380,23 @@ Template.pupitre.events({
       }
     }
 
-    switch (String(this)) {
-      // case 'iii-captchas-1j-s2':
-      //   numberOfPlayers = Array.from(document.querySelectorAll('.mouseToggle:checked')).length
-      //   Template.instance().Captcha1jPlayersCount.set(numberOfPlayers)
-      //   break
-
-      default:
-        break
+    if (String(this).startsWith('rice-outro')) {
+      sendAction('moveAllPointersOffScreen')
     }
+
+    if (String(this).startsWith('clicker-ffa')) {
+      sendAction('alignPointersBot')
+    }
+
+    // switch (String(this)) {
+    //   // case 'iii-captchas-1j-s2':
+    //   //   numberOfPlayers = Array.from(document.querySelectorAll('.mouseToggle:checked')).length
+    //   //   Template.instance().Captcha1jPlayersCount.set(numberOfPlayers)
+    //   //   break
+
+    //   default:
+    //     break
+    // }
   },
 
   'click #captcha-spin'() {
