@@ -120,12 +120,22 @@ function handleTickUpdate(message) {
           coords.x += element.x
           break
         case 'overflow-right':
-          coords.x = instance.windowBoundaries.width - GlobalPointerWidth
-          // observe('magellan', { p: pointer, corner: 'right' })
+          // samuel peut quitter l'écran s'il le veult
+          if (pointer.order == -1) {
+            coords.x += element.x
+          } else {
+            coords.x = instance.windowBoundaries.width - GlobalPointerWidth
+            // observe('magellan', { p: pointer, corner: 'right' })
+          }
           break
         case 'overflow-left':
-          coords.x = 0
-          // observe('magellan', { p: pointer, corner: 'left' })
+          // samuel peut quitter l'écran s'il le veult
+          if (pointer.order == -1) {
+            coords.x += element.x
+          } else {
+            coords.x = 0
+            // observe('magellan', { p: pointer, corner: 'left' })
+          }
           break
 
         default:
@@ -137,12 +147,20 @@ function handleTickUpdate(message) {
           coords.y += element.y
           break
         case 'overflow-bottom':
-          coords.y = instance.windowBoundaries.height - GlobalPointerHeight
-          // observe('magellan', { p: pointer, corner: 'bottom' })
+          if (pointer.order == -1) {
+            coords.y += element.y
+          } else {
+            coords.y = instance.windowBoundaries.height - GlobalPointerHeight
+            // observe('magellan', { p: pointer, corner: 'bottom' })
+          }
           break
         case 'overflow-top':
-          coords.y = 0
-          // observe('magellan', { p: pointer, corner: 'top' })
+          if (pointer.order == -1) {
+            coords.y += element.y
+          } else {
+            coords.y = 0
+            // observe('magellan', { p: pointer, corner: 'top' })
+          }
           break
 
         default:
