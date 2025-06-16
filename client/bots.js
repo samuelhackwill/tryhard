@@ -28,8 +28,10 @@ loopPointerAroundCorners = function (pointer, cornerIndex = 0) {
     },
   })
 }
-
 export const initRonde = function (pointers, instance) {
+  // Filter pointers: exclude order === -1
+  const filteredPointers = pointers.filter((pointer) => pointer.order !== -1)
+
   corners = [
     { x: 0, y: 0 },
     { x: window.innerWidth - convertRemToPixels(instance.pointerWidth.get() + 1.3), y: 0 },
@@ -39,12 +41,12 @@ export const initRonde = function (pointers, instance) {
     },
     { x: 0, y: window.innerHeight - convertRemToPixels(instance.pointerHeight.get() + 2.5) },
   ]
+
   let i = 0
 
   function loopNext() {
-    if (i >= pointers.length) return
-    // const pointerId = pointers[i].id || pointers[i] // support array of strings or objects
-    loopPointerAroundCorners(pointers[i])
+    if (i >= filteredPointers.length) return
+    loopPointerAroundCorners(filteredPointers[i])
     i++
     setTimeout(loopNext, 114)
   }
@@ -53,7 +55,9 @@ export const initRonde = function (pointers, instance) {
 }
 
 export const alignPointersInTheBottom = function (pointers) {
-  const pointerArray = Object.values(pointers).sort((a, b) => a.order - b.order)
+  const pointerArray = Object.values(pointers)
+    .filter((pointer) => pointer.order !== -1)
+    .sort((a, b) => a.order - b.order)
 
   const minX = 100
   const maxX = window.innerWidth - 100
@@ -81,7 +85,9 @@ export const alignPointersInTheBottom = function (pointers) {
 }
 
 export const alignPointersOnTheLeft = function (pointers) {
-  const pointerArray = Object.values(pointers).sort((a, b) => a.order - b.order)
+  const pointerArray = Object.values(pointers)
+    .filter((pointer) => pointer.order !== -1)
+    .sort((a, b) => a.order - b.order)
 
   const x = 100
   const minY = 25
@@ -112,7 +118,7 @@ export const moveAllPointersOffScreen = function () {
   const offscreenX = Math.floor(window.innerWidth * -0.2) // well off to the left
   const offscreenY = Math.floor(window.innerHeight * 0.95) // near the bottom
 
-  const pointers = Object.values(instance.pointers.all())
+  const pointers = Object.values(instance.pointers.all()).filter((pointer) => pointer.order !== -1)
 
   pointers.forEach((pointer) => {
     pushToClientEventQueue({
@@ -621,56 +627,18 @@ export const moveInFrontOfCaptchaImg = function (pointer) {
 //   targetDiv.insertAdjacentHTML('beforeend', svgHTML)
 //   instance.pointers.delete(bot.id)
 // }
-
-export const autoclickerSpawn = function (father, bot) {
-  console.log(father)
-  parentCoords = readDomCoords(document.getElementById(father.id))
-
-  // here we need to update the DOM en fonction du dataset
-  setTimeout(() => {
-    let botDOMpointer = document.getElementById(bot.id)
-    // console.log(botDOMpointer)
-    let transform = botDOMpointer.style.transform || ''
-
-    // Remove any existing translate (optional if you want to overwrite it every time)
-    transform = transform.replace(/translate\([^)]+\)/, '')
-
-    // Add the new translate
-    transform = `${transform} translate(${parentCoords.x}px, ${parentCoords.y}px)`.trim()
-
-    // Apply the updated transform
-    botDOMpointer.style.transform = transform
-
-    writeDomCoords(botDOMpointer, parentCoords)
-
-    newCoords = {
-      x: parentCoords.x + randomBetween(-50, 50),
-      y: parentCoords.y + randomBetween(-50, 50),
-    }
-
-    pushToClientEventQueue({
-      origin: 'autoplay',
-      payload: {
-        type: 'move',
-        from: null,
-        to: { x: newCoords.x, y: newCoords.y },
-        duration: 100,
-        pointer: bot,
-      },
-    })
-  }, 16)
-}
-
 export const positionPointersOnCircle = function (pointers, radius) {
+  const filteredPointers = pointers.filter((pointer) => pointer.order !== -1)
+
   const center = {
     x: window.innerWidth / 2,
     y: window.innerHeight / 2,
   }
 
-  const count = pointers.length
+  const count = filteredPointers.length
   const _radius = radius || window.innerHeight / 2 - 150
 
-  pointers.forEach((pointer, index) => {
+  filteredPointers.forEach((pointer, index) => {
     const angle = (2 * Math.PI * index) / count
 
     pushToClientEventQueue({
