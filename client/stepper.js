@@ -10,12 +10,10 @@ let clientEventQueue = []
 // we need to know when it's authorized to MOVE, so it's hard-coded here. yep
 const moveAuthorized = [
   'repetition',
-  'captchas-ffa',
-  'captchas-tetris-ffa',
-  'recre-ffa',
+  'rice-ffa',
+  'clicker-ffa',
   'chaises',
   'chaises-squidGame',
-  'clicker-ffa',
   'die-and-retry',
   'die-and-retry-squidGame',
 ]
@@ -87,9 +85,9 @@ function handleTickUpdate(message) {
       // pointer.initialisationCoords = { y: i * 15, x: i * 2 }
 
       //QUICKFIX: set a default state for all the cursors (hidden, not dead, no accessory, etc)
-      if (pointer.id != 'samuel') {
-        // resetRoutine(pointer)
-      }
+      // if (pointer.id != 'samuel') {
+      // resetRoutine(pointer)
+      // }
       // players.push(pointer)
 
       //we're only writing into meteor reactivity to CREATE the pointers in the DOM. that's it

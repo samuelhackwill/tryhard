@@ -148,11 +148,10 @@
 
 - la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche.
 
-<!-- - quand la paix règne, la souris belliqueuse se fait la guerre à elle-même, dit Nietzsche. -->
 
 - La pire des maladies provient de la façon dont les souris ont combattu leurs maux, dit Nietzsche.
 
-<!-- - Les souris se pressent vers la lumière, non pour mieux voir, mais pour mieux briller, dit Nietzsche. -->
+- Les souris se pressent vers la lumière, non pour mieux voir, mais pour mieux briller, dit Nietzsche.
 
 - On voit à la démarche de chacun s'il a trouvé sa route. La souris qui s'approche de son but ne marche plus, elle danse, dit Nietzsche.
 
@@ -385,6 +384,7 @@ ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs 
 
 `clearFeed`
 `showFeed`
+`clearPointers`
 bravo, vous n'êtes pas des robots!
 bon
 je m'en doutais un peu
@@ -412,11 +412,6 @@ j'aimerais manger un "risotto"
 mais je ne sais pas ce que ça veut dire
 je suis sûr que vous pouvez m'aider.
 
-`hideFeed`
-
-`ImgCapInfinite[Sélectionnez uniquement les grains de riz RONDS : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 2000 grains peut-être? j'ai une petite faim, rice, 2000]`
-`alignPointersBot`
-
 <!-- ## recre-ffa -->
 
 <!-- `reqNextPlayer`
@@ -425,59 +420,8 @@ je suis sûr que vous pouvez m'aider.
 ## rice-ffa
 
 `hideFeed`
-`clearFeed`
 
-`startUpdatingStonks`
-
-`alignPointersBot`
-`revealMoney`
-
-`showClicker [total]`
-`showClicker [gradinDuFond]`
-`showClicker [gradinDuDevant]`
-`showClicker [bestGradin]`
-`showClicker [goldMouse]`
-`showClicker [silverMouse]`
-`showClicker [bronzeMouse]`
-`showClicker [fourthMouse]`
-`showClicker [chomdu]`
-`showClicker [insee]`
-`showClicker [speed]`
-`showClicker [speedWorldRecord]`
-
-`clickerMsg [fois, c'est beaucoup]`
-`clickerMsg [fois, c'est beaucoup beaucoup]`
-`clickerMsg [fois, c'est beaucoup trop!]`
-
-`save`
-
-`stopUpdatingStonks`
-
-`clickerAlert [en raison de la production d'un trop grand nombre de clics]`
-`clickerAlert [les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique]`
-`clickerAlert [le monde va malheureusement exploser]`
-`clickerAlert [et tout le monde va mourir]`
-`clickerAlert [enfin]`
-`clickerAlert [sauf les souris]`
-`clickerAlert [qui sont assez bien adaptées au changement climatique.]`
-`bgToMaroon`
-
-`killClickerGrid`
-`hideMoney`
-
-<!--
-les souris ont cliqué x fois, c'est beaucoup
-les souris ont cliqué x fois, c'est trop
-les souris ont cliqué x fois, c'est beaucoup trop
-les souris ont cliqué x fois, car elles aiment cliquer
-les souris ont cliqué   x fois, malgré mes avertissements
-(clignement rouge)
-en raison de la production d'un trop grand nombre de clics
-les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique
-Le monde va malheureusement exploser
-et tout le monde va mourir.
-Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
--->
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz RONDS : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 2000 grains peut-être? j'ai une petite faim, rice, 2000]`
 
 ## rice-outro-bad
 
@@ -562,6 +506,63 @@ je me permets de transmettre un enregistrement de votre session à mon robot tri
 pendant que je mange, je vous propose un interlude.
 `clicker [speed]`
 `clicker [speedWorldRecord]`
+
+## clicker-ffa
+
+`hideFeed`
+`clearFeed`
+
+`startUpdatingStonks`
+
+`alignPointersBot`
+`revealMoney`
+
+`showClicker [total]`
+`showClicker [gradinDuFond]`
+`showClicker [gradinDuDevant]`
+`showClicker [bestGradin]`
+`showClicker [goldMouse]`
+`showClicker [silverMouse]`
+`showClicker [bronzeMouse]`
+`showClicker [fourthMouse]`
+`showClicker [chomdu]`
+`showClicker [insee]`
+`showClicker [speed]`
+`showClicker [speedWorldRecord]`
+
+`clickerMsg [fois, c'est beaucoup]`
+`clickerMsg [fois, c'est beaucoup beaucoup]`
+`clickerMsg [fois, c'est beaucoup trop!]`
+
+`save`
+
+`stopUpdatingStonks`
+
+`clickerAlert [en raison de la production d'un trop grand nombre de clics]`
+`clickerAlert [les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique]`
+`clickerAlert [le monde va malheureusement exploser]`
+`clickerAlert [et tout le monde va mourir]`
+`clickerAlert [enfin]`
+`clickerAlert [sauf les souris]`
+`clickerAlert [qui sont assez bien adaptées au changement climatique.]`
+`bgToMaroon`
+
+`killClickerGrid`
+`hideMoney`
+
+<!--
+les souris ont cliqué x fois, c'est beaucoup
+les souris ont cliqué x fois, c'est trop
+les souris ont cliqué x fois, c'est beaucoup trop
+les souris ont cliqué x fois, car elles aiment cliquer
+les souris ont cliqué   x fois, malgré mes avertissements
+(clignement rouge)
+en raison de la production d'un trop grand nombre de clics
+les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique
+Le monde va malheureusement exploser
+et tout le monde va mourir.
+Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
+-->
 
 ## chaises
 
