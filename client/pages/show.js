@@ -34,6 +34,7 @@ import './show.html'
 
 const circleElements = []
 let stop = undefined
+let pointersBucket = []
 
 Template.show.onCreated(function () {
   streamer.on('pupitreStateChange', function (message) {
@@ -221,7 +222,23 @@ function handlePupitreAction(message) {
       }
       break
     case 'clearPointers':
-      instance.pointers.clear()
+      pointersBucket = []
+
+      // First: collect all candidates
+      let temp = []
+
+      for (const [key, pointer] of Object.entries(instance.pointers.all())) {
+        if (pointer.order !== -1) {
+          temp.push({ id: pointer.id, order: pointer.order })
+          instance.pointers.delete(key)
+        }
+      }
+
+      // Then: sort descending by order
+      temp.sort((a, b) => b.order - a.order)
+
+      // Finally: extract only the ids
+      pointersBucket = temp.map((item) => item.id)
       break
     case 'togglePointers':
       const _trueOrFalse = instance.arePointersHidden.get()
@@ -655,29 +672,44 @@ simulateMouseEvent = function (button, status, pointer) {
   if ((button == 'BTN_LEFT' || isclickerTime) && status == 'released') {
     simulateMouseUp(pointer)
   }
-  // if (button == 'BTN_RIGHT' && status == 'released') {
-  //   simulateRightMouseUp(pointer)
-  // }
+  if (button == 'BTN_RIGHT' && status == 'pressed') {
+    simulateRightMouseDown(pointer)
+  }
+  if (button == 'BTN_RIGHT' && status == 'released') {
+    simulateRightMouseUp(pointer)
+  }
 }
 
-simulateRightMouseUp = function (pointer) {
-  // if (instance.state.get() != 'ii-le-succes-s3') return
-  // const hasPaymentSucceeded = pay(pointer, 1)
-  // if (hasPaymentSucceeded) {
-  //   let bot = createBot(pointer.id + '_autoclicker_' + Date.now(), true, pointer.id)
-  //   bot.hoveredElementId = 'feed'
-  //   const _pointer = pointer
-  //   const _bot = bot
-  //   const DOMPointer = document.getElementById(pointer.id)
-  //   const coords = readDomCoords(pointer.id)
-  //   // this is to create the pointer
-  //   instance.pointers.set(bot.id, bot)
-  //   // this is to animate the pointer
-  //   autoclickerSpawn(pointer, bot)
-  //   setTimeout(() => {
-  //     autoClickerMine(_pointer, _bot, coords)
-  //   }, 99)
-  // }
+simulateRightMouseDown = function (creatorPointer) {
+  const domPointer = document.getElementById(creatorPointer.id)
+  const svg = domPointer.querySelector('#pointerSvg')
+  svg.style.transform = 'translateY(4px)'
+}
+
+simulateRightMouseUp = function (creatorPointer) {
+  const domPointer = document.getElementById(creatorPointer.id)
+  const svg = domPointer.querySelector('#pointerSvg')
+  svg.style.transform = 'translateY(0px)'
+
+  if (pointersBucket.length === 0 || instance.pointers.get(creatorPointer.id).order != -1) {
+    return
+  }
+  // get the next saved id
+  const savedId = pointersBucket.shift() // this removes and returns the first element
+
+  // fallback if array is empty
+  // const baseId = savedId || pointer.id + '_autoclicker_' + Date.now()
+
+  // create the bot using the saved id if available
+  let newPlayer = createPointer(savedId)
+  newPlayer.hoveredElementId = 'feed'
+
+  // register and animate
+  instance.pointers.set(newPlayer.id, newPlayer)
+  autoclickerSpawn(creatorPointer, newPlayer)
+  // setTimeout(() => {
+  //   autoClickerMine(_pointer, _bot, coords);
+  // }, 99);
 }
 
 export const simulateMouseUp = function (pointer) {
@@ -685,7 +717,7 @@ export const simulateMouseUp = function (pointer) {
   // console.log(pointer)
   const domPointer = document.getElementById(pointer.id)
   const svg = domPointer.querySelector('#pointerSvg')
-  svg.style.transform = 'translateY(-2px)'
+  svg.style.transform = 'translateY(0px)'
 
   // const audio = new Audio('mouseUp.mp3')
   // audio.play()
@@ -796,7 +828,7 @@ export const simulateMouseDown = function (pointer) {
   const domPointer = document.getElementById(pointer.id)
 
   const svg = domPointer.querySelector('#pointerSvg')
-  svg.style.transform = 'translateY(2px)'
+  svg.style.transform = 'translateY(4px)'
 
   const elements = getElementsUnder(pointer)
 

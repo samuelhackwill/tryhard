@@ -56,53 +56,53 @@
 
 - Dieu a donné non pas un, mais deux boutons et une roulette aux souris, c'est bien la preuve que les hommes doivent cliquer dessus, ajoute le philosophe créationniste.
 
-- Oui, cliquer fera mal à la souris.
+- Oui, cliquer fera mal à la souris, dit le philosophe réparateur de matériel informatique.
 
-- Toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer.
+- "Toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer", continue-t-il.
 
-- Les souris sont emprisonnées dans cette existence en raison de leur karma passé, mais tous les êtres vivants méritent la compassion, nous explique le philosophe bouddhiste.
+- "Les souris sont emprisonnées dans cette existence en raison de leur karma passé, mais tous les êtres vivants méritent la compassion, nous explique la philosophie bouddhiste", continue-t-il.
 
-- Non,
+- Oui mais : "la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche", dit un client venu apporter son téléphone avec une vitre cassée.
 
-- la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche.
+- Oui mais, interjecte le philosophe axiologue des populations qui passait par là, il faut aborder le problème d'une manière plus systématique.
 
-- Oui mais, interjecte le philosophe axiologue des populations,
+- Si l'on considère un nombre _x_ de souris produisant chacune _y_ unité de bonheur au cours de leur existence, alors ce qui est important ce n'est pas de leur cliquer dessus ou non, peu importe ; ce qu'il faut, c'est maximiser le nombre de souris, heureuses ou pas, parce que la quantité totale de bonheur à l'échelle de la planète sera plus grande. Il vaut mieux _100 000_ souris produisant chacune _1_ unité de bonheur seulement que _10_ souris produisant chacune _1000_ unités de bonheur. Oui je sais c'est contre-intuitif mais c'est ça les maths, dit le philosophe utilitariste-maximaliste-totaliste en montant dans sa Tesla garée devant le magasin.
 
-- il faut aborder le problème d'une manière plus systématique :
-
-- Si l'on considère un nombre _x_ de souris produisant chacune _y_ unité de bonheur au cours de leur existence, alors ce qui est important ce n'est pas de leur cliquer dessus ou non, peu importe ; ce qu'il faut, c'est maximiser le nombre de souris, heureuses ou pas, parce que la quantité totale de bonheur à l'échelle de la planète sera plus grande. Il vaut mieux _100 000_ souris produisant chacune _1_ unité de bonheur seulement que _10_ souris produisant chacune _1000_ unités de bonheur. Oui je sais c'est contre-intuitif mais c'est ça les maths, dit le philosophe utilitariste-maximaliste-totaliste en montant dans sa Tesla.
-
-- Attendez, nuance son collègue gradualiste.
+- Attendez, nuance son collègue gradualiste assis sur la banquette arrière :
 
 - Si on considère que c'est grâce à ses _2_ boutons que la souris produit du bonheur (en cliquant), ne faut-il pas aussi favoriser l'accroissement démographique des claviers AZERTY, qui ont quand même 105 boutons, et peuvent donc en théorie produire _52,5_ fois plus de bonheur par tête de pipe?
 
-- Attendez attendez attendez, continue son collègue sentio-centriste
+- Attendez attendez attendez, continue son collègue sentio-centriste en traversant le passage piéton :
 
 - Et si on disait qu'un neurone, c'est un peu comme un bouton, vous me suivez?
 
 - Euh, disent les autres philosophes de concert
 
-- Ok, un être humain a 86 milliards de neurones environ.
+- Sachant qu'un être humain a 86 milliards de neurones environ.
 
-- Et nous sommes 8 milliards sur terre.
+- Et que nous sommes 8 milliards sur terre.
 
-- Ça nous donne un ordre de grandeur de 10²⁰ neurones en total. L'humanité dans son ensemble possède tout ça de neurones.
+- Cela veut dire que l'humanité possède collectivement ~10²⁰ neurones en total.
 
-- Mais les nématodes (des vers)
+- Mais les nématodes (des petits vers)
 
-- ils ont 300 neurones chacun certes
+- ils n'ont que 300 neurones chacun certes
 
 - mais ils sont 60 milliards de fois plus nombreux que nous sur terre
 
-- Collectivement, les nématodes possèdent 10³¹ neurones en total.
+- Collectivement, les nématodes possèdent ~10³¹ neurones en total.
 
-- Il faut donc accepter que les nématodes soient _quantitativement_ l'espèce la plus capable de bonheur ou de malheur à l'échelle de la planète, et agir en conséquence, conclut-il.
+- Il faut donc accepter que les nématodes soient quantitativement l'espèce la plus capable de bonheur ou de malheur à l'échelle de la planète, et agir en conséquence, conclut-il.
 
-- _cliquer_
+<!-- - _"cliquer ou ne pas cliquer, telle est la question."_ conclut, un index levé, le philosophe-directeur de programmation d'un musée qui espérait toucher un public plus jeune en utilisant le champ lexical du jeu vidéo. -->
 
-- _ne pas cliquer_
+- "cliquer",
 
-- _telle est la question_, conclut le philosophe anglais traduit par un fan de jeu vidéo.
+- "ne pas cliquer..."
+
+<!-- - "telle est la question, dit Shakespeare", dit pour conclure avec un air pénétré le philosophe-directeur de musée qui avait assisté à la conversation et avait pris pour habitude d'utiliser à tout propos le champ lexical du jeu vidéo dans un but de renouvellement de ses publics. -->
+
+- "telle est la question, dit Shakespeare", dit le philosophe-réparateur de matériel informatique dans le but de synthétiser la conversation et de chasser les philosophes de son magasin.
 
 `hideFeed`
 `clearFeed`
@@ -281,16 +281,23 @@ je suis humain, et en plus, je suis un bon humain. _un robot manquant de confian
 
 je suis le meilleur humain. _ces souris sont probablement des robots humbles_
 je suis le plus humble humain. _ces souris sont probablement des robots qui ont compris le piège_
-je suis le plus rapide humain. _ces souris sont probablement des robots qui n'avaient pas envie de courir_
-je suis le plus sage humain. _ces souris sont probablement des robots sobres_
-je suis le plus artiste humain. _ces souris sont probablement des robots qui pensent que tout le monde est un peu artiste_
+je suis l'humain qui cède sa place dans le métro. _ces souris sont des robots qui assument leur égoïsme_
+je suis l'humain qui a dédié une partie de son enfance à tenter de bouger son pointeur de souris plus vite que ses adversaires. _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
 
-je suis un humain qui ne perdra pas son travail à cause d'un robot. _ces souris sont probablement des robots qui connaissent un peu l'Histoire_
-je suis un humain qui ne perdra pas son appartement à cause d'un bug informatique dans le logiciel de la CAF. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
-je suis un humain qui ne subira pas la discrimination invisible d'un algorithme. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
-je suis un humain qui pourra boire de l'eau potable en 2050. _ces souris sont probablement des robots inquiets et lucides_
-je suis un humain qui pourra recevoir des soins palliatifs en 2050. _ces souris sont probablement des robots inquiets et lucides_
-je suis un humain qui pourra manger des abricots en 2050. _ces souris sont probablement des robots inquiets et lucides_
+je suis l'humain qui ne perdra pas son travail à cause d'un robot. _ces souris sont probablement des robots qui connaissent un peu l'Histoire_
+je suis l'humain qui ne perdra pas son appartement à cause d'un bug informatique dans le logiciel de la CAF. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
+je suis l'humain qui ne subira pas la discrimination invisible d'un algorithme. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
+je suis l'humain qui ne tombera jamais amoureux d'un robot. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
+
+je suis l'humain qui pourra manger des abricots en 2050. _ces souris sont probablement des robots inquiets et lucides_
+je suis l'humain qui pourra manger autre chose que des algues lyophilisées en 2100. _ces souris sont probablement des robots inquiets et lucides_
+
+<!-- ici le gens explosent : ça fait une connection avec la fin où tout le monde explose et donc peut être que y'a plus de chances que les gens percutent à la fin sur le mode c'est une parabole du réchauffement climatos -->
+
+je suis l'humain qui pourra boire de l'eau potable en 2050. _ces souris sont probablement des robots inquiets et lucides_
+je suis l'humain qui pourra bénéficier d'un lit en unité de soins palliatifs en 2050. _ces souris sont probablement des robots inquiets et lucides_
+
+<!-- pis là les gens n'explosent plus -->
 
 je suis un humain qui pense que cette situation a été causée par le capitalisme _ces souris sont probablement des robots qui se méfient des slogans_
 je suis un humain qui pense que cette situation a été causée par la bêtise et la brutalité humaine _ces souris sont probablement des robots qui ont encore envie d'aimer l'humanité_
@@ -401,7 +408,7 @@ c'est pas tout ça mais ça creuse!
 on se ferait pas un petit truc à manger?
 mais j'ai besoin d'un coup de main
 j'aimerais manger un "risotto"
-mais je ne sais pas comment on fait
+mais je ne sais pas ce que ça veut dire
 je suis sûr que vous pouvez m'aider.
 
 `hideFeed`
@@ -422,12 +429,12 @@ je suis sûr que vous pouvez m'aider.
 `clearFeed`
 `showFeed`
 ok mais
-vous savez pas ce que c'est un risotto en fait
+vous savez pas non plus ce que c'est un risotto en fait
 `newClickerGrid`
-pardon je suis peut-être un peu trop négatif (c'est la faim)
+pardon je suis peut-être un peu trop négatif (c'est sans doute parce que j'ai faim)
 `clicker [total]`
 `clicker [gradinDuFond]`
-et puis c'est sans doute la première fois que vous êtes aussi nombreux.se.s en cuisine
+et puis c'est probablement la première fois que vous êtes aussi nombreux.se.s en cuisine
 `clicker [gradinDuDevant]`
 `clicker [bestGradin]`
 `clicker [goldMouse]`
@@ -441,7 +448,7 @@ je vais vous proposer une activité plus
 `clicker [speed]`
 intuitive
 `clicker [speedWorldRecord]`
-pendant que je mange mon... risotto.
+pendant que je mange mon "risotto".
 
 ## recre-outro-ok
 
@@ -578,7 +585,10 @@ je suis la dernière personne de la performance qui va cliquer -->
 `bgToblack`
 `clearFeed`
 `showFeed`
-`mutePointers`
+
+<!-- `mutePointers` -->
+
+`moveAllPointersOffScreen`
 
 <!-- `togglePointers` -->
 
