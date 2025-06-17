@@ -30,6 +30,8 @@ Template.pupitre.onCreated(function () {
   streamer.on('planDeSalleMessage', this._handlePlanDeSalleMessage)
   streamer.on('explosion', playExplosion)
 
+  streamer.on('noir', noir)
+
   Meteor.call('resetConnectedDevices')
   this.text = new ReactiveVar('')
   this.headers = new ReactiveVar([])
@@ -695,6 +697,16 @@ const addShortcutListeners = function () {
       }
     }
   })
+}
+
+const noir = function () {
+  setTimeout(() => {
+    fadeAudio(musick, 'out', 300)
+    sendAction('bgToNoir')
+    setTimeout(() => {
+      sendAction('togglePointers')
+    }, 300)
+  }, 1000)
 }
 
 const fadeAudio = function (audioElement, fadeType = 'in', duration = 10000) {

@@ -192,6 +192,11 @@ Template.pasUnRobot.events({
   'mousedown .checkbox-pasUnRobot'(event, t, obj) {
     // this down here is to guarantee that during the sequences when we're playing with opacity,
     // that the captcha is REVEALED when clicked and invisible. (to avoid that it just gets completed silently)
+    if (this.text.value == 'mettre fin à la performance') {
+      console.log('the show is over! good night folks!')
+      streamer.emit('noir')
+    }
+
     if (
       instance.state.get().startsWith('chaises') ||
       instance.state.get().startsWith('die-and-retry') ||
