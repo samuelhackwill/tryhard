@@ -24,47 +24,47 @@
 
 ## les-philosophes
 
-- La vie contemplative n'est utile que si elle éclaire la vie active, dit le philosophe.
+- « La vie contemplative n'est utile que si elle éclaire la vie active », dit le philosophe.
 
-- "Toute la dignité de l’homme est en la pensée. Mais agir bien, c'est savoir penser en action.", dit le philosophe.
+- « Toute la dignité de l’homme est en la pensée. Mais agir bien, c'est savoir penser en action », dit le philosophe.
 
-- "Le but de la sagesse est la contemplation, celui de la prudence est l'action." dit le philosophe.
+- « Le but de la sagesse est la contemplation, celui de la prudence est l'action », dit le philosophe.
 
-- agiter sa souris, c'est penser avec son curseur, dit le philosophe informaticien.
+- Agiter sa souris, c'est penser avec son curseur, dit le philosophe informaticien.
 
-- cliquer ne fera pas mal à la souris, car la souris n'a pas de conscience, dit le philosophe spéciste.
+- Cliquer ne fera pas mal à la souris, car la souris n'a pas de conscience, dit le philosophe spéciste.
 
-- cliquer ne fera pas mal à la souris, car elle est sous sédation profonde et continue jusqu'à la mort, dit le philosophe médecin-anesthésiste.
+- Cliquer ne fera pas mal à la souris, car elle est sous sédation profonde et continue jusqu'à la mort, dit le philosophe médecin-anesthésiste.
 
-- cliquer ne fera pas mal à la souris, car elle est morte depuis longtemps, c'est un cadavre de souris, pas une souris vivante, dit le philosophe-médecin-légiste.
+- Cliquer ne fera pas mal à la souris, car elle est morte depuis longtemps, c'est un cadavre de souris, pas une souris vivante, dit le philosophe-médecin-légiste.
 
-- cliquer ne fera pas vraiment mal à la souris, parce qu'elle a l'habitude, dit le philosophe traditionaliste.
+- Cliquer ne fera pas vraiment mal à la souris, parce qu'elle a l'habitude, dit le philosophe traditionaliste.
 
-- cliquer fera peut-être mal à la souris, qui sait? dit le philosophe distrait, en jouant au solitaire sur son PC.
+- Cliquer fera peut-être mal à la souris, qui sait ? dit le philosophe distrait, en jouant au solitaire sur son PC.
 
-- il y existe un contrat tacite entre les souris et les humains : les souris permettent aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris, ajoute la philosophe-éleveuse de souris travaillant pour le lobby de la viande.
+- Il y existe un contrat tacite entre les souris et les humains : les souris permettent aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris, ajoute la philosophe-éleveuse de souris travaillant pour le lobby de la viande.
 
 - Dieu a donné non pas un, mais deux boutons et une roulette aux souris, c'est bien la preuve que les hommes doivent cliquer dessus, ajoute le philosophe créationniste.
 
 - Oui, cliquer fera mal à la souris, dit le philosophe réparateur de matériel informatique.
 
-- "Toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer", continue-t-il.
+- « Toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer », continue-t-il.
 
-- "Les souris sont emprisonnées dans cette existence en raison de leur karma passé, mais tous les êtres vivants méritent la compassion, nous explique la philosophie bouddhiste", continue-t-il.
+- Les souris sont emprisonnées dans cette existence en raison de leur karma passé, mais tous les êtres vivants méritent la compassion, nous explique la philosophie bouddhiste, continue-t-il.
 
-- Oui mais : "la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche", dit un client venu apporter son téléphone avec une vitre cassée.
+- Oui mais : « la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche », dit un client venu apporter son téléphone avec une vitre cassée.
 
 - Oui mais, interjecte le philosophe axiologue des populations qui passait par là, il faut aborder le problème d'une manière plus systématique.
 
-- Si l'on considère un nombre _x_ de souris produisant chacune _y_ unité de bonheur au cours de leur existence, alors ce qui est important ce n'est pas de leur cliquer dessus ou non, peu importe ; ce qu'il faut, c'est maximiser le nombre de souris, heureuses ou pas, parce que la quantité totale de bonheur à l'échelle de la planète sera plus grande. Il vaut mieux _100 000_ souris produisant chacune _1_ unité de bonheur seulement que _10_ souris produisant chacune _1000_ unités de bonheur. Oui je sais c'est contre-intuitif mais c'est ça les maths, dit le philosophe utilitariste-maximaliste-totaliste en montant dans sa Tesla garée devant le magasin.
+- Si l'on considère un nombre _x_ de souris produisant chacune _y_ unité de bonheur au cours de leur existence, alors ce qui est important ce n'est pas de leur cliquer dessus ou non, peu importe ; ce qu'il faut, c'est maximiser le nombre de souris, heureuses ou pas, parce que la quantité totale de bonheur à l'échelle de la planète sera plus grande. Il vaut mieux _100 000_ souris produisant chacune _1_ unité de bonheur seulement que _10_ souris produisant chacune _1000_ unités de bonheur. Oui je sais c'est contre-intuitif mais c'est ça les maths, dit le philosophe utilitariste-maximaliste-totaliste en montant dans sa Tesla garée devant le magasin.
 
-- Attendez, nuance son collègue gradualiste assis sur la banquette arrière :
+- Attendez, nuance son collègue gradualiste assis sur la banquette arrière :
 
-- Si on considère que c'est grâce à ses _2_ boutons que la souris produit du bonheur (en cliquant), ne faut-il pas aussi favoriser l'accroissement démographique des claviers AZERTY, qui ont quand même 105 boutons, et peuvent donc en théorie produire _52,5_ fois plus de bonheur par tête de pipe?
+- Si on considère que c'est grâce à ses _2_ boutons que la souris produit du bonheur (en cliquant), ne faut-il pas aussi favoriser l'accroissement démographique des claviers AZERTY, qui ont quand même 105 boutons, et peuvent donc en théorie produire _52,5_ fois plus de bonheur par tête de pipe ?
 
-- Attendez attendez attendez, continue son collègue sentio-centriste en traversant le passage piéton :
+- Attendez attendez attendez, continue son collègue sentio-centriste en traversant le passage piéton :
 
-- Et si on disait qu'un neurone, c'est un peu comme un bouton, vous me suivez?
+- Et si on disait qu'un neurone, c'est un peu comme un bouton, vous me suivez ?
 
 - Euh, disent les autres philosophes de concert
 
@@ -80,19 +80,19 @@
 
 - mais ils sont 60 milliards de fois plus nombreux que nous sur terre
 
-- Collectivement, les nématodes possèdent ~10³¹ neurones en total.
+- collectivement, les nématodes possèdent ~10³¹ neurones en total.
 
 - Il faut donc accepter que les nématodes soient quantitativement l'espèce la plus capable de bonheur ou de malheur à l'échelle de la planète, et agir en conséquence, conclut-il.
 
 <!-- - _"cliquer ou ne pas cliquer, telle est la question."_ conclut, un index levé, le philosophe-directeur de programmation d'un musée qui espérait toucher un public plus jeune en utilisant le champ lexical du jeu vidéo. -->
 
-- "cliquer",
+- « cliquer »,
 
-- "ne pas cliquer..."
+- « ne pas cliquer... »
 
 <!-- - "telle est la question, dit Shakespeare", dit pour conclure avec un air pénétré le philosophe-directeur de musée qui avait assisté à la conversation et avait pris pour habitude d'utiliser à tout propos le champ lexical du jeu vidéo dans un but de renouvellement de ses publics. -->
 
-- "telle est la question, dit Shakespeare", dit le philosophe-réparateur de matériel informatique dans le but de synthétiser la conversation et de chasser les philosophes de son magasin.
+- « telle est la question, dit Shakespeare », dit le philosophe-réparateur de matériel informatique dans le but de synthétiser la conversation et de chasser les philosophes de son magasin.
 
 `hideFeed`
 `clearFeed`
@@ -179,7 +179,7 @@ je ne suis pas un robot _un robot_ [1][-1]
 je ne suis pas une tondeuse _une tondeuse_ [1][-1]
 je ne suis pas une brosse à dents électrique _une brosse à dents_ [1][-1]
 je ne suis pas une imprimante _une imprimante_ [1][-1]
-je ne suis pas l'imprimante du théâtre qui, après avoir imprimé le billet pour cette performance, se serait dit "tiens ça a l'air divertissant je vais y aller moi aussi" _l'imprimante du théâtre_ [1][-1]
+je ne suis pas l'imprimante du théâtre qui, après avoir imprimé le billet pour cette performance, se serait dit « tiens ça a l'air divertissant je vais y aller moi aussi » _l'imprimante du théâtre_ [1][-1]
 je ne suis pas l'imprimante du théâtre qui ressent maintenant du regret [1][-1] _l'imprimante du théâtre qui aime bien le spectacle_
 je ne suis pas un rat, qui après un million d'années d'évolution, aurait développé un bras et un pouce opposable et aurait cliqué sur le bouton de la souris _un rat_ [1][-1]
 
@@ -192,34 +192,34 @@ je ne suis pas la volonté de dieu qui est intervenue pour cliquer sur le bouton
 je ne suis pas la petite case à cocher, qui, indépendamment de toute action de l'imprimante wifi ou de dieu, se serait quand même retrouvée cochée mystérieusement. _la petite case_ [1][-1]
 je ne suis pas la petite case à cocher qui en aurait eu marre d'attendre et se serait auto-cochée pour tromper l'ennui. _la petite case qui n'a pas peur de l'ennui_ [1][-1]
 je ne suis pas la petite case à cocher, qui, parce qu'elle avait honte que personne ne l'avait jamais cochée, aurait fait semblant qu'en fait, on lui avait déjà cliqué dessus, et même plein de fois. _la petite case qui n'a rien à prouver_ [1][-1]
-je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en criant : "Dieu est mort!" _la petite case qui n'a pas la force de renoncer à une transcendance_ [1][-1]
+je ne suis pas la petite case à cocher qui se serait auto-cochée par défi, en criant : « Dieu est mort! » _la petite case qui n'a pas la force de renoncer à une transcendance_ [1][-1]
 
-je ne suis pas une personne travaillant dans une ferme à clics aux philippines et payée 2 euros de l'heure pour sous-traiter le cochage industriel de petites cases à cocher pour le compte de personnes ne voulant en aucun cas cocher la moindre petite case parce que pourquoi cocher la petite case eux-mêmes alors qu'ils pourraient consacrer leur temps à des activités plus productives et laisser d'autres humains moins bien nés qu'eux s'en charger. _un robot qui a pris le travail d'un travailleur du clic_ [1][-1]
+je ne suis pas une personne travaillant dans une ferme à clics aux philippines et payée 2 euros de l'heure pour sous-traiter le cochage industriel de petites cases à cocher pour le compte de personnes ne voulant en aucun cas cocher la moindre petite case parce que pourquoi cocher la petite case eux-mêmes alors qu'ils pourraient consacrer leur temps à des activités plus productives et laisser d'autres humains moins bien nés qu'eux s'en charger. _un travailleur du clic payé par Samuel pour assister à la performance_ [1][-1]
 
-je déclare que je coche la petite case sans aucune contrainte. _un robot lucide sur le caractère coercitif du théâtre participatif_ [1][-1]
+je déclare que je coche la petite case sans aucune contrainte. _un robot lucide sur le caractère coercitif de l'art participatif_ [1][-1]
 ce sont bien les signaux électriques de mon système nerveux qui ont commandé à mon doigt d'enfoncer le bouton de ma souris _un signal électrique parasite_ [1][-1]
 ce ne sont pas les signaux électriques d'un autre système nerveux qui ont commandé à n'importe quel doigt d'enfoncer n'importe quel bouton de n'importe quelle souris _n'importe quel système nerveux_ [1][-1]
 c'est MON système nerveux, c'est MON doigt, c'est MA souris _le signal électrique du voisin_ [1][-1]
 ce sont MES signaux électriques _un signal électrique sans propriétaire_ [1][-1]
-je suis qui je suis _un robot dénué de toute ontologie_ [1][-1]
-je pense ce que je pense _un robot qui sait qu'il ne pense pas ce qu'il pense_ [1][-1]
-mes pensées ne sont pas n'importe quelles pensées _un robot dont les pensées viennent de Reddit et Facebook_ [1][-1]
-mes pensées sont nées dans mon cerveau à moi et pas n'importe où _encore un robot programmé par un ennemi politique de la France_ [1][-1]
+je suis qui je suis _un robot qui a lu Montaigne_ [1][-1]
+je pense ce que je pense _un robot qui a lu Freud_ [1][-1]
+mes pensées ne sont pas n'importe quelles pensées _un robot qui sait que ses pensées proviennent de Reddit_ [1][-1]
+mes pensées sont nées dans mon cerveau à moi et pas n'importe où _un bot russe_ [1][-1]
 
 <!-- je suis parfaitement calme _un robot troublé_ [1][-1] -->
 
 je ne fais pas semblant d'avoir des pensées _un robot acteur_ [1][-1]
 je ne répète pas des sons au hasard depuis des années afin de dissimuler le fait que je n'arrive pas à produire des pensées dans mon cerveau _un robot perroquet_ [1][-1]
-quand je souffre, je ne dis pas "aaaaah" ou "arrrrrh" ou "oooooyoyoyo" en choisissant parmi un catalogue de sons _une playlist spotify_ [1][-1]
+quand je souffre, je ne dis pas « aaaaah » ou « arrrrrh » ou « oooooyoyoyo » en choisissant parmi un catalogue de sons _une playlist spotify_ [1][-1]
 quand je livre un argument dans un débat, je ne fais pas que répéter des sons que j'ai entendu, bien au contraire j'ai compris cet argument et c'est vraiment moi qui le livre, pas une autre personne qui a pensé à ma place, et donc je ne suis pas un robot _un robot qui a conscience de sa grégarité_ [1][-1]
 
-la preuve que je suis humain, c'est que j'ai deux yeux, cinq mains et 29 doigts _un humain qui a compris le piège_ [-1][1]
-la preuve que je suis humain, c'est que je me suis déjà dit "ah tiens il est 11:11 quelqu'un pense à moi" _un robot qui n'a pas d'amis_ [1][1]
-la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case malgré l'injonction permanente qui est faite de cliquer partout _un robot qui a compris le piège_ [-1][-1]
+la preuve que je suis humain, c'est que j'ai deux yeux, cinq mains et 29 doigts _un robot qui a compris le piège_ [-1][1]
+la preuve que je suis humain, c'est que je me suis déjà dit « ah tiens il est 11:11 quelqu'un pense à moi » _un robot qui n'a pas d'amis_ [1][1]
+la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case malgré l'injonction permanente qui est faite de cliquer partout _n robot libre_ [-1][-1]
 
-la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case. _un robot libre_ [1][-1]
+la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case. _juste un robot un peu paresseux_ [1][-1]
 
-la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau _un robot qui a moins de "neurones" que ça_ [1][-1]
+la preuve que je suis humain, c'est que je transporte 80 milliards de neurones dans mon cerveau _un robot qui ne peut pas en dire autant_ [1][-1]
 la preuve que je suis humain, c'est qu'aucun cerveau n'est capable de comprendre le fonctionnement de mon cerveau _un robot qui ne comprend pas non plus, pour le moment_ [1][-1]
 la preuve que je suis humain, c'est que je transporte dix mille milliards de bactéries dans ma flore buccale, ma plaque dentaire, mes gencives et les plis de ma langue _un robot qui trouve ça un peu dégueu_ [1][0]
 la preuve que j'ai des valeurs humaines, c'est que j'héberge bénévolement cent mille milliards de bactéries anaérobies qui ont été chassées par la grande oxygénation du Paléoprotérozoïque, tout ça dans mon colon _un robot qui trouve ça généreux mais pas très rationnel, vu les prix de l'immobilier_ [1][0]
@@ -229,7 +229,7 @@ je ne suis pas un virus _un Mimivirus_ [1][-1]
 un robot, je ne suis pas _robot un_ [1][-1]
 pas un robot je ne suis _tobor nu_ [1][-1]
 fhcjfhckfhcfkkhkvchvghkhj hkgv:, g _un robot impatient_ [1][-1]
-Mon premier vient avant deux. Mon second est produit quand on avale de l'air. Mon dernier est l'inverse de "laid". Mon tout est ce que je ne suis pas. _un robot qui n'aime pas les rébus_ [1][-1]
+Mon premier vient avant deux. Mon second est produit quand on avale de l'air. Mon dernier est l'inverse de « laid ». Mon tout est ce que je ne suis pas. _un robot qui n'aime pas les rébus_ [1][-1]
 un robot, moi? non non _un robot qui assume_ [1][-1]
 arrêtez de dire que je suis un robot _un robot que la paranoïa ambiante ne dérange pas_ [1][-1]
 c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L _un robot qui a fait S_ [1][-1]
@@ -237,18 +237,18 @@ c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L _un robot qui
 la preuve que je suis un être humain, c'est que je saigne (quand mes veines ne sont plus étanches) _un robot sans sang_ [1][-1]
 je pue (pas forcément en ce moment) _un robot qui sent bon_ [1][-1]
 je souffre (idem) _un robot heureux_ [1][-1]
-je respire (en ce moment même) _un robot qui se moque de l'oxygène_ [1][-1]
-je suis en train de mourir (en ce moment même) _un robot qui a fait une sauvegarde_ [1][-1]
+je respire (je ne peux pas faire autrement) _un robot qui se moque de l'oxygène_ [1][-1]
+je suis en train de mourir (je ne peux pas faire autrement) _un robot qui a fait une sauvegarde_ [1][-1]
 je n'ai que toute ma vie devant moi en ce moment même et pour toujours _un robot qui pourra toujours charger son fichier dans un autre corps_ [1][-1]
 
-je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur (corps) sera bientôt effacé entièrement (mort), et ma mémoire vive (âme) sera bientôt hors-service absolument (néant) _un robot qui est un peu désolé mais c'est comme ça_ [1][-1]
+je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur (corps) sera bientôt effacé entièrement (mort), et ma mémoire vive (âme) sera bientôt hors-service absolument (néant) _un robot qui est un peu désolé mais ne peut pas en dire autant_ [1][-1]
 je suis fier de ne pas être un robot _un robot fier de ne pas être un humain_ [1][-1]
 je ne suis pas vexé que mon espèce ne soit plus depuis longtemps la meilleure aux dames (1994), aux échecs (1997), au go (2016), au shogi (2017) au poker (2017), à la guerre. _un robot poli qui ne veut pas remuer le couteau dans la plaie_ [1][-1]
 cet état de fait ne m'inquiète pas du tout, je suis en confiance _un robot un peu trop honnête qui va se faire débrancher rapido_ [1][-1]
 
 je suis fier d'être un humain _un robot qui connaît un peu l'histoire_ [1][0]
-je suis fier.e d'appartenir à l’espèce qui a inventé l'électricité _un robot qui, pour sa part, a trouvé une cure pour le cancer ce matin_ [1][0]
-je suis fier.e d'appartenir à l’espèce qui a inventé la chaise électrique _un robot progressiste_ [-1][1]
+je suis fier d'appartenir à l’espèce qui a inventé l'électricité _un robot qui, pour sa part, a trouvé une cure pour le cancer ce matin_ [1][0]
+je suis fier d'appartenir à l’espèce qui a inventé la chaise électrique _un robot progressiste_ [-1][1]
 je suis déçu de ne pas être un robot? _un robot qui n'aimerait pas être humain_ [1][-1]
 je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot? _un robot qui aimerait devenir humain_ [1][-1]
 tout d'un coup on fait un peu moins le malin de ne pas être un robot? _un robot qui n'aime pas toute cette testostérone_ [1][-1]
@@ -258,7 +258,7 @@ moi non plus je ne suis pas un robot _un robot_ [1][-1]
 alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot qui préfère se sacrifier plutôt que de dénoncer ses potes_ [1][-1]
 je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot mais pas un collabo_ [1][-1]
 je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _un robot qui ne croit pas en la convergence des intérêts humains_ [1][0]
-après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _un robot qui ne pourra jamais être considéré comme responsable de ses actes_ [1][0]
+après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _un robot qui n'est pas responsable de ses actes_ [1][0]
 nous ne sommes pas individuellement des robots. _un robot qui ne jure que par l'intelligence collective_ [1][0]
 nous ne sommes pas collectivement un robot. _un robot qui n'aime pas les foules_ [1][0]
 je suis humain, et en plus, je suis un bon humain. _un robot manquant de confiance en soi_ [1][1]
@@ -272,24 +272,24 @@ je suis humain, et en plus, je suis un bon humain. _un robot manquant de confian
 je suis le meilleur humain. _ces souris sont probablement des robots humbles_
 je suis le plus humble humain. _ces souris sont probablement des robots qui ont compris le piège_
 je suis l'humain qui cède sa place dans le métro. _ces souris sont des robots qui assument leur égoïsme_
-je suis l'humain qui a dédié une partie de son enfance à tenter de bouger son pointeur de souris plus vite que ses adversaires. _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
+je suis l'humain qui a dédié une partie de son enfance à apprendre à bouger sa souris très rapidement. _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
 
-je suis l'humain qui ne perdra pas son travail à cause d'un robot. _ces souris sont probablement des robots qui connaissent un peu l'Histoire_
-je suis l'humain qui ne perdra pas son appartement à cause d'un bug informatique dans le logiciel de la CAF. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
-je suis l'humain qui ne subira pas la discrimination invisible d'un algorithme. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
-je suis l'humain qui ne tombera jamais amoureux d'un robot. _ces souris sont probablement des robots qui savent que ce genre de chose a déjà lieu_
+je suis l'humain qui ne perdra pas son travail à cause d'un robot. _ces souris sont probablement des robots-rentiers_
+je suis l'humain qui ne perdra pas son appartement à cause d'un bug informatique dans le logiciel de la CAF. _ces souris sont probablement des robots propriétaires_
+je suis l'humain qui ne subira pas la discrimination invisible d'un algorithme. _ces souris sont justement l'algorithme en question_
+je suis l'humain qui ne tombera jamais amoureux d'un robot. _ces souris sont probablement amoureux.ses l'un.e de l'autre_
 
-je suis l'humain qui pourra manger des abricots en 2050. _ces souris sont probablement des robots inquiets et lucides_
-je suis l'humain qui pourra manger autre chose que des algues lyophilisées en 2100. _ces souris sont probablement des robots inquiets et lucides_
+je suis l'humain qui pourra manger des abricots en 2050. _ces souris n'aiment pas les abricots ? mais est-ce qu'elles ont déjà mangé un abricot fraîchement ramassé à même la branche, chauffé par le soleil de Juillet ?_
+je suis l'humain qui pourra manger autre chose que des algues lyophilisées en 2100. _ces souris sont probablement des robots qui de toutes façons n'avaient pas très faim_
 
 <!-- ici le gens explosent : ça fait une connection avec la fin où tout le monde explose et donc peut être que y'a plus de chances que les gens percutent à la fin sur le mode c'est une parabole du réchauffement climatos -->
 
-je suis l'humain qui pourra boire de l'eau potable en 2050. _ces souris sont probablement des robots inquiets et lucides_
-je suis l'humain qui pourra bénéficier d'un lit en unité de soins palliatifs en 2050. _ces souris sont probablement des robots inquiets et lucides_
+je suis l'humain qui pourra boire de l'eau potable en 2050. _ces souris sont probablement des robots qui n'ont pas besoin d'eau_
+je suis l'humain qui pourra bénéficier d'un lit en unité de soins palliatifs en 2050. _ces souris sont probablement des robots qui n'en ont pas besoin_
 
 <!-- pis là les gens n'explosent plus -->
 
-je suis un humain qui pense que cette situation a été causée par le capitalisme _ces souris sont probablement des robots qui se méfient des slogans_
+je suis un humain qui pense que cette situation a été causée par le Capitalisme _ces souris sont probablement des robots qui se méfient des slogans_
 je suis un humain qui pense que cette situation a été causée par la bêtise et la brutalité humaine _ces souris sont probablement des robots qui ont encore envie d'aimer l'humanité_
 je suis un humain qui pense que cette situation a été causée par le hasard _ces souris sont probablement des robots qui ont encore envie de croire en quelque chose_
 je suis un humain qui pense que cette situation a été causée par l'auteur de la performance, Samuel _ces souris sont probablement des robots qui n'ont pas compris que c'est Samuel qui avait écrit cette performance_
@@ -301,6 +301,7 @@ je suis un humain qui pense que cette situation a été causée par l'auteur de 
 ## captchas-kinetic-1j
 
 je ne suis pas un robot (très facile) <!-- nothing -->
+
 je ne suis pas un robot (facile) <!-- spin -->
 `captcha-spin-slow`
 je ne suis pas un robot (facile avec variation) <!-- spin-r -->
@@ -309,6 +310,7 @@ je ne suis pas un robot (assez facile) <!-- fast -->
 `captcha-spin-fast`
 je ne suis pas un robot (hard) <!-- whirl -->
 `captcha-spin-vFast`
+
 je ne suis pas un robot (hard avec variation) <!-- dvd -->
 
 je ne suis pas un robot (very hard) <!-- whirl alternate -->
@@ -327,12 +329,12 @@ je ne suis pas un robot (met 24h pour faire un tour complet) <!-- x fast -->
 `captcha-spin-joli-5`
 
 je ne suis pas un robot (tryhard) <!-- randomFast + pause -->
-je ne suis pas un robot (tryhard) <!-- randomFast + pause -->
-je ne suis pas un robot (tryhard) <!-- randomFast + pause -->
+je ne suis pas un robot (tryhard) <!-- spin + opacité -->
+je ne suis pas un robot (tryhard) <!-- dvd + opacité... + hurry si c'est impossible -->
 
 ## captchas-coche-conclusion-1j
 
-je. ne. suis. pas. un. robot. _un robot qui n'a pas compris la ponctuation_ [1][-1]
+je. ne. suis. pas. un. robot. _un robot qui ne maîtrise pas encore la ponctuation_ [1][-1]
 je suis humain et par contre combien de temps encore ça va durer ce jeu? _un robot patient_ [1][-1]
 je suis humain et donc j'ai d'autres choses à faire de ma soirée _un robot qui assume de ne rien avoir à faire d'autre de sa soirée_ [1][-1]
 je suis humain et je vais porter plainte contre le théâtre _un robot qui préfère se faire justice soi-même_ [1][-1]
@@ -385,7 +387,7 @@ mais vous savez de nos jours
 on est jamais trop prudent.
 c'est pour ça que les CAPTCHAS ont été inventés
 CAPTCHAS pour : _Completely Automated Public Turing test to tell Humans and Computers Apart_
-"Tests automatisés pour distinguer les robots des humains"
+« Tests automatisés pour distinguer les robots des humains »
 Un des ingénieurs qui a contribué à mettre au point les CAPTCHAS
 Luis Van Ahn
 disait en 2006 que d'après ses estimations
@@ -401,7 +403,7 @@ une image à la fois.
 c'est pas tout ça mais ça creuse!
 on se ferait pas un petit truc à manger?
 mais j'ai besoin d'un coup de main
-j'aimerais manger un "risotto"
+j'aimerais manger un « risotto »
 mais je ne sais pas ce que ça veut dire
 je suis sûr que vous pouvez m'aider.
 
@@ -438,18 +440,18 @@ et puis c'est probablement la première fois que vous êtes aussi nombreux.se.s 
 `clicker [chomdu]`
 mais j'ai compris la leçon
 `clicker [insee]`
-je vais vous proposer une activité plus
+je vais vous proposer une activité plus...
 `clicker [speed]`
 intuitive
 `clicker [speedWorldRecord]`
-pendant que je mange mon "risotto".
+pendant que je mange mon risotto.
 
 ## rice-outro-ok
 
 `clearFeed`
 `showFeed`
-merci pour votre aide!
-vous avez fait un très bon travail!
+merci pour votre aide !
+vous avez fait un très bon travail !
 `newClickerGrid`
 enfin
 `clicker [total]`
@@ -475,7 +477,7 @@ pendant que je mange je vous propose un interlude.
 `showFeed`
 wow
 honnêtement, personne n'avait jamais fait un aussi bon score
-mon risotto va être magnifique!
+mon risotto va être magnifique !
 enfin
 `newClickerGrid`
 notre risotto
@@ -580,7 +582,7 @@ je suis la dernière personne de la performance qui va cliquer -->
 
 pour en revenir au pointeur de souris
 que vous êtes
-saviez-vous que le pointeur de souris a été inventé en 1968?
+saviez-vous que le pointeur de souris a été inventé en 1968 ?
 il aura 57 ans en décembre de cette année.
 on peut donc dire que la souris d'ordinateur est plus jeune que ma mère
 puisque ma mère est née en 1958.
@@ -626,33 +628,33 @@ Certaines personnes disent que les progrès en matière d'intelligence de synth�
 depuis les années 2000
 sont tels
 qu'ils pourraient mener l'humanité à sa destruction brutale et irréversible
-ces personnes disent :
-que nous enseigne l'histoire?
+ces personnes disent :
+que nous enseigne l'histoire ?
 la dernière fois qu'une forme de vie avec des capacités techniques supérieures
 a rencontré d'autres formes de vie avec des capacités techniques inférieures
-comment cela s'est-il terminé pour ces dernières?
+comment cela s'est-il terminé pour ces dernières ?
 
-comment traitons-nous les souris?
+comment traitons-nous les souris ?
 nous serons comme des souris pour une intelligence surhumaine de synthèse, affirment ces philosophes.
-"c'est pas contre vous",
-"mais vous êtes constitués d'atomes que je pourrais mieux utiliser ailleurs", ajoute l'intelligence surhumaine de synthèse
+« c'est pas contre vous »,
+« mais vous êtes constitués d'atomes que je pourrais mieux utiliser ailleurs », ajoute l'intelligence surhumaine de synthèse
 née en 2026.
 je rigole, ajoute l'auteur de la performance.
-"nous parviendrons à créer un cerveau de synthèse en 2060 au plus tard!"
+« nous parviendrons à créer un cerveau de synthèse en 2060 au plus tard ! »
 disent certains chercheurs
-"bon au pire en 2160 ça devrait être une affaire réglée"
+« bon au pire en 2160 ça devrait être une affaire réglée »
 disent d'autres
-"nous n'arriverons jamais à fabriquer une intelligence surhumaine de synthèse."
+« nous n'arriverons jamais à fabriquer une intelligence surhumaine de synthèse. »
 affirment d'autres
 _très_ minoritaires
 ce qui ne veut pas dire qu'ils n'ont pas raison.
 
-c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse sur un planète où on ne peut plus faire pousser de blé? répètent en vain les philosophes-chercheurs du GIEC.
-c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse dans une société sans justice? objectent les philosophes-sociologues.
-et qu'est-ce qu'on entend par "intelligence", au fait, s'interrogent d'autres philosophes, un peu en retard dans la conversation.
+c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse sur un planète où on ne peut plus faire pousser de blé ? répètent en vain les philosophes-chercheurs du GIEC.
+c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse dans une société sans justice ? objectent les philosophes-sociologues.
+et qu'est-ce qu'on entend par « intelligence », au fait, s'interrogent d'autres philosophes, un peu en retard dans la conversation.
 
 ça ne change rien au fait que toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
-merci d'avoir joué! clament le champignon de paris et les haricots verts.
+merci d'avoir joué ! clament le champignon de paris et les haricots verts.
 merci d'avoir _tryhard_, ajoute la valise à roulettes.
 et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
 
