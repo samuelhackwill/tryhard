@@ -33,7 +33,7 @@ import '../components/main.js'
 import './show.html'
 
 const circleElements = []
-let stop = undefined
+let stop = null
 let pointersBucket = []
 
 Template.show.onCreated(function () {
@@ -164,14 +164,14 @@ function handlePupitreAction(message) {
       break
     case 'startColor':
       const boxes = document.querySelectorAll('.pasUnRobotWhiteBox')
+      if (stop !== null) stop()
 
-      // Start "single red" animation
       stop = animatePasUnRobotWhiteBox(boxes, 'single')
 
       break
     case 'stopColor':
     case 'killUnseated':
-      if (stop != undefined) stop()
+      if (stop != null) stop()
       // console.log('stopping', stop != undefined)
       break
     case 'startCarousel':
@@ -1230,8 +1230,8 @@ function animatePasUnRobotWhiteBox(divs, mode = 'single') {
   let interval
 
   const updateColors = () => {
-    console.log('animating opacity')
     divs.forEach((div, i) => {
+      // console.log(div.id)
       if (mode === 'single') {
         div.style.opacity = i === index ? '1' : '0'
       } else if (mode === 'odd') {
