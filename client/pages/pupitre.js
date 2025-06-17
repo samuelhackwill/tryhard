@@ -380,7 +380,7 @@ Template.pupitre.events({
       }
     }
 
-    if (String(this).startsWith('rice-outro')) {
+    if (String(this).startsWith('rice-outro') || String(this) == 'conclusion') {
       sendAction('moveAllPointersOffScreen')
     }
 

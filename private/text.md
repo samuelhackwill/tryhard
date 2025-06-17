@@ -1,25 +1,15 @@
 ## repetition
 
-`moveAllPointersOffScreen`
-
 `alignPointersLeft`
 `alignPointersBot`
 `alignHumansInCircle`
 
-`hideFeed`
-`clearFeed`
-
 `togglePointers`
 `clearPointers`
 
-`addPodium`
-`removePodium`
-
 `killCaptchas`
 
-`bgTogrey`
 `togglePointers`
-
 `unchoosePlayers`
 `mutePointers`
 `toggleFFA`
@@ -430,7 +420,6 @@ je suis sûr que vous pouvez m'aider.
 
 <!-- `moveAllPointersOffScreen` -->
 
-`mutePointers`
 `clearFeed`
 `showFeed`
 ok mais
@@ -457,7 +446,6 @@ pendant que je mange mon "risotto".
 
 ## rice-outro-ok
 
-`mutePointers`
 `clearFeed`
 `showFeed`
 merci pour votre aide!
@@ -483,7 +471,6 @@ pendant que je mange je vous propose un interlude.
 
 ## rice-outro-outstanding
 
-`mutePointers`
 `clearFeed`
 `showFeed`
 wow
@@ -591,12 +578,6 @@ je suis la dernière personne de la performance qui va cliquer -->
 `clearFeed`
 `showFeed`
 
-<!-- `mutePointers` -->
-
-`moveAllPointersOffScreen`
-
-<!-- `togglePointers` -->
-
 pour en revenir au pointeur de souris
 que vous êtes
 saviez-vous que le pointeur de souris a été inventé en 1968?
@@ -679,6 +660,25 @@ et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
 `toggleFFA`
 
 ## die-and-retry
+
+## panic
+
+`moveAllPointersOffScreen`
+
+`hideFeed`
+`clearFeed`
+
+`togglePointers`
+`clearPointers`
+
+`killCaptchas`
+
+`bgTogrey`
+`togglePointers`
+
+`unchoosePlayers`
+`mutePointers`
+`toggleFFA`
 
 <!-- `alignHumansInCircle` -->
 
