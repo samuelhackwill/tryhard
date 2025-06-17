@@ -2,7 +2,7 @@
   <div
     class="pasUnRobot  m-[0.5em] absolute transition-opacity duration-200
     {{#if isTetris}} 
-      animate-fall  
+      animate-fall w-fit text-[11.9px]
     {{/if}}
     {{#if isChaisesMusicales}}
       chair w-fit text-[12px]
@@ -23,6 +23,7 @@
          style= "{{#if isTetris}} {{tetrisRot}} {{/if}}">
 
       <div class="relative {{#unless isChaisesMusicales}} p-[1em] {{/unless}}">
+
         {{#if isChaisesMusicales}}
         {{else}}
           <div
