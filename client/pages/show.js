@@ -1231,7 +1231,6 @@ function animatePasUnRobotWhiteBox(divs, mode = 'single') {
 
   const updateColors = () => {
     divs.forEach((div, i) => {
-      // console.log(div.id)
       if (mode === 'single') {
         div.style.opacity = i === index ? '1' : '0'
       } else if (mode === 'odd') {
