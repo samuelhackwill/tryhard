@@ -382,18 +382,74 @@ const handlePupitreAction = function (message) {
       })
 
       break
+    case 'captcha-spin-slow':
+      captcha.style.animationDuration = '3.5s'
+      captcha.classList.add('rotate-loop')
+      break
+    case 'captcha-spin-reverse':
+      captcha.style.animationDuration = '3.5s'
+      captcha.style.animationDirection = 'reverse'
+      captcha.classList.add('rotate-loop')
+
+      break
+
+    case 'captcha-spin-fast':
+      captcha.style.animationDuration = '1.1s'
+      captcha.classList.add('rotate-loop')
+
+      break
+    case 'captcha-spin-vFast':
+      captcha.style.animationDuration = '.4s'
+      captcha.classList.add('rotate-loop')
+
+      break
+    case 'captcha-spin-fast-a-r':
+      captcha.style.animationDuration = '.9s'
+      captcha.style.animationDirection = 'alternate'
+      captcha.classList.add('rotate-loop')
+      break
+    case 'captcha-spin-joli-1':
+      captcha.style.animationDuration = '.109s'
+      captcha.classList.add('rotate-loop')
+      break
+    case 'captcha-spin-joli-2':
+      captcha.style.animationDuration = '.049s'
+      captcha.classList.add('rotate-loop')
+      break
+    case 'captcha-spin-joli-3':
+      captcha.style.animationDirection = 'reverse'
+      captcha.style.animationDuration = '.033s'
+      captcha.classList.add('rotate-loop')
+      break
+    case 'captcha-spin-joli-4':
+      captcha.style.animationDuration = '1800s'
+      captcha.classList.add('rotate-loop')
+      break
+    case 'captcha-spin-joli-5':
+      captcha.style.animationDuration = '86400s'
+      captcha.classList.add('rotate-loop')
+      break
+
+    // this down here is for the pupitre BUTTONS
+    // cause they are so smart they pass arguments to the same function. which is not
+    // the case for the text-based-action-calls.
+    // DRY i am not youhouhouuuu
     case 'captcha-spin':
       captcha.classList.add('rotate-loop')
 
       switch (message.args) {
         case 'fast':
-          captcha.style.animationDuration = '1.2s'
+          captcha.style.animationDuration = '.9s'
           break
         case 'superFast':
-          captcha.style.animationDuration = '.2s'
+          captcha.style.animationDuration = '.4s'
           break
         case 'ultraFast':
-          captcha.style.animationDuration = '.05s'
+          captcha.style.animationDuration = '.2s'
+          break
+        case 'fast-a-r':
+          captcha.style.animationDuration = '.2s'
+          captcha.style.animationDirection = 'alternate'
           break
         case 'randomFast':
           captcha.style.animationDuration = `${
@@ -413,6 +469,8 @@ const handlePupitreAction = function (message) {
           }
           break
         default:
+          captcha.style.animationDuration = '3.5s'
+
           break
       }
       break

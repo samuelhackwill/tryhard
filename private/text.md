@@ -312,30 +312,33 @@ je suis un humain qui pense que cette situation a été causée par l'auteur de 
 
 je ne suis pas un robot (très facile) <!-- nothing -->
 je ne suis pas un robot (facile) <!-- spin -->
+`captcha-spin-slow`
 je ne suis pas un robot (facile avec variation) <!-- spin-r -->
+`captcha-spin-reverse`
 je ne suis pas un robot (assez facile) <!-- fast -->
+`captcha-spin-fast`
 je ne suis pas un robot (hard) <!-- whirl -->
+`captcha-spin-vFast`
 je ne suis pas un robot (hard avec variation) <!-- dvd -->
 
-je ne suis pas un robot (very hard) <!-- randomFast + pause -->
+je ne suis pas un robot (very hard) <!-- whirl alternate -->
+`captcha-spin-fast-a-r`
 
-je ne suis pas un robot (hurt me plenty) <!-- randomFast + pause plus courte -->
+je ne suis pas un robot (very joli) <!-- x fast -->
+`captcha-spin-joli-1`
+je ne suis pas un robot (also very joli) <!-- x fast -->
+`captcha-spin-joli-2`
+je ne suis pas un robot (irrité) <!-- x fast -->
+`captcha-spin-joli-3`
 
-<!-- celui-ci commence invisible. check l'array startHiddenList dans pasUnRobot.js -->
+je ne suis pas un robot (met une demi heure pour faire un tour complet) <!-- x fast -->
+`captcha-spin-joli-4`
+je ne suis pas un robot (met 24h pour faire un tour complet) <!-- x fast -->
+`captcha-spin-joli-5`
 
-je ne suis pas un robot (extreme) <!-- spin + opacity -->
-
-<!-- celui-ci commence invisible. check l'array startHiddenList dans pasUnRobot.js -->
-
-je ne suis pas un robot (impossible) <!-- rotation + invisible -->
-
-<!-- ## captchas-tetris-ffa
-
-`toggleFFA`
-`alignPointersBot`
-
-`tetris [je ne suis pas un robot (tryhard)]`
- -->
+je ne suis pas un robot (tryhard) <!-- randomFast + pause -->
+je ne suis pas un robot (tryhard) <!-- randomFast + pause -->
+je ne suis pas un robot (tryhard) <!-- randomFast + pause -->
 
 ## captchas-coche-conclusion-1j
 
