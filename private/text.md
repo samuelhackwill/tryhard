@@ -82,17 +82,29 @@
 
 - collectivement, les nématodes possèdent ~10³¹ neurones en total.
 
-- Il faut donc accepter que les nématodes soient quantitativement l'espèce la plus capable de bonheur ou de malheur à l'échelle de la planète, et agir en conséquence, conclut-il.
+- Il faut donc accepter que les nématodes soient quantitativement l'espèce la plus capable de bonheur ou de malheur à l'échelle de la planète, et agir en conséquence, dit-il en conclusion.
 
 <!-- - _"cliquer ou ne pas cliquer, telle est la question."_ conclut, un index levé, le philosophe-directeur de programmation d'un musée qui espérait toucher un public plus jeune en utilisant le champ lexical du jeu vidéo. -->
 
-- « cliquer »,
+- « cliquer ou ne pas cliquer, telle est la question, dit Shakespeare », dit le philosophe des jeux vidéo qui venait d'arriver dans la boutique pour s'acheter un souris gamer.
 
-- « ne pas cliquer... »
+- « je refuse les cookies », dit le philosophe indigné.
 
-<!-- - "telle est la question, dit Shakespeare", dit pour conclure avec un air pénétré le philosophe-directeur de musée qui avait assisté à la conversation et avait pris pour habitude d'utiliser à tout propos le champ lexical du jeu vidéo dans un but de renouvellement de ses publics. -->
+- « j'accepte tous les cookies », dit le philosophe reconnaissant.
 
-- « telle est la question, dit Shakespeare », dit le philosophe-réparateur de matériel informatique dans le but de synthétiser la conversation et de chasser les philosophes de son magasin.
+- « je choisis certains cookies », dit le philosophe qui avait du temps à perdre.
+
+- « je vous jure que je ne partage pas illégitimement ce compte de streaming avec tout le reste de ma famille », dit le philosophe roublard.
+
+- « je désire recevoir des messages de promotion sur mon adresse mail », dit le philosophe, sans le faire exprès.
+
+- « je ne suis pas un robot », dit le philosophe.
+
+<!-- - « ne pas cliquer... »
+
+- « telle est la question, dit Shakespeare », dit pour conclure avec un air pénétré le philosophe-directeur de musée qui avait assisté à la conversation et avait pour habitude d'utiliser à tout propos le champ lexical du jeu vidéo pour avoir l'air d'être dans le coup. -->
+
+<!-- - « telle est la question, dit Shakespeare », dit le philosophe-réparateur de matériel informatique. -->
 
 `hideFeed`
 `clearFeed`
@@ -164,9 +176,6 @@
 - la souris aura mal, certes, mais ce qui compte ce n'est pas sa souffrance prise individuellement. Si une souris souffre pour que tous les humains dans la salle soient contents, alors il faut cliquer, car le total de plaisir _x_ est supérieur au total de souffrance _y_, dit le philosophe axiologue des populations.
 
 - dans ce cas, non seulement il faut cliquer sur la souris, mais il faut cliquer le plus possible, ajoute son collègue utilitariste-totaliste. -->
-
-`hideFeed`
-`clearFeed` -->
 
 ## captchas-coche-1j
 
