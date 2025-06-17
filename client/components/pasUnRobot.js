@@ -190,6 +190,17 @@ Template.pasUnRobot.events({
   //   }
   // },
   'mousedown .checkbox-pasUnRobot'(event, t, obj) {
+    // this down here is to guarantee that during the sequences when we're playing with opacity,
+    // that the captcha is REVEALED when clicked and invisible. (to avoid that it just gets completed silently)
+    if (
+      instance.state.get().startsWith('chaises') ||
+      instance.state.get().startsWith('die-and-retry') ||
+      instance.state.get() == 'captchas-kinetic-1j'
+    ) {
+      const regex = /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/
+      const uuid = event.currentTarget.id.match(regex)
+      document.getElementById(`pasUnRobotWhiteBox-${uuid}`).style.opacity = 1
+    }
     if (
       (t.data.type == 'chair' || t.data.type == 'tetris') &&
       obj.pointer.seated == false &&
@@ -361,8 +372,13 @@ const handlePupitreAction = function (message) {
   const captcha = document.getElementById(`pasUnRobot-${message.context.uuid}`)
   switch (message.content) {
     case 'changeOpacity':
-      document.getElementById(`pasUnRobotWhiteBox-${message.context.uuid}`).style.opacity =
-        message.args / 10
+      // hev, first check that this guy is still clickable; if he's not we want him with full opacity
+      if (document.getElementById(`checkbox-pasUnRobot-${message.context.uuid}`).checked) {
+        document.getElementById(`pasUnRobotWhiteBox-${message.context.uuid}`).style.opacity = 1
+      } else {
+        document.getElementById(`pasUnRobotWhiteBox-${message.context.uuid}`).style.opacity =
+          message.args / 10
+      }
       break
     case 'dvd':
       document.documentElement.style.setProperty('--logo-w', captcha.offsetWidth)
