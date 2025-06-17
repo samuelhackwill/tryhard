@@ -292,9 +292,13 @@ function handlePupitreAction(message) {
             console.log(message)
             move(pointer, message.args.customMoveTo)
             break
+          case 'captchas-kinetic-1j':
+            setTimeout(() => {
+              moveInFrontOfCaptcha(pointer)
+            }, 2000)
+            break
           default:
             moveInFrontOfCaptcha(pointer)
-
             break
         }
       }
