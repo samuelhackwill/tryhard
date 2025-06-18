@@ -88,7 +88,7 @@ const handlePupitreAction = function (message) {
       }
       break
     case 'showClicker':
-      console.log('prout ', message.args, 'prout 2', message.args[0])
+      // console.log('prout ', message.args, 'prout 2', message.args[0])
       document.querySelector(`#clicker-${message.args[0]}`).classList.remove('opacity-0')
       break
     case 'startUpdatingStonks':
@@ -195,8 +195,10 @@ const updateTopMouse = function (context) {
     pastClicksTotal = Number(document.querySelector('#clickCounter-total').firstChild.nodeValue)
     // also check if you beat the high score!
   } else {
-    clicksInThePastSecond =
-      Number(document.querySelector('#clickCounter-total').firstChild.nodeValue) - pastClicksTotal
+    if (document.querySelector('#clickCounter-total').firstChild) {
+      clicksInThePastSecond =
+        Number(document.querySelector('#clickCounter-total').firstChild.nodeValue) - pastClicksTotal
+    }
   }
 
   tick++
@@ -244,7 +246,7 @@ const updateTopMouse = function (context) {
   let descriptor = ''
 
   if (richestGradin == 1) {
-    descriptor = "fois. C'est le gradin tout devant! Premiers de la classe!."
+    descriptor = "fois. C'est le gradin tout devant! Premiers de la classe!"
   } else if (richestGradin == lastGradin) {
     descriptor = "fois. Et c'est le gradin du fond! C'est à l'arrière qu'on clique le plus fort."
   } else {
