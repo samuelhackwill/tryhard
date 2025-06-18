@@ -96,11 +96,11 @@
 
 - « je désire recevoir des messages de promotion sur mon adresse mail », dit le philosophe sans le faire exprès.
 
-- « réveille moi à huit heures quinze », dit le philosophe à son téléphone avant d'aller se coucher.
+<!-- - « réveille moi à huit heures quinze », dit le philosophe à son téléphone avant d'aller se coucher.
 
 - « RÉVEILLE MOI À HUIT HEURES QUINZE », crie le philosophe à son téléphone dur de la feuille avant d'aller se coucher.
 
-- « réveille ? moi. à. HUIT - HEURES - QUINZE », dit le philosophe à son téléphone peu coopératif avant d'aller se coucher.
+- « réveille ? moi. à. HUIT - HEURES - QUINZE », dit le philosophe à son téléphone peu coopératif avant d'aller se coucher. -->
 
 - « je ne suis pas un robot », dit le philosophe.
 
@@ -284,7 +284,9 @@ je suis humain, et en plus, je suis un bon humain. _un robot manquant de confian
 
 je suis le meilleur humain _ces souris sont probablement des robots humbles_
 je suis le plus humble humain _ces souris sont probablement des robots qui ont compris le piège_
+je suis l'humain qui empêche les gens de sortir du métro en se mettant devant les portes dans l'espoir d'entrer le premier _ces souris sont des robots qui assument leur égoïsme_
 je suis l'humain qui cède sa place dans le métro _ces souris sont des robots qui assument leur égoïsme_
+je suis l'humain qui tire en premier _ces souris sont des robots désarmés_
 je suis l'humain qui a dédié une partie de son enfance à apprendre à bouger sa souris très rapidement _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
 
 <!-- je suis le dernier humain
@@ -677,10 +679,10 @@ c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse sur un 
 c'est bien mais à quoi nous sert l'intelligence surhumaine de synthèse dans une société sans justice ? objectent les philosophes-sociologues.
 et qu'est-ce qu'on entend par « intelligence », au fait, s'interrogent d'autres philosophes, un peu en retard dans la conversation.
 
-ça ne change rien au fait que toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
-merci d'avoir joué ! clament le champignon de paris et les haricots verts.
-merci d'avoir _tryhard_, ajoute la valise à roulettes.
-et bon courage avec les ordinateurs, conclut la terrasse recouverte de neige.
+ça ne changera rien au fait que toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
+merci d'avoir joué ! clament le champignon de paris et ses amis les haricots verts.
+merci d'avoir _tryhard_, ajoute la terrasse recouverte de neige.
+encore une partie! couine la valise à roulettes avec nostalgie.
 
 `hideFeed`
 `toggleFFA`
