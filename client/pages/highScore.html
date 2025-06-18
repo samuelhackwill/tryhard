@@ -1,7 +1,8 @@
 <template name="highScore">
-    <div class="space-y-2 p-4">
+  <div class="grid grid-cols-1 h-full w-full absolute">
+    <div class="space-y-2 p-4 overflow-y-scroll col-span-1">
         {{#each highScores}}
-          <div class="flex flex-wrap gap-4 items-center bg-gray-100 rounded px-3 py-2">
+          <div class="flex flex-wrap gap-4  items-center bg-gray-100 rounded px-3 py-2">
             {{#each eachField}}
             <span class="text-sm">{{field}}</span>
               <span
@@ -33,5 +34,5 @@
             </button>
         </div>
     </div>
-
+  </div>
 </template>
