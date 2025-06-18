@@ -56,7 +56,7 @@
 
 - Oui mais, interjecte le philosophe axiologue des populations qui passait par là, il faut aborder le problème d'une manière plus systématique.
 
-- Si l'on considère un nombre _x_ de souris produisant chacune _y_ unité de bonheur au cours de leur existence, alors ce qui est important ce n'est pas de leur cliquer dessus ou non, peu importe ; ce qu'il faut, c'est maximiser le nombre de souris, heureuses ou pas, parce que la quantité totale de bonheur à l'échelle de la planète sera plus grande. Il vaut mieux _100 000_ souris produisant chacune _1_ unité de bonheur seulement que _10_ souris produisant chacune _1000_ unités de bonheur. Oui je sais c'est contre-intuitif mais c'est ça les maths, dit le philosophe utilitariste-maximaliste-totaliste en montant dans sa Tesla garée devant le magasin.
+- Si l'on considère un nombre _x_ de souris produisant chacune _y_ unité de bonheur au cours de leur existence, alors ce qui est important ce n'est pas de leur cliquer dessus ou non, peu importe ; ce qu'il faut, c'est maximiser le nombre de souris, heureuses ou pas, parce que la quantité totale de bonheur à l'échelle de la planète sera plus grande. Il vaut mieux _100 000_ souris produisant chacune _1_ unité de bonheur seulement que _10_ souris produisant chacune _1000_ unités de bonheur. Oui je sais c'est contre-intuitif mais c'est ça les maths, dit le philosophe utilitariste-maximaliste-totaliste en montant dans sa Tesla.
 
 - Attendez, nuance son collègue gradualiste assis sur la banquette arrière :
 
@@ -86,17 +86,21 @@
 
 <!-- - _"cliquer ou ne pas cliquer, telle est la question."_ conclut, un index levé, le philosophe-directeur de programmation d'un musée qui espérait toucher un public plus jeune en utilisant le champ lexical du jeu vidéo. -->
 
-- « cliquer ou ne pas cliquer, telle est la question, dit Shakespeare », dit le philosophe des jeux vidéo qui venait d'arriver dans la boutique pour s'acheter un souris gamer.
+- « cliquer ou ne pas cliquer, telle est la question, dit Shakespeare », dit le philosophe des jeux vidéo qui venait d'entrer dans la boutique pour s'acheter un souris gamer.
 
 - « je refuse les cookies », dit le philosophe indigné.
 
 - « j'accepte tous les cookies », dit le philosophe reconnaissant.
 
-- « je choisis certains cookies », dit le philosophe qui avait du temps à perdre.
+- « je choisis certains cookies seulement parmi la liste que vous me proposez », dit le philosophe difficile.
 
-- « je vous jure que je ne partage pas illégitimement ce compte de streaming avec tout le reste de ma famille », dit le philosophe roublard.
+- « je désire recevoir des messages de promotion sur mon adresse mail », dit le philosophe sans le faire exprès.
 
-- « je désire recevoir des messages de promotion sur mon adresse mail », dit le philosophe, sans le faire exprès.
+- « réveille moi à huit heures quinze », dit le philosophe à son téléphone avant d'aller se coucher.
+
+- « RÉVEILLE MOI À HUIT HEURES QUINZE », crie le philosophe à son téléphone dur de la feuille avant d'aller se coucher.
+
+- « réveille ? moi. à. HUIT - HEURES - QUINZE », dit le philosophe à son téléphone peu coopératif avant d'aller se coucher.
 
 - « je ne suis pas un robot », dit le philosophe.
 
@@ -278,30 +282,40 @@ je suis humain, et en plus, je suis un bon humain. _un robot manquant de confian
 
 <!-- EDGE CASE : i need to modify the captcha fail code to account for the fact that there's several mice -->
 
-je suis le meilleur humain. _ces souris sont probablement des robots humbles_
-je suis le plus humble humain. _ces souris sont probablement des robots qui ont compris le piège_
-je suis l'humain qui cède sa place dans le métro. _ces souris sont des robots qui assument leur égoïsme_
-je suis l'humain qui a dédié une partie de son enfance à apprendre à bouger sa souris très rapidement. _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
+je suis le meilleur humain _ces souris sont probablement des robots humbles_
+je suis le plus humble humain _ces souris sont probablement des robots qui ont compris le piège_
+je suis l'humain qui cède sa place dans le métro _ces souris sont des robots qui assument leur égoïsme_
+je suis l'humain qui a dédié une partie de son enfance à apprendre à bouger sa souris très rapidement _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
 
-je suis l'humain qui ne perdra pas son travail à cause d'un robot. _ces souris sont probablement des robots-rentiers_
-je suis l'humain qui ne perdra pas son appartement à cause d'un bug informatique dans le logiciel de la CAF. _ces souris sont probablement des robots propriétaires_
-je suis l'humain qui ne subira pas la discrimination invisible d'un algorithme. _ces souris sont justement l'algorithme en question_
-je suis l'humain qui ne tombera jamais amoureux d'un robot. _ces souris sont probablement amoureux.ses l'un.e de l'autre_
+<!-- je suis le dernier humain
+je suis le dernier humain avec un vrai travail
+je suis le dernier humain qui peut manger des abricots
+je suis le dernier humain qui peut boire un verre d'eau fraîche et propre -->
 
-je suis l'humain qui pourra manger des abricots en 2050. _ces souris n'aiment pas les abricots ? mais est-ce qu'elles ont déjà mangé un abricot fraîchement ramassé à même la branche, chauffé par le soleil de Juillet ?_
-je suis l'humain qui pourra manger autre chose que des algues lyophilisées en 2100. _ces souris sont probablement des robots qui de toutes façons n'avaient pas très faim_
+<!-- je suis l'humain qui ne perdra pas son travail à cause d'un robot _ces souris sont probablement des robots-syndicalistes_ -->
+
+<!-- je suis l'humain qui ne perdra pas son appartement à cause d'un bug informatique dans le logiciel de la CAF _ces souris sont probablement des robots propriétaires_
+je suis l'humain qui ne subira pas la discrimination invisible d'un algorithme _ces souris sont justement l'algorithme en question_ -->
+
+<!-- je suis l'humain qui ne tombera jamais amoureux d'un robot _ces souris sont probablement amoureux.ses l'un.e de l'autre_ -->
+
+<!-- je suis l'humain qui pourra manger des abricots en 2050 _ces souris n'aiment pas les abricots ? mais est-ce qu'elles ont déjà mangé un abricot fraîchement ramassé à même la branche, chauffé par le soleil de Juillet ?_ -->
+
+<!-- je suis l'humain qui pourra manger autre chose que des algues lyophilisées en 2100 _ces souris sont probablement des robots qui de toutes façons n'avaient pas très faim_ -->
 
 <!-- ici le gens explosent : ça fait une connection avec la fin où tout le monde explose et donc peut être que y'a plus de chances que les gens percutent à la fin sur le mode c'est une parabole du réchauffement climatos -->
 
-je suis l'humain qui pourra boire de l'eau potable en 2050. _ces souris sont probablement des robots qui n'ont pas besoin d'eau_
-je suis l'humain qui pourra bénéficier d'un lit en unité de soins palliatifs en 2050. _ces souris sont probablement des robots qui n'en ont pas besoin_
+<!-- je suis l'humain qui pourra boire de l'eau potable en 2050 _ces souris sont probablement des robots qui n'ont pas besoin d'eau_ -->
+
+<!-- je suis l'humain qui pourra bénéficier d'un lit en unité de soins palliatifs en 2050 _ces souris sont probablement des robots qui n'en ont pas besoin_ -->
 
 <!-- pis là les gens n'explosent plus -->
+<!-- pffff bon idéalement là il aurait fallu qu'il y ait deux checkboxes -->
 
-je suis un humain qui pense que cette situation a été causée par le Capitalisme _ces souris sont probablement des robots qui se méfient des slogans_
+<!-- je suis un humain qui pense que cette situation a été causée par le Capitalisme _ces souris sont probablement des robots qui se méfient des slogans_
 je suis un humain qui pense que cette situation a été causée par la bêtise et la brutalité humaine _ces souris sont probablement des robots qui ont encore envie d'aimer l'humanité_
 je suis un humain qui pense que cette situation a été causée par le hasard _ces souris sont probablement des robots qui ont encore envie de croire en quelque chose_
-je suis un humain qui pense que cette situation a été causée par l'auteur de la performance, Samuel _ces souris sont probablement des robots qui n'ont pas compris que c'est Samuel qui avait écrit cette performance_
+je suis un humain qui pense que cette situation a été causée par l'auteur de la performance, Samuel _ces souris sont probablement des robots qui n'ont pas compris que c'est Samuel qui avait écrit cette performance_ -->
 
 `duelSamuel`
 
@@ -409,8 +423,8 @@ ce genre de système est aussi utilisé
 pour entraîner les dites intelligences artificielles :
 nous mettons de l'ordre dans un cerveau de synthèse embrumé
 une image à la fois.
-c'est pas tout ça mais ça creuse!
-on se ferait pas un petit truc à manger?
+c'est pas tout ça mais ça creuse !
+on se ferait pas un petit truc à manger ?
 mais j'ai besoin d'un coup de main
 j'aimerais manger un « risotto »
 mais je ne sais pas ce que ça veut dire
@@ -424,6 +438,7 @@ je suis sûr que vous pouvez m'aider.
 ## rice-ffa
 
 `hideFeed`
+`toggleFFA`
 
 `ImgCapInfinite[Sélectionnez uniquement les grains de riz RONDS : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 2000 grains peut-être? j'ai une petite faim, rice, 2000]`
 
@@ -449,11 +464,12 @@ et puis c'est probablement la première fois que vous êtes aussi nombreux.se.s 
 `clicker [chomdu]`
 mais j'ai compris la leçon
 `clicker [insee]`
-je vais vous proposer une activité plus...
+je vais vous proposer une activité plus... intuitive
 `clicker [speed]`
-intuitive
 `clicker [speedWorldRecord]`
 pendant que je mange mon risotto.
+`hideFeed`
+`clearFeed`
 
 ## rice-outro-ok
 
@@ -476,9 +492,11 @@ mais vous l'avez fait plus _gentiment_ qu'un robot.
 `clicker [fourthMouse]`
 `clicker [chomdu]`
 `clicker [insee]`
-pendant que je mange je vous propose un interlude.
+je vous propose de continuer à compléter mes CAPTCHAs.
 `clicker [speed]`
 `clicker [speedWorldRecord]`
+`hideFeed`
+`clearFeed`
 
 ## rice-outro-outstanding
 
@@ -504,18 +522,15 @@ je me permets de transmettre un enregistrement de votre session à mon robot tri
 ça vous dérange pas j'imagine.
 `clicker [chomdu]`
 `clicker [insee]`
-pendant que je mange, je vous propose un interlude.
+je vous propose de continuer à compléter mes CAPTCHAs.
 `clicker [speed]`
 `clicker [speedWorldRecord]`
-
-## clicker-ffa
-
 `hideFeed`
 `clearFeed`
 
-`startUpdatingStonks`
+## clicker-ffa
 
-`alignPointersBot`
+`startUpdatingStonks`
 `revealMoney`
 
 `showClicker [total]`
@@ -535,10 +550,6 @@ pendant que je mange, je vous propose un interlude.
 `clickerMsg [fois, c'est beaucoup beaucoup]`
 `clickerMsg [fois, c'est beaucoup trop!]`
 
-`save`
-
-`stopUpdatingStonks`
-
 `clickerAlert [en raison de la production d'un trop grand nombre de clics]`
 `clickerAlert [les souris ont malheureusement déclenché un processus inexorable de réchauffement climatique sourisogènique]`
 `clickerAlert [le monde va malheureusement exploser]`
@@ -549,6 +560,9 @@ pendant que je mange, je vous propose un interlude.
 `bgToMaroon`
 
 `killClickerGrid`
+`save`
+`stopUpdatingStonks`
+
 `hideMoney`
 
 <!--
