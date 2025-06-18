@@ -24,7 +24,7 @@ Template.highScore.helpers({
       'topPlayer',
       'topGradin',
       'topChomeurs',
-      'gini',
+      'bestGini',
     ]
     console.log(
       keys.map((field) => ({
