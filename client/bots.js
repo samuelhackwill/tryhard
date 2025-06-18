@@ -201,6 +201,27 @@ export const moveInFrontOfCaptcha = function (pointer) {
   })
 }
 
+export const moveSamuelInScreen = function () {
+  const allPointers = Object.values(instance.pointers.all())
+  const target = allPointers.find((p) => p.order === -1)
+
+  if (!target) return
+
+  pushToClientEventQueue({
+    origin: 'autoplay',
+    payload: {
+      type: 'move',
+      from: null,
+      to: {
+        x: window.innerWidth / 2,
+        y: (window.innerHeight / 4) * 3,
+      },
+      duration: 1000,
+      pointer: target,
+    },
+  })
+}
+
 export const moveInFrontOfCaptchaImg = function (pointer) {
   pushToClientEventQueue({
     origin: 'autoplay',

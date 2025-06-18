@@ -439,6 +439,7 @@ je suis sûr que vous pouvez m'aider.
 
 `hideFeed`
 `toggleFFA`
+`moveSamuelInScreen`
 
 `ImgCapInfinite[Sélectionnez uniquement les grains de riz RONDS : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 2000 grains peut-être? j'ai une petite faim, rice, 2000]`
 

@@ -11,6 +11,7 @@ import {
   moveOffOfCaptcha,
   moveInFrontOfCaptchaImg,
   moveAllPointersOffScreen,
+  moveSamuelInScreen,
   autoClickerMine,
   alignPointersInTheBottom,
   alignPointersOnTheLeft,
@@ -92,6 +93,9 @@ Template.show.onRendered(function () {
 
 function handlePupitreAction(message) {
   switch (message.content) {
+    case 'moveSamuelInScreen':
+      moveSamuelInScreen()
+      break
     case 'toggleFFA':
       toggleFFA(true)
       break
