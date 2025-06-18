@@ -105,14 +105,28 @@ const handlePupitreAction = function (message) {
         message.args[0] + ', ' + message.args[1]
       break
     case 'clickerAlert':
-      document.querySelector('#clickCounter-total-container').innerHTML = message.args[0]
+      // Set the warning text
+      document.querySelector('#clickerTotalWarning').textContent = message.args[0]
+
+      // Hide the counter without removing it
+      const counter = document.querySelector('#clickerTotalCounter')
+      counter.style.position = 'absolute'
+      counter.style.left = '-9999px'
+      counter.style.top = '-9999px'
+
+      // Flash the first .clicker element
       const elements = Array.from(document.getElementsByClassName('clicker'))
-      elements[0].classList.remove('bg-white')
-      elements[0].classList.add('bg-[red]')
-      setTimeout(() => {
-        elements[0].classList.remove('bg-[red]')
-        elements[0].classList.add('bg-white')
-      }, 500)
+
+      if (elements.length > 0) {
+        const el = elements[0]
+        el.classList.remove('bg-white')
+        el.classList.add('bg-[red]')
+
+        setTimeout(() => {
+          el.classList.remove('bg-[red]')
+          el.classList.add('bg-white')
+        }, 500)
+      }
       break
     // case 'blinkEveryone':
     //   const elements = Array.from(document.getElementsByClassName('clicker'))
@@ -195,7 +209,7 @@ const updateTopMouse = function (context) {
     pastClicksTotal = Number(document.querySelector('#clickCounter-total').firstChild.nodeValue)
     // also check if you beat the high score!
   } else {
-    if (document.querySelector('#clickCounter-total').firstChild) {
+    if (document.querySelector('#clickCounter-total')?.firstChild) {
       clicksInThePastSecond =
         Number(document.querySelector('#clickCounter-total').firstChild.nodeValue) - pastClicksTotal
     }

@@ -39,10 +39,15 @@
 
             {{#if (is "total")}}
             <div id="clickCounter-total-container">
-              <span> les souris ont cliqué </span>
-              <div>
-                <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
-                <span id="clickCounterWarn"> fois</span>
+              <div id="clickerTotalWarning">
+
+              </div>
+              <div id="clickerTotalCounter">
+                <span> les souris ont cliqué </span>
+                <div>
+                  <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
+                  <span id="clickCounterWarn"> fois</span>
+                </div>
               </div>
             </div>
             {{/if}}
