@@ -627,6 +627,45 @@ export const moveInFrontOfCaptchaImg = function (pointer) {
 //   targetDiv.insertAdjacentHTML('beforeend', svgHTML)
 //   instance.pointers.delete(bot.id)
 // }
+export const autoclickerSpawn = function (father, bot) {
+  // console.log(father)
+  parentCoords = readDomCoords(document.getElementById(father.id))
+
+  // here we need to update the DOM en fonction du dataset
+  setTimeout(() => {
+    let botDOMpointer = document.getElementById(bot.id)
+    // console.log(botDOMpointer)
+    let transform = botDOMpointer.style.transform || ''
+
+    // Remove any existing translate (optional if you want to overwrite it every time)
+    transform = transform.replace(/translate\([^)]+\)/, '')
+
+    // Add the new translate
+    transform = `${transform} translate(${parentCoords.x}px, ${parentCoords.y}px)`.trim()
+
+    // Apply the updated transform
+    botDOMpointer.style.transform = transform
+
+    writeDomCoords(botDOMpointer, parentCoords)
+
+    newCoords = {
+      x: parentCoords.x + randomBetween(-50, 50),
+      y: parentCoords.y + randomBetween(-50, 50),
+    }
+
+    pushToClientEventQueue({
+      origin: 'autoplay',
+      payload: {
+        type: 'move',
+        from: null,
+        to: { x: newCoords.x, y: newCoords.y },
+        duration: 100,
+        pointer: bot,
+      },
+    })
+  }, 16)
+}
+
 export const positionPointersOnCircle = function (pointers, radius) {
   const filteredPointers = pointers.filter((pointer) => pointer.order !== -1)
 
