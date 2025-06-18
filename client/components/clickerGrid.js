@@ -260,11 +260,11 @@ const updateTopMouse = function (context) {
   let descriptor = ''
 
   if (richestGradin == 1) {
-    descriptor = "fois. C'est le gradin tout devant! Premiers de la classe!"
+    descriptor = "fois. C'est le gradin tout devant ! Premiers de la classe !"
   } else if (richestGradin == lastGradin) {
-    descriptor = "fois. Et c'est le gradin du fond! C'est à l'arrière qu'on clique le plus fort."
+    descriptor = "fois. Et c'est le gradin du fond ! C'est à l'arrière qu'on clique le plus fort."
   } else {
-    descriptor = `fois. c'est le ${richestGradin}e gradin en partant de devant!`
+    descriptor = `fois. c'est le ${richestGradin}e gradin en partant de devant !`
   }
 
   document.querySelector('#clickDescriptor-bestGradin').firstChild.nodeValue = descriptor
@@ -296,7 +296,8 @@ const updateTopMouse = function (context) {
   const avgBottom10 = bottom10.reduce((a, b) => a + b, 0) / bottom10.length || 1 // prevent divide-by-zero
 
   const decileRatio = Math.round((avgTop10 / avgBottom10) * 100) / 100 // rounded to 2 decimals
-  document.querySelector('#gini').firstChild.nodeValue = decileRatio
+  const truncDecile = Math.trunc(decileRatio)
+  document.querySelector('#gini').firstChild.nodeValue = truncDecile
 
   if (decileRatio < lowestGini) {
     lowestGini = decileRatio
@@ -304,10 +305,10 @@ const updateTopMouse = function (context) {
 
   if (decileRatio < 150) {
     document.querySelector('#france').firstChild.nodeValue =
-      'La société des souris est donc plus égalitaire que celle des français (rapport inter-décile du patrimoine en France = 150)'
+      'La société des souris est donc plus égalitaire que celle des français (rapport inter-décile du patrimoine en France = 150)'
   } else {
     document.querySelector('#france').firstChild.nodeValue =
-      'La société des souris est donc moins égalitaire que celle des français (rapport inter-décile du patrimoine en France = 150)'
+      'La société des souris est donc moins égalitaire que celle des français (rapport inter-décile du patrimoine en France = 150)'
   }
 
   // If no one has clicked, prevent assigning colors randomly
