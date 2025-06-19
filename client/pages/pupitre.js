@@ -697,6 +697,66 @@ const addShortcutListeners = function () {
       }
     }
   })
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'a') {
+      const button = document.getElementById('flash-hapy')
+      if (button && button.getAttribute('aria-pressed') !== 'true') {
+        button.setAttribute('aria-pressed', 'true')
+        button.dispatchEvent(new Event('mousedown'))
+      }
+    }
+  })
+
+  document.addEventListener('keyup', function (event) {
+    if (event.key === 'a') {
+      const button = document.getElementById('flash-hapy')
+      if (button && button.getAttribute('aria-pressed') === 'true') {
+        button.setAttribute('aria-pressed', 'false')
+        button.dispatchEvent(new Event('mouseup'))
+        button.click()
+      }
+    }
+  })
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'z') {
+      const button = document.getElementById('flash-angry')
+      if (button && button.getAttribute('aria-pressed') !== 'true') {
+        button.setAttribute('aria-pressed', 'true')
+        button.dispatchEvent(new Event('mousedown'))
+      }
+    }
+  })
+
+  document.addEventListener('keyup', function (event) {
+    if (event.key === 'z') {
+      const button = document.getElementById('flash-angry')
+      if (button && button.getAttribute('aria-pressed') === 'true') {
+        button.setAttribute('aria-pressed', 'false')
+        button.dispatchEvent(new Event('mouseup'))
+        button.click()
+      }
+    }
+  })
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'e') {
+      const button = document.getElementById('flash-parodelia')
+      if (button && button.getAttribute('aria-pressed') !== 'true') {
+        button.setAttribute('aria-pressed', 'true')
+        button.dispatchEvent(new Event('mousedown'))
+      }
+    }
+  })
+
+  document.addEventListener('keyup', function (event) {
+    if (event.key === 'e') {
+      const button = document.getElementById('flash-parodelia')
+      if (button && button.getAttribute('aria-pressed') === 'true') {
+        button.setAttribute('aria-pressed', 'false')
+        button.dispatchEvent(new Event('mouseup'))
+        button.click()
+      }
+    }
+  })
 }
 
 const noir = function () {
