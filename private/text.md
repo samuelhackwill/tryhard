@@ -682,7 +682,7 @@ et qu'est-ce qu'on entend par « intelligence », au fait, s'interrogent d'a
 ça ne changera rien au fait que toute la vie oscille comme un pendule, de gauche à droite, entre la souffrance et l'ennui, soupire le yaourt depuis son frigo.
 merci d'avoir joué ! clament le champignon de paris et ses amis les haricots verts.
 merci d'avoir _tryhard_, ajoute la terrasse recouverte de neige.
-encore une partie! couine la valise à roulettes avec nostalgie.
+encore une partie! couine la valise à roulettes.
 
 `hideFeed`
 `toggleFFA`
