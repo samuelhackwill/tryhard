@@ -228,7 +228,7 @@ export const moveInFrontOfCaptchaImg = function (pointer) {
     payload: {
       type: 'move',
       from: null,
-      to: { x: window.innerWidth / 2, y: (window.innerHeight / 4) * 3.6 },
+      to: { x: window.innerWidth / 2, y: window.innerHeight / 2 },
       duration: 1000,
       pointer: pointer,
     },
