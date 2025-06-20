@@ -390,6 +390,11 @@ Template.pupitre.events({
       sendAction('alignPointersBot')
     }
 
+    // if (String(this).startsWith('die-and-retry')) {
+    //   Template.instance().danceSpeed.set(100)
+    //   Template.instance().chairsNumber.set(35)
+    //   musick.src = '/music/bonetrousle_toby_fox.mp3'
+    // }
     // switch (String(this)) {
     //   // case 'iii-captchas-1j-s2':
     //   //   numberOfPlayers = Array.from(document.querySelectorAll('.mouseToggle:checked')).length
@@ -766,7 +771,7 @@ const noir = function () {
     setTimeout(() => {
       sendAction('togglePointers')
     }, 300)
-  }, 1000)
+  }, 2000)
 }
 
 const fadeAudio = function (audioElement, fadeType = 'in', duration = 10000) {
