@@ -78,7 +78,12 @@ function handleTickUpdate(message) {
 
       if (unoccupiedSeat) return
 
-      if (instance.state.get() != 'repetition' && instance.state.get() != 'les-philosophes') return
+      if (
+        instance.state.get() != 'repetition' &&
+        instance.state.get() != 'les-philosophes' &&
+        instance.state.get() != 'init'
+      )
+        return
 
       pointer = createPointer(element.client)
 
