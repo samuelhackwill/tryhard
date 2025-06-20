@@ -121,36 +121,42 @@
             {{/if}}
 
             {{#if (is "chomdu")}}
+            <div class="text-2xl">
               <span id="clickCounter-{{this}}" class="text-blue-600 font-mono font-bold">0</span>
               <span> souris actuellement au chômage.</span>
+            </div>
             {{/if}}
 
             {{#if (is "insee")}}
+            <div class="text-2xl">
+
               <!-- <span> la médiane de production de clics de la salle est actuellement à </span> 
               <span id="médiane" class="text-blue-600 font-mono font-bold">0</span> 
               <span>, c'est à dire que 50% des souris ont produit plus et 50% ont produit moins. </span>  -->
-              <span>Et maintenant un coup d'oeil sur les inégalités de patrimoine dans la salle. Les 10% de souris les plus riches en clics possèdent </span>
-              <div>
+              <span>Et maintenant un coup d'oeil sur les inégalités de patrimoine dans la salle. Les 10% de souris les plus riches possèdent </span>
                 <span id="gini" class="text-blue-600 font-mono font-bold">0</span> 
-                <span> fois plus de clics que les 10% de souris les plus pauvres en clics. </span>
+                <span> fois plus de clics que les 10% de souris les plus pauvres. </span>
                 <span id="france"> </span>
               </div>
+
             {{/if}}
 
             {{#if (is "speed")}}
-              <span> les souris cliquent actuellement à une vitesse de </span> 
-              <span id="speedCounter" class="text-blue-600 font-mono font-bold">0</span>
-              <span> clics par seconde.</span>
+              <div class="text-2xl">
+                <span> les souris cliquent actuellement à une vitesse de </span> 
+                <span id="speedCounter" class="text-blue-600 font-mono font-bold">0</span>
+                <span> clics par seconde.</span>
+              </div>
             {{/if}}
 
 
             {{#if (is "speedWorldRecord")}}              
-              <div id="speedWorldRecord">
-                  <span>le public qui a atteint la plus grande vitesse de clics était un public </span> 
+              <div id="speedWorldRecord" class="text-2xl">
+                  <span>le public le plus rapide était un public </span> 
                   <span class="text-blue-600 font-mono font-bold"> {{recordGet "gentillé"}} </span>
-                  <span>avec une vitesse max de </span> 
+                  <span>. Vitesse max :</span> 
                   <span class="text-blue-600 font-mono font-bold"> {{recordGet "topSpeed"}}</span>
-                  <span>clics par seconde. C'était </span>
+                  <span>clics/s. C'était </span>
                   <span class="text-blue-600 font-mono font-bold"> {{recordGet "heure"}} du  {{recordGet "date"}}.
                   </span>
               </div>

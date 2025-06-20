@@ -305,10 +305,10 @@ const updateTopMouse = function (context) {
 
   if (decileRatio < 150) {
     document.querySelector('#france').firstChild.nodeValue =
-      'La société des souris est donc plus égalitaire que celle des français (rapport inter-décile du patrimoine en France = 150)'
+      'La société des souris est donc moins inégalitaire que celle des français (rapport inter-décile français = 150)'
   } else {
     document.querySelector('#france').firstChild.nodeValue =
-      'La société des souris est donc moins égalitaire que celle des français (rapport inter-décile du patrimoine en France = 150)'
+      'La société des souris est donc plus inégalitaire que celle des français (rapport inter-décile français = 150)'
   }
 
   // If no one has clicked, prevent assigning colors randomly
