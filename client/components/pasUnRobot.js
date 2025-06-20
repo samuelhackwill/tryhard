@@ -8,10 +8,7 @@ const interestingSpeeds = [
   297, 304, 311, 407, 317, 358, 393, 423,
 ]
 
-const startHiddenList = [
-  'je ne suis pas un robot (extreme)',
-  'je ne suis pas un robot (impossible)',
-]
+const startHiddenList = ['je ne suis pas un robot (impossible)']
 
 newX = 1
 newY = 1
