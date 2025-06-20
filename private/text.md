@@ -86,7 +86,7 @@
 
 <!-- - _"cliquer ou ne pas cliquer, telle est la question."_ conclut, un index levé, le philosophe-directeur de programmation d'un musée qui espérait toucher un public plus jeune en utilisant le champ lexical du jeu vidéo. -->
 
-- « cliquer ou ne pas cliquer, telle est la question, dit Shakespeare », dit le philosophe des jeux vidéo qui venait d'entrer dans la boutique pour s'acheter un souris gamer.
+- « cliquer ou ne pas cliquer, telle est la question, dit Shakespeare », dit le philosophe des jeux vidéo qui venait d'entrer dans la boutique pour s'acheter une souris gamer.
 
 - « je refuse les cookies », dit le philosophe indigné.
 
@@ -228,7 +228,10 @@ quand je livre un argument dans un débat, je ne fais pas que répéter des sons
 
 la preuve que je suis humain, c'est que j'ai deux yeux, cinq mains et 29 doigts _un robot qui a compris le piège_ [-1][1]
 la preuve que je suis humain, c'est que je me suis déjà dit « ah tiens il est 11:11 quelqu'un pense à moi » _un robot qui n'a pas d'amis_ [1][1]
-la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case malgré l'injonction permanente qui est faite de cliquer partout _n robot libre_ [-1][-1]
+
+<!-- stéphanie dit : une autre qui va plus loin et plus bizarre que 11:11 -->
+
+la preuve que je suis humain, c'est que je peux décider de ne pas cliquer sur cette case malgré l'injonction permanente qui est faite de cliquer partout _un robot libre_ [-1][-1]
 
 la preuve que je suis humain, c'est que je peux perdre mon temps avec ma souris avant de cliquer sur cette case. _juste un robot un peu paresseux_ [1][-1]
 
@@ -239,19 +242,29 @@ la preuve que j'ai des valeurs humaines, c'est que j'héberge bénévolement cen
 
 d'ailleurs je ne suis pas une bactérie anaérobie _une Clostridium difficile_ [1][-1]
 je ne suis pas un virus _un Mimivirus_ [1][-1]
-un robot, je ne suis pas _robot un_ [1][-1]
-pas un robot je ne suis _tobor nu_ [1][-1]
-fhcjfhckfhcfkkhkvchvghkhj hkgv:, g _un robot impatient_ [1][-1]
-Mon premier vient avant deux. Mon second est produit quand on avale de l'air. Mon dernier est l'inverse de « laid ». Mon tout est ce que je ne suis pas. _un robot qui n'aime pas les rébus_ [1][-1]
+(ni un robot)
+(je sais pas si je vous l'ai déjà dit)
+
+<!--  -->
+
 un robot, moi? non non _un robot qui assume_ [1][-1]
-arrêtez de dire que je suis un robot _un robot que la paranoïa ambiante ne dérange pas_ [1][-1]
 c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L _un robot qui a fait S_ [1][-1]
+
+<!-- un robot, je ne suis pas _robot un_ [1][-1]
+pas un robot je ne suis _tobor nu_ [1][-1] -->
+
+arrêtez de dire que je suis un robot _un robot que la paranoïa ambiante ne dérange pas_ [1][-1]
+fhcjfhckfhcfkkhkvchvghkhj hkgv:, g _un robot impatient_ [1][-1]
+
+<!-- Mon premier vient avant deux. Mon second est produit quand on avale de l'air. Mon dernier est l'inverse de « laid ». Mon tout est ce que je ne suis pas. _un robot qui n'aime pas les charade_ [1][-1] -->
+
+<!-- le fond de cette blague c'est qu'en fait on ne sais pas si on est un robot ou pas au fond, et qu'on en fait ce que c'est un robot, mais qu'on a quand même très envie de l'affirmer -->
 
 la preuve que je suis un être humain, c'est que je saigne (quand mes veines ne sont plus étanches) _un robot sans sang_ [1][-1]
 je pue (pas forcément en ce moment) _un robot qui sent bon_ [1][-1]
 je souffre (idem) _un robot heureux_ [1][-1]
-je respire (je ne peux pas faire autrement) _un robot qui se moque de l'oxygène_ [1][-1]
-je suis en train de mourir (je ne peux pas faire autrement) _un robot qui a fait une sauvegarde_ [1][-1]
+je respire (en ce moment même) _un robot qui se moque de l'oxygène_ [1][-1]
+je suis en train de mourir (en ce moment même) _un robot qui a fait une sauvegarde_ [1][-1]
 je n'ai que toute ma vie devant moi en ce moment même et pour toujours _un robot qui pourra toujours charger son fichier dans un autre corps_ [1][-1]
 
 je prends acte du fait que, bien que je sois content de ne pas être un robot, mon disque dur (corps) sera bientôt effacé entièrement (mort), et ma mémoire vive (âme) sera bientôt hors-service absolument (néant) _un robot qui est un peu désolé mais ne peut pas en dire autant_ [1][-1]
@@ -271,6 +284,7 @@ moi non plus je ne suis pas un robot _un robot_ [1][-1]
 alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot qui préfère se sacrifier plutôt que de dénoncer ses potes_ [1][-1]
 je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot mais pas un collabo_ [1][-1]
 je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _un robot qui ne croit pas en la convergence des intérêts humains_ [1][0]
+
 après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _un robot qui n'est pas responsable de ses actes_ [1][0]
 nous ne sommes pas individuellement des robots. _un robot qui ne jure que par l'intelligence collective_ [1][0]
 nous ne sommes pas collectivement un robot. _un robot qui n'aime pas les foules_ [1][0]
@@ -282,12 +296,14 @@ je suis humain, et en plus, je suis un bon humain. _un robot manquant de confian
 
 <!-- EDGE CASE : i need to modify the captcha fail code to account for the fact that there's several mice -->
 
+je suis le plus rapide _ces souris sont probablement des robots humbles_
 je suis le meilleur humain _ces souris sont probablement des robots humbles_
 je suis le plus humble humain _ces souris sont probablement des robots qui ont compris le piège_
-je suis l'humain qui empêche les gens de sortir du métro en se mettant devant les portes dans l'espoir d'entrer le premier _ces souris sont des robots qui assument leur égoïsme_
+je suis l'humain qui empêche les gens de sortir du métro en se mettant devant les portes dans l'espoir d'entrer le premier _ces souris sont des robots altruistes_
 je suis l'humain qui cède sa place dans le métro _ces souris sont des robots qui assument leur égoïsme_
 je suis l'humain qui tire en premier _ces souris sont des robots désarmés_
 je suis l'humain qui a dédié une partie de son enfance à apprendre à bouger sa souris très rapidement _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
+je suis l'humain qui trouve ça injuste que la première souris soit avantagée à ce jeu _ces souris ont décidé de ne pas participer à un jeu dont les dés sont pipés_
 
 <!-- je suis le dernier humain
 je suis le dernier humain avec un vrai travail
@@ -341,17 +357,18 @@ je ne suis pas un robot (hard avec variation) <!-- dvd -->
 je ne suis pas un robot (very hard) <!-- whirl alternate -->
 `captcha-spin-fast-a-r`
 
-je ne suis pas un robot (very joli) <!-- x fast -->
+<!--
+je ne suis pas un robot (very joli)
 `captcha-spin-joli-1`
-je ne suis pas un robot (also very joli) <!-- x fast -->
+je ne suis pas un robot (also very joli)
 `captcha-spin-joli-2`
-je ne suis pas un robot (irrité) <!-- x fast -->
+je ne suis pas un robot (irrité)
 `captcha-spin-joli-3`
 
-je ne suis pas un robot (met une demi heure pour faire un tour complet) <!-- x fast -->
+je ne suis pas un robot (met une demi heure pour faire un tour complet)
 `captcha-spin-joli-4`
-je ne suis pas un robot (met 24h pour faire un tour complet) <!-- x fast -->
-`captcha-spin-joli-5`
+je ne suis pas un robot (met 24h pour faire un tour complet)
+`captcha-spin-joli-5` -->
 
 je ne suis pas un robot (tryhard) <!-- randomFast + pause -->
 je ne suis pas un robot (tryhard) <!-- spin + opacité -->
@@ -428,8 +445,7 @@ une image à la fois.
 c'est pas tout ça mais ça creuse !
 on se ferait pas un petit truc à manger ?
 mais j'ai besoin d'un coup de main
-j'aimerais manger un « risotto »
-mais je ne sais pas ce que ça veut dire
+j'aimerais manger un risotto mais j'ai mélangé mes grains de riz
 je suis sûr que vous pouvez m'aider.
 
 <!-- ## recre-ffa -->
@@ -452,7 +468,7 @@ je suis sûr que vous pouvez m'aider.
 `clearFeed`
 `showFeed`
 ok mais
-vous savez pas non plus ce que c'est un risotto en fait
+vous savez pas ce que c'est un risotto en fait
 `newClickerGrid`
 pardon je suis peut-être un peu trop négatif (c'est sans doute parce que j'ai faim)
 `clicker [total]`
@@ -602,7 +618,6 @@ je suis la dernière personne de la performance qui va cliquer -->
 
 ## conclusion
 
-`bgToblack`
 `clearFeed`
 `showFeed`
 
@@ -647,6 +662,9 @@ disent les conservateurs des musées sur l'informatique.
 qui sont à la fois les personnes les mieux placées pour tenir ce genre de propos, mais qui sont également certainement parmi les personnes qui ont le plus intérêt à exagérer l'utilité des ordinateurs en général
 sans les ordinateurs, nous aurions perdu la guerre, ajoute Churchill.
 né en 1874.
+
+<!-- on attend une blague -->
+
 d'autres personnes prétendent que les ordinateurs n'ont servi à rien pendant la guerre
 et ne serviront d'ailleurs jamais à rien.
 mais ces personnes exagèrent sans doute.
