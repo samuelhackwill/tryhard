@@ -332,7 +332,10 @@ function handlePupitreAction(message) {
       // grrmbllll if there's already a captcha don't render any additonnal captcha ok?
       // this is because we're calling newcaptcha multiple times when we're getting several
       // players in the multiplayer section. This is hacky as hell but i can't be arsed
-      if (document.querySelector('.pasUnRobot')) {
+      if (
+        document.querySelector('.pasUnRobot') &&
+        instance.state.get() == 'captchas-coche-multiplayer'
+      ) {
         return
       } else {
         Blaze.renderWithData(
