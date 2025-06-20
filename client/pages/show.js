@@ -299,7 +299,7 @@ function handlePupitreAction(message) {
           case 'captchas-kinetic-1j':
             setTimeout(() => {
               moveInFrontOfCaptcha(pointer)
-            }, 2000)
+            }, 1000)
             break
           default:
             moveInFrontOfCaptcha(pointer)
