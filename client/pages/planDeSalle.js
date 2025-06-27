@@ -8,7 +8,7 @@ import './planDeSalle.html'
 Template.planDeSalle.onCreated(function () {
   this.connectedDevices = new ReactiveVar([]) // Initialisation
   this.index = new ReactiveVar(0)
-  this.lastRow = new ReactiveVar(5)
+  this.lastRow = new ReactiveVar(2)
   const self = this
 
   streamer.on('pupitreAction', function (message) {

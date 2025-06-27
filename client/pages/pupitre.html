@@ -30,6 +30,19 @@
                 >
                   load audio : stronger monsters
                 </button>
+                                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="fox2"
+                >
+                  load audio : bonetrousle
+                </button>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="fox3"
+                >
+                  load audio : nyeh heh heh
+                </button>
+
                 </div>
                 <h1>vitesse rotation carrousel</h1> <span>un tour en {{getDanceSpeed}}0 ms</span>
                 <div class="relative mb-4 text-gray-500">
@@ -62,6 +75,13 @@
                 >
                 <span class="text-xl"> init chaises :  {{getChairsNumber}}</span>
                 </button>
+                                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="tetris-send-jesuis"
+                >
+                <span class="text-xl"> init tetris :  {{getChairsNumber}}</span>
+                </button>
+
 
 
                 <button
@@ -135,13 +155,48 @@
                 >
                   stop carousel and captcha rotation
                 </button>
+                
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-start-color"
+                >
+                  start color
+                </button>
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="chairs-stop-color"
+                >
+                  stop color
+                </button>
 
 
               </div>
 
+              <div class="p-4 border-2">
+                <button
+                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded aria-pressed:bg-green-200 "
+                id="flash-hapy"
+                >
+                  flash hapy
+                </button>
+                <button
+                class="bg-slate-200 aria-pressed:bg-green-200  hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="flash-angry"
+                >
+                  flash angry
+                </button>
+                <button
+                class="bg-slate-200 aria-pressed:bg-green-200  hover:bg-orange-300 text-xs px-2 py-1 rounded"
+                id="flash-parodelia"
+                >
+                  flash random parodelia
+                </button>
+              </div>
+
+
               
             </div>
-          {{else if isItChairTimeRound2}}
+          <!-- {{else if isItChairTimeRound2}}
             <div class="mt-4 pt-2 border-t-2">
               <h1>chaises musicales ROUND 2</h1>
 
@@ -300,29 +355,8 @@
 
               </div>
 
-              <div class="p-4 border-2">
-                <button
-                class="bg-slate-200 hover:bg-orange-300 text-xs px-2 py-1 rounded aria-pressed:bg-green-200 "
-                id="flash-hapy"
-                >
-                  flash hapy
-                </button>
-                <button
-                class="bg-slate-200 aria-pressed:bg-green-200  hover:bg-orange-300 text-xs px-2 py-1 rounded"
-                id="flash-angry"
-                >
-                  flash angry
-                </button>
-                <button
-                class="bg-slate-200 aria-pressed:bg-green-200  hover:bg-orange-300 text-xs px-2 py-1 rounded"
-                id="flash-parodelia"
-                >
-                  flash random parodelia
-                </button>
-              </div>
-
               
-            </div>
+            </div> -->
           {{else if isItMultiplayerCaptchaTime}}
               <div class="relative mb-4 text-gray-500">
                 <h1>checkbox amount</h1>
@@ -398,6 +432,18 @@
       >
       ☠ kill ☠ (à)
       </button>
+        <button
+        class="bg-slate-200 hover:bg-red-600 hover:text-white text-xs px-2 py-1 rounded  aria-pressed:bg-red-600 aria-pressed:text-white"
+        id="unchooseAll"
+      >
+      unchoose everybody
+      </button>
+        <button
+        class="bg-slate-200 hover:bg-red-300 hover:text-white text-xs px-2 py-1 rounded  aria-pressed:bg-red-300 aria-pressed:text-white"
+        id="getSam"
+      >
+      sam
+      </button>
 
           <div class="mt-4">
             <div class="border-2">
@@ -441,7 +487,7 @@
                 <input
                   id="hesitation-slider"
                   type="range"
-                  value="4"
+                  value="10"
                   min="0"
                   max="10"
                   class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-slate-300"

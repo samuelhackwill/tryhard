@@ -329,6 +329,12 @@ Template.pupitre.events({
   'click #kill'() {
     sendAction('killCaptchas')
   },
+  'click #unchooseAll'() {
+    sendAction('unchoosePlayers')
+  },
+  'click #getSam'() {
+    sendAction('moveSamuelInScreen')
+  },
   'click .playerToggle'(e) {
     if (e.target.id == 'radio-ffa') {
       Template.instance().selectedPlayer.set('ffa')
