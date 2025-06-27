@@ -2,10 +2,10 @@
   <div id="pasUnRobotInfinite" class="fixed left-1/2 top-1/2 w-[90vw] -translate-x-1/2 -translate-y-1/2 shadow-lg bg-white p-4 rounded-sm transition-opacity duration-1000 {{#if isRendered}}opacity-100{{else}}opacity-0 pointer-events-none{{/if}}">
     <p class="bg-blue-500 p-4 text-white text-3xl mb-4 h-[110px]">
       <span class="block max-w-[80%]">{{captchaPrompt}}</span> 
-      <span id="score" class="transition-opacity opacity-0 right-8 top-8 absolute">grains : <span id="total" class="mono">0</span><span class="mono">/{{getTarget}}</span></span>
-      <span id="precision" class="transition-opacity opacity-0 right-8 top-16 absolute">pureté : <span id="precisionScore" class="mono">100</span><span>%</span></span>
-      <span id="hiddenBasmati" class="transition-opacity opacity-0 absolute">basmati<span class="mono">0</span></span>
-      <span id="hiddenArborio" class="transition-opacity opacity-0 absolute">arborio<span class="mono">0</span></span>
+      <span id="score" class="transition-opacity right-8 top-8 absolute">grains : <span id="total" class="mono">0</span><span class="mono">/{{getTarget}}</span></span>
+      <span id="precision" class="transition-opacity right-8 top-16 absolute">pureté : <span id="precisionScore" class="mono">100</span><span>%</span></span>
+      <span id="hiddenBasmati" class=" opacity-0 absolute">basmati<span class="mono">0</span></span>
+      <span id="hiddenArborio" class=" opacity-0 absolute">arborio<span class="mono">0</span></span>
     </p>
 
     <div class="grid gap-1 overflow-hidden"
