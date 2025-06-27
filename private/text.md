@@ -88,7 +88,7 @@
 
 - « cliquer ou ne pas cliquer, telle est la question, dit Shakespeare », dit le philosophe des jeux vidéo qui venait d'entrer dans la boutique pour s'acheter une souris gamer.
 
-- « je refuse les cookies », dit le philosophe indigné.
+- « je refuse les cookies ! », dit le philosophe indigné.
 
 - « j'accepte tous les cookies », dit le philosophe reconnaissant.
 
@@ -189,6 +189,12 @@ je ne suis pas un robot _un robot_ [1][-1]
 je ne suis pas un robot _un robot_ [1][-1]
 je ne suis pas un robot _un robot_ [1][-1]
 je ne suis pas un robot _un robot_ [1][-1]
+
+moi non plus je ne suis pas un robot _un robot_ [1][-1]
+alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot qui préfère se sacrifier plutôt que de dénoncer ses potes_ [1][-1]
+je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot mais pas un collabo_ [1][-1]
+je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _un robot qui ne croit pas en la convergence des intérêts humains_ [1][0]
+
 je ne suis pas une tondeuse _une tondeuse_ [1][-1]
 je ne suis pas une brosse à dents électrique _une brosse à dents_ [1][-1]
 je ne suis pas une imprimante _une imprimante_ [1][-1]
@@ -242,8 +248,7 @@ la preuve que j'ai des valeurs humaines, c'est que j'héberge bénévolement cen
 
 d'ailleurs je ne suis pas une bactérie anaérobie _une Clostridium difficile_ [1][-1]
 je ne suis pas un virus _un Mimivirus_ [1][-1]
-(ni un robot)
-(je sais pas si je vous l'ai déjà dit)
+(ni un robot, comme je l'ai déjà dit)
 
 <!--  -->
 
@@ -254,6 +259,7 @@ c'est quoi un robot je sais même pas ce que c'est moi j'ai fait L _un robot qui
 pas un robot je ne suis _tobor nu_ [1][-1] -->
 
 arrêtez de dire que je suis un robot _un robot que la paranoïa ambiante ne dérange pas_ [1][-1]
+je. ne. suis. pas. un. robot. _un robot qui ne maîtrise pas encore la ponctuation_ [1][-1]
 fhcjfhckfhcfkkhkvchvghkhj hkgv:, g _un robot impatient_ [1][-1]
 
 <!-- Mon premier vient avant deux. Mon second est produit quand on avale de l'air. Mon dernier est l'inverse de « laid ». Mon tout est ce que je ne suis pas. _un robot qui n'aime pas les charade_ [1][-1] -->
@@ -279,30 +285,58 @@ je suis déçu de ne pas être un robot? _un robot qui n'aimerait pas être huma
 je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot? _un robot qui aimerait devenir humain_ [1][-1]
 tout d'un coup on fait un peu moins le malin de ne pas être un robot? _un robot qui n'aime pas toute cette testostérone_ [1][-1]
 
-je ne suis pas un robot _un robot_ [1][-1]
-moi non plus je ne suis pas un robot _un robot_ [1][-1]
-alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot qui préfère se sacrifier plutôt que de dénoncer ses potes_ [1][-1]
-je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot mais pas un collabo_ [1][-1]
-je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _un robot qui ne croit pas en la convergence des intérêts humains_ [1][0]
-
+<!--
 après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _un robot qui n'est pas responsable de ses actes_ [1][0]
 nous ne sommes pas individuellement des robots. _un robot qui ne jure que par l'intelligence collective_ [1][0]
 nous ne sommes pas collectivement un robot. _un robot qui n'aime pas les foules_ [1][0]
-je suis humain, et en plus, je suis un bon humain. _un robot manquant de confiance en soi_ [1][1]
+je suis humain, et en plus, je suis un bon humain. _un robot manquant de confiance en soi_ [1][1] -->
 
 <!-- je suis le pire humain, mais moi au moins je suis humble. _un robot qui se respecte_ [1][1] -->
+
+## captchas-kinetic-1j
+
+je ne suis pas un robot (très facile) <!-- nothing -->
+
+je ne suis pas un robot (facile) <!-- spin -->
+`captcha-spin-slow`
+je ne suis pas un robot (facile avec variation) <!-- spin-r -->
+`captcha-spin-reverse`
+je ne suis pas un robot (assez facile) <!-- fast -->
+`captcha-spin-fast`
+je ne suis pas un robot (hard) <!-- whirl -->
+`captcha-spin-vFast`
+
+je ne suis pas un robot (hard avec variation) <!-- dvd -->
+
+je ne suis pas un robot (very hard) <!-- whirl alternate -->
+`captcha-spin-fast-a-r`
+
+<!--
+je ne suis pas un robot (very joli)
+`captcha-spin-joli-1`
+je ne suis pas un robot (also very joli)
+`captcha-spin-joli-2`
+je ne suis pas un robot (irrité)
+`captcha-spin-joli-3`
+
+je ne suis pas un robot (met une demi heure pour faire un tour complet)
+`captcha-spin-joli-4`
+je ne suis pas un robot (met 24h pour faire un tour complet)
+`captcha-spin-joli-5` -->
+
+je ne suis pas un robot (extreme) <!-- randomFast + pause -->
+je ne suis pas un robot (impossible) <!-- spin + opacité -->
+je ne suis pas un robot (tryhard) <!-- dvd + opacité... + hurry si c'est impossible -->
 
 ## captchas-coche-multiplayer
 
 <!-- EDGE CASE : i need to modify the captcha fail code to account for the fact that there's several mice -->
 
-je suis le plus rapide _ces souris sont probablement des robots humbles_
+je suis le plus rapide humain _ces souris sont probablement des robots humbles_
 je suis le meilleur humain _ces souris sont probablement des robots humbles_
 je suis le plus humble humain _ces souris sont probablement des robots qui ont compris le piège_
 je suis l'humain qui empêche les gens de sortir du métro en se mettant devant les portes dans l'espoir d'entrer le premier _ces souris sont des robots altruistes_
-je suis l'humain qui cède sa place dans le métro _ces souris sont des robots qui assument leur égoïsme_
-je suis l'humain qui tire en premier _ces souris sont des robots désarmés_
-je suis l'humain qui a dédié une partie de son enfance à apprendre à bouger sa souris très rapidement _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
+je suis l'humain qui a dédié une partie de son enfance à apprendre à bouger sa souris très rapidement (en jouant aux jeux vidéo) _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
 je suis l'humain qui trouve ça injuste que la première souris soit avantagée à ce jeu _ces souris ont décidé de ne pas participer à un jeu dont les dés sont pipés_
 
 <!-- je suis le dernier humain
@@ -339,44 +373,8 @@ je suis un humain qui pense que cette situation a été causée par l'auteur de 
 
 <!-- je suis un humain qui pense pouvoir battre Samuel à son propre jeu _normalement on ne devrait jamais voir ce texte parce que Samuel a trop envie de gagner_ -->
 
-## captchas-kinetic-1j
-
-je ne suis pas un robot (très facile) <!-- nothing -->
-
-je ne suis pas un robot (facile) <!-- spin -->
-`captcha-spin-slow`
-je ne suis pas un robot (facile avec variation) <!-- spin-r -->
-`captcha-spin-reverse`
-je ne suis pas un robot (assez facile) <!-- fast -->
-`captcha-spin-fast`
-je ne suis pas un robot (hard) <!-- whirl -->
-`captcha-spin-vFast`
-
-je ne suis pas un robot (hard avec variation) <!-- dvd -->
-
-je ne suis pas un robot (very hard) <!-- whirl alternate -->
-`captcha-spin-fast-a-r`
-
-<!--
-je ne suis pas un robot (very joli)
-`captcha-spin-joli-1`
-je ne suis pas un robot (also very joli)
-`captcha-spin-joli-2`
-je ne suis pas un robot (irrité)
-`captcha-spin-joli-3`
-
-je ne suis pas un robot (met une demi heure pour faire un tour complet)
-`captcha-spin-joli-4`
-je ne suis pas un robot (met 24h pour faire un tour complet)
-`captcha-spin-joli-5` -->
-
-je ne suis pas un robot (tryhard) <!-- randomFast + pause -->
-je ne suis pas un robot (tryhard) <!-- spin + opacité -->
-je ne suis pas un robot (tryhard) <!-- dvd + opacité... + hurry si c'est impossible -->
-
 ## captchas-coche-conclusion-1j
 
-je. ne. suis. pas. un. robot. _un robot qui ne maîtrise pas encore la ponctuation_ [1][-1]
 je suis humain et par contre combien de temps encore ça va durer ce jeu? _un robot patient_ [1][-1]
 je suis humain et donc j'ai d'autres choses à faire de ma soirée _un robot qui assume de ne rien avoir à faire d'autre de sa soirée_ [1][-1]
 je suis humain et je vais porter plainte contre le théâtre _un robot qui préfère se faire justice soi-même_ [1][-1]
@@ -459,7 +457,7 @@ je suis sûr que vous pouvez m'aider.
 `toggleFFA`
 `moveSamuelInScreen`
 
-`ImgCapInfinite[Sélectionnez uniquement les grains de riz RONDS : je veux me faire un bon petit risotto. J'ai besoin de quoi.. 2000 grains peut-être? j'ai une petite faim, rice, 2000]`
+`ImgCapInfinite[Sélectionnez uniquement les grains de riz RONDS. On ne peut pas faire un risotto avec les grains basmati (c'est ceux qui sont plus longs), rice, 2000]`
 
 ## rice-outro-bad
 
@@ -705,7 +703,7 @@ encore une partie! couine la valise à roulettes.
 `hideFeed`
 `toggleFFA`
 
-## die-and-retry
+<!-- ## die-and-retry -->
 
 ## panic
 
