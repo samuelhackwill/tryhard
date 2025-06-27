@@ -190,11 +190,6 @@ je ne suis pas un robot _un robot_ [1][-1]
 je ne suis pas un robot _un robot_ [1][-1]
 je ne suis pas un robot _un robot_ [1][-1]
 
-moi non plus je ne suis pas un robot _un robot_ [1][-1]
-alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot qui préfère se sacrifier plutôt que de dénoncer ses potes_ [1][-1]
-je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot mais pas un collabo_ [1][-1]
-je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _un robot qui ne croit pas en la convergence des intérêts humains_ [1][0]
-
 je ne suis pas une tondeuse _une tondeuse_ [1][-1]
 je ne suis pas une brosse à dents électrique _une brosse à dents_ [1][-1]
 je ne suis pas une imprimante _une imprimante_ [1][-1]
@@ -284,6 +279,16 @@ je suis fier d'appartenir à l’espèce qui a inventé la chaise électrique _u
 je suis déçu de ne pas être un robot? _un robot qui n'aimerait pas être humain_ [1][-1]
 je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot? _un robot qui aimerait devenir humain_ [1][-1]
 tout d'un coup on fait un peu moins le malin de ne pas être un robot? _un robot qui n'aime pas toute cette testostérone_ [1][-1]
+
+je ne suis pas un robot
+moi non plus je ne suis pas un robot _un robot_ [1][-1]
+alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot qui préfère se sacrifier plutôt que de dénoncer ses potes_ [1][-1]
+je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot mais pas un collabo_ [1][-1]
+je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _un robot qui ne croit pas en la convergence des intérêts humains_ [1][0]
+nous ne sommes pas individuellement des robots. _un robot qui ne jure que par l'intelligence collective_ [1][0]
+nous ne sommes pas collectivement un robot. _un robot qui n'aime pas les foules_ [1][0]
+
+je suis humain, et en plus, je suis un bon humain.
 
 <!--
 après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _un robot qui n'est pas responsable de ses actes_ [1][0]
