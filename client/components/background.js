@@ -35,6 +35,7 @@ const handlePupitreAction = function (message) {
       instance.bgColor.set('#1C1917')
       break
     case 'bgToNoir':
+      document.querySelector('#background').classList.remove('duration-[5s]')
       instance.bgColor.set('black')
       break
     case 'bgTogrey':

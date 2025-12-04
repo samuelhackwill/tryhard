@@ -774,10 +774,8 @@ const noir = function () {
   setTimeout(() => {
     fadeAudio(musick, 'out', 300)
     sendAction('bgToNoir')
-    setTimeout(() => {
-      sendAction('togglePointers')
-    }, 300)
-  }, 2000)
+    sendAction('togglePointers')
+  }, 3000)
 }
 
 const fadeAudio = function (audioElement, fadeType = 'in', duration = 10000) {
