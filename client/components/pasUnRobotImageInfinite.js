@@ -85,9 +85,11 @@ Template.pasUnRobotImageInfinite.events({
     let basmatiCount = Number(document.querySelector('#hiddenBasmati').firstElementChild.innerHTML)
 
     if (el.dataset.cultivar == 'arborio') {
+      el.style.backgroundColor = 'rgba(0, 200, 0, 1)'
       arborioCount = arborioCount + 1
       document.querySelector('#hiddenArborio').firstElementChild.firstChild.nodeValue = arborioCount
     } else {
+      el.style.backgroundColor = 'rgba(200, 0, 0, 1)'
       basmatiCount = basmatiCount + 1
       document.querySelector('#hiddenBasmati').firstElementChild.firstChild.nodeValue = basmatiCount
     }

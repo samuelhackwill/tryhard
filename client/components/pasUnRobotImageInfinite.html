@@ -13,7 +13,7 @@
       {{#each imageKeys}}
         {{#with getImage this}}
           <div id="captcha-image-{{index}}"
-               class="relative cursor-pointer captcha-image group transition-transform duration-200 ease-out {{#if isSelected}}scale-90{{/if}}"
+               class="relative rounded cursor-pointer captcha-image group transition-transform duration-200 ease-out {{#if isSelected}}scale-90{{/if}}"
                data-index="{{index}}"
                data-cultivar="{{cultivar}}"
                >
