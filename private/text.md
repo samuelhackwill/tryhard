@@ -88,13 +88,13 @@
 
 <!-- - « cliquer ou ne pas cliquer, telle est la question, dit Hideo Kojima, dit le philosophe des jeux vidéo qui venait d'entrer dans la boutique pour s'acheter une souris gamer. -->
 
-- « je refuse les cookies ! », dit le philosophe indigné.
+- « je refuse les cookies ! », dit le philosophe indigné.
 
-- « j'accepte tous les cookies », dit le philosophe affamé.
+- « j'accepte tous les cookies », dit le philosophe résigné.
 
-- « je choisis certains cookies seulement parmi la liste que vous me proposez », dit le philosophe difficile.
+- « je choisis certains cookies seulement parmi la liste que vous me proposez », dit le philosophe gourmet.
 
-- « je désire recevoir des messages de promotion sur mon adresse mail », dit le philosophe sans le faire exprès.
+- « je désire recevoir des messages de promotion sur mon adresse mail », dit le philosophe sans le faire exprès.
 
 <!-- - « réveille moi à huit heures quinze », dit le philosophe à son téléphone avant d'aller se coucher.
 
@@ -102,7 +102,7 @@
 
 - « réveille ? moi. à. HUIT - HEURES - QUINZE », dit le philosophe à son téléphone peu coopératif avant d'aller se coucher. -->
 
-- « je ne suis pas un robot », dit le philosophe.
+- « je ne suis pas un robot », dit le philosophe.
 
 <!-- - « ne pas cliquer... »
 
@@ -349,7 +349,7 @@ je suis le meilleur humain _ces souris sont probablement des robots humbles_
 je suis le plus humble humain _ces souris sont probablement des robots qui ont compris le piège_
 je suis l'humain qui empêche les gens de sortir du métro en se mettant devant les portes dans l'espoir d'entrer le premier _ces souris sont des robots altruistes_
 je suis l'humain qui a dédié une partie de son enfance à apprendre à bouger sa souris très rapidement (en jouant aux jeux vidéo) _ces souris sont probablement des robots qui n'ont jamais joué à Call of Duty_
-je suis l'humain qui trouve ça injuste que la première souris soit avantagée à ce jeu _ces souris ont décidé de ne pas participer à un jeu dont les dés sont pipés_
+je suis l'humain qui trouve ça injuste que la souris à gauche ait un avantage _ces souris ont décidé de ne pas participer à un jeu dont les dés sont pipés_
 
 <!-- je suis le dernier humain
 je suis le dernier humain avec un vrai travail
@@ -388,7 +388,7 @@ je suis un humain qui pense que cette situation a été causée par l'auteur de 
 ## captchas-coche-conclusion-1j
 
 je suis humain et par contre combien de temps encore ça va durer ce jeu? _un robot patient_ [1][-1]
-je suis humain et donc j'ai d'autres choses à faire de ma soirée _un robot qui assume de ne rien avoir à faire d'autre de sa soirée_ [1][-1]
+je suis humain et donc j'ai d'autres choses à faire de ma journée _un robot qui assume de ne rien avoir à faire d'autre de sa journée_ [1][-1]
 je suis humain et je vais porter plainte contre le théâtre _un robot qui préfère se faire justice soi-même_ [1][-1]
 c'est du théâtre ça? _un robot qui respecte la création contemporaine_ [1][-1]
 ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs partout_ [1][1]
@@ -417,7 +417,7 @@ ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs 
 `ImgCapGridSubmit[Et qui sont les 9 humains que vous décidez de sauver?, samcontan, randomGrid, onlySam]`
 `ImgCapNoSelect[Qui est trop sympa et marrant?, samcontan, 1, OK]`
 
-`ImgCapNoSelect[Sélectionnez l'émotion ressentie par la friteuse, thingswithfaces, 1, AUCUNE (C'EST UNE FRITEUSE), SURPRISE, NONNN IL NE FAUT PAS FRIRE UNE TOMATE]`
+`ImgCapNoSelect[Sélectionnez l'émotion ressentie par la friteuse, thingswithfaces, 1, AUCUNE (C'EST UNE FRITEUSE), SURPRISE, NONNN IL NE FAUT PAS FAIRE FRIRE UNE TOMATE]`
 
 `ImgCapNoSelect[Sélectionnez l'émotion ressentie par le caillou, thingswithfaces, 2, AUCUNE (C'EST UN CAILLOU), TRISTESSE, NOSTALGIE POUR LE JURASSIQUE]`
 
@@ -431,7 +431,7 @@ ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs 
 
 `clearFeed`
 `showFeed`
-`clearPointers`
+`toggleFFA`
 bravo, vous n'êtes pas des robots!
 bon
 je m'en doutais un peu
@@ -463,13 +463,18 @@ je suis sûr que vous pouvez m'aider.
 <!-- `reqNextPlayer`
 `unchoosePlayer` -->
 
-## rice-ffa
+## rice-demo
 
 `hideFeed`
-`toggleFFA`
+`moveAllPointersOffScreen`
+
 `moveSamuelInScreen`
 
 `ImgCapInfinite[Sélectionnez uniquement les grains de riz RONDS. On ne peut pas faire un risotto avec les grains basmati (c'est ceux qui sont plus longs), rice, 2000]`
+
+## rice-ffa
+
+`alignPointersBot`
 
 ## rice-outro-bad
 
@@ -480,20 +485,19 @@ je suis sûr que vous pouvez m'aider.
 ok mais
 vous savez pas ce que c'est un risotto en fait
 `newClickerGrid`
-pardon je suis peut-être un peu trop négatif (c'est sans doute parce que j'ai faim)
+ou peut-être que c'était du bluff
 `clicker [total]`
 `clicker [gradinDuFond]`
-et puis c'est probablement la première fois que vous êtes aussi nombreux.se.s en cuisine
+ne croyez pas m'avoir convaincu si facilement
 `clicker [gradinDuDevant]`
 `clicker [bestGradin]`
 `clicker [goldMouse]`
 `clicker [silverMouse]`
 `clicker [bronzeMouse]`
 `clicker [fourthMouse]`
+je vous propose un dernier test
 `clicker [chomdu]`
-mais j'ai compris la leçon
 `clicker [insee]`
-je vais vous proposer une activité plus... intuitive
 `clicker [speed]`
 `clicker [speedWorldRecord]`
 pendant que je mange mon risotto.
@@ -521,10 +525,13 @@ mais vous l'avez fait plus _gentiment_ qu'un robot.
 `clicker [fourthMouse]`
 `clicker [chomdu]`
 `clicker [insee]`
-je vous propose de continuer à compléter mes CAPTCHAs.
+ok
 `clicker [speed]`
+ne croyez pas m'avoir convaincu si facilement
 `clicker [speedWorldRecord]`
+c'était peut-être du bluff
 `hideFeed`
+je vous propose un dernier test.
 `clearFeed`
 
 ## rice-outro-outstanding
@@ -550,9 +557,11 @@ je me permets de transmettre un enregistrement de votre session à mon robot tri
 `clicker [fourthMouse]`
 ça vous dérange pas j'imagine.
 `clicker [chomdu]`
+ceci étant ça confirme mes doutes
 `clicker [insee]`
-je vous propose de continuer à compléter mes CAPTCHAs.
+vous êtes sûrs de ne pas être un robot?
 `clicker [speed]`
+je vous propose un dernier test.
 `clicker [speedWorldRecord]`
 `hideFeed`
 `clearFeed`
@@ -623,7 +632,7 @@ color > opacity > whirl > pause > whirl + opacity + flash
 pour en revenir au pointeur de souris
 que vous êtes
 saviez-vous que le pointeur de souris a été inventé en 1968 ?
-il aura 57 ans en décembre de cette année.
+il aura 57 ans après-demain très exactement.
 on peut donc dire que la souris d'ordinateur est plus jeune que ma mère
 puisque ma mère est née en 1958.
 ma mère, Michèle Planche.
@@ -712,6 +721,7 @@ encore une partie! couine la valise à roulettes.
 
 `hideFeed`
 `clearFeed`
+`showFeed`
 
 `togglePointers`
 `clearPointers`
