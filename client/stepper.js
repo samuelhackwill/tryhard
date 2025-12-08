@@ -129,7 +129,7 @@ function handleTickUpdate(message) {
           if (pointer.order == -1) {
             coords.x += element.x
           } else {
-            coords.x = instance.windowBoundaries.width - GlobalPointerWidth
+            coords.x = instance.windowBoundaries.width - GlobalPointerWidth - 16
             // observe('magellan', { p: pointer, corner: 'right' })
           }
           break
@@ -155,7 +155,7 @@ function handleTickUpdate(message) {
           if (pointer.order == -1) {
             coords.y += element.y
           } else {
-            coords.y = instance.windowBoundaries.height - GlobalPointerHeight
+            coords.y = instance.windowBoundaries.height - GlobalPointerHeight - 48
             // observe('magellan', { p: pointer, corner: 'bottom' })
           }
           break
@@ -291,7 +291,7 @@ isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
   // can return : x-in-bounds / overflow-left / overflow-right / y-in-bounds / overflow-bottom / overflow-top
   // console.log(axis, coords, acceleration, elemSize)
   if (axis == 'x') {
-    if (coords + acceleration + elemSize > instance.windowBoundaries.width) {
+    if (coords + acceleration + elemSize > instance.windowBoundaries.width - 16) {
       return 'overflow-right'
     }
     if (coords + acceleration < 0) {
@@ -304,7 +304,7 @@ isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
       return 'x-in-bounds'
     }
   } else {
-    if (coords + acceleration + elemSize > instance.windowBoundaries.height) {
+    if (coords + acceleration + elemSize > instance.windowBoundaries.height - 48) {
       return 'overflow-bottom'
     }
     if (coords + acceleration < 0) {
