@@ -38,26 +38,26 @@
 
 - Cliquer ne fera pas mal à la souris, car elle est morte depuis longtemps, c'est un cadavre de souris, pas une souris vivante, dit le philosophe-médecin-légiste.
 
-- Cliquer ne fera pas vraiment mal à la souris, parce qu'elle a l'habitude, dit le philosophe traditionaliste.
+- Cliquer ne fera pas _vraiment_ mal à la souris, parce qu'elle a l'habitude, dit le philosophe traditionaliste.
 
 - Cliquer fera peut-être mal à la souris, qui sait ? dit le philosophe distrait, en jouant au solitaire sur son PC.
 
-- Il y existe un contrat tacite entre les souris et les humains : les souris permettent aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris, ajoute la philosophe-éleveuse de souris travaillant pour le lobby de la viande.
+<!-- - Il y existe un contrat tacite entre les souris et les humains : les souris permettent aux humains de cliquer autant qu'ils veulent, et en échange les humains offrent leur protection aux souris, ajoute la philosophe-éleveuse de souris travaillant pour le lobby de la viande. -->
 
-- Dieu a donné non pas un, mais deux boutons et une roulette aux souris, c'est bien la preuve que les hommes doivent cliquer dessus, ajoute le philosophe créationniste.
+<!-- - Dieu a donné non pas un, mais deux boutons et une roulette aux souris, c'est bien la preuve que les hommes doivent cliquer dessus, ajoute le philosophe créationniste. -->
 
-- Oui, cliquer fera mal à la souris, dit le philosophe réparateur de matériel informatique.
+- Cliquer fera mal à la souris, dit le philosophe réparateur de matériel informatique.
 
 - « Toute la vie d'une souris oscille, comme un pendule, de droite à gauche, de la souffrance à l'ennui, dit Schopenhauer », continue-t-il.
 
-- Les souris sont emprisonnées dans cette existence en raison de leur karma passé, mais tous les êtres vivants méritent la compassion, nous explique la philosophie bouddhiste, continue-t-il.
+<!-- - Les souris sont emprisonnées dans cette existence en raison de leur karma passé, mais tous les êtres vivants méritent la compassion, nous explique la philosophie bouddhiste, continue-t-il. -->
 
-- Oui mais : « la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche », dit un client venu apporter son téléphone avec une vitre cassée.
+- Oui mais : « la souris ne refuse pas en soi la souffrance, elle la veut, elle la recherche même, pourvu qu'on lui en montre le sens, dit Nietzsche », dit un client-philosophe venu apporter son téléphone avec une vitre cassée.
 
-- Oui mais, interjecte le philosophe axiologue des populations qui passait par là, il faut aborder le problème d'une manière plus systématique.
+- Oui mais, interjecte un passant-philosophe axiologue des populations, il faut aborder le problème d'une manière plus systématique.
 
 - Si l'on considère un nombre _x_ de souris produisant chacune _y_ unité de bonheur au cours de leur existence, alors ce qui est important ce n'est pas de leur cliquer dessus ou non, peu importe ; ce qu'il faut, c'est maximiser le nombre de souris, heureuses ou pas, parce que la quantité totale de bonheur à l'échelle de la planète sera plus grande. Il vaut mieux _100 000_ souris produisant chacune _1_ unité de bonheur seulement que _10_ souris produisant chacune _1000_ unités de bonheur. Oui je sais c'est contre-intuitif mais c'est ça les maths, dit le philosophe utilitariste-maximaliste-totaliste en montant dans sa Tesla.
-
+<!--
 - Attendez, nuance son collègue gradualiste assis sur la banquette arrière :
 
 - Si on considère que c'est grâce à ses _2_ boutons que la souris produit du bonheur (en cliquant), ne faut-il pas aussi favoriser l'accroissement démographique des claviers AZERTY, qui ont quand même 105 boutons, et peuvent donc en théorie produire _52,5_ fois plus de bonheur par tête de pipe ?
@@ -82,15 +82,15 @@
 
 - collectivement, les nématodes possèdent ~10³¹ neurones en total.
 
-- Il faut donc accepter que les nématodes soient quantitativement l'espèce la plus capable de bonheur ou de malheur à l'échelle de la planète, et agir en conséquence, dit-il en conclusion.
+- Il faut donc accepter que les nématodes soient quantitativement l'espèce la plus capable de bonheur ou de malheur à l'échelle de la planète, et agir en conséquence, dit-il en conclusion. -->
 
 <!-- - _"cliquer ou ne pas cliquer, telle est la question."_ conclut, un index levé, le philosophe-directeur de programmation d'un musée qui espérait toucher un public plus jeune en utilisant le champ lexical du jeu vidéo. -->
 
-- « cliquer ou ne pas cliquer, telle est la question, dit Shakespeare », dit le philosophe des jeux vidéo qui venait d'entrer dans la boutique pour s'acheter une souris gamer.
+<!-- - « cliquer ou ne pas cliquer, telle est la question, dit Hideo Kojima, dit le philosophe des jeux vidéo qui venait d'entrer dans la boutique pour s'acheter une souris gamer. -->
 
 - « je refuse les cookies ! », dit le philosophe indigné.
 
-- « j'accepte tous les cookies », dit le philosophe reconnaissant.
+- « j'accepte tous les cookies », dit le philosophe affamé.
 
 - « je choisis certains cookies seulement parmi la liste que vous me proposez », dit le philosophe difficile.
 
@@ -280,7 +280,7 @@ je suis déçu de ne pas être un robot? _un robot qui n'aimerait pas être huma
 je suis en train de changer d'avis, et peut-être que finalement, après tout, ça pourrait me plaire d'être un robot? _un robot qui aimerait devenir humain_ [1][-1]
 tout d'un coup on fait un peu moins le malin de ne pas être un robot? _un robot qui n'aime pas toute cette testostérone_ [1][-1]
 
-je ne suis pas un robot
+MOI, je ne suis pas un robot
 moi non plus je ne suis pas un robot _un robot_ [1][-1]
 alors. personnellement je soupçonne la personne avant moi d'avoir menti, mais moi par contre je ne suis pas un robot. _un robot qui préfère se sacrifier plutôt que de dénoncer ses potes_ [1][-1]
 je ne suis pas un robot, et je peux vous livrer tous les robots qui se cachent dans la salle et font semblant d'être des humains. _un robot mais pas un collabo_ [1][-1]
@@ -288,7 +288,7 @@ je parle au nom de la salle : personne ici n'est, et ne sera jamais un robot. _u
 nous ne sommes pas individuellement des robots. _un robot qui ne jure que par l'intelligence collective_ [1][0]
 nous ne sommes pas collectivement un robot. _un robot qui n'aime pas les foules_ [1][0]
 
-je suis humain, et en plus, je suis un bon humain.
+je suis humain, et en plus, je suis un bon humain. _un robot manquant de confiance en soi_ [1][1]
 
 <!--
 après conseil, nous affirmons que nous ne pouvons pas juridiquement être considéré comme des robots, au sens légal du terme. _un robot qui n'est pas responsable de ses actes_ [1][0]
@@ -299,6 +299,8 @@ je suis humain, et en plus, je suis un bon humain. _un robot manquant de confian
 <!-- je suis le pire humain, mais moi au moins je suis humble. _un robot qui se respecte_ [1][1] -->
 
 ## captchas-kinetic-1j
+
+<!-- ACTIVER AUTO-TIMEOUT! -->
 
 je ne suis pas un robot (très facile) <!-- nothing -->
 
@@ -312,6 +314,8 @@ je ne suis pas un robot (hard) <!-- whirl -->
 `captcha-spin-vFast`
 
 je ne suis pas un robot (hard avec variation) <!-- dvd -->
+
+<!-- alors c'est un peu chiant à automatiser les animations dans ce cas parce que c'est mal codé donc clique sur le bouton dvd et fais pas ieche -->
 
 je ne suis pas un robot (very hard) <!-- whirl alternate -->
 `captcha-spin-fast-a-r`
@@ -330,8 +334,11 @@ je ne suis pas un robot (met 24h pour faire un tour complet)
 `captcha-spin-joli-5` -->
 
 je ne suis pas un robot (extreme) <!-- randomFast + pause -->
-je ne suis pas un robot (impossible) <!-- spin + opacité -->
-je ne suis pas un robot (tryhard) <!-- dvd + opacité... + hurry si c'est impossible -->
+
+je ne suis pas un robot (impossible) <!-- spin opacité. IL APPARAIT INVISIBLE! IT'S BY DESIGN!!!!!!!! c'est pour me laisser le temps de l'animer sans que les joueurs rapides puissent le déglingue -->
+`captcha-spin-slow`
+
+je ne suis pas un robot (tryhard) <!-- dvd + opacité... + hurry si c'est impossible. IDEM IL APPARAIT INVISIBLE YO! -->
 
 ## captchas-coche-multiplayer
 
@@ -396,7 +403,7 @@ ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs 
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance pense aux personnes qu'il aime, samcontan, randomGrid]`
 `ImgCapGridSubmit[Sélectionnez les images qui représentent l'auteur de la performance en train d'écrire le code de cette performance, samcontan, randomGrid]`
-`ImgCapGridSubmit[Sélectionnez les images qui représentent l'auteur de la performance quand il pense à Laurent Wauquiez, samcontan, randomGrid]`
+`ImgCapGridSubmit[Sélectionnez les images qui représentent l'auteur de la performance quand il pense à Christelle Morançais, samcontan, randomGrid]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, rot]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoom]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoomMAX]`
@@ -603,21 +610,10 @@ Enfin, sauf les souris, qui sont assez bien adaptées au changement climatique.
 
 ## chaises
 
-<!-- je suis une chaise
-
-je suis un métier qui ne s'est pas encore fait uberiser
-
-je suis un service public qui ne s'est pas encore fait dématérialiser
-
-je suis un médecin traitant qui ne s'est pas encore fait doctolibiser
-
-je suis un lit d’hôpital qui ne s'est pas encore fait optimiser
-
-je suis écosystème qui ne s'est pas encore effondré
-
-je suis un groupe social qui ne s'est pas encore déchiré
-
-je suis la dernière personne de la performance qui va cliquer -->
+<!-- les effets spéciaux seulement à partir de 5
+5 > 4 > 3 > 2 > 1
+color > opacity > whirl > pause > whirl + opacity + flash
+ -->
 
 ## conclusion
 
@@ -663,7 +659,7 @@ parce qu'il fallait casser les codes que les nazis utilisaient pour synchroniser
 les ordinateurs ont raccourci la guerre de 1, 2 ou 4 ans,
 disent les conservateurs des musées sur l'informatique.
 qui sont à la fois les personnes les mieux placées pour tenir ce genre de propos, mais qui sont également certainement parmi les personnes qui ont le plus intérêt à exagérer l'utilité des ordinateurs en général
-sans les ordinateurs, nous aurions perdu la guerre, ajoute Churchill.
+sans les ordinateurs, nous aurions perdu la guerre, ajoute Winston Churchill.
 né en 1874.
 
 <!-- on attend une blague -->
