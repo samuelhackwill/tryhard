@@ -17,3 +17,15 @@ cliquer une fois côté mac mini pour qu'on ait le son -->
 Bug intéressant du 25/3
 si /plan n'est pas ouvert les reqPlayers failent silently.
 Donc il faut toujours avoir /show /pupitre et /plan ouverts sinon le show can't go on
+
+Mise officielle de aujourd'hui
+
+lancer tous les rasps
+lancer le playbook pour launch mouse grbr
+go sur show
+click sur toutes les souris + controle visuel
+click sur samuel + controle visuel
+move off of screen
+on est prets
+
+as of today le LASTROW est hardcodé dans plandesalle.js, on sait pas pourquoi. le mettre à jour car ça fout la merde dans le clickergrid
