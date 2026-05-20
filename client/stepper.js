@@ -287,6 +287,19 @@ export const pushToClientEventQueue = function (message) {
   clientEventQueue.push(message)
 }
 
+export const cancelPointerAutoplayMoves = function (pointerId) {
+  for (let i = clientEventQueue.length - 1; i >= 0; i--) {
+    const event = clientEventQueue[i]
+    const payload = event?.payload
+
+    if (event?.origin !== 'autoplay') continue
+    if (payload?.pointer?.id !== pointerId) continue
+    if (payload?.type !== 'move' && payload?.type !== 'moveLoop') continue
+
+    clientEventQueue.splice(i, 1)
+  }
+}
+
 isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
   // can return : x-in-bounds / overflow-left / overflow-right / y-in-bounds / overflow-bottom / overflow-top
   // console.log(axis, coords, acceleration, elemSize)

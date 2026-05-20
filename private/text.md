@@ -534,8 +534,8 @@ ok
 ne croyez pas m'avoir convaincu si facilement
 `clicker [speedWorldRecord]`
 c'était peut-être du bluff
-`hideFeed`
 je vous propose un dernier test.
+`hideFeed`
 `clearFeed`
 
 ## rice-outro-outstanding

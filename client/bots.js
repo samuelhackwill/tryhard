@@ -1,6 +1,6 @@
 import { randomBetween, positionOnCircle, randomPointInArea } from '../both/math-helpers.js'
 import { convertRemToPixels } from '../both/math-helpers.js'
-import { pushToClientEventQueue } from '../client/stepper.js'
+import { pushToClientEventQueue, cancelPointerAutoplayMoves } from '../client/stepper.js'
 
 autoclickerIntervals = []
 const loopSpeed = 270 // pixels/second
@@ -160,6 +160,8 @@ export const moveOffOfCaptcha = function (pointer) {
   // Generate Y coordinate within bottom third of the screen (66% - 100%)
   const _y = Math.random() * (window.innerHeight * 0.34) + window.innerHeight * 0.66
 
+  cancelPointerAutoplayMoves(pointer.id)
+
   pushToClientEventQueue({
     origin: 'autoplay',
     payload: {
@@ -176,6 +178,8 @@ export const moveOffOfCaptcha = function (pointer) {
 }
 
 export const move = function (pointer, xfraction) {
+  cancelPointerAutoplayMoves(pointer.id)
+
   pushToClientEventQueue({
     origin: 'autoplay',
     payload: {
@@ -189,6 +193,8 @@ export const move = function (pointer, xfraction) {
 }
 
 export const moveInFrontOfCaptcha = function (pointer) {
+  cancelPointerAutoplayMoves(pointer.id)
+
   pushToClientEventQueue({
     origin: 'autoplay',
     payload: {
@@ -207,6 +213,8 @@ export const moveSamuelInScreen = function () {
 
   if (!target) return
 
+  cancelPointerAutoplayMoves(target.id)
+
   pushToClientEventQueue({
     origin: 'autoplay',
     payload: {
@@ -223,6 +231,8 @@ export const moveSamuelInScreen = function () {
 }
 
 export const moveInFrontOfCaptchaImg = function (pointer) {
+  cancelPointerAutoplayMoves(pointer.id)
+
   pushToClientEventQueue({
     origin: 'autoplay',
     payload: {

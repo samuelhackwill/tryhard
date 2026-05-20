@@ -11,55 +11,65 @@ Template.planDeSalle.onCreated(function () {
   this.lastRow = new ReactiveVar(7)
   const self = this
 
-  streamer.on('pupitreAction', function (message) {
+  this._handlePupitreAction = (message) => {
     const _message = message
     _message.planInstance = self
     handlePupitreAction(_message)
-  })
+  }
+
+  streamer.on('pupitreAction', this._handlePupitreAction)
 
   self.autorun(() => {
     this.subscribe('salleLayout')
     this.subscribe('disabledMice')
     this.subscribe('mouseOrder')
-
-    Meteor.setInterval(() => {
-      setTimeout(() => {
-        Meteor.call('getConnectedDevices', (err, res) => {
-          if (err) {
-            alert(err)
-            document.getElementById('rasp_update_status').innerText =
-              'there was an error during the mouse count :x'
-          } else {
-            if (!res || res.length < 1) {
-              document.getElementById('rasp_update_status').innerText = 'no mice found!'
-              self.connectedDevices.set('')
-            } else {
-              // ✅ Ajout d’un _id basé sur name
-              const enrichedRes = res.map((entry) => ({
-                ...entry,
-                _id: entry.name,
-              }))
-
-              // console.log(enrichedRes)
-
-              const totalMice = enrichedRes.reduce(
-                (acc, entry) => acc + (entry.mice?.length || 0),
-                0,
-              )
-              const activeMice = totalMice - disabledMice.find({}).fetch().length
-
-              document.getElementById('rasp_update_status').innerText = `rasps polled!`
-              document.getElementById(
-                'rasp_update_count',
-              ).innerText = `total of ${activeMice} active mice out of ${totalMice} mice connected.`
-
-              self.connectedDevices.set(enrichedRes)
-            }
-          }
-        })
-      }, 250)
-    }, 2000)
   })
+
+  this._devicesPollInterval = Meteor.setInterval(() => {
+    setTimeout(() => {
+      Meteor.call('getConnectedDevices', (err, res) => {
+        if (err) {
+          alert(err)
+          document.getElementById('rasp_update_status').innerText =
+            'there was an error during the mouse count :x'
+        } else {
+          if (!res || res.length < 1) {
+            document.getElementById('rasp_update_status').innerText = 'no mice found!'
+            self.connectedDevices.set('')
+          } else {
+            // ✅ Ajout d’un _id basé sur name
+            const enrichedRes = res.map((entry) => ({
+              ...entry,
+              _id: entry.name,
+            }))
+
+            // console.log(enrichedRes)
+
+            const totalMice = enrichedRes.reduce(
+              (acc, entry) => acc + (entry.mice?.length || 0),
+              0,
+            )
+            const activeMice = totalMice - disabledMice.find({}).fetch().length
+
+            document.getElementById('rasp_update_status').innerText = `rasps polled!`
+            document.getElementById(
+              'rasp_update_count',
+            ).innerText = `total of ${activeMice} active mice out of ${totalMice} mice connected.`
+
+            self.connectedDevices.set(enrichedRes)
+          }
+        }
+      })
+    }, 250)
+  }, 2000)
+})
+
+Template.planDeSalle.onDestroyed(function () {
+  streamer.removeListener('pupitreAction', this._handlePupitreAction)
+
+  if (this._devicesPollInterval) {
+    Meteor.clearInterval(this._devicesPollInterval)
+  }
 })
 
 Template.planDeSalle.onRendered(function () {
@@ -481,15 +491,7 @@ const reqNextMultiplePlayers = function (message) {
     })
   }
 
-  const proutos = Meteor.setInterval(function () {
-    _loopindex++
-    if (_loopindex > howManyPlayers) {
-      clearInterval(proutos)
-      return
-    } else {
-      getNextPlayer()
-    }
-  }, 30)
-
-  getNextPlayer()
+  for (_loopindex = 1; _loopindex <= howManyPlayers; _loopindex++) {
+    getNextPlayer()
+  }
 }

@@ -26,11 +26,16 @@ Template.pupitre.onCreated(function () {
     message.template = this
     handlePlanDeSalleMessage(message)
   }
+  this._playExplosion = () => {
+    playExplosion()
+  }
+  this._noir = () => {
+    noir()
+  }
 
   streamer.on('planDeSalleMessage', this._handlePlanDeSalleMessage)
-  streamer.on('explosion', playExplosion)
-
-  streamer.on('noir', noir)
+  streamer.on('explosion', this._playExplosion)
+  streamer.on('noir', this._noir)
 
   Meteor.call('resetConnectedDevices')
   this.text = new ReactiveVar('')
@@ -50,6 +55,12 @@ Template.pupitre.onCreated(function () {
       this.headers.set(res.map((item) => item.header))
     }
   })
+})
+
+Template.pupitre.onDestroyed(function () {
+  streamer.removeListener('planDeSalleMessage', this._handlePlanDeSalleMessage)
+  streamer.removeListener('explosion', this._playExplosion)
+  streamer.removeListener('noir', this._noir)
 })
 
 Template.pupitre.onRendered(function () {
