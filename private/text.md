@@ -340,6 +340,8 @@ je ne suis pas un robot (impossible) <!-- spin opacité. IL APPARAIT INVISIBLE! 
 
 je ne suis pas un robot (tryhard) <!-- dvd + opacité... + hurry si c'est impossible. IDEM IL APPARAIT INVISIBLE YO! -->
 
+<!-- `tetris[je ne suis pas un robot _robot_ [1][-1]]` -->
+
 ## captchas-coche-multiplayer
 
 <!-- EDGE CASE : i need to modify the captcha fail code to account for the fact that there's several mice -->
@@ -632,7 +634,7 @@ color > opacity > whirl > pause > whirl + opacity + flash
 pour en revenir au pointeur de souris
 que vous êtes
 saviez-vous que le pointeur de souris a été inventé en 1968 ?
-il aura 57 ans après-demain très exactement.
+il a eu 57 ans en Décembre dernier.
 on peut donc dire que la souris d'ordinateur est plus jeune que ma mère
 puisque ma mère est née en 1958.
 ma mère, Michèle Planche.
