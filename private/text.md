@@ -385,6 +385,8 @@ je suis un humain qui pense que cette situation a été causée par l'auteur de 
 
 `duelSamuel`
 
+`duelTetris[je ne suis pas un robot _robot_ [1][-1]]`
+
 <!-- je suis un humain qui pense pouvoir battre Samuel à son propre jeu _normalement on ne devrait jamais voir ce texte parce que Samuel a trop envie de gagner_ -->
 
 ## captchas-coche-conclusion-1j

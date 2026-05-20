@@ -429,6 +429,16 @@ const handlePupitreAction = function (message) {
       const _message = { ...message, args: obj }
       reqNextMultiplePlayers(_message)
       break
+    case 'duelTetris':
+      const tetrisObj = {
+        type: 'text',
+        value: message.args?.value || 'je ne suis pas un robot _robot_ [1][-1]',
+        players: message.args?.players || 2,
+        duelTetris: true,
+      }
+      const _tetrisMessage = { ...message, args: tetrisObj }
+      reqNextMultiplePlayers(_tetrisMessage)
+      break
     case 'reqNextMultiplePlayers':
       reqNextMultiplePlayers(message)
       break
@@ -466,6 +476,7 @@ const reqNextMultiplePlayers = function (message) {
       content: chosenOne,
       context: message.args,
       moveTo: _loopindex / (howManyPlayers + 1),
+      playerIndex: _loopindex,
       checkBoxAmount: message.args.coches,
     })
   }

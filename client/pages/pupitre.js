@@ -544,6 +544,12 @@ const checkBeforeEmit = function (context) {
             surpriseAmount: -1000,
           })
           break
+        case 'duelTetris':
+          sendAction('duelTetris', {
+            value: args[0],
+            players: Number(Template.instance().playersNumber.get()),
+          })
+          break
         default:
           sendAction(action, args)
           break
@@ -578,14 +584,28 @@ const handlePlanDeSalleMessage = function (message) {
             customMoveTo: message.moveTo,
           })
 
-          sendAction('newCaptcha-1j', {
-            text: getCaptchaTextAndFailstate(String(message.context.value)),
-            hesitationAmount: _hesitationAmount,
-            readingSpeed: _readingSpeed,
-            surpriseAmount: Number(_surpriseAmount) * 1000,
-            chosenOne: message.content.order,
-            checkBoxAmount: message.checkBoxAmount,
-          })
+          if (message.context.duelTetris) {
+            Meteor.setTimeout(() => {
+              sendAction('newTetris', {
+                type: 'tetris',
+                text: getCaptchaTextAndFailstate(String(message.context.value)),
+                hesitationAmount: _hesitationAmount,
+                readingSpeed: _readingSpeed,
+                surpriseAmount: Number(_surpriseAmount) * 1000,
+                chosenOne: message.content.order,
+                xfraction: message.moveTo,
+              })
+            }, 1500 + (message.playerIndex - 1) * 150)
+          } else {
+            sendAction('newCaptcha-1j', {
+              text: getCaptchaTextAndFailstate(String(message.context.value)),
+              hesitationAmount: _hesitationAmount,
+              readingSpeed: _readingSpeed,
+              surpriseAmount: Number(_surpriseAmount) * 1000,
+              chosenOne: message.content.order,
+              checkBoxAmount: message.checkBoxAmount,
+            })
+          }
           document.getElementById('surprise-slider').value = _surpriseAmount - 1
           break
         default:
