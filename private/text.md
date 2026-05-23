@@ -392,8 +392,8 @@ je suis un humain qui pense que cette situation a été causée par l'auteur de 
 ## captchas-coche-conclusion-1j
 
 je suis humain et par contre combien de temps encore ça va durer ce jeu? _un robot patient_ [1][-1]
-je suis humain et donc j'ai d'autres choses à faire de ma journée _un robot qui assume de ne rien avoir à faire d'autre de sa journée_ [1][-1]
-je suis humain et je vais porter plainte contre le théâtre _un robot qui préfère se faire justice soi-même_ [1][-1]
+je suis humain et donc j'ai d'autres choses à faire de ma soirée _un robot qui assume de ne rien avoir à faire d'autre de sa soirée_ [1][-1]
+je suis humain et je vais porter plainte contre le festival DNA _un robot qui préfère se faire justice soi-même_ [1][-1]
 c'est du théâtre ça? _un robot qui respecte la création contemporaine_ [1][-1]
 ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs partout_ [1][1]
 
@@ -407,7 +407,7 @@ ils sont où les acteurs _un robot qui a des hallucinations et voit des acteurs 
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance pense aux personnes qu'il aime, samcontan, randomGrid]`
 `ImgCapGridSubmit[Sélectionnez les images qui représentent l'auteur de la performance en train d'écrire le code de cette performance, samcontan, randomGrid]`
-`ImgCapGridSubmit[Sélectionnez les images qui représentent l'auteur de la performance quand il pense à Christelle Morançais, samcontan, randomGrid]`
+`ImgCapGridSubmit[Sélectionnez les images qui représentent l'auteur de la performance quand il pense à Laurent Wauquiez, samcontan, randomGrid]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, rot]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoom]`
 `ImgCapGridSubmit[Sélectionnez les images où l'auteur de la performance est content, samcontan, randomGrid, zoomMAX]`

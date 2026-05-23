@@ -129,7 +129,7 @@ function handleTickUpdate(message) {
           if (pointer.order == -1) {
             coords.x += element.x
           } else {
-            coords.x = instance.windowBoundaries.width - GlobalPointerWidth - 16
+            coords.x = instance.windowBoundaries.width - GlobalPointerWidth - 24
             // observe('magellan', { p: pointer, corner: 'right' })
           }
           break
@@ -304,7 +304,7 @@ isInWindowBoundaries = function (axis, coords, acceleration, elemSize) {
   // can return : x-in-bounds / overflow-left / overflow-right / y-in-bounds / overflow-bottom / overflow-top
   // console.log(axis, coords, acceleration, elemSize)
   if (axis == 'x') {
-    if (coords + acceleration + elemSize > instance.windowBoundaries.width - 16) {
+    if (coords + acceleration + elemSize > instance.windowBoundaries.width - 24) {
       return 'overflow-right'
     }
     if (coords + acceleration < 0) {

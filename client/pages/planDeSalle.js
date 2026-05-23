@@ -8,7 +8,7 @@ import './planDeSalle.html'
 Template.planDeSalle.onCreated(function () {
   this.connectedDevices = new ReactiveVar([]) // Initialisation
   this.index = new ReactiveVar(0)
-  this.lastRow = new ReactiveVar(7)
+  this.lastRow = new ReactiveVar(5)
   const self = this
 
   this._handlePupitreAction = (message) => {
@@ -45,16 +45,12 @@ Template.planDeSalle.onCreated(function () {
 
             // console.log(enrichedRes)
 
-            const totalMice = enrichedRes.reduce(
-              (acc, entry) => acc + (entry.mice?.length || 0),
-              0,
-            )
+            const totalMice = enrichedRes.reduce((acc, entry) => acc + (entry.mice?.length || 0), 0)
             const activeMice = totalMice - disabledMice.find({}).fetch().length
 
             document.getElementById('rasp_update_status').innerText = `rasps polled!`
-            document.getElementById(
-              'rasp_update_count',
-            ).innerText = `total of ${activeMice} active mice out of ${totalMice} mice connected.`
+            document.getElementById('rasp_update_count').innerText =
+              `total of ${activeMice} active mice out of ${totalMice} mice connected.`
 
             self.connectedDevices.set(enrichedRes)
           }
